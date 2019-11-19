@@ -15,6 +15,7 @@
     "bootstrap": "npm ci && npx lerna bootstrap --hoist && npm run build -- --all",
     "build": "node scripts/build.js",
     "precommit": "lint-staged && npm run test",
+    "prepr": "scripts/prePr.sh",
     "test": "jest --config config/jest.config.js --runInBand"
   },
   "config": {
