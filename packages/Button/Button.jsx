@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
+import { brown, greenDark, greenDarkFaded, greenLight } from '@pm-kit/colours'
 
 const base = css`
   display: block;
@@ -21,89 +22,50 @@ const base = css`
 `
 
 const primary = css`
-  background-color: '#034045';
+  color: ${brown};
+  background-color: ${greenDark};
+  &:hover {
+    background-color: ${greenLight};
+    color: ${greenDark};
+  }
+  &:active {
+    background-color: ${greenLight};
+  }
 `
 
 const secondary = css`
-  background-color: red;
+  color: ${greenDark};
+  background-color: ${greenDarkFaded};
+  &:hover {
+    background-color: ${greenLight};
+    color: ${greenDark};
+  }
+  &:active {
+    background-color: ${greenDarkFaded};
+  }
 `
 
 const inverted = css`
-  background-color: red;
+  color: ${greenDark};
+  background-color: transparent;
+  border: 2px solid ${greenDark};
+  &:hover {
+    background-color: ${greenDarkFaded};
+  }
+  &:active {
+    background-color: ${greenDarkFaded};
+  }
 `
 
 const disabledStyle = css`
-  background-color: red;
+  background-color: ${greenDark};
+  color: ${brown};
+  opacity: 0.5;
 `
 
 const fullWidth = css`
   width: 100%;
 `
-
-// const useStyles = createUseStyles({
-//   button: {
-//     display: 'block',
-//     height: '48px',
-//     padding: '0 32px',
-//     border: 0,
-//     borderRadius: '8px',
-//     fontSize: '18px',
-//     fontWeight: 'bold',
-//     textAlign: 'center',
-//     textDecoration: 'none',
-//     cursor: 'pointer',
-//     transition: 'background-color 0.2s, color 0.2s',
-//     '&:disabled': {
-//       cursor: 'not-allowed',
-//     },
-//   },
-//   buttonWidth: {
-//     // width: props => (props.wide ? '100%' : 'auto'),
-//     width: ({ wide }) => wide && '100%',
-//   },
-//   buttonPrimary: {
-//     composes: '$button',
-//     backgroundColor: theme.color.greenDark,
-//     color: theme.color.brown,
-//     '&:hover': {
-//       backgroundColor: theme.color.greenLight,
-//       color: theme.color.greenDark,
-//     },
-//     '&:active': {
-//       backgroundColor: theme.color.greenLight,
-//     },
-//   },
-//   buttonSecondary: {
-//     composes: '$button',
-//     backgroundColor: theme.color.greenDarkFaded,
-//     color: theme.color.greenDark,
-//     '&:hover': {
-//       backgroundColor: theme.color.greenLight,
-//       color: theme.color.greenDark,
-//     },
-//     '&:active': {
-//       backgroundColor: theme.color.greenDarkFaded,
-//     },
-//   },
-//   buttonInverted: {
-//     composes: '$button',
-//     backgroundColor: 'transparent',
-//     color: theme.color.greenDark,
-//     border: `2px solid ${theme.color.greenDark}`,
-//     '&:hover': {
-//       backgroundColor: theme.color.greenDarkFaded,
-//     },
-//     '&:active': {
-//       backgroundColor: theme.color.greenDarkFaded,
-//     },
-//   },
-//   buttonDisabled: {
-//     composes: '$button',
-//     backgroundColor: theme.color.greenDark,
-//     color: theme.color.brown,
-//     opacity: '0.5',
-//   },
-// })
 
 const Button = forwardRef(({ children, type, variant, wide, disabled, ...rest }, ref) => {
   let variantStyles
