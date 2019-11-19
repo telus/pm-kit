@@ -1,0 +1,288 @@
+# Configures the build pipeline dependencies for openshift
+# See: README.md
+
+apiVersion: v1
+kind: List
+metadata:
+  name: public-mobile-design-system-pipeline
+items:
+  # Configure our Docker App image repository
+  # https://docs.openshift.com/enterprise/3.2/dev_guide/managing_images.html
+  - kind: ImageStream
+    apiVersion: v1
+    metadata:
+      name: public-mobile-design-system
+      labels:
+        app: public-mobile-design-system
+
+  # Configure our build pipeline template
+  # https://docs.openshift.com/enterprise/3.2/dev_guide/templates.html
+  - apiVersion: v1
+    kind: Template
+    metadata:
+      name: public-mobile-design-system-pipeline
+    parameters:
+      - name: BRANCH
+        description: Branch to build from
+        value: master
+    objects:
+      # Configures the OpenShift/Jenkins build pipeline
+      # https://docs.openshift.com/enterprise/3.2/dev_guide/builds.html#defining-a-buildconfig
+      - apiVersion: v1
+        kind: BuildConfig
+        metadata:
+          name: public-mobile-design-system-pipeline
+          labels:
+            app: public-mobile-design-system
+        spec:
+          source:
+            type: Git
+            git:
+              uri: git@github.com:telus/public-mobile-design-system.git
+              ref: ${BRANCH}
+            sourceSecret:
+              name: github-secret
+          triggers:
+            - type: GitHub
+              github:
+                secret: tisk
+          resources:
+            limits:
+              cpu: '1'
+              memory: 1Gi
+            requests:
+              cpu: 500m
+              memory: 512Mi
+          runPolicy: SerialLatestOnly
+          strategy:
+            type: JenkinsPipeline
+            jenkinsPipelineStrategy:
+              jenkinsfilePath: Jenkinsfile
+
+      # Configure our Docker App container build
+      # https://docs.openshift.com/enterprise/3.2/architecture/core_concepts/builds_and_image_streams.html#docker-build
+      - kind: BuildConfig
+        apiVersion: v1
+        metadata:
+          name: public-mobile-design-system
+          labels:
+            app: public-mobile-design-system
+        spec:
+          source:
+            type: Git
+            git:
+              uri: git@github.com:telus/public-mobile-design-system.git
+              ref: ${BRANCH}
+            contextDir: app
+            sourceSecret:
+              name: github-secret
+            secrets:
+              - secret:
+                  name: npmrc-secret
+            runPolicy: Parallel
+          resources:
+            limits:
+              cpu: '1'
+              memory: 1Gi
+            requests:
+              cpu: 500m
+              memory: 512Mi
+          strategy:
+            type: Docker
+            dockerStrategy:
+              dockerfilePath: Dockerfile
+              forcePull: true
+          output:
+            to:
+              kind: ImageStreamTag
+              name: public-mobile-design-system:latest
+
+  # Configure our deployment template
+  # https://docs.openshift.com/enterprise/3.2/dev_guide/templates.html
+  - apiVersion: v1
+    kind: Template
+    metadata:
+      name: public-mobile-design-system
+    parameters:
+      - name: VERSION
+        value: ''
+      - name: ENVIRONMENT
+        description: The environment name
+        value: production
+      - name: DOCKER_REGISTRY
+        description: Docker App image to deploy
+      - name: NUM_REPLICAS
+        description: How many replicas of the pod to deploy?
+        value: '1'
+      - name: MAX_REPLICAS
+        description: Limit on number of replicas to create
+        value: '5'
+    objects:
+      # How the container is deployed
+      # https://docs.openshift.com/enterprise/3.2/dev_guide/deployments.html
+      - apiVersion: v1
+        kind: DeploymentConfig
+        metadata:
+          name: public-mobile-design-system-${ENVIRONMENT}
+          labels:
+            app: public-mobile-design-system
+            version: ${VERSION}
+        spec:
+          replicas: ${{NUM_REPLICAS}}
+          template:
+            metadata:
+              labels:
+                deploymentconfig: public-mobile-design-system-${ENVIRONMENT}
+            spec:
+              containers:
+                - name: public-mobile-design-system
+                  image: ${DOCKER_REGISTRY}
+                  imagePullPolicy: Always
+                  env:
+                    - name: APP_ENV
+                      value: ${ENVIRONMENT}
+                    - name: NEW_RELIC_APP_NAME
+                      value: 'public-mobile-design-system (${ENVIRONMENT})'
+                    - name: NEW_RELIC_ENABLED
+                      value: 'true'
+                    - name: NEW_RELIC_LICENSE_KEY
+                      valueFrom:
+                        secretKeyRef:
+                          name: newrelic-license-secret
+                          key: newrelic-license
+                  ports:
+                    - containerPort: 3000
+                  livenessProbe:
+                    tcpSocket:
+                      port: 3000
+                    initialDelaySeconds: 1
+                    timeoutSeconds: 1
+                  readinessProbe:
+                    httpGet:
+                      path: /version
+                      port: 3000
+                    initialDelaySeconds: 1
+                    timeoutSeconds: 1
+                  resources:
+                    requests:
+                      cpu: 100m
+                      memory: 128Mi
+                    limits:
+                      cpu: 1000m
+                      memory: 256Mi
+      - apiVersion: v1
+        kind: DeploymentConfig
+        metadata:
+          name: public-mobile-design-system-contrast
+          labels:
+            app: public-mobile-design-system-contrast
+            version: ${VERSION}
+        spec:
+          replicas: ${{NUM_REPLICAS}}
+          template:
+            metadata:
+              labels:
+                deploymentconfig: public-mobile-design-system-contrast
+            spec:
+              containers:
+                - name: public-mobile-design-system-contrast
+                  command:
+                    - npm
+                    - run
+                    - contrast
+                  image: ${DOCKER_REGISTRY}
+                  imagePullPolicy: Always
+                  env:
+                    - name: APP_ENV
+                      value: development
+                    - name: NEW_RELIC_APP_NAME
+                      value: 'public-mobile-design-system (contrast)'
+                    - name: NEW_RELIC_ENABLED
+                      value: 'true'
+                    - name: NEW_RELIC_LICENSE_KEY
+                      valueFrom:
+                        secretKeyRef:
+                          name: newrelic-license-secret
+                          key: newrelic-license
+                  ports:
+                    - containerPort: 3000
+                  livenessProbe:
+                    tcpSocket:
+                      port: 3000
+                    initialDelaySeconds: 3
+                    timeoutSeconds: 3
+                  readinessProbe:
+                    httpGet:
+                      path: /version
+                      port: 3000
+                    initialDelaySeconds: 6
+                    timeoutSeconds: 6
+                  resources:
+                    requests:
+                      cpu: 100m
+                      memory: 128Mi
+                    limits:
+                      cpu: 1000m
+                      memory: 512Mi
+                  volumeMounts:
+                    - name: contrast-volume
+                      mountPath: /app/contrast
+                      readOnly: true
+              volumes:
+                - name: contrast-volume
+                  secret:
+                    secretName: contrast-dev
+
+      # How the app container is load balanced
+      # https://docs.openshift.com/enterprise/3.2/architecture/core_concepts/pods_and_services.html
+      - apiVersion: v1
+        kind: Service
+        metadata:
+          name: public-mobile-design-system-${ENVIRONMENT}
+          labels:
+            app: public-mobile-design-system
+        spec:
+          ports:
+            - name: app
+              port: 3000
+              targetPort: 3000
+          selector:
+            deploymentconfig: public-mobile-design-system-${ENVIRONMENT}
+
+      # How the app container is exposed
+      # https://docs.openshift.com/enterprise/3.2/dev_guide/routes.html
+      - apiVersion: v1
+        kind: Route
+        metadata:
+          name: public-mobile-design-system-${ENVIRONMENT}
+          labels:
+            app: public-mobile-design-system
+          annotations:
+            haproxy.router.openshift.io/disable_cookies: 'true'
+        spec:
+          to:
+            kind: Service
+            name: public-mobile-design-system-${ENVIRONMENT}
+            weight: 100
+          port:
+            targetPort: 3000
+          tls:
+            termination: edge
+            insecureEdgeTerminationPolicy: Redirect
+
+      # How the container is scaled
+      # https://docs.openshift.com/enterprise/3.2/dev_guide/pod_autoscaling.html
+      - apiVersion: autoscaling/v1
+        kind: HorizontalPodAutoscaler
+        metadata:
+          name: public-mobile-design-system-${ENVIRONMENT}
+          labels:
+            app: public-mobile-design-system
+        spec:
+          scaleTargetRef:
+            apiVersion: v1
+            kind: DeploymentConfig
+            name: public-mobile-design-system-${ENVIRONMENT}
+          minReplicas: ${{NUM_REPLICAS}}
+          maxReplicas: ${{MAX_REPLICAS}}
+          targetCPUUtilizationPercentage: 80
