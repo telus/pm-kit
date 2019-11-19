@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders 1`] = `
+.emotion-0 {
+  display: block;
+  height: 48px;
+  width: auto;
+  padding: 0 32px;
+  border: 0;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: background-color 0.2s,color 0.2s;
+  transition: background-color 0.2s,color 0.2s;
+  color: #F4E8D9;
+  background-color: #034045;
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+}
+
+.emotion-0:hover {
+  background-color: #B6EBDB;
+  color: #034045;
+}
+
+.emotion-0:active {
+  background-color: #B6EBDB;
+}
+
+<button
+  class="emotion-0"
+  type="button"
+>
+  Submit
+</button>
+`;
