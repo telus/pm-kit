@@ -14,7 +14,7 @@
     "build-storybook": "build-storybook",
     "bootstrap": "npm ci && npx lerna bootstrap --hoist && npm run build -- --all",
     "build": "node scripts/build.js",
-    "precommit": "lint-staged && npm run test",
+    "lint": "lint-staged",
     "prepr": "scripts/prePr.sh",
     "lerna:publish": "node scripts/publish.js",
     "test": "jest --config config/jest.config.js --runInBand"
@@ -26,7 +26,8 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
+      "precommit": "lint-staged && npm run test"
     }
   },
   "prettier": {
