@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
-import { brown, greenDark, greenDarkFaded, greenLight } from '@pm-kit/colours'
+import { parkGreen, lightTan, lilyGreen } from '@pm-kit/colours'
 
 const base = css`
   display: block;
@@ -22,44 +22,44 @@ const base = css`
 `
 
 const primary = css`
-  color: ${brown};
-  background-color: ${greenDark};
+  color: white;
+  background-color: ${parkGreen};
   &:hover {
-    background-color: ${greenLight};
-    color: ${greenDark};
+    background-color: ${lilyGreen};
+    color: ${parkGreen};
   }
   &:active {
-    background-color: ${greenLight};
+    background-color: ${lilyGreen};
   }
 `
 
 const secondary = css`
-  color: ${greenDark};
-  background-color: ${greenDarkFaded};
+  color: ${parkGreen};
+  background-color: ${lightTan};
   &:hover {
-    background-color: ${greenLight};
-    color: ${greenDark};
+    background-color: ${lilyGreen};
+    color: ${parkGreen};
   }
   &:active {
-    background-color: ${greenDarkFaded};
+    background-color: ${lightTan};
   }
 `
 
 const inverted = css`
-  color: ${greenDark};
+  color: ${parkGreen};
   background-color: transparent;
-  border: 2px solid ${greenDark};
+  border: 2px solid ${parkGreen};
   &:hover {
-    background-color: ${greenDarkFaded};
+    background-color: ${lightTan};
   }
   &:active {
-    background-color: ${greenDarkFaded};
+    background-color: ${lightTan};
   }
 `
 
 const disabledStyle = css`
-  background-color: ${greenDark};
-  color: ${brown};
+  background-color: ${parkGreen};
+  color: white;
   opacity: 0.5;
 `
 

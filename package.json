@@ -59,6 +59,7 @@
     "@commitlint/config-lerna-scopes": "^8.2.0",
     "@emotion/babel-preset-css-prop": "^10.0.23",
     "@emotion/core": "^10.0.22",
+    "@emotion/styled": "^10.0.23",
     "@storybook/addon-actions": "^5.2.6",
     "@storybook/addon-links": "^5.2.6",
     "@storybook/addons": "^5.2.6",

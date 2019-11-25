@@ -13,5 +13,8 @@
   },
   "bugs": {
     "url": "https://github.com/telus/public-mobile-design-system/issues"
+  },
+  "dependencies": {
+    "@emotion/styled": "^10.0.23"
   }
 }
