@@ -10,8 +10,8 @@
     "url": "https://github.com/telus/public-mobile-design-system.git"
   },
   "scripts": {
-    "storybook": "start-storybook -p 7777",
-    "build-storybook": "build-storybook",
+    "storybook": "start-storybook -c ./storybook -p 7777",
+    "build-storybook": "build-storybook -c ./storybook",
     "bootstrap": "npm ci && npx lerna bootstrap --hoist && npm run build -- --all",
     "build": "node scripts/build.js",
     "lint": "lint-staged",

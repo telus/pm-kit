@@ -1,13 +1,12 @@
 import React from 'react'
-import { linkTo } from '@storybook/addon-links'
-import { Welcome } from '@storybook/react/demo'
+// import { linkTo } from '@storybook/addon-links'
 
 export default {
-  title: 'Welcome',
+  title: 'Introduction',
 }
 
-export const toStorybook = () => <Welcome showApp={linkTo('Button')} />
-
-toStorybook.story = {
-  name: 'to Storybook',
-}
+export const About = () => (
+  <div>
+    <p>Welcome to PM-Kit</p>
+  </div>
+)
