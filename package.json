@@ -63,6 +63,7 @@
     "@emotion/styled": "^10.0.23",
     "@storybook/addon-actions": "^5.2.6",
     "@storybook/addon-links": "^5.2.6",
+    "@storybook/addon-storysource": "^5.2.6",
     "@storybook/addons": "^5.2.6",
     "@storybook/react": "^5.2.6",
     "@telus/semantic-release-config": "^1.3.8",
