@@ -17,6 +17,7 @@
     "lint": "lint-staged",
     "prepr": "scripts/prePr.sh",
     "lerna:publish": "node scripts/publish.js",
+    "scaffold": "node scripts/scaffold.js",
     "test": "jest --config config/jest.config.js --runInBand"
   },
   "config": {
@@ -71,6 +72,7 @@
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
+    "case": "^1.6.2",
     "css-mediaquery": "^0.1.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",

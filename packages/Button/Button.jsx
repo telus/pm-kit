@@ -67,6 +67,9 @@ const fullWidth = css`
   width: 100%;
 `
 
+/**
+ * @version ./package.json
+ */
 const Button = forwardRef(({ children, type, variant, wide, disabled, ...rest }, ref) => {
   let variantStyles
   switch (variant) {
