@@ -21,6 +21,7 @@ const applyCustomScope = () => {
         'other',
         'scripts',
         'shared',
+        'storybook',
         'packages',
         'publish',
         'vscode'
@@ -35,6 +36,6 @@ module.exports = {
   utils: { applyCustomScope },
   rules: {
     'scope-enum': () => applyCustomScope(),
-    'scope-empty': [2, 'never']
-  }
+    'scope-empty': [2, 'never'],
+  },
 }
