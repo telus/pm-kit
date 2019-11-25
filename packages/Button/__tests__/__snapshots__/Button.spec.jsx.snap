@@ -16,7 +16,7 @@ exports[`Button renders 1`] = `
   cursor: pointer;
   -webkit-transition: background-color 0.2s,color 0.2s;
   transition: background-color 0.2s,color 0.2s;
-  color: #F4E8D9;
+  color: white;
   background-color: #034045;
 }
 

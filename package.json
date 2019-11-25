@@ -27,7 +27,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
-      "precommit": "lint-staged && npm run test"
+      "pre-commit": "lint-staged && npm run test"
     }
   },
   "prettier": {
