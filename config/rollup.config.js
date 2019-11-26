@@ -16,7 +16,9 @@ export default opts => {
     opts
   )
 
-  const pmKitExternals = options.dependencies ? Object.keys(options.dependencies).filter(dependency => dependency.startsWith('@pm-kit')) : []
+  const pmKitExternals = options.dependencies
+    ? Object.keys(options.dependencies).filter(dependency => dependency.startsWith('@pm-kit'))
+    : []
 
   return {
     input: options.input,

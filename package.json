@@ -14,7 +14,9 @@
     "build-storybook": "build-storybook -c ./storybook",
     "bootstrap": "npm ci && npx lerna bootstrap --hoist && npm run build -- --all",
     "build": "node scripts/build.js",
-    "lint": "lint-staged",
+    "lint:js": "eslint packages config scripts/*.js --ext '.js,.jsx' --config config/eslint.config.js --max-warnings 0 --fix",
+    "lint:css": "stylelint 'packages/**/*.jsx' --config config/stylelint.config.js",
+    "lint": "npm-run-all --parallel lint:*",
     "prepr": "scripts/prePr.sh",
     "lerna:publish": "node scripts/publish.js",
     "scaffold": "node scripts/scaffold.js",
@@ -102,6 +104,10 @@
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-postcss": "^2.0.3"
+    "rollup-plugin-postcss": "^2.0.3",
+    "stylelint": "^12.0.0",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.9.0"
   }
 }
