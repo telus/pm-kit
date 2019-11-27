@@ -11,9 +11,10 @@
   },
   "scripts": {
     "bootstrap": "npm ci && npx lerna bootstrap --hoist && npm run build -- --all",
+    "bootstrap:ci": "npx lerna bootstrap --hoist && npm run build -- --all",
     "build": "node scripts/build.js",
     "build-storybook": "build-storybook -c storybook -o storybook-build",
-    "build-storybook:ci": "npm cache clean --force && npm run bootstrap && npm run build-storybook -- --quiet",
+    "build-storybook:ci": "npm run bootstrap:ci && npm run build-storybook -- --quiet",
     "lerna:publish": "node scripts/publish.js",
     "lint:js": "eslint packages config scripts/*.js --ext '.js,.jsx' --config config/eslint.config.js --max-warnings 0 --fix",
     "lint:css": "stylelint 'packages/**/*.jsx' --config config/stylelint.config.js",
