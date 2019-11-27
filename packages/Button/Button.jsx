@@ -58,8 +58,6 @@ const inverted = css`
 `
 
 const disabledStyle = css`
-  background-color: ${parkGreen};
-  color: white;
   opacity: 0.5;
 `
 
@@ -79,9 +77,6 @@ const Button = forwardRef(({ children, type, variant, wide, disabled, ...rest },
     case 'inverted':
       variantStyles = inverted
       break
-    case 'disabled':
-      variantStyles = disabledStyle
-      break
     default:
       variantStyles = primary
       break
@@ -90,6 +85,9 @@ const Button = forwardRef(({ children, type, variant, wide, disabled, ...rest },
   const styles = [base, variantStyles]
   if (wide) {
     styles.push(fullWidth)
+  }
+  if (disabled) {
+    styles.push(disabledStyle)
   }
 
   return (
@@ -107,7 +105,7 @@ Button.propTypes = {
   /**
    * The style.
    */
-  variant: PropTypes.oneOf(['primary', 'secondary', 'inverted', 'disabled']),
+  variant: PropTypes.oneOf(['primary', 'secondary', 'inverted']),
   /**
    * The label. It can include the `A11yContent` component or strings.
    */
