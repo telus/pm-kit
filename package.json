@@ -11,7 +11,7 @@
   },
   "scripts": {
     "storybook": "start-storybook -c storybook -p 7777",
-    "build-storybook": "build-storybook -c storybook -o storybook-build",
+    "build-storybook": "build-storybook -c storybook -o storybook-build --quiet",
     "bootstrap": "npm ci && npx lerna bootstrap --hoist && npm run build -- --all",
     "build": "node scripts/build.js",
     "lint:js": "eslint packages config scripts/*.js --ext '.js,.jsx' --config config/eslint.config.js --max-warnings 0 --fix",
