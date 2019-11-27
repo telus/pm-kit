@@ -30,7 +30,8 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged && npm run test"
+      "pre-commit": "lint-staged && npm run test && node scripts/updatePackageHash.js",
+      "post-merge": "node scripts/postMerge.js"
     }
   },
   "prettier": {
