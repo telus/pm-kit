@@ -68,7 +68,7 @@ const fullWidth = css`
 /**
  * @version ./package.json
  */
-const Button = forwardRef(({ children, type, variant, wide, disabled, ...rest }, ref) => {
+const Button = ({ children, type, variant, wide, disabled, ...rest }) => {
   let variantStyles
   switch (variant) {
     case 'secondary':
@@ -95,7 +95,7 @@ const Button = forwardRef(({ children, type, variant, wide, disabled, ...rest },
       {children}
     </button>
   )
-})
+}
 
 Button.propTypes = {
   /**
