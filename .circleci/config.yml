@@ -73,7 +73,7 @@ jobs:
       - attach
       - add_ssh_keys:
           fingerprints:
-            - '04:6a:58:c1:ff:83:63:ff:5e:a2:eb:39:d5:c7:f2:e6'
+            - 'd8:9c:6b:f9:de:c6:98:8e:07:43:7a:9c:51:7a:69:7d'
       - run:
           name: Add Github Key
           command: ssh-keyscan -H github.com >> ~/.ssh/known_hosts
