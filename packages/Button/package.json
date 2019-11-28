@@ -4,6 +4,10 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/telus/pm-kit.git"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -12,7 +16,7 @@
     "node": ">=8"
   },
   "bugs": {
-    "url": "https://github.com/telus/public-mobile-design-system/issues"
+    "url": "https://github.com/telus/pm-kit/issues"
   },
   "peerDependencies": {
     "@emotion/core": "^10.0.22",

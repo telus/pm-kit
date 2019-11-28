@@ -75,6 +75,9 @@ jobs:
           fingerprints:
             - 'd1:cf:95:96:fb:9f:a9:42:ac:8e:75:45:34:4e:7a:1a'
       - run:
+          name: Add Github Key
+          command: ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+      - run:
           name: Setup .npmrc
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run:
