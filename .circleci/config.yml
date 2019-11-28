@@ -85,9 +85,6 @@ jobs:
             git config --global user.name "Sonny Zhang"
             git fetch origin --tags
       - run:
-          name: Setup .npmrc
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-      - run:
           name: Lerna Publish
           command: npm run lerna:cipublish
 
