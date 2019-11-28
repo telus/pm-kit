@@ -73,13 +73,17 @@ jobs:
       - attach
       - add_ssh_keys:
           fingerprints:
-            - 'd1:cf:95:96:fb:9f:a9:42:ac:8e:75:45:34:4e:7a:1a'
+            - '04:6a:58:c1:ff:83:63:ff:5e:a2:eb:39:d5:c7:f2:e6'
       - run:
           name: Add Github Key
           command: ssh-keyscan -H github.com >> ~/.ssh/known_hosts
       - run:
-          name: Setup .npmrc
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+          name: Configure Git Config & Branch
+          command: |
+            git status
+            git config --global user.email "szhang@nascentdigital.com"
+            git config --global user.name "Sonny Zhang"
+            git fetch origin --tags
       - run:
           name: Lerna Publish
           command: npm run lerna:cipublish
