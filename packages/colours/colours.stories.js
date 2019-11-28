@@ -2,6 +2,7 @@ import React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import * as colours from './colours.js'
+import { version } from './package.json'
 
 const list = css`
   display: flex;
@@ -26,6 +27,9 @@ const ColourBox = styled.div`
 
 export default {
   title: 'Colours',
+  parameters: {
+    componentSubtitle: `version ${version}`,
+  },
 }
 
 export const Default = () => {

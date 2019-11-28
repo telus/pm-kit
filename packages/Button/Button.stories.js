@@ -2,10 +2,14 @@ import React from 'react'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs'
 import Button from './Button.jsx'
+import { version } from './package.json'
 
 export default {
   title: 'Button',
   component: Button,
+  parameters: {
+    componentSubtitle: `version ${version}`,
+  },
   decorators: [withKnobs],
 }
 
@@ -41,4 +45,5 @@ export const Playground = () => (
 
 Playground.story = {
   name: 'playground',
+  parameters: { docs: { page: null, disable: true } },
 }

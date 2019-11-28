@@ -65,10 +65,7 @@ const fullWidth = css`
   width: 100%;
 `
 
-/**
- * @version ./package.json
- */
-const Button = ({ children, type, variant, wide, disabled, ...rest }) => {
+export const Button = ({ children, type, variant, wide, disabled, forwardedRef, ...rest }) => {
   let variantStyles
   switch (variant) {
     case 'secondary':
@@ -91,7 +88,7 @@ const Button = ({ children, type, variant, wide, disabled, ...rest }) => {
   }
 
   return (
-    <button css={styles} type={type} disabled={disabled} {...rest}>
+    <button ref={forwardedRef} css={styles} type={type} disabled={disabled} {...rest}>
       {children}
     </button>
   )
@@ -120,4 +117,6 @@ Button.defaultProps = {
   wide: false,
 }
 
-export default Button
+const ButtonWithRef = forwardRef((props, ref) => <Button {...props} forwardedRef={ref} />)
+
+export default ButtonWithRef
