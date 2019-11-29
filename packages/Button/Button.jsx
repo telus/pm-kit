@@ -7,6 +7,7 @@ const base = css`
   display: block;
   height: 48px;
   width: auto;
+  min-width: 140px;
   padding: 0 32px;
   border: 0;
   border-radius: 8px;
