@@ -16,7 +16,7 @@
     "build-storybook": "build-storybook -c storybook -o storybook-build",
     "build-storybook:ci": "npm run bootstrap:ci && npm run build-storybook -- --quiet",
     "lerna:publish": "node scripts/publish.js",
-    "lerna:cipublish": "npx lerna publish --conventional-commits --yes",
+    "lerna:cipublish": "npx lerna publish --conventional-commits --yes --message 'publish [skip ci]'",
     "lint:js": "eslint packages config scripts/*.js --ext '.js,.jsx' --config config/eslint.config.js --max-warnings 0 --fix",
     "lint:css": "stylelint 'packages/**/*.jsx' --config config/stylelint.config.js",
     "lint": "npm-run-all --parallel lint:*",
