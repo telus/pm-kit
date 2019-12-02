@@ -31,9 +31,13 @@ getPackageNames(packageNames => {
     'Are these the exact packages you wish to publish? (You will be prompted after this for versioning confirmation) (y/n) ',
     answer => {
       if (answer === 'Y' || answer === 'y') {
-        spawnSync('npx', ['lerna', 'publish', '--conventional-commits'].concat(lernaOptions), {
-          stdio: 'inherit',
-        })
+        spawnSync(
+          'npx',
+          ['lerna', 'publish', '--conventional-commits', '--message', "'publish [skip ci]'"].concat(lernaOptions),
+          {
+            stdio: 'inherit',
+          }
+        )
       } else {
         console.log('Publishing aborted!')
       }
