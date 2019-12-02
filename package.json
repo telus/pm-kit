@@ -21,7 +21,7 @@
     "prepr": "scripts/prePr.sh",
     "storybook": "start-storybook -c storybook -p 7777",
     "storybook:build": "build-storybook -c storybook -o storybook-build",
-    "storybook:cibuild": "npm run bootstrap:skipinstall && npm run build-storybook -- --quiet",
+    "storybook:cibuild": "npm run bootstrap:skipinstall && npm run storybook:build -- --quiet",
     "scaffold": "node scripts/scaffold.js",
     "test": "jest --config config/jest.config.js --runInBand"
   },
