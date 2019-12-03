@@ -19,4 +19,5 @@ jobs:
           netlify-api-id: ${{ secrets.NETLIFY_API_ID }}
           netlify-access-token: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
       - name: Publish to Netlify
+        run: npm ci
         run: npm run storybook:cipublish $netlify-api-id $netlify-access-token $GITHUB_SHA
