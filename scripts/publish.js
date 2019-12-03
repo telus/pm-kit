@@ -33,7 +33,14 @@ getPackageNames(packageNames => {
       if (answer === 'Y' || answer === 'y') {
         spawnSync(
           'npx',
-          ['lerna', 'publish', '--conventional-commits', '--message', "'publish [skip ci]'"].concat(lernaOptions),
+          [
+            'lerna',
+            'publish',
+            '--conventional-commits',
+            '--no-commit-hooks',
+            '--message',
+            "'publish [skip ci]'",
+          ].concat(lernaOptions),
           {
             stdio: 'inherit',
           }

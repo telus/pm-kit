@@ -1,0 +1,22 @@
+name: Publish Storybook Docs
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - '@pm-kit/*'
+
+jobs:
+  publish-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10
+        env:
+          netlify-api-id: ${{ secrets.NETLIFY_API_ID }}
+          netlify-access-token: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+      - name: Publish to Netlify
+        run: npm run storybook:cipublish $netlify-api-id $netlify-access-token $GITHUB_SHA
