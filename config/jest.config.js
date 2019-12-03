@@ -7,4 +7,7 @@ module.exports = {
   setupFilesAfterEnv: [path.resolve('node_modules/jest-enzyme/lib/index.js')],
   testEnvironment: 'enzyme',
   snapshotSerializers: ['jest-emotion'],
+  moduleNameMapper: {
+    '\\.(jpg|jpeg|png|gif|svg)$': path.resolve('config/jest/__mocks__/fileMock.js'),
+  },
 }
