@@ -15,9 +15,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 10
+      - run: npm ci
+      - run: npm run storybook:cipublish $netlify-api-id $netlify-access-token $GITHUB_SHA
         env:
           netlify-api-id: ${{ secrets.NETLIFY_API_ID }}
           netlify-access-token: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
-      - name: Publish to Netlify
-        run: npm ci
-        run: npm run storybook:cipublish $netlify-api-id $netlify-access-token $GITHUB_SHA
