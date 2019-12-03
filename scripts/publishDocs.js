@@ -4,7 +4,9 @@ const fetch = require('node-fetch')
 const { setIntervalAsync, clearIntervalAsync } = require('set-interval-async/dynamic')
 
 ;(async () => {
-  const [apiId, accessToken, commitSha] = process.argv.slice(2).filter(arg => arg !== '')
+  const [commitSha] = process.argv.slice(2).filter(arg => arg !== '')
+  const apiId = process.env.NETLIFY_API_ID
+  const accessToken = process.env.NETLIFY_ACCESS_TOKEN
   let deployId = ''
 
   try {
