@@ -88,7 +88,6 @@ export const Checkbox = (
   { error, feedback, labelName, name, value, id, onChange, checked, forwardedRef, ...rest },
   ref
 ) => {
-  //   const inputId = id || getGeneratedId(name, value)
   const renderFeedback = errorMessage => <span css={feedbackError}>{`(${errorMessage})`}</span>
   return (
     <AnimatePresence>
@@ -98,7 +97,7 @@ export const Checkbox = (
           css={hiddenInput}
           type="checkbox"
           value={value}
-          id={1}
+          id={id}
           name={name}
           onChange={onChange}
           checked={checked}
