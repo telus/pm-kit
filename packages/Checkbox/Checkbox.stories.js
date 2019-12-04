@@ -13,10 +13,11 @@ export const Default = () => {
 
   const updateCheck = () => {
     setChecked(!checked)
+    console.log('checked: in stories ', checked)
   }
   return (
     <Checkbox
-      labelName="Testing"
+      label="Testing"
       name="Test"
       value={true}
       onChange={updateCheck}
@@ -34,7 +35,7 @@ export const CheckboxWithError = () => {
   }
   return (
     <Checkbox
-      labelName="Testing"
+      label="Testing"
       name="Test"
       value={true}
       onChange={updateCheck}
@@ -54,7 +55,7 @@ export const Playground = () => {
 
   return (
     <Checkbox
-      labelName={text('Label', 'Testing')}
+      label={text('Label', 'Testing')}
       name="Test"
       value={true}
       onChange={updateCheck}

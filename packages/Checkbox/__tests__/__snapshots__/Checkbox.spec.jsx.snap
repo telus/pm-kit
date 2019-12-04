@@ -63,12 +63,11 @@ exports[`Checkbox renders 1`] = `
   margin-left: 12px;
 }
 
-<div
-  label=""
->
+<div>
   <div />
   <input
     class="emotion-0"
+    id="1"
     name="Test"
     type="checkbox"
     value="true"

@@ -65,17 +65,6 @@ const labelText = css`
   margin-left: 12px;
 `
 
-const label_ = css`
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 0 0 52px;
-  font-size: 14px;
-  & label {
-    letter-spacing: 0.05px;
-    margin-right: 0.5rem;
-  }
-`
-
 const checkVariants = {
   hidden: { scale: 0 },
   show: { scale: 0.6 },
@@ -85,9 +74,10 @@ const checkVariants = {
 }
 
 export const Checkbox = (
-  { error, feedback, labelName, name, value, id, onChange, checked, forwardedRef, ...rest },
+  { error, feedback, label, name, value, id, onChange, checked, forwardedRef, ...rest },
   ref
 ) => {
+  console.log('checked in checkbox: ', checked)
   const renderFeedback = errorMessage => <span css={feedbackError}>{`(${errorMessage})`}</span>
   return (
     <AnimatePresence>
@@ -97,7 +87,7 @@ export const Checkbox = (
           css={hiddenInput}
           type="checkbox"
           value={value}
-          id={id}
+          id={id ? id : 1}
           name={name}
           onChange={onChange}
           checked={checked}
@@ -124,7 +114,7 @@ export const Checkbox = (
               </motion.span>
             </span>
 
-            <span css={labelText}>{labelName}</span>
+            <span css={labelText}>{label}</span>
           </div>
         </label>
       </div>
