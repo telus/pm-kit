@@ -34,19 +34,7 @@ const fakeCheckbox = css`
 `
 
 const checkedFakeCheckbox = css`
-  height: 15px;
-  width: 15px;
-  min-height: 20px;
-  min-width: 20px;
-  outline: 0;
-  line-height: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  margin-top: 0.125rem;
-  border: 2px solid ${parkGreen};
-  border-radius: 6px;
+  ${fakeCheckbox};
   background-color: ${parkGreen};
 `
 
