@@ -77,7 +77,6 @@ export const Checkbox = (
   { error, feedback, label, name, value, id, onChange, checked, forwardedRef, ...rest },
   ref
 ) => {
-  console.log('checked in checkbox: ', checked)
   const renderFeedback = errorMessage => <span css={feedbackError}>{`(${errorMessage})`}</span>
   return (
     <AnimatePresence>

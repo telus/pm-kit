@@ -13,7 +13,6 @@ export const Default = () => {
 
   const updateCheck = () => {
     setChecked(!checked)
-    console.log('checked: in stories ', checked)
   }
   return (
     <Checkbox
