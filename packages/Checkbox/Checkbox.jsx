@@ -139,9 +139,9 @@ Checkbox.propTypes = {
    */
   error: PropTypes.string,
   /**
-   * The flag. It checks whether to display a the error message or not.
+   * The status flag. When "error" is passed in the check box shows error message.
    */
-  feedback: PropTypes.oneOf(['success', 'error']),
+  feedback: PropTypes.oneOf(['error']),
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]).isRequired,
