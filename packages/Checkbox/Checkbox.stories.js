@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Checkbox from './Checkbox'
-import { withKnobs, select } from '@storybook/addon-knobs'
+import { withKnobs, select, text } from '@storybook/addon-knobs'
 
 export default {
   title: 'Design System|Checkbox',
@@ -13,7 +13,6 @@ export const Default = () => {
 
   const updateCheck = () => {
     setChecked(!checked)
-    return checked
   }
   return (
     <Checkbox
@@ -22,7 +21,6 @@ export const Default = () => {
       value={true}
       onChange={updateCheck}
       checked={checked}
-      feedback="success"
       error="This field is required"
     />
   )
@@ -33,7 +31,6 @@ export const CheckboxWithError = () => {
 
   const updateCheck = () => {
     setChecked(!checked)
-    return checked
   }
   return (
     <Checkbox
@@ -42,8 +39,7 @@ export const CheckboxWithError = () => {
       value={true}
       onChange={updateCheck}
       checked={checked}
-      //   feedback={checked ? 'success' : 'error'}
-      feedback="error"
+      feedback={checked ? undefined : 'error'}
       error="This field is required"
     />
   )
@@ -54,18 +50,17 @@ export const Playground = () => {
 
   const updateCheck = () => {
     setChecked(!checked)
-    return checked
   }
 
   return (
     <Checkbox
-      label="Testing"
+      label={text('Label', 'Testing')}
       name="Test"
       value={true}
       onChange={updateCheck}
       checked={checked}
-      feedback={select('feedback', ['error', 'success'])}
-      error="This field is required"
+      feedback={select('Feedback', [undefined, 'error'])}
+      error={text('Error', 'This field is required')}
     />
   )
 }
