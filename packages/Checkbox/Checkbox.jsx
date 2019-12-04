@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
-import { parkGreen, lightTan, lilyGreen, red } from '../colours/colours'
+import { parkGreen, red } from '../colours/colours'
 import { motion, AnimatePresence } from 'framer-motion'
 
 /**
