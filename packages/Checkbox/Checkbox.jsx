@@ -8,12 +8,6 @@ import { motion, AnimatePresence } from 'framer-motion'
  * @version ./package.json
  */
 
-const flexColumn = css`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-`
-
 const container = css`
   display: flex;
   align-items: center;
@@ -101,9 +95,6 @@ const label_ = css`
     margin-right: 0.5rem;
   }
 `
-const hoverVariants = {
-  hover: { borderWidth: '3px' },
-}
 
 const checkVariants = {
   hidden: { scale: 0 },
