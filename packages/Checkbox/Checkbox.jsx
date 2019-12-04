@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
-import { parkGreen, red } from '../colours/colours'
+import { parkGreen, red } from '@pm-kit/colours'
 import { motion, AnimatePresence } from 'framer-motion'
 
 /**
@@ -12,11 +12,8 @@ const container = css`
   display: flex;
   align-items: center;
   width: 100% !important;
-
   height: 100% !important;
-
   left: 0 !important;
-
   top: 0 !important;
 `
 
@@ -67,11 +64,6 @@ const hiddenInput = css`
   pointer-events: none;
 `
 
-const image = css`
-  height: 15px;
-  width: 15px;
-`
-
 const feedbackError = css`
   font-weight: 500;
   color: ${red};
@@ -108,26 +100,14 @@ export const Checkbox = (
   { error, feedback, label, name, value, id, onChange, checked, forwardedRef, ...rest },
   ref
 ) => {
-  const styles = {
-    labelStyles: label_,
-    hiddenInputStyles: hiddenInput,
-    styledLabelStyles: styledLabel,
-    containerStyles: container,
-    fakeCheckboxStyles: fakeCheckbox,
-    checkedFakeCheckboxStyles: checkedFakeCheckbox,
-    fakeCheckboxInnerStyles: fakeCheckboxInner,
-    labelTextStyles: labelText,
-    feedbackErrorStyles: feedbackError,
-    imageStyles: image,
-  }
   //   const inputId = id || getGeneratedId(name, value)
-  const renderFeedback = errorMessage => <span css={styles.feedbackErrorStyles}>{`(${errorMessage})`}</span>
+  const renderFeedback = errorMessage => <span css={feedbackError}>{`(${errorMessage})`}</span>
   return (
     <AnimatePresence>
       <div {...rest}>
-        <div css={styles.labelStyles}>{feedback === 'error' && error && renderFeedback(error)}</div>
+        <div>{feedback === 'error' && error && renderFeedback(error)}</div>
         <input
-          css={styles.hiddenInputStyles}
+          css={hiddenInput}
           type="checkbox"
           value={value}
           id={1}
@@ -136,11 +116,11 @@ export const Checkbox = (
           checked={checked}
           ref={forwardedRef}
         />
-        <label css={styles.styledLabelStyles} htmlFor={1}>
-          <div css={styles.containerStyles}>
-            <span css={checked ? styles.checkedFakeCheckboxStyles : styles.fakeCheckboxStyles}>
+        <label css={styledLabel} htmlFor={1}>
+          <div css={container}>
+            <span css={checked ? checkedFakeCheckbox : fakeCheckbox}>
               <motion.span
-                css={styles.fakeCheckboxInnerStyles}
+                css={fakeCheckboxInner}
                 variants={checkVariants}
                 animate={checked ? 'show' : 'hidden'}
                 exit={{ opacity: 0 }}
@@ -157,7 +137,7 @@ export const Checkbox = (
               </motion.span>
             </span>
 
-            <span css={styles.labelTextStyles}>{label}</span>
+            <span css={labelText}>{label}</span>
           </div>
         </label>
       </div>
@@ -166,7 +146,13 @@ export const Checkbox = (
 }
 
 Checkbox.propTypes = {
+  /**
+   * The error message.
+   */
   error: PropTypes.string,
+  /**
+   * The flag. It checks whether to display a the error message or not.
+   */
   feedback: PropTypes.oneOf(['success', 'error']),
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
@@ -184,7 +170,7 @@ Checkbox.defaultProps = {
   checked: undefined,
   label: '',
   name: '',
-  value: '',
+  value: true,
 }
 
 const CheckboxWithRef = forwardRef((props, ref) => <Checkbox {...props} forwardedRef={ref} />)

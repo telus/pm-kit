@@ -2,39 +2,19 @@
 
 exports[`Checkbox renders 1`] = `
 .emotion-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin: 0 0 0 52px;
-  font-size: 14px;
-}
-
-.emotion-0 label {
-  -webkit-letter-spacing: 0.05px;
-  -moz-letter-spacing: 0.05px;
-  -ms-letter-spacing: 0.05px;
-  letter-spacing: 0.05px;
-  margin-right: 0.5rem;
-}
-
-.emotion-1 {
   position: fixed;
   opacity: 0;
   pointer-events: none;
 }
 
-.emotion-6 {
+.emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-5 {
+.emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -49,7 +29,7 @@ exports[`Checkbox renders 1`] = `
   top: 0 !important;
 }
 
-.emotion-3 {
+.emotion-2 {
   height: 15px;
   width: 15px;
   min-height: 20px;
@@ -74,38 +54,36 @@ exports[`Checkbox renders 1`] = `
   border-radius: 6px;
 }
 
-.emotion-2 > svg path {
+.emotion-1 > svg path {
   stroke: white;
 }
 
-.emotion-4 {
+.emotion-3 {
   font-weight: bold;
   margin-left: 12px;
 }
 
 <div>
-  <div
-    class="emotion-0"
-  />
+  <div />
   <input
-    class="emotion-1"
+    class="emotion-0"
     id="1"
-    name=""
+    name="Test"
     type="checkbox"
-    value=""
+    value="true"
   />
   <label
-    class="emotion-6"
+    class="emotion-5"
     for="1"
   >
     <div
-      class="emotion-5"
+      class="emotion-4"
     >
       <span
-        class="emotion-3"
+        class="emotion-2"
       >
         <span
-          class="emotion-2"
+          class="emotion-1"
         >
           <svg
             height="17"
@@ -123,8 +101,10 @@ exports[`Checkbox renders 1`] = `
         </span>
       </span>
       <span
-        class="emotion-4"
-      />
+        class="emotion-3"
+      >
+        Testing
+      </span>
     </div>
   </label>
 </div>
