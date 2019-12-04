@@ -26,7 +26,7 @@ const ColourBox = styled.div`
 `
 
 export default {
-  title: 'Colours',
+  title: 'Design System|Colours',
   parameters: {
     componentSubtitle: `version ${version}`,
   },

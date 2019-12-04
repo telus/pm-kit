@@ -5,7 +5,7 @@ import Button from './Button.jsx'
 import { version } from './package.json'
 
 export default {
-  title: 'Button',
+  title: 'Design System|Button',
   component: Button,
   parameters: {
     componentSubtitle: `version ${version}`,

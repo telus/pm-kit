@@ -17,6 +17,7 @@ coverage
 # PM-Kit build artifacts
 dist/
 storybook-build/
+storybook-docs/
 .npm/
 
 e2e/output/reports
