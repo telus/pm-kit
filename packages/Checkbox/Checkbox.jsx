@@ -104,7 +104,10 @@ const checkVariants = {
   },
 }
 
-const Checkbox = forwardRef(({ error, feedback, label, name, value, id, onChange, checked, ...rest }, ref) => {
+export const Checkbox = (
+  { error, feedback, label, name, value, id, onChange, checked, forwardedRef, ...rest },
+  ref
+) => {
   const styles = {
     labelStyles: label_,
     hiddenInputStyles: hiddenInput,
@@ -131,6 +134,7 @@ const Checkbox = forwardRef(({ error, feedback, label, name, value, id, onChange
           name={name}
           onChange={onChange}
           checked={checked}
+          ref={forwardedRef}
         />
         <label css={styles.styledLabelStyles} htmlFor={1}>
           <div css={styles.containerStyles}>
@@ -159,7 +163,7 @@ const Checkbox = forwardRef(({ error, feedback, label, name, value, id, onChange
       </div>
     </AnimatePresence>
   )
-})
+}
 
 Checkbox.propTypes = {
   error: PropTypes.string,
@@ -183,4 +187,6 @@ Checkbox.defaultProps = {
   value: '',
 }
 
-export default Checkbox
+const CheckboxWithRef = forwardRef((props, ref) => <Checkbox {...props} forwardedRef={ref} />)
+
+export default CheckboxWithRef
