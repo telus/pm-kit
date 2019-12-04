@@ -5,8 +5,7 @@ import Checkbox from '../Checkbox'
 
 describe('Checkbox', () => {
   it('renders', () => {
-    let check = true
-    const checkbox = render(<Checkbox label="Testing" name="Test" value={true} />)
+    const checkbox = render(<Checkbox labelName="Testing" name="Test" value={true} />)
 
     expect(checkbox).toMatchSnapshot()
   })

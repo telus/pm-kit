@@ -85,7 +85,7 @@ const checkVariants = {
 }
 
 export const Checkbox = (
-  { error, feedback, label, name, value, id, onChange, checked, forwardedRef, ...rest },
+  { error, feedback, labelName, name, value, id, onChange, checked, forwardedRef, ...rest },
   ref
 ) => {
   //   const inputId = id || getGeneratedId(name, value)
@@ -125,7 +125,7 @@ export const Checkbox = (
               </motion.span>
             </span>
 
-            <span css={labelText}>{label}</span>
+            <span css={labelText}>{labelName}</span>
           </div>
         </label>
       </div>

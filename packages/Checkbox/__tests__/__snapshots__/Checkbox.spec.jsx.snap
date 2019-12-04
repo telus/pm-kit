@@ -63,7 +63,9 @@ exports[`Checkbox renders 1`] = `
   margin-left: 12px;
 }
 
-<div>
+<div
+  label=""
+>
   <div />
   <input
     class="emotion-0"

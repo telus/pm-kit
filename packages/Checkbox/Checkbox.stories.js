@@ -16,7 +16,7 @@ export const Default = () => {
   }
   return (
     <Checkbox
-      label="Testing"
+      labelName="Testing"
       name="Test"
       value={true}
       onChange={updateCheck}
@@ -34,7 +34,7 @@ export const CheckboxWithError = () => {
   }
   return (
     <Checkbox
-      label="Testing"
+      labelName="Testing"
       name="Test"
       value={true}
       onChange={updateCheck}
@@ -54,7 +54,7 @@ export const Playground = () => {
 
   return (
     <Checkbox
-      label={text('Label', 'Testing')}
+      labelName={text('Label', 'Testing')}
       name="Test"
       value={true}
       onChange={updateCheck}
