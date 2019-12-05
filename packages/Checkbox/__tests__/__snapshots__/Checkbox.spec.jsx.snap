@@ -67,14 +67,14 @@ exports[`Checkbox renders 1`] = `
   <div />
   <input
     class="emotion-0"
-    id="1"
+    id="testing"
     name="Test"
     type="checkbox"
     value="true"
   />
   <label
     class="emotion-5"
-    for="1"
+    for="testing"
   >
     <div
       class="emotion-4"

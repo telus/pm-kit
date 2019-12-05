@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
 import { parkGreen, red } from '@pm-kit/colours'
 import { motion, AnimatePresence } from 'framer-motion'
+import generateId from '../../shared/utils/generateId/generateId.js'
 
 /**
  * @version ./package.json
@@ -77,6 +78,7 @@ export const Checkbox = (
   { error, feedback, label, name, value, id, onChange, checked, forwardedRef, ...rest },
   ref
 ) => {
+  const inputId = generateId(id, rest.name, label)
   const renderFeedback = errorMessage => <span css={feedbackError}>{`(${errorMessage})`}</span>
   return (
     <AnimatePresence>
@@ -86,13 +88,13 @@ export const Checkbox = (
           css={hiddenInput}
           type="checkbox"
           value={value}
-          id={id ? id : 1}
+          id={inputId.identity()}
           name={name}
           onChange={onChange}
           checked={checked}
           ref={forwardedRef}
         />
-        <label css={styledLabel} htmlFor={1}>
+        <label css={styledLabel} htmlFor={inputId.identity()}>
           <div css={container}>
             <span css={checked ? checkedFakeCheckbox : fakeCheckbox}>
               <motion.span
