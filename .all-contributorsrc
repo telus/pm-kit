@@ -1,0 +1,26 @@
+{
+  "projectName": "pm-kit",
+  "projectOwner": "telus",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 80,
+  "commit": false,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "Luminous9",
+      "name": "Sonny Zhang",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/24458564?v=4",
+      "profile": "https://github.com/Luminous9",
+      "contributions": [
+        "code",
+        "doc",
+        "infra"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
