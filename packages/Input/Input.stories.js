@@ -1,9 +1,14 @@
 import React from 'react'
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs'
 import Input from './Input.jsx'
+import { version } from './package.json'
 
 export default {
-  title: 'Input',
+  title: 'Design System|Input',
+  component: Input,
+  parameters: {
+    componentSubtitle: `version ${version}`,
+  },
   decorators: [withKnobs],
 }
 
@@ -35,4 +40,5 @@ export const Playground = () => (
 
 Playground.story = {
   name: 'playground',
+  parameters: { docs: { page: null, disable: true } },
 }

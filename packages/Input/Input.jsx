@@ -68,72 +68,105 @@ const feedbackError = css`
   }
 `
 
-/**
- * @version ./package.json
- */
-
-const Input = forwardRef(
-  (
-    { variant, disabled, id, name, value, label, required, small, feedback, error, feedbackicon, hideLabel, ...rest },
-    ref
-  ) => {
-    const inputId = generateId(id, rest.name, label)
-    const renderLabel = (label, required) => {
-      const labelText = `${label}${required ? true && '*' : ''}`
-      return (
-        <label htmlFor={inputId.identity()}>
-          {small && <span>{labelText}</span>}
-          {!small && labelText}
-        </label>
-      )
-    }
-
-    const renderFeedback = errorMessage => (
-      <div css={feedbackError}>{small ? <span>{`(${errorMessage})`}</span> : `(${errorMessage})`}</div>
-    )
-
-    const renderFeedbackIcon = feedback => {
-      return (
-        <FeedbackIcon feedback={feedback}>
-          <img src={feedback === 'error' ? exclamation : checkmark} alt={feedback} />
-        </FeedbackIcon>
-      )
-    }
-
+export const Input = ({
+  variant,
+  disabled,
+  id,
+  name,
+  value,
+  label,
+  required,
+  small,
+  feedback,
+  error,
+  feedbackicon,
+  hideLabel,
+  forwardedRef,
+  ...rest
+}) => {
+  const inputId = generateId(id, rest.name, label)
+  const renderLabel = (label, required) => {
+    const labelText = `${label}${required ? true && '*' : ''}`
     return (
-      <div style={{ width: '50%' }}>
-        {!hideLabel && (
-          <div css={labelStyle}>
-            {label && renderLabel(label, required)}
-            {feedback === 'error' && error && renderFeedback(error)}
-          </div>
-        )}
-        <div style={{ position: 'relative' }}>
-          {feedbackicon && feedback !== undefined && renderFeedbackIcon(feedback)}
-          <InputField
-            aria-invalid={feedback === 'error'}
-            aria-label={hideLabel ? label : null}
-            feedback={feedback}
-            disabled={disabled}
-            id={inputId.identity()}
-            name={name}
-            {...rest}
-          />
-        </div>
-      </div>
+      <label htmlFor={inputId.identity()}>
+        {small && <span>{labelText}</span>}
+        {!small && labelText}
+      </label>
     )
   }
-)
+
+  const renderFeedback = errorMessage => (
+    <div css={feedbackError}>{small ? <span>{`(${errorMessage})`}</span> : `(${errorMessage})`}</div>
+  )
+
+  const renderFeedbackIcon = feedback => {
+    return (
+      <FeedbackIcon feedback={feedback}>
+        <img src={feedback === 'error' ? exclamation : checkmark} alt={feedback} />
+      </FeedbackIcon>
+    )
+  }
+
+  return (
+    <div style={{ width: '50%' }}>
+      {!hideLabel && (
+        <div css={labelStyle}>
+          {label && renderLabel(label, required)}
+          {feedback === 'error' && error && renderFeedback(error)}
+        </div>
+      )}
+      <div style={{ position: 'relative' }}>
+        {feedbackicon && feedback !== undefined && renderFeedbackIcon(feedback)}
+        <InputField
+          aria-invalid={feedback === 'error'}
+          aria-label={hideLabel ? label : null}
+          feedback={feedback}
+          disabled={disabled}
+          id={inputId.identity()}
+          name={name}
+          {...rest}
+        />
+      </div>
+    </div>
+  )
+}
 
 Input.propTypes = {
+  /**
+   * The label.
+   */
   label: PropTypes.string.isRequired,
+  /**
+   * Specifies if Input is a required field.
+   */
   required: PropTypes.bool,
+  /**
+   * Specifies if the Input field should be disabled.
+   */
   disabled: PropTypes.bool,
+  /**
+   * A feedback state.
+   */
   feedback: PropTypes.oneOf(['success', 'error']),
+  /**
+   * Specifies if the label of Input field should be hidden.
+   */
   hideLabel: PropTypes.bool,
+  /**
+   * An error message. Should be limited to text and links. See usage criteria for more details.
+   */
   error: PropTypes.string,
+  /**
+   * A success or error image to correspond with feedback.
+   */
   feedbackicon: PropTypes.bool,
+  /**
+   * The name.
+   */
   name: PropTypes.string,
+  /**
+   * Use `value` for controlled Inputs. For uncontrolled Inputs, use React's built-in `defaultValue` prop.
+   */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
@@ -148,4 +181,6 @@ Input.defaultProps = {
   value: undefined,
 }
 
-export default Input
+const InputWithRef = forwardRef((props, ref) => <Input {...props} forwardedRef={ref} />)
+
+export default InputWithRef
