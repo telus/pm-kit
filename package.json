@@ -70,6 +70,7 @@
     "@emotion/babel-preset-css-prop": "^10.0.23",
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.23",
+    "@rollup/plugin-image": "^2.0.0",
     "@mdx-js/loader": "^1.5.1",
     "@storybook/addon-a11y": "^5.2.6",
     "@storybook/addon-actions": "^5.2.6",
