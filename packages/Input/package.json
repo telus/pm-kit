@@ -21,7 +21,6 @@
   },
   "dependencies": {
     "@pm-kit/colours": "^1.0.0",
-    "array-find-es6": "^2.0.3",
     "prop-types": "^15.7.2"
   }
 }

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { red, parkGreen, greyBlue, white } from '@pm-kit/colours'
-import checkmark from './svg/checkmark.svg'
-import exclamation from './svg/exclamation.svg'
-import generateId from './generateId.js'
+import checkmark from '../../shared/svg/checkmark.svg'
+import exclamation from '../../shared/svg/exclamation.svg'
+import generateId from '../../shared/utils/generateId/generateId.js'
 
 const InputField = styled.input`
   width: 100%;
@@ -77,11 +77,11 @@ const Input = forwardRef(
     { variant, disabled, id, name, value, label, required, small, feedback, error, feedbackicon, hideLabel, ...rest },
     ref
   ) => {
-    const inputId = generateId(label).identity()
+    const inputId = generateId(id, rest.name, label)
     const renderLabel = (label, required) => {
       const labelText = `${label}${required ? true && '*' : ''}`
       return (
-        <label htmlFor={inputId}>
+        <label htmlFor={inputId.identity()}>
           {small && <span>{labelText}</span>}
           {!small && labelText}
         </label>
@@ -115,7 +115,7 @@ const Input = forwardRef(
             aria-label={hideLabel ? label : null}
             feedback={feedback}
             disabled={disabled}
-            id={inputId}
+            id={inputId.identity()}
             name={name}
             {...rest}
           />
