@@ -8,6 +8,8 @@ import autoprefixer from 'autoprefixer'
 
 import cleaner from './rollup-plugin-cleaner'
 
+import image from '@rollup/plugin-image'
+
 export default opts => {
   const options = Object.assign(
     {
@@ -33,6 +35,7 @@ export default opts => {
       cleaner({
         targets: ['./dist/'],
       }),
+      image(),
       nodeResolve({
         extensions: ['.js', '.jsx'],
         browser: true,
