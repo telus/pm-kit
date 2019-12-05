@@ -1,14 +1,12 @@
 import nodeResolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
-
-import babel from 'rollup-plugin-babel'
-
 import postcss from 'rollup-plugin-postcss'
+import babel from 'rollup-plugin-babel'
+import image from '@rollup/plugin-image'
+import url from '@rollup/plugin-url'
 import autoprefixer from 'autoprefixer'
 
 import cleaner from './rollup-plugin-cleaner'
-
-import image from '@rollup/plugin-image'
 
 export default opts => {
   const options = Object.assign(
@@ -53,6 +51,10 @@ export default opts => {
         runtimeHelpers: true,
         exclude: '../../node_modules/**',
         configFile: '../../babel.config.js',
+      }),
+      url({
+        include: ['**/*.woff', '**/*.woff2'],
+        limit: Infinity,
       }),
     ],
   }

@@ -8,6 +8,6 @@ module.exports = {
   testEnvironment: 'enzyme',
   snapshotSerializers: ['jest-emotion'],
   moduleNameMapper: {
-    '\\.(jpg|jpeg|png|gif|svg)$': path.resolve('config/jest/__mocks__/fileMock.js'),
+    '\\.(jpg|jpeg|png|gif|svg|woff)$': path.resolve('config/jest/__mocks__/fileMock.js'),
   },
 }
