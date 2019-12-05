@@ -14,6 +14,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/Luminous9"><img src="https://avatars3.githubusercontent.com/u/24458564?v=4" width="80px;" alt=""/><br /><sub><b>Sonny Zhang</b></sub></a><br /><a href="https://github.com/telus/pm-kit/commits?author=Luminous9" title="Code">💻</a> <a href="https://github.com/telus/pm-kit/commits?author=Luminous9" title="Documentation">📖</a> <a href="#infra-Luminous9" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+    <td align="center"><a href="https://github.com/kaetojn"><img src="https://avatars3.githubusercontent.com/u/11600801?v=4" width="80px;" alt=""/><br /><sub><b>kaetojn</b></sub></a><br /><a href="https://github.com/telus/pm-kit/commits?author=kaetojn" title="Code">💻</a></td>
   </tr>
 </table>
 

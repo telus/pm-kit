@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input renders 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  margin: 0 0 0.5rem 0.2rem;
+  font-size: 18px;
+  color: #034045;
+}
+
+.emotion-0 label {
+  -webkit-letter-spacing: 0.05px;
+  -moz-letter-spacing: 0.05px;
+  -ms-letter-spacing: 0.05px;
+  letter-spacing: 0.05px;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.emotion-0 span {
+  -webkit-letter-spacing: 0.05px;
+  -moz-letter-spacing: 0.05px;
+  -ms-letter-spacing: 0.05px;
+  letter-spacing: 0.05px;
+  font-weight: 100;
+  font-size: 14px;
+}
+
+.emotion-1 {
+  width: 100%;
+  padding: 0 1em;
+  font-size: 18px;
+  border: 1px solid #034045;
+  border-radius: 8px;
+  height: 48px;
+  color: #034045;
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.emotion-1::-webkit-input-placeholder {
+  color: #819FA2;
+  font-size: 16px;
+}
+
+.emotion-1::-moz-placeholder {
+  color: #819FA2;
+  font-size: 16px;
+}
+
+.emotion-1:-ms-input-placeholder {
+  color: #819FA2;
+  font-size: 16px;
+}
+
+.emotion-1::placeholder {
+  color: #819FA2;
+  font-size: 16px;
+}
+
+<div
+  style="width:50%"
+>
+  <div
+    class="emotion-0"
+  >
+    <label
+      for="label"
+    >
+      Label
+    </label>
+  </div>
+  <div
+    style="position:relative"
+  >
+    <input
+      aria-invalid="false"
+      class="emotion-1 emotion-2"
+      id="label"
+    />
+  </div>
+</div>
+`;
