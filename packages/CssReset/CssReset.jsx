@@ -127,13 +127,13 @@ const global = css`
   html {
     font-size: 100%;
     font-weight: 300;
-    font-family: 'Cerebri-Sans', 'Arial', 'sans-serif';
+    font-family: Cerebri-Sans, Arial, sans-serif;
     font-kerning: normal;
   }
 
   body: {
     line-height: 1.5;
-    font-family: 'Cerebri-Sans', 'Arial', 'sans-serif';
+    font-family: Cerebri-Sans, Arial, sans-serif;
     font-weight: 300;
   }
 
