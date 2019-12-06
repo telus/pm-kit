@@ -15,7 +15,7 @@
     "build": "node scripts/build.js",
     "contributors:update": "node scripts/updateContributors.js",
     "lerna:publish": "node scripts/publish.js",
-    "lerna:ci-publish": "npx lerna publish --conventional-commits --create-release github --yes --message 'publish [skip ci]'",
+    "lerna:ci-publish": "npx lerna publish --conventional-commits --create-release github --yes",
     "lint:js": "eslint packages config scripts/*.js --ext '.js,.jsx' --config config/eslint.config.js --max-warnings 0 --fix",
     "lint:css": "stylelint 'packages/**/*.jsx' --config config/stylelint.config.js",
     "lint": "npm-run-all --parallel lint:*",
@@ -37,7 +37,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged && npm run test && node scripts/updatePackageHash.js && npm run contributors:update",
+      "pre-commit": "lint-staged && npm run test && npm run contributors:update",
       "post-merge": "node scripts/postMerge.js"
     }
   },
