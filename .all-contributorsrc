@@ -1,0 +1,44 @@
+{
+  "projectName": "pm-kit",
+  "projectOwner": "telus",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 80,
+  "commit": false,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "Luminous9",
+      "name": "Sonny Zhang",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/24458564?v=4",
+      "profile": "https://github.com/Luminous9",
+      "contributions": [
+        "code",
+        "doc",
+        "infra"
+      ]
+    },
+    {
+      "login": "kaetojn",
+      "name": "kaetojn",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/11600801?v=4",
+      "profile": "https://github.com/kaetojn",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "pbrahmbhatt3",
+      "name": "Priyam Brahmbhatt",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/27025266?v=4",
+      "profile": "https://github.com/pbrahmbhatt3",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
