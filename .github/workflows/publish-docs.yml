@@ -2,8 +2,8 @@ name: Publish Storybook Docs
 
 on:
   push:
-    tags:
-      - '@pm-kit/*'
+    branches:
+      - refs/tags/@pm-kit/*
 
 jobs:
   publish-docs:

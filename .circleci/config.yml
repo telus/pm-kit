@@ -89,7 +89,7 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$PM_KIT_NPM_TOKEN" > ~/.npmrc
       - run:
           name: Lerna Publish
-          command: npm run lerna:cipublish
+          command: npm run lerna:ci-publish
 
 workflows:
   version: 2

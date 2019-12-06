@@ -1,13 +1,9 @@
 {
-  "name": "@pm-kit/button",
-  "version": "1.0.2",
+  "name": "@pm-kit/checkbox",
+  "version": "1.0.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/telus/pm-kit.git"
-  },
   "publishConfig": {
     "access": "public"
   },
@@ -16,7 +12,7 @@
     "node": ">=8"
   },
   "bugs": {
-    "url": "https://github.com/telus/pm-kit/issues"
+    "url": "https://github.com/telus/public-mobile-design-system/issues"
   },
   "peerDependencies": {
     "@emotion/core": "^10.0.22",
@@ -25,6 +21,7 @@
   },
   "dependencies": {
     "@pm-kit/colours": "^1.0.1",
+    "framer-motion": "1.6.17",
     "prop-types": "^15.7.2"
   }
 }
