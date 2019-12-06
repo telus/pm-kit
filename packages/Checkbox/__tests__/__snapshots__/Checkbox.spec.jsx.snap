@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox renders 1`] = `
+.emotion-0 {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100% !important;
+  height: 100% !important;
+  left: 0 !important;
+  top: 0 !important;
+}
+
+.emotion-2 {
+  height: 15px;
+  width: 15px;
+  min-height: 20px;
+  min-width: 20px;
+  outline: 0;
+  line-height: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: 0.125rem;
+  border: 2px solid #034045;
+  border-radius: 6px;
+}
+
+.emotion-1 > svg path {
+  stroke: white;
+}
+
+.emotion-3 {
+  font-weight: bold;
+  margin-left: 12px;
+}
+
+<div>
+  <div />
+  <input
+    class="emotion-0"
+    id="testing"
+    name="Test"
+    type="checkbox"
+    value="true"
+  />
+  <label
+    class="emotion-5"
+    for="testing"
+  >
+    <div
+      class="emotion-4"
+    >
+      <span
+        class="emotion-2"
+      >
+        <span
+          class="emotion-1"
+        >
+          <svg
+            height="17"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18.031 1.866L7.154 13.442l-5.37-5.944"
+              fill="none"
+              fill-rule="evenodd"
+              stroke="#034045"
+              stroke-width="4"
+            />
+          </svg>
+        </span>
+      </span>
+      <span
+        class="emotion-3"
+      >
+        Testing
+      </span>
+    </div>
+  </label>
+</div>
+`;
