@@ -2,7 +2,7 @@ import React from 'react'
 import { configure, addDecorator, addParameters } from '@storybook/react'
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks'
 import { withA11y } from '@storybook/addon-a11y'
-import GlobalStyles from './GlobalStyles'
+import CssReset from '../packages/CssReset'
 
 addParameters({
   docs: {
@@ -13,7 +13,7 @@ addParameters({
 addDecorator(withA11y)
 addDecorator(story => (
   <>
-    <GlobalStyles />
+    <CssReset />
     {story()}
   </>
 ))
