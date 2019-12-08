@@ -91,11 +91,8 @@ jobs:
           name: Lerna Publish
           command: npm run lerna:ci-publish
       - run:
-          name: Test Commit
-          command: "touch test.js && git add . && git commit -m 'chore(other): test commit'"
-      - run:
-          name: Check SHA
-          command: echo $CIRCLE_SHA1
+          name: Publish Documentation
+          command: npm run storybook:ci-publish-docs
 
 workflows:
   version: 2

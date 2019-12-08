@@ -1,10 +1,13 @@
 /* prettier-ignore */
 
 const fetch = require('node-fetch')
+const { execSync } = require('child_process')
 const { setIntervalAsync, clearIntervalAsync } = require('set-interval-async/dynamic')
 
 ;(async () => {
-  const [commitSha] = process.argv.slice(2).filter(arg => arg !== '')
+  const commitSha = execSync('git rev-parse HEAD')
+    .toString()
+    .trim()
   const apiId = process.env.NETLIFY_API_ID
   const accessToken = process.env.NETLIFY_ACCESS_TOKEN
   let deployId = ''
