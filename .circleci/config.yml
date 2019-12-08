@@ -92,9 +92,9 @@ jobs:
           command: npm run lerna:ci-publish
       - run:
           name: Test Commit
-          command: "touch test.js && git add . && git commit -m 'chore(other): test commit' && git log"
+          command: "touch test.js && git add . && git commit -m 'chore(other): test commit'"
       - run:
-          name: test
+          name: Check SHA
           command: echo $CIRCLE_SHA1
 
 workflows:
