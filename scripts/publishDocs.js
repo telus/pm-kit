@@ -19,7 +19,10 @@ const { setIntervalAsync, clearIntervalAsync } = require('set-interval-async/dyn
       },
     })
     const deploys = await deploysRes.json()
-    const deployment = deploys.find(d => d.commit_ref === commitSha) || deploys[0]
+    const deployment = deploys.find(d => d.commit_ref === commitSha)
+    if (!deployment) {
+      throw new Error(`Deployment with commit SHA ${commitSha} not found.`)
+    }
     deployId = deployment.id
   } catch (error) {
     console.log(error)
