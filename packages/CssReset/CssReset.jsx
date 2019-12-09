@@ -2,7 +2,7 @@ import React from 'react'
 import { Global, css } from '@emotion/core'
 import CerebriSans from './fonts/Cerebri-Sans-Book.woff'
 import CerebriSansBold from './fonts/Cerebri-Sans-Bold.woff'
-import { softSandBrown } from '@pm-kit/colours'
+import { softSandBrown, parkGreen } from '@pm-kit/colours'
 
 const global = css`
   @font-face {
@@ -132,11 +132,12 @@ const global = css`
     font-kerning: normal;
   }
 
-  body: {
+  body {
     line-height: 1.5;
     font-family: Cerebri-Sans, Arial, sans-serif;
     font-weight: 300;
     background-color: ${softSandBrown};
+    color: ${parkGreen};
   }
 
   ol,
