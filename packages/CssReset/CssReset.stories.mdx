@@ -1,0 +1,38 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+import CssReset from './CssReset'
+import { version } from './package.json'
+
+<Meta title="Design System|CssReset" component={CssReset} parameters={{ componentSubtitle: `version ${version}` }} />
+
+# CssReset
+
+This package includes a global emotion component that adds page-level styles to establish a common baseline:
+
+\- A CSS reset to standardize default styling of HTML5 elements across browsers, using the popular Eric Meyer Reset
+
+\- @font-face declarations to load the Public Mobile web fonts
+
+\- Set box sizing to border-box to make it easier to size elements
+
+\- Default body styles to establish the base font settings
+
+## Usage
+
+Import `CssReset` somewhere at the top level of your app and add it to the render
+
+```jsx
+import CssReset from '@pm-kit/css-reset'
+
+const App = () => {
+  return (
+    <div>
+      <CssReset />
+      {children}
+    </div>
+  )
+}
+```
+
+<Story name="Default">
+  <CssReset />
+</Story>
