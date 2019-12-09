@@ -90,6 +90,9 @@ jobs:
       - run:
           name: Lerna Publish
           command: npm run lerna:ci-publish
+      - run:
+          name: Publish Documentation
+          command: npm run storybook:ci-publish-docs
 
 workflows:
   version: 2
