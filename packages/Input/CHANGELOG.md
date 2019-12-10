@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/telus/pm-kit/compare/@pm-kit/input@1.0.2...@pm-kit/input@1.0.3) (2019-12-10)
+
+
+### Bug Fixes
+
+* **input:** fixed ref not being set on input element ([6e5bf54](https://github.com/telus/pm-kit/commit/6e5bf54d8ff4bdc399dcdaf156cc8b5b96115ea1))
+
+
+
+
+
 ## [1.0.2](https://github.com/telus/pm-kit/compare/@pm-kit/input@1.0.1...@pm-kit/input@1.0.2) (2019-12-10)
 
 
