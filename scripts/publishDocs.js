@@ -41,7 +41,7 @@ const { setIntervalAsync, clearIntervalAsync } = require('set-interval-async/dyn
       const { state: currentStatus } = deploy
       console.log(`current deploy status: ${currentStatus}`)
 
-      if (currentStatus !== 'building' || currentStatus !== 'uploading') {
+      if (currentStatus === 'ready' || currentStatus === 'error') {
         clearIntervalAsync(pollDeploy)
         if (currentStatus === 'ready') {
           const restoreRes = await fetch(`https://api.netlify.com/api/v1/sites/${apiId}/deploys/${deployId}/restore`, {

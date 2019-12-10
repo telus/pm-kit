@@ -118,6 +118,7 @@ export const Input = ({
       <div style={{ position: 'relative' }}>
         {feedbackicon && feedback !== undefined && renderFeedbackIcon(feedback)}
         <InputField
+          ref={forwardedRef}
           aria-invalid={feedback === 'error'}
           aria-label={hideLabel ? label : null}
           feedback={feedback}
