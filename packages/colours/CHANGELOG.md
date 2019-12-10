@@ -5,23 +5,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.0.2](https://github.com/telus/pm-kit/compare/@pm-kit/colours@1.0.1...@pm-kit/colours@1.0.2) (2019-12-10)
 
-**Note:** Version bump only for package @pm-kit/colours
-
-
-
-
+Added .npmignore file to remove certain files from published package
 
 ## [1.0.1](https://github.com/telus/pm-kit/compare/@pm-kit/colours@1.0.0...@pm-kit/colours@1.0.1) (2019-12-06)
 
+### Bug Fixes
 
-### Reverts
-
-* Revert "chore(publish): update packages" ([36531e4](https://github.com/telus/pm-kit/commit/36531e4795a1903a161c32fafd748c84973fe9a7))
-* Revert "chore(publish): update packages [skip ci]" ([72a053e](https://github.com/telus/pm-kit/commit/72a053ed074c0136977c8d2d3cef596728e1ebed))
-
-
-
-
+- **colours:** Fixed red colour accessibility and removed extra dependency ([#12](https://github.com/telus/pm-kit/pull/12)) ([3ac0558](https://github.com/telus/pm-kit/commit/3ac0558c9a7d10b6cde552803ecb84d04942a965))
 
 # 1.0.0 (2019-11-29)
 

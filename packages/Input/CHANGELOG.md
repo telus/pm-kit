@@ -7,19 +7,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @pm-kit/input
 
-
-
-
-
-# 1.0.0 (2019-12-06)
-
+# 1.0.0 (2019-12-09)
 
 ### Features
 
-* **input:** created Input component ([#10](https://github.com/telus/pm-kit/issues/10)) ([1e9dadf](https://github.com/telus/pm-kit/commit/1e9dadf32524c5c76b06dbab675289702c143cb2))
-
-
-### Reverts
-
-* Revert "chore(publish): update packages" ([36531e4](https://github.com/telus/pm-kit/commit/36531e4795a1903a161c32fafd748c84973fe9a7))
-* Revert "chore(publish): update packages [skip ci]" ([72a053e](https://github.com/telus/pm-kit/commit/72a053ed074c0136977c8d2d3cef596728e1ebed))
+- **css-reset:** added CssReset package ([#14](https://github.com/telus/pm-kit/issues/14)) ([0999eaf](https://github.com/telus/pm-kit/commit/0999eaf7e63c6c3fc7508ca7acf04b6814887567))

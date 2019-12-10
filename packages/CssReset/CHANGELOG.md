@@ -5,15 +5,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.0.1](https://github.com/telus/pm-kit/compare/@pm-kit/css-reset@1.0.0...@pm-kit/css-reset@1.0.1) (2019-12-10)
 
-**Note:** Version bump only for package @pm-kit/css-reset
-
-
-
-
+Added .npmignore file to remove certain files from published package
 
 # 1.0.0 (2019-12-09)
 
-
 ### Features
 
-* **css-reset:** added CssReset package ([#14](https://github.com/telus/pm-kit/issues/14)) ([0999eaf](https://github.com/telus/pm-kit/commit/0999eaf7e63c6c3fc7508ca7acf04b6814887567))
+- **css-reset:** added CssReset package ([#14](https://github.com/telus/pm-kit/issues/14)) ([0999eaf](https://github.com/telus/pm-kit/commit/0999eaf7e63c6c3fc7508ca7acf04b6814887567))

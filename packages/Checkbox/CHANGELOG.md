@@ -5,19 +5,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [1.1.0](https://github.com/telus/pm-kit/compare/@pm-kit/checkbox@1.0.0...@pm-kit/checkbox@1.1.0) (2019-12-10)
 
-
-### Features
-
-* **css-reset:** added CssReset package ([#14](https://github.com/telus/pm-kit/issues/14)) ([0999eaf](https://github.com/telus/pm-kit/commit/0999eaf7e63c6c3fc7508ca7acf04b6814887567))
-
-
-
-
+Added .npmignore file to remove certain files from published package
 
 # 1.0.0 (2019-12-06)
 
+### Features
 
-### Reverts
-
-* Revert "chore(publish): update packages" ([36531e4](https://github.com/telus/pm-kit/commit/36531e4795a1903a161c32fafd748c84973fe9a7))
-* Revert "chore(publish): update packages [skip ci]" ([72a053e](https://github.com/telus/pm-kit/commit/72a053ed074c0136977c8d2d3cef596728e1ebed))
+- **checkbox:** added Checkbox package ([#11](https://github.com/telus/pm-kit/pull/11)) ([0bee47e](https://github.com/telus/pm-kit/commit/0bee47e61af6d2b10fd777f244492bc8ce787fc6))
