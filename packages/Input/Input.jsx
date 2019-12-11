@@ -81,9 +81,15 @@ export const Input = ({
   ...rest
 }) => {
   const inputId = generateId(id, rest.name, label)
-  const renderLabel = (label, required) => {
+  const renderLabel = (label, required, disabled) => {
     const labelText = `${label}${required ? true && '*' : ''}`
-    return <label htmlFor={inputId.identity()}>{labelText}</label>
+    return disabled ? (
+      <label style={{ opacity: 0.5 }} htmlFor={inputId.identity()}>
+        {labelText}
+      </label>
+    ) : (
+      <label htmlFor={inputId.identity()}>{labelText}</label>
+    )
   }
 
   const renderFeedback = errorMessage => <span css={feedbackError}>{`(${errorMessage})`}</span>
@@ -100,7 +106,7 @@ export const Input = ({
     <div>
       {!hideLabel && (
         <div css={small ? smallLabelContainer : labelContainer}>
-          {label && renderLabel(label, required)}
+          {label && renderLabel(label, required, disabled)}
           {feedback === 'error' && error && renderFeedback(error)}
         </div>
       )}
