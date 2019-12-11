@@ -59,6 +59,9 @@ const smallLabelContainer = css`
   margin-left: 16px;
 `
 
+const isDisabled = css`
+  opacity: 0.5;
+`
 const feedbackError = css`
   color: ${red};
   font-weight: 300;
@@ -83,12 +86,10 @@ export const Input = ({
   const inputId = generateId(id, rest.name, label)
   const renderLabel = (label, required, disabled) => {
     const labelText = `${label}${required ? true && '*' : ''}`
-    return disabled ? (
-      <label style={{ opacity: 0.5 }} htmlFor={inputId.identity()}>
+    return (
+      <label css={disabled ? isDisabled : null} htmlFor={inputId.identity()}>
         {labelText}
       </label>
-    ) : (
-      <label htmlFor={inputId.identity()}>{labelText}</label>
     )
   }
 
