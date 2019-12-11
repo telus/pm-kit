@@ -3,6 +3,7 @@ import { configure, addDecorator, addParameters } from '@storybook/react'
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks'
 import { withA11y } from '@storybook/addon-a11y'
 import CssReset from '../packages/CssReset/CssReset.jsx'
+import StoryWrapper from './StoryWrapper'
 
 addParameters({
   docs: {
@@ -14,7 +15,7 @@ addDecorator(withA11y)
 addDecorator(story => (
   <>
     <CssReset />
-    {story()}
+    <StoryWrapper>{story()}</StoryWrapper>
   </>
 ))
 

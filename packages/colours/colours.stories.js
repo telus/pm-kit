@@ -21,7 +21,7 @@ const ColourBox = styled.div`
   height: 100px;
   width: 100px;
   background: ${({ colour }) => colour};
-  border: 1px solid ${({ colour }) => (colour === '#FFF' ? '#000' : colour)};
+  border: 1px solid ${({ colour }) => (colour === colours.softSandBrown ? '#000' : colour)};
   border-radius: 8px;
 `
 
