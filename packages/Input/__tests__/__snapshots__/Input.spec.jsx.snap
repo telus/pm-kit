@@ -14,31 +14,18 @@ exports[`Input renders 1`] = `
   -ms-flex-align: flex-end;
   align-items: flex-end;
   margin: 0 0 0.5rem 0.2rem;
-  font-size: 18px;
   color: #034045;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .emotion-0 label {
-  -webkit-letter-spacing: 0.05px;
-  -moz-letter-spacing: 0.05px;
-  -ms-letter-spacing: 0.05px;
-  letter-spacing: 0.05px;
-  font-weight: 500;
   margin-right: 0.5rem;
-}
-
-.emotion-0 span {
-  -webkit-letter-spacing: 0.05px;
-  -moz-letter-spacing: 0.05px;
-  -ms-letter-spacing: 0.05px;
-  letter-spacing: 0.05px;
-  font-weight: 100;
-  font-size: 14px;
 }
 
 .emotion-1 {
   width: 100%;
-  padding: 0 1em;
+  padding: 0 16px;
   font-size: 18px;
   border: 1px solid #034045;
   border-radius: 8px;
@@ -71,9 +58,7 @@ exports[`Input renders 1`] = `
   font-size: 16px;
 }
 
-<div
-  style="width:50%"
->
+<div>
   <div
     class="emotion-0"
   >

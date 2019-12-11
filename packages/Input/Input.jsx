@@ -9,7 +9,7 @@ import generateId from '../../shared/utils/generateId/generateId.js'
 
 const InputField = styled.input`
   width: 100%;
-  padding: 0 1em;
+  padding: 0 16px;
   font-size: 18px;
   border: 1px solid ${({ feedback }) => (feedback === 'error' ? red : parkGreen)};
   border-radius: 8px;
@@ -39,33 +39,29 @@ const FeedbackIcon = styled.div`
   background-color: ${({ feedback }) => (feedback === 'error' ? red : white)};
 `
 
-const labelStyle = css`
+const labelContainer = css`
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
   margin: 0 0 0.5rem 0.2rem;
-  font-size: 18px;
   color: ${parkGreen};
+  font-size: 18px;
+  font-weight: 500;
   & label {
-    letter-spacing: 0.05px;
-    font-weight: 500;
     margin-right: 0.5rem;
   }
-  & span {
-    letter-spacing: 0.05px;
-    font-weight: 100;
-    font-size: 14px;
-  }
 `
+
+const smallLabelContainer = css`
+  ${labelContainer}
+  font-size: 14px;
+  font-weight: 300;
+  margin-left: 16px;
+`
+
 const feedbackError = css`
-  font-weight: 500;
   color: ${red};
-  & span {
-    font-size: 14px;
-    font-weight: 100;
-    letter-spacing: 0.05px;
-    margin: 0 0 0 1rem;
-  }
+  font-weight: 300;
 `
 
 export const Input = ({
@@ -87,17 +83,10 @@ export const Input = ({
   const inputId = generateId(id, rest.name, label)
   const renderLabel = (label, required) => {
     const labelText = `${label}${required ? true && '*' : ''}`
-    return (
-      <label htmlFor={inputId.identity()}>
-        {small && <span>{labelText}</span>}
-        {!small && labelText}
-      </label>
-    )
+    return <label htmlFor={inputId.identity()}>{labelText}</label>
   }
 
-  const renderFeedback = errorMessage => (
-    <div css={feedbackError}>{small ? <span>{`(${errorMessage})`}</span> : `(${errorMessage})`}</div>
-  )
+  const renderFeedback = errorMessage => <span css={feedbackError}>{`(${errorMessage})`}</span>
 
   const renderFeedbackIcon = feedback => {
     return (
@@ -108,9 +97,9 @@ export const Input = ({
   }
 
   return (
-    <div style={{ width: '50%' }}>
+    <div>
       {!hideLabel && (
-        <div css={labelStyle}>
+        <div css={small ? smallLabelContainer : labelContainer}>
           {label && renderLabel(label, required)}
           {feedback === 'error' && error && renderFeedback(error)}
         </div>
