@@ -1,4 +1,4 @@
-*.stories.js
+*.stories.{js,mdx}
 rollup.config.js
 CssReset.jsx
 __tests__/
