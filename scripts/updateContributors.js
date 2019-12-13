@@ -3,7 +3,7 @@
 
 const { spawnSync } = require('child_process')
 
-const filteredNames = ['renovate-bot']
+const filteredNames = ['renovate-bot', 'dependabot[bot]']
 
 const people = spawnSync('all-contributors', ['check'], {
   stdio: 'pipe',
