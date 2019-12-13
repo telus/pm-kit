@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/telus/pm-kit/compare/@pm-kit/input@1.0.3...@pm-kit/input@1.0.4) (2019-12-11)
+
+
+### Bug Fixes
+
+* **input:** added fade of label when input is disabled ([#16](https://github.com/telus/pm-kit/issues/16)) ([22386c0](https://github.com/telus/pm-kit/commit/22386c09d153e5ad421eadd3649498af27a52264))
+* **input:** fixed label spacing, removed 50% width on container ([#15](https://github.com/telus/pm-kit/issues/15)) ([394d0dc](https://github.com/telus/pm-kit/commit/394d0dc504ef4b8a9efb8e78a86c779bb72832f2))
+
+
+
+
+
 ## [1.0.3](https://github.com/telus/pm-kit/compare/@pm-kit/input@1.0.2...@pm-kit/input@1.0.3) (2019-12-10)
 
 
