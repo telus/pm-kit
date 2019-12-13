@@ -1,0 +1,32 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+import * as typography from './typography.js'
+import { version } from './package.json'
+
+<Meta title="Design System|Typography" component={typography} parameters={{ componentSubtitle: `version` }} />
+
+# Typography
+
+This package exposes values for typography-related css, such as font sizes and font weights. The exports available are the following:
+
+### size
+
+```js
+{
+  bodySmall: '0.875rem',
+  bodyMedium: '1rem',
+  bodyLarge: '1.125rem',
+  h1: '3rem',
+  h2: '2rem',
+  h3: '1.5rem',
+  h4: '1.125rem',
+}
+```
+
+### weight
+
+```js
+{
+  normal: 300,
+  bold: 500,
+}
+```
