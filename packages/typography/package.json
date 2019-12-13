@@ -1,0 +1,17 @@
+{
+  "name": "@pm-kit/typography",
+  "version": "1.0.0-0",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Public Mobile",
+  "engines": {
+    "node": ">=8"
+  },
+  "bugs": {
+    "url": "https://github.com/telus/public-mobile-design-system/issues"
+  }
+}
