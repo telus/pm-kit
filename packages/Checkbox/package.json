@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@pm-kit/colours": "^1.0.3",
-    "framer-motion": "1.6.17",
+    "framer-motion": "1.6.18",
     "prop-types": "^15.7.2"
   }
 }
