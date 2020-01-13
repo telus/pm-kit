@@ -1,0 +1,28 @@
+{
+  "name": "@pm-kit/paragraph",
+  "version": "1.0.0-0",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Public Mobile",
+  "engines": {
+    "node": ">=8"
+  },
+  "bugs": {
+    "url": "https://github.com/telus/public-mobile-design-system/issues"
+  },
+  "peerDependencies": {
+    "@emotion/core": "^10.0.22",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.27",
+    "@pm-kit/typography": "1.0.0",
+    "prop-types": "^15.7.2",
+    "@pm-kit/colours": "^1.0.3"
+  }
+}
