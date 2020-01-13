@@ -70,6 +70,7 @@ Paragraph.defaultProps = {
   fontWeight: fontWeight.normal,
   fontSize: fontSize.bodyMedium,
   cssStyle: undefined,
+  children: '',
 }
 
 export default Paragraph

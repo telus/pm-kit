@@ -2,7 +2,8 @@ import React from 'react'
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs'
 import { css } from '@emotion/core'
 import Paragraph from './Paragraph.jsx'
-
+import * as colors from '../colours/colours'
+import { size, weight } from '../typography/typography'
 export default {
   title: 'Design System|Paragraph',
   component: Paragraph,
@@ -26,8 +27,18 @@ export const Playground = () => {
     <Paragraph
       children={text('Label', 'Testing')}
       position={select('Position', ['left', 'center', 'right', 'justify'])}
-      size={select('Size', ['18px', '24px', '14px'])}
-      weight={select('weight', ['300', '500'])}
+      size={select('Size', [size.bodySmall, size.bodyMedium, size.bodyLarge, size.h1, size.h2, size.h3, size.h4])}
+      weight={select('weight', [weight.bold, weight.normal])}
+      color={select('colors', [
+        colors.greyBlue,
+        colors.parkGreen,
+        colors.lilyGreen,
+        colors.softSandBrown,
+        colors.lightTan,
+        colors.offWhite,
+        colors.white,
+        colors.red,
+      ])}
       decoration={select('decoration', ['underline', 'none'])}
       cssStyle={cssStyle}
     />
