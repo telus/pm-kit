@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Paragraph renders 1`] = `
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+
+.emotion-0 {
+  text-align: left;
+  width: 100%;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #034045;
+}
+
+<div
+  class="emotion-1"
+>
+  <p
+    class="emotion-0"
+  />
+</div>
+`;
