@@ -1,5 +1,5 @@
 import React from 'react'
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs'
+import { withKnobs, text, select } from '@storybook/addon-knobs'
 import { css } from '@emotion/core'
 import Paragraph from './Paragraph.jsx'
 import * as colors from '../colours/colours'
