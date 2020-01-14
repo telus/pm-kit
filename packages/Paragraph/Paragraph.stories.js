@@ -14,7 +14,7 @@ export const Default = () => <Paragraph>Test</Paragraph>
 export const Playground = () => {
   return (
     <Paragraph
-      children={text('Label', 'Testing')}
+      children={text('Label', '')}
       position={select('Position', ['left', 'center', 'right', 'justify'], 'left')}
       size={select(
         'Size',
@@ -35,7 +35,7 @@ export const Playground = () => {
         ],
         colors.parkGreen
       )}
-      decoration={select('decoration', ['underline', 'none'], 'underline')}
+      decoration={select('decoration', ['underline', 'none'], 'none')}
       weight={select('Weight', [weight.normal, weight.bold], weight.normal)}
     />
   )
