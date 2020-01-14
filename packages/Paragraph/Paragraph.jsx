@@ -14,11 +14,9 @@ const Paragraph = forwardRef(({ children, position, size, weight, color, decorat
     text-align: ${position};
     width: 100%;
     text-decoration: ${decoration};
-    /* &&& { */
     font-size: ${size};
     font-weight: ${weight};
     color: ${color};
-    /* } */
   `
 
   const styles = [wrapper]
