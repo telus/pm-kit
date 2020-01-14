@@ -4,7 +4,7 @@ import { css } from '@emotion/core'
 import { size as fontSize, weight as fontWeight } from '@pm-kit/typography'
 import * as colors from '@pm-kit/colours'
 
-const Paragraph = forwardRef(({ children, position, size, weight, color, decoration, cssStyle }, ref) => {
+const Paragraph = ({ children, position, size, weight, color, decoration, forwardedRef, ...rest }) => {
   const paragraph = css`
     text-align: ${position};
     width: 100%;
@@ -14,12 +14,12 @@ const Paragraph = forwardRef(({ children, position, size, weight, color, decorat
     color: ${color};
   `
 
-  const styles = [paragraph]
-  if (cssStyle) {
-    styles.push(cssStyle)
-  }
-  return <p css={styles}>{children}</p>
-})
+  return (
+    <p css={paragraph} {...rest}>
+      {children}
+    </p>
+  )
+}
 
 Paragraph.propTypes = {
   /**
@@ -35,7 +35,7 @@ Paragraph.propTypes = {
    * The font-weight of text. Example: bold.
    */
 
-  weight: PropTypes.string,
+  weight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /**
    * The text size.
    */
@@ -44,19 +44,14 @@ Paragraph.propTypes = {
    * The text.
    */
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-  /**
-   * Css class.
-   */
-  cssStyle: PropTypes.object,
 }
 
 Paragraph.defaultProps = {
   position: 'left',
   color: colors.parkGreen,
   decoration: 'none',
-  fontWeight: fontWeight.normal,
-  fontSize: fontSize.bodyMedium,
-  cssStyle: undefined,
+  weight: fontWeight.normal,
+  size: fontSize.bodyMedium,
   children: '',
 }
 
