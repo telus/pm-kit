@@ -6,6 +6,8 @@ exports[`Paragraph renders 1`] = `
   width: 100%;
   -webkit-text-decoration: none;
   text-decoration: none;
+  font-size: 1rem;
+  font-weight: 300;
   color: #034045;
 }
 

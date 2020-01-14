@@ -10,31 +10,34 @@ export default {
   decorators: [withKnobs],
 }
 
-export const Default = () => <Paragraph>Test</Paragraph>
+export const Default = () => <Paragraph weight={weight.normal}>Test</Paragraph>
 
 export const Playground = () => {
-  const cssStyle = css`
-    padding-top: 20px;
-    font-weight: 500;
-  `
   return (
     <Paragraph
       children={text('Label', 'Testing')}
-      position={select('Position', ['left', 'center', 'right', 'justify'])}
-      size={select('Size', [size.bodySmall, size.bodyMedium, size.bodyLarge, size.h1, size.h2, size.h3, size.h4])}
-      weight={select('weight', [weight.bold, weight.normal])}
-      color={select('colors', [
-        colors.greyBlue,
-        colors.parkGreen,
-        colors.lilyGreen,
-        colors.softSandBrown,
-        colors.lightTan,
-        colors.offWhite,
-        colors.white,
-        colors.red,
-      ])}
-      decoration={select('decoration', ['underline', 'none'])}
-      cssStyle={cssStyle}
+      position={select('Position', ['left', 'center', 'right', 'justify'], 'left')}
+      size={select(
+        'Size',
+        [size.bodySmall, size.bodyMedium, size.bodyLarge, size.h1, size.h2, size.h3, size.h4],
+        size.bodySmall
+      )}
+      color={select(
+        'colors',
+        [
+          colors.greyBlue,
+          colors.parkGreen,
+          colors.lilyGreen,
+          colors.softSandBrown,
+          colors.lightTan,
+          colors.offWhite,
+          colors.white,
+          colors.red,
+        ],
+        colors.parkGreen
+      )}
+      decoration={select('decoration', ['underline', 'none'], 'underline')}
+      weight={select('Weight', [weight.normal, weight.bold], weight.normal)}
     />
   )
 }
