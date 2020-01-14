@@ -26,6 +26,7 @@ const Spinner = ({ size }) => {
 Spinner.propTypes = {
   /**
    * The height and width of spinner.
+   * Either pass a size for the spinner or wrap it in a container for sizing
    */
   size: PropTypes.string,
 }
