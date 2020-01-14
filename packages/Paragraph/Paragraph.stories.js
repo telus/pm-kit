@@ -12,12 +12,6 @@ export default {
 
 export const Default = () => <Paragraph>Test</Paragraph>
 
-export const h1 = () => (
-  <Paragraph size="3rem" weight="500">
-    Test
-  </Paragraph>
-)
-
 export const Playground = () => {
   const cssStyle = css`
     padding-top: 20px;
