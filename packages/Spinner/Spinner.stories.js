@@ -22,7 +22,7 @@ export const Default = () => {
 }
 
 export const Playground = () => {
-  return <Spinner size={select('spinner', ['24px', '34px', '44px'])} />
+  return <Spinner size={select('spinner', ['100%', '24px', '34px', '44px'], '100%')} />
 }
 
 Playground.story = {
