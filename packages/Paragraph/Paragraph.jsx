@@ -60,4 +60,6 @@ Paragraph.defaultProps = {
   children: '',
 }
 
-export default Paragraph
+const ParagraphWithRef = forwardRef((props, ref) => <Paragraph {...props} forwardedRef={ref} />)
+
+export default ParagraphWithRef
