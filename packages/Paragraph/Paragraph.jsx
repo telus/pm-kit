@@ -5,11 +5,6 @@ import { size as fontSize, weight as fontWeight } from '@pm-kit/typography'
 import * as colors from '@pm-kit/colours'
 
 const Paragraph = forwardRef(({ children, position, size, weight, color, decoration, cssStyle }, ref) => {
-  const wrapper = css`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  `
   const paragraph = css`
     text-align: ${position};
     width: 100%;
@@ -19,17 +14,11 @@ const Paragraph = forwardRef(({ children, position, size, weight, color, decorat
     color: ${color};
   `
 
-  const styles = [wrapper]
-
+  const styles = [paragraph]
   if (cssStyle) {
     styles.push(cssStyle)
   }
-
-  return (
-    <div css={styles}>
-      <p css={paragraph}>{children}</p>
-    </div>
-  )
+  return <p css={styles}>{children}</p>
 })
 
 Paragraph.propTypes = {
