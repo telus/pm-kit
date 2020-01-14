@@ -14,7 +14,7 @@ export const Default = () => <Paragraph>Test</Paragraph>
 export const Playground = () => {
   return (
     <Paragraph
-      children={text('Label', '')}
+      children={text('Label', 'Testing')}
       position={select('Position', ['left', 'center', 'right', 'justify'], 'left')}
       size={select(
         'Size',
