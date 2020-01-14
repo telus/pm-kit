@@ -10,7 +10,7 @@ export default {
   decorators: [withKnobs],
 }
 
-export const Default = () => <Paragraph weight={weight.normal}>Test</Paragraph>
+export const Default = () => <Paragraph>Test</Paragraph>
 
 export const Playground = () => {
   return (
