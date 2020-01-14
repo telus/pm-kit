@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Spinner from './Spinner'
 import { css } from '@emotion/core'
-
-// import { withKnobs, select, text } from '@storybook/addon-knobs'
+import { withKnobs, select } from '@storybook/addon-knobs'
 
 export default {
   title: 'Design System|Spinner',
   component: Spinner,
-  //   decorators: [withKnobs],
+  decorators: [withKnobs],
 }
 
 export const Default = () => {
@@ -20,4 +19,13 @@ export const Default = () => {
       <Spinner />
     </div>
   )
+}
+
+export const Playground = () => {
+  return <Spinner size={select('spinner', ['24px', '34px', '44px'])} />
+}
+
+Playground.story = {
+  name: 'playground',
+  parameters: { docs: { page: null, disable: true } },
 }
