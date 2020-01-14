@@ -51,7 +51,7 @@ Paragraph.defaultProps = {
   color: colors.parkGreen,
   decoration: 'none',
   weight: fontWeight.normal,
-  size: fontSize.bodyMedium,
+  size: fontSize.bodyLarge,
   children: '',
 }
 

@@ -19,7 +19,7 @@ export const Playground = () => {
       size={select(
         'Size',
         [size.bodySmall, size.bodyMedium, size.bodyLarge, size.h1, size.h2, size.h3, size.h4],
-        size.bodySmall
+        size.bodyLarge
       )}
       color={select(
         'colors',
