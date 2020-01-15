@@ -1,11 +1,11 @@
 import React from 'react'
-import Spinner from './Spinner'
+import FeedbackIcon from './FeedbackIcon'
 import { css } from '@emotion/core'
 import { withKnobs, select } from '@storybook/addon-knobs'
 
 export default {
-  title: 'Design System|Spinner',
-  component: Spinner,
+  title: 'Design System|FeedbackIcon',
+  component: FeedbackIcon,
   decorators: [withKnobs],
 }
 
@@ -16,13 +16,13 @@ export const Default = () => {
   `
   return (
     <div css={container}>
-      <Spinner />
+      <FeedbackIcon />
     </div>
   )
 }
 
 export const Playground = () => {
-  return <Spinner size={select('spinner', ['100%', '24px', '34px', '44px'], '100%')} />
+  return <FeedbackIcon size={select('FeedbackIcon', ['100%', '24px', '34px', '44px'], '100%')} />
 }
 
 Playground.story = {

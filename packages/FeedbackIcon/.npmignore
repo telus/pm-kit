@@ -1,4 +1,4 @@
 *.stories.{js,mdx}
 rollup.config.js
-Spinner.jsx
+FeedbackIcon.jsx
 __tests__/
