@@ -16,13 +16,18 @@ export const Default = () => {
   `
   return (
     <div css={container}>
-      <FeedbackIcon />
+      <FeedbackIcon state="passed" />
     </div>
   )
 }
 
 export const Playground = () => {
-  return <FeedbackIcon size={select('FeedbackIcon', ['100%', '24px', '34px', '44px'], '100%')} />
+  return (
+    <FeedbackIcon
+      state={select('state', ['passed', 'failed', 'waiting', 'disabled'], 'disabled')}
+      size={select('FeedbackIcon', ['1rem', '24px', '34px', '44px'], '1rem')}
+    />
+  )
 }
 
 Playground.story = {

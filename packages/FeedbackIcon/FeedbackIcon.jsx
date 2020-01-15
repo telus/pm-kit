@@ -2,7 +2,7 @@ import React from 'react'
 import { css } from '@emotion/core'
 import { parkGreen } from '@pm-kit/colours'
 import PropTypes from 'prop-types'
-// import { successPath, failPath } from '../../shared/svg/index'
+import { successPath, failPath } from '../../shared/svg/index'
 
 const FeedbackIcon = ({ state, size }) => {
   const loader = css`
@@ -31,8 +31,8 @@ const FeedbackIcon = ({ state, size }) => {
       {state !== 'disabled' && (
         <>
           {state === 'waiting' && <div css={loader}></div>}
-          {/* {state === 'passed' && <img css={imageStyles} src={successPath} alt="success" />}
-          {state === 'failed' && <img css={imageStyles} src={failPath} alt="fail" />} */}
+          {state === 'passed' && <img css={imageStyles} src={successPath} alt="passed" />}
+          {state === 'failed' && <img css={imageStyles} src={failPath} alt="failed" />}
         </>
       )}
     </>
@@ -40,6 +40,9 @@ const FeedbackIcon = ({ state, size }) => {
 }
 
 FeedbackIcon.propTypes = {
+  /**
+   * The icon you want to render.
+   */
   state: PropTypes.oneOf(['waiting', 'passed', 'failed', 'disabled']),
   /**
    * The height and width of feedback-icon.
