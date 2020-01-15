@@ -5,7 +5,7 @@ import Heading from '../Heading'
 
 describe('Heading', () => {
   it('renders', () => {
-    const heading = render(<Heading />)
+    const heading = render(<Heading level="h1">Test</Heading>)
 
     expect(heading).toMatchSnapshot()
   })
