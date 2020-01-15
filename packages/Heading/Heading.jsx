@@ -29,7 +29,7 @@ const h4 = css`
   letter-spacing: -0.5px;
 `
 
-const Heading = ({ level, tag = level, children, disabled, forwardedRef, ...rest }) => {
+const Heading = ({ level, tag = level, children, forwardedRef, ...rest }) => {
   let variantStyles
 
   switch (level) {
@@ -63,10 +63,6 @@ Heading.propTypes = {
    * The content. Can be text, other components, or HTML elements.
    */
   children: PropTypes.node.isRequired,
-  /**
-   * The content. Can be text, other components, or HTML elements.
-   */
-  disabled: PropTypes.bool,
 }
 
 Heading.defaultProps = {

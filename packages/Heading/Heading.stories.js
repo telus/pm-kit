@@ -36,17 +36,10 @@ export const Heading4 = () => (
   </Heading>
 )
 
-export const Disabled = () => (
-  <Heading level="h1" tag="h1" disabled>
-    Disabled Heading
-  </Heading>
-)
-
 export const Playground = () => (
   <Heading
     level={select('Level', ['h1', 'h2', 'h3', 'h4'])}
     tag={select('Tag', [undefined, 'h1', 'h2', 'h3', 'h4', 'div', 'span'])}
-    disabled={boolean('Disable Input', false)}
     children={text('Text', 'Edit Text')}
   />
 )
