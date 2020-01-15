@@ -28,6 +28,7 @@ export const Default = () => {
         value={false}
       />
       <Radio
+        id="2"
         checked={clicked === 'fr'}
         label="French"
         name="prefLang"
