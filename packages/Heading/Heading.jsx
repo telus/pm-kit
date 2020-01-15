@@ -12,7 +12,7 @@ const h1 = css`
 const h2 = css`
   font-size: 2rem;
   font-weight: 500;
-  line-height: 3.25em;
+  line-height: 3.25rem;
   letter-spacing: -0.5px;
 `
 
@@ -27,10 +27,6 @@ const h4 = css`
   font-weight: 500;
   line-height: 1.35rem;
   letter-spacing: -0.5px;
-`
-
-const disabledStyle = css`
-  opacity: 0.5;
 `
 
 const Heading = ({ level, tag = level, children, disabled, forwardedRef, ...rest }) => {
@@ -51,12 +47,7 @@ const Heading = ({ level, tag = level, children, disabled, forwardedRef, ...rest
       break
   }
 
-  const styles = [variantStyles]
-  if (disabled) {
-    styles.push(disabledStyle)
-  }
-
-  return jsx(tag || 'h1', { css: styles, ref: forwardedRef, ...rest }, children)
+  return jsx(tag || 'h1', { css: variantStyles, ref: forwardedRef, ...rest }, children)
 }
 
 Heading.propTypes = {
