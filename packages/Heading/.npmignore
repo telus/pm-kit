@@ -1,0 +1,4 @@
+*.stories.{js,mdx}
+rollup.config.js
+Heading.jsx
+__tests__/
