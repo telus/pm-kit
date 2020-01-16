@@ -16,7 +16,7 @@ const radio = css`
     display: block;
   }
 `
-const radioFake = css`
+const basicRadioFake = css`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,6 +32,11 @@ const radioFake = css`
   cursor: pointer;
   transition: border-color 0.1s linear, background-color 0.1s linear;
 `
+
+const radioFakeSelected = css`
+  border: 2px solid ${softSandBrown};
+`
+
 const radioInner = css`
   display: none;
   width: 9px;
@@ -40,7 +45,7 @@ const radioInner = css`
   background-color: ${softSandBrown};
 `
 
-const labelStyle = css`
+const basicLabel = css`
   display: flex;
   align-items: center;
   padding: 12px 18px;
@@ -48,31 +53,25 @@ const labelStyle = css`
   cursor: pointer;
   overflow: hidden;
   background-position: right bottom;
-  transition: all 0.4s ease;
   background-color: ${parkGreen};
   width: 100%;
-  &:hover {
-    background-color: ${lilyGreen};
-  }
 `
 
 const labelNotSelected = css`
+  &:hover {
+    background-color: ${lilyGreen};
+  }
   background-color: ${lightTan};
 `
 
-const labelAnimation = css`
-  background: linear-gradient(to right, ${parkGreen} 50%, #f4e8d9 50%);
-  background-size: 200% 100%;
-  background-position: left bottom;
+const labelSelected = css`
+  :hover {
+    background-color: #09585e;
+  }
+  background-color: ${parkGreen};
   color: ${softSandBrown};
-  opacity: 1;
-  /* :hover {
-    background: linear-gradient(to right, ${greyBlue} 50%, ${greyBlue} 50%);
-  } */
 `
-const radioFakeUpdated = css`
-  border: 2px solid ${softSandBrown};
-`
+
 const labelText = css`
   margin-left: 1rem;
   font-size: 1em;
@@ -93,16 +92,20 @@ export const Radio = ({
   ...rest
 }) => {
   const radioId = generateId(id, rest.name, label)
-  const radioFakeStyle = [radioFake, radioFakeUpdated]
-  const labelNotSelectedStyle = [labelStyle, labelNotSelected]
-  const labelAnimationStyle = [labelStyle, labelAnimation]
+  const radioFakeStyle = [basicRadioFake]
+  const labelStyle = [basicLabel, labelNotSelected]
   const radioVariant = {
     whileTap: {},
   }
 
-  const labeVariant = {
+  if (checked) {
+    labelStyle.push(labelSelected)
+    radioFakeStyle.push(radioFakeSelected)
+  }
+
+  const labelVariant = {
     whileTap: {
-      scale: 0.8,
+      scale: 0.96,
     },
   }
 
@@ -121,18 +124,18 @@ export const Radio = ({
         value={value}
         {...rest}
       />
-      <label
-        css={checked ? labelAnimationStyle : labelNotSelectedStyle}
+      <motion.label
+        css={labelStyle}
         data-testid="checkbox-label"
         htmlFor={radioId.identity()}
+        variants={labelVariant}
+        transition={{ duration: 0.65 }}
       >
-        <div css={checked ? radioFakeStyle : radioFake} data-testid="fake-input">
+        <div css={radioFakeStyle} data-testid="fake-input">
           <span css={radioInner} />
         </div>
-        <motion.span variants={labeVariant} css={labelText}>
-          {label}
-        </motion.span>
-      </label>
+        <span css={labelText}>{label}</span>
+      </motion.label>
     </motion.div>
   )
 }

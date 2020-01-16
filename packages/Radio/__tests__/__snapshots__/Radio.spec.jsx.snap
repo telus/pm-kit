@@ -29,8 +29,6 @@ exports[`Radio renders 1`] = `
   cursor: pointer;
   overflow: hidden;
   background-position: right bottom;
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
   background-color: #034045;
   width: 100%;
   background-color: #dbd7c9;
