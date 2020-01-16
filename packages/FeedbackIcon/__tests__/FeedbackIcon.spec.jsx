@@ -8,23 +8,17 @@ describe('FeedbackIcon', () => {
     const feedbackIcon = render(<FeedbackIcon state="disabled" />)
     expect(feedbackIcon).toMatchSnapshot()
   })
-})
 
-describe('FeedbackIcon', () => {
   it('renders checkmark when passed', () => {
     const feedbackIcon = render(<FeedbackIcon state="passed" />)
     expect(feedbackIcon).toMatchSnapshot()
   })
-})
 
-describe('FeedbackIcon', () => {
   it('renders error icon when failed', () => {
     const feedbackIcon = render(<FeedbackIcon state="failed" />)
     expect(feedbackIcon).toMatchSnapshot()
   })
-})
 
-describe('FeedbackIcon', () => {
   it('renders spinner when waiting', () => {
     const feedbackIcon = render(<FeedbackIcon state="waiting" />)
     expect(feedbackIcon).toMatchSnapshot()
