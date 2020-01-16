@@ -1,6 +1,5 @@
 import React from 'react'
 import FeedbackIcon from './FeedbackIcon'
-import { css } from '@emotion/core'
 import { withKnobs, select } from '@storybook/addon-knobs'
 
 export default {
