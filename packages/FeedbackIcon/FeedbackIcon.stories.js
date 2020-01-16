@@ -1,6 +1,6 @@
 import React from 'react'
 import FeedbackIcon from './FeedbackIcon'
-import { withKnobs, select } from '@storybook/addon-knobs'
+import { withKnobs, select, text } from '@storybook/addon-knobs'
 
 export default {
   title: 'Design System|FeedbackIcon',
@@ -20,7 +20,7 @@ export const Playground = () => {
   return (
     <FeedbackIcon
       state={select('state', ['passed', 'failed', 'waiting', 'disabled'], 'disabled')}
-      size={select('FeedbackIcon', ['1rem', '24px', '34px', '44px'], '1rem')}
+      size={text('size', '1.125rem')}
     />
   )
 }
