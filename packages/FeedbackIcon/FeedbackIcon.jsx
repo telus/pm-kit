@@ -52,7 +52,7 @@ FeedbackIcon.propTypes = {
 
 FeedbackIcon.defaultProps = {
   state: 'disabled',
-  size: '1rem',
+  size: '1.125rem',
 }
 
 export default FeedbackIcon
