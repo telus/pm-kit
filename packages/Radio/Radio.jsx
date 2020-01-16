@@ -94,9 +94,6 @@ export const Radio = ({
   const radioId = generateId(id, rest.name, label)
   const radioFakeStyle = [basicRadioFake]
   const labelStyle = [basicLabel, labelNotSelected]
-  const radioVariant = {
-    whileTap: {},
-  }
 
   if (checked) {
     labelStyle.push(labelSelected)
@@ -110,7 +107,7 @@ export const Radio = ({
   }
 
   return (
-    <motion.div whileTap="whileTap" variants={radioVariant}>
+    <motion.div whileTap="whileTap">
       <input
         aria-invalid={feedback === 'error'}
         checked={checked}
@@ -127,7 +124,7 @@ export const Radio = ({
         data-testid="checkbox-label"
         htmlFor={radioId.identity()}
         variants={labelVariant}
-        transition={{ duration: 0.65 }}
+        transition={{ duration: 0.6 }}
       >
         <div css={radioFakeStyle} data-testid="fake-input">
           <span css={radioInner} />
