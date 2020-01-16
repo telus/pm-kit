@@ -5,7 +5,9 @@ import ExpandableCard from '../ExpandableCard'
 
 describe('ExpandableCard', () => {
   it('renders', () => {
-    const expandableCard = render(<ExpandableCard />)
+    const expandableCard = render(
+      <ExpandableCard title="title" subtitle="subtitle" selectedText="Selected" unSlectedText="Select" />
+    )
 
     expect(expandableCard).toMatchSnapshot()
   })

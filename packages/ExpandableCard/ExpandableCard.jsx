@@ -225,7 +225,7 @@ ExpandableCard.propTypes = {
   anchor: PropTypes.node,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
-  details: PropTypes.object,
+  details: PropTypes.array,
   selectedText: PropTypes.string.isRequired,
   unSlectedText: PropTypes.string.isRequired,
 }
