@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/telus/pm-kit/compare/@pm-kit/checkbox@1.1.1...@pm-kit/checkbox@1.1.2) (2020-01-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v1.7.0 ([#21](https://github.com/telus/pm-kit/issues/21)) ([9381a7d](https://github.com/telus/pm-kit/commit/9381a7d34c314af7f6aec1e32b322e6e4f104c02))
+
+
+
+
+
 ## [1.1.1](https://github.com/telus/pm-kit/compare/@pm-kit/checkbox@1.1.0...@pm-kit/checkbox@1.1.1) (2019-12-10)
 
 
