@@ -10,7 +10,6 @@ const people = spawnSync('all-contributors', ['check'], {
   encoding: 'utf-8',
 })
 
-console.log(people)
 const peopleList = people.output[1].slice(people.output[1].indexOf('\n', 25)).split(',')
 
 peopleList
