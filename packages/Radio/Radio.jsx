@@ -79,7 +79,19 @@ const labelText = css`
   font-weight: 700;
 `
 
-const Radio = ({ checked, description, error, feedback, id, label, name, value, variant, forwardedRef, ...rest }) => {
+export const Radio = ({
+  checked,
+  description,
+  error,
+  feedback,
+  id,
+  label,
+  name,
+  value,
+  variant,
+  forwardedRef,
+  ...rest
+}) => {
   const radioId = generateId(id, rest.name, label)
   const radioFakeStyle = [radioFake, radioFakeUpdated]
   const labelNotSelectedStyle = [labelStyle, labelNotSelected]
@@ -179,4 +191,6 @@ Radio.defaultProps = {
 
 Radio.displayName = 'Radio'
 
-export default Radio
+const RadioWithRef = forwardRef((props, ref) => <Radio {...props} forwardedRef={ref} />)
+
+export default RadioWithRef
