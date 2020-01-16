@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExpandableCard renders 1`] = `
+.emotion-11 {
+  width: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #FBF5EB;
+  border-width: 3px;
+  border-radius: 12px;
+  border-style: solid;
+  overflow: hidden;
+  position: relative;
+  border-color: #034045;
+  -webkit-flex-basis: '40%';
+  -ms-flex-preferred-size: '40%';
+  flex-basis: '40%';
+  -webkit-box-flex: '1';
+  -webkit-flex-grow: '1';
+  -ms-flex-positive: '1';
+  flex-grow: '1';
+  margin-bottom: '32px';
+}
+
+.emotion-11:hover {
+  box-shadow: 0 2px 18px 0 rgba(0,0,0,0.25);
+}
+
+.emotion-10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-6 {
+  padding: 23px 23px 0px 23px;
+  cursor: pointer;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  font-weight: 500;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  padding-right: 8px;
+}
+
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  margin-bottom: 24px;
+  margin-top: 8px;
+}
+
+.emotion-3 {
+  color: #034045;
+  font-weight: 500;
+  padding-left: 8px;
+  width: 100%;
+}
+
+.emotion-4 {
+  padding-left: 8px;
+}
+
+.emotion-7 {
+  border-style: solid;
+  border-color: #034045;
+  border-bottom-width: 1px;
+  margin-left: 35px;
+  margin-right: 35px;
+}
+
+.emotion-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  font-weight: 500;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  padding: 16px 23px 23px 23px;
+  cursor: pointer;
+}
+
+.emotion-8 {
+  text-align: left;
+  width: 100%;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 1.125rem;
+  font-weight: 300;
+  color: #034045;
+}
+
+<div
+  class="emotion-11"
+>
+  <div
+    class="emotion-10"
+  >
+    <div
+      class="emotion-6"
+    >
+      <div
+        class="emotion-2"
+      >
+        <div
+          class="emotion-1"
+        >
+          <p
+            class="emotion-0"
+          >
+            Select
+          </p>
+          <img
+            alt="unselected"
+            height="18px"
+            src="test-file-stub"
+            width="18px"
+          />
+        </div>
+      </div>
+      <div
+        class="emotion-5"
+      >
+        <div>
+          <p
+            class="emotion-3"
+          >
+            title
+          </p>
+          <p
+            class="emotion-4"
+          >
+            subtitle
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="emotion-7"
+    />
+    <div
+      class="emotion-9"
+    >
+      <p
+        class="emotion-8"
+      >
+        Details
+      </p>
+      <img
+        alt="arrow"
+        src="test-file-stub"
+      />
+    </div>
+  </div>
+</div>
+`;
