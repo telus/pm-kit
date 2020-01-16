@@ -9,7 +9,7 @@ export default {
   decorators: [withKnobs],
 }
 
-export const Default = () => {
+export const passed = () => {
   const container = css`
     width: 44px;
     height: 44px;
@@ -17,6 +17,30 @@ export const Default = () => {
   return (
     <div css={container}>
       <FeedbackIcon state="passed" />
+    </div>
+  )
+}
+
+export const failed = () => {
+  const container = css`
+    width: 44px;
+    height: 44px;
+  `
+  return (
+    <div css={container}>
+      <FeedbackIcon state="failed" />
+    </div>
+  )
+}
+
+export const waiting = () => {
+  const container = css`
+    width: 44px;
+    height: 44px;
+  `
+  return (
+    <div css={container}>
+      <FeedbackIcon state="waiting" />
     </div>
   )
 }
