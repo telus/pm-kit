@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-// import { withKnobs, text, select } from '@storybook/addon-knobs'
+import { withKnobs, text } from '@storybook/addon-knobs'
 import Radio from './Radio'
-// import { size, weight } from '../typography/typography'
 
 export default {
   title: 'Design System|Radio',
   component: Radio,
-  //   decorators: [withKnobs],
+  decorators: [withKnobs],
 }
 
 export const Default = () => {
@@ -21,7 +20,7 @@ export const Default = () => {
       <Radio
         checked={clicked === 'en'}
         label="English"
-        name="prefLang"
+        name="prefLang1"
         onChange={() => {
           handleSelectOption('en')
         }}
@@ -31,7 +30,7 @@ export const Default = () => {
         id="2"
         checked={clicked === 'fr'}
         label="French"
-        name="prefLang"
+        name="prefLang2"
         onChange={() => {
           handleSelectOption('fr')
         }}
@@ -41,37 +40,40 @@ export const Default = () => {
   )
 }
 
-// export const Playground = () => {
-//   return (
-//     <Paragraph
-//       children={text('Label', 'Testing')}
-//       position={select('Position', ['left', 'center', 'right', 'justify'], 'left')}
-//       size={select(
-//         'Size',
-//         [size.bodySmall, size.bodyMedium, size.bodyLarge, size.h1, size.h2, size.h3, size.h4],
-//         size.bodyLarge
-//       )}
-//       color={select(
-//         'colors',
-//         [
-//           colors.greyBlue,
-//           colors.parkGreen,
-//           colors.lilyGreen,
-//           colors.softSandBrown,
-//           colors.lightTan,
-//           colors.offWhite,
-//           colors.white,
-//           colors.red,
-//         ],
-//         colors.parkGreen
-//       )}
-//       decoration={select('decoration', ['underline', 'none'], 'none')}
-//       weight={select('Weight', [weight.normal, weight.bold], weight.normal)}
-//     />
-//   )
-// }
+export const Playground = () => {
+  const [clicked, setClicked] = useState('en')
 
-// Playground.story = {
-//   name: 'playground',
-//   parameters: { docs: { page: null, disable: true } },
-// }
+  const handleSelectOption = en_ => {
+    setClicked(en_)
+  }
+
+  return (
+    <>
+      <Radio
+        id="1"
+        checked={clicked === 'fr'}
+        label={text('Label', 'Testing Radio 1')}
+        name="prefLang1"
+        onChange={() => {
+          handleSelectOption('fr')
+        }}
+        value={true}
+      />
+      <Radio
+        id="2"
+        checked={clicked === 'en'}
+        label={text('Label', 'Testing Radio 2')}
+        name="prefLang2"
+        onChange={() => {
+          handleSelectOption('en')
+        }}
+        value={true}
+      />
+    </>
+  )
+}
+
+Playground.story = {
+  name: 'playground',
+  parameters: { docs: { page: null, disable: true } },
+}

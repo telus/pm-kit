@@ -66,9 +66,9 @@ const labelAnimation = css`
   background-position: left bottom;
   color: ${softSandBrown};
   opacity: 1;
-  :hover {
+  /* :hover {
     background: linear-gradient(to right, ${greyBlue} 50%, ${greyBlue} 50%);
-  }
+  } */
 `
 const radioFakeUpdated = css`
   border: 2px solid ${softSandBrown};
