@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
 import generateId from '../../shared/utils/generateId/generateId.js'
-import { parkGreen, softSandBrown, lilyGreen, lightTan, greyBlue } from '@pm-kit/colours'
+import { parkGreen, softSandBrown, lilyGreen, lightTan } from '@pm-kit/colours'
 import { motion } from 'framer-motion'
 
 const radio = css`

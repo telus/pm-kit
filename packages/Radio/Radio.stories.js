@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import { withKnobs, text } from '@storybook/addon-knobs'
 import Radio from './Radio'
+import { css } from '@emotion/core'
 
 export default {
   title: 'Design System|Radio',
   component: Radio,
-  decorators: [withKnobs],
 }
 
 export const Default = () => {
@@ -14,6 +13,10 @@ export const Default = () => {
   const handleSelectOption = en_ => {
     setClicked(en_)
   }
+
+  const radioButtonContainer = css`
+    margin-top: 10px;
+  `
 
   return (
     <>
@@ -26,54 +29,18 @@ export const Default = () => {
         }}
         value={false}
       />
-      <Radio
-        id="2"
-        checked={clicked === 'fr'}
-        label="French"
-        name="prefLang2"
-        onChange={() => {
-          handleSelectOption('fr')
-        }}
-        value={true}
-      />
+      <div css={radioButtonContainer}>
+        <Radio
+          id="2"
+          checked={clicked === 'fr'}
+          label="French"
+          name="prefLang2"
+          onChange={() => {
+            handleSelectOption('fr')
+          }}
+          value={true}
+        />
+      </div>
     </>
   )
-}
-
-export const Playground = () => {
-  const [clicked, setClicked] = useState('en')
-
-  const handleSelectOption = en_ => {
-    setClicked(en_)
-  }
-
-  return (
-    <>
-      <Radio
-        id="1"
-        checked={clicked === 'fr'}
-        label={text('Label', 'Testing Radio 1')}
-        name="prefLang1"
-        onChange={() => {
-          handleSelectOption('fr')
-        }}
-        value={true}
-      />
-      <Radio
-        id="2"
-        checked={clicked === 'en'}
-        label={text('Label', 'Testing Radio 2')}
-        name="prefLang2"
-        onChange={() => {
-          handleSelectOption('en')
-        }}
-        value={true}
-      />
-    </>
-  )
-}
-
-Playground.story = {
-  name: 'playground',
-  parameters: { docs: { page: null, disable: true } },
 }
