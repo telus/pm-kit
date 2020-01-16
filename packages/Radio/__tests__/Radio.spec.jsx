@@ -5,7 +5,7 @@ import Radio from '../Radio'
 
 describe('Radio', () => {
   it('renders', () => {
-    const radio = render(<Radio />)
+    const radio = render(<Radio label="Test1" />)
 
     expect(radio).toMatchSnapshot()
   })

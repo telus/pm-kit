@@ -187,7 +187,7 @@ Radio.defaultProps = {
   label: '',
   name: '',
   value: '',
-  id: '1',
+  id: undefined,
 }
 
 Radio.displayName = 'Radio'

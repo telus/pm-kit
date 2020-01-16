@@ -31,7 +31,6 @@ export const Default = () => {
       />
       <div css={radioButtonContainer}>
         <Radio
-          id="2"
           checked={clicked === 'fr'}
           label="French"
           name="prefLang2"

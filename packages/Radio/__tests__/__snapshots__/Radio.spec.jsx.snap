@@ -84,7 +84,7 @@ exports[`Radio renders 1`] = `
     aria-invalid="false"
     class="emotion-0"
     data-testid="hidden-input"
-    id="1"
+    id="test1"
     name=""
     type="radio"
     value=""
@@ -92,7 +92,7 @@ exports[`Radio renders 1`] = `
   <label
     class="emotion-4"
     data-testid="checkbox-label"
-    for="1"
+    for="test1"
   >
     <div
       class="emotion-2"
@@ -104,7 +104,9 @@ exports[`Radio renders 1`] = `
     </div>
     <span
       class="emotion-3"
-    />
+    >
+      Test1
+    </span>
   </label>
 </div>
 `;
