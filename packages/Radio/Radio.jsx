@@ -112,14 +112,12 @@ export const Radio = ({
   return (
     <motion.div whileTap="whileTap" variants={radioVariant}>
       <input
-        // aria-describedby={feedback === 'error' ? getErrorId(name, value, id) : undefined}
         aria-invalid={feedback === 'error'}
         checked={checked}
         css={radio}
         data-testid="hidden-input"
         id={radioId.identity()}
         name={name}
-        // ref={ref}
         type="radio"
         value={value}
         {...rest}
