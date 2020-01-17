@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dropdown renders 1`] = `
+exports[`Dropdown renders default dropdown 1`] = `
 Array [
   .emotion-0 {
   display: block;
@@ -18,9 +18,10 @@ Array [
 
 <label
     class="emotion-0"
+    for="testing"
   >
     <span>
-       
+      testing 
     </span>
   </label>,
   .emotion-9 {
@@ -159,6 +160,7 @@ Array [
   >
     <div
       class=" emotion-8"
+      id="testing"
     >
       <div
         class=" emotion-7"

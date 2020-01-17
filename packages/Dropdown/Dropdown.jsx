@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
 import Select, { components, createFilter } from 'react-select'
 import { motion, AnimatePresence } from 'framer-motion'
 import { size, weight } from '@pm-kit/typography'
 import { parkGreen, red, lightTan, white } from '@pm-kit/colours'
+import generateId from '../../shared/utils/generateId/generateId.js'
 
 const inputWrapper = css`
   position: relative;
@@ -111,7 +112,7 @@ const dropdownAnimate = {
   },
 }
 
-const Dropdown = ({
+export const Dropdown = ({
   error,
   feedback,
   id,
@@ -127,8 +128,10 @@ const Dropdown = ({
   ignoreAccents,
   trim,
   matchFrom,
+  forwardedRef,
   ...rest
 }) => {
+  const selectId = generateId(id, label)
   const filterConfig = {
     ignoreCase,
     ignoreAccents,
@@ -164,7 +167,7 @@ const Dropdown = ({
 
   return (
     <>
-      <label css={labelStyle} htmlFor={id}>
+      <label css={labelStyle} htmlFor={selectId.identity()}>
         {renderLabel()}
         {feedback === 'error' && renderError(error)}
       </label>
@@ -174,7 +177,7 @@ const Dropdown = ({
           onChange={onChange}
           options={options}
           placeholder={placeholder}
-          id={id}
+          id={selectId.identity()}
           type={type}
           styles={customDropdownStyles}
           isClearable={true}
@@ -246,7 +249,7 @@ Dropdown.propTypes = {
   feedback: PropTypes.oneOf(['success', 'error']),
   feedbackIcon: PropTypes.bool,
   /**
-   * The id.
+   * A unique id.
    */
   id: PropTypes.string,
   /**
@@ -296,4 +299,6 @@ Dropdown.defaultProps = {
   ignoreCase: true,
 }
 
-export default Dropdown
+const DropdownWithRef = forwardRef((props, ref) => <Dropdown {...props} forwardedRef={ref} />)
+
+export default DropdownWithRef
