@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Heading renders 1`] = `
+.emotion-0 {
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 3rem;
+  -webkit-letter-spacing: -0.5px;
+  -moz-letter-spacing: -0.5px;
+  -ms-letter-spacing: -0.5px;
+  letter-spacing: -0.5px;
+}
+
+<h1
+  class="emotion-0"
+>
+  Test
+</h1>
+`;
