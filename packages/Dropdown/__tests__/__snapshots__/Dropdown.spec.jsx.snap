@@ -1,0 +1,227 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown renders 1`] = `
+Array [
+  .emotion-0 {
+  display: block;
+  margin: 0 0 0.2rem 1rem;
+}
+
+.emotion-0 span {
+  -webkit-letter-spacing: 0.05px;
+  -moz-letter-spacing: 0.05px;
+  -ms-letter-spacing: 0.05px;
+  letter-spacing: 0.05px;
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+
+<label
+    class="emotion-0"
+  >
+    <span>
+       
+    </span>
+  </label>,
+  .emotion-9 {
+  position: relative;
+}
+
+.emotion-8 {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.emotion-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  min-width: 100%;
+  height: 48px;
+  padding: 0 0 0 7px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: 1px solid #034045;
+  background-color: #FFF;
+  color: #034045;
+  cursor: pointer;
+}
+
+.emotion-2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 2px 8px;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  color: #034045;
+  margin-left: 2px;
+  margin-right: 2px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  box-sizing: border-box;
+  color: #034045;
+  font-size: 16px;
+}
+
+.emotion-1 {
+  margin: 2px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  visibility: visible;
+  color: hsl(0,0%,20%);
+  box-sizing: border-box;
+}
+
+.emotion-6 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.emotion-3 {
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  background-color: hsl(0,0%,80%);
+  margin-bottom: 8px;
+  margin-top: 8px;
+  width: 1px;
+  box-sizing: border-box;
+  visibility: hidden;
+}
+
+.emotion-5 {
+  color: #034045;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8px;
+  -webkit-transition: color 150ms;
+  transition: color 150ms;
+  box-sizing: border-box;
+}
+
+.emotion-5:hover {
+  color: hsl(0,0%,60%);
+}
+
+.emotion-4 {
+  display: inline-block;
+  fill: currentColor;
+  line-height: 1;
+  stroke: currentColor;
+  stroke-width: 0;
+}
+
+<div
+    class="emotion-9"
+  >
+    <div
+      class=" emotion-8"
+    >
+      <div
+        class=" emotion-7"
+      >
+        <div
+          class=" emotion-2"
+        >
+          <div
+            class="emotion-0"
+          >
+            Select...
+          </div>
+          <div
+            class="emotion-1"
+          >
+            <div
+              class=""
+              style="display:inline-block"
+            >
+              <input
+                aria-autocomplete="list"
+                autocapitalize="none"
+                autocomplete="off"
+                autocorrect="off"
+                id="react-select-2-input"
+                spellcheck="false"
+                style="box-sizing:content-box;width:1px;label:input;background:0;border:0;font-size:inherit;opacity:1;outline:0;padding:0;color:inherit"
+                tabindex="0"
+                type="text"
+                value=""
+              />
+              <div
+                style="position:absolute;top:0;left:0;visibility:hidden;height:0;overflow:scroll;white-space:pre"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class=" emotion-6"
+        >
+          <span
+            class=" emotion-3"
+          />
+          <div
+            aria-hidden="true"
+            class=" emotion-5"
+          >
+            <svg
+              aria-hidden="true"
+              class="emotion-4"
+              focusable="false"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+            >
+              <path
+                d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
