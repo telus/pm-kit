@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FeedbackIcon renders checkmark when passed 1`] = `
+.emotion-0 {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+<img
+  alt="passed"
+  class="emotion-0"
+  src="test-file-stub"
+/>
+`;
+
+exports[`FeedbackIcon renders error icon when failed 1`] = `
+.emotion-0 {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+<img
+  alt="failed"
+  class="emotion-0"
+  src="test-file-stub"
+/>
+`;
+
+exports[`FeedbackIcon renders nothing when disabled 1`] = `null`;
+
+exports[`FeedbackIcon renders spinner when waiting 1`] = `
+.emotion-0 {
+  border: 3px solid #034045;
+  border-radius: 50%;
+  border-right-color: transparent;
+  display: inline-block;
+  width: 1.125rem;
+  height: 1.125rem;
+  -webkit-animation: 1s linear infinite spinner;
+  animation: 1s linear infinite spinner;
+  -webkit-animation-delay: var(--spinner-delay);
+  animation-delay: var(--spinner-delay);
+}
+
+<div
+  class="emotion-0"
+/>
+`;
