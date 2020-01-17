@@ -1,30 +1,31 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { css, jsx } from '@emotion/core'
+import { size, weight } from '@pm-kit/typography'
 
 const h1 = css`
-  font-size: 3rem;
-  font-weight: 500;
+  font-size: ${size.h1};
+  font-weight: ${weight.bold};
   line-height: 3rem;
   letter-spacing: -0.5px;
 `
 
 const h2 = css`
-  font-size: 2rem;
-  font-weight: 500;
-  line-height: 3.25rem;
+  font-size: ${size.h2};
+  font-weight: ${weight.bold};
+  line-height: 2.4rem;
   letter-spacing: -0.5px;
 `
 
 const h3 = css`
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: ${size.h3};
+  font-weight: ${weight.bold};
   line-height: 1.8rem;
   letter-spacing: -0.5px;
 `
 const h4 = css`
-  font-size: 1.125rem;
-  font-weight: 500;
+  font-size: ${size.h4};
+  font-weight: ${weight.bold};
   line-height: 1.35rem;
   letter-spacing: -0.5px;
 `
