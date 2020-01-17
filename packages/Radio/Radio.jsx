@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
 import generateId from '../../shared/utils/generateId/generateId.js'
-import { parkGreen, softSandBrown, lilyGreen, lightTan } from '@pm-kit/colours'
+import { parkGreen, softSandBrown, lilyGreen, lightTan, midnightGreen } from '@pm-kit/colours'
 import { motion } from 'framer-motion'
 
 const radio = css`
@@ -66,7 +66,7 @@ const labelNotSelected = css`
 
 const labelSelected = css`
   :hover {
-    background-color: #09585e;
+    background-color: ${midnightGreen};
   }
   background-color: ${parkGreen};
   color: ${softSandBrown};
