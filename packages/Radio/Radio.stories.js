@@ -20,25 +20,9 @@ export const Default = () => {
 
   return (
     <>
-      <Radio
-        checked={clicked === 'en'}
-        label="English"
-        name="prefLang1"
-        onChange={() => {
-          handleSelectOption('en')
-        }}
-        value={false}
-      />
+      <Radio checked={clicked === 'en'} label="English" name="prefLang1" onChange={handleSelectOption} value="en" />
       <div css={radioButtonContainer}>
-        <Radio
-          checked={clicked === 'fr'}
-          label="French"
-          name="prefLang2"
-          onChange={() => {
-            handleSelectOption('fr')
-          }}
-          value={true}
-        />
+        <Radio checked={clicked === 'fr'} label="French" name="prefLang2" onChange={handleSelectOption} value="fr" />
       </div>
     </>
   )
