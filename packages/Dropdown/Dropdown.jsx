@@ -295,7 +295,7 @@ Dropdown.propTypes = {
    */
   ignoreCase: PropTypes.bool,
   /**
-   * Displays largeLabel if true is passed. Otherwise, displays regular sized label.
+   * Displays large label if true is passed. Otherwise, displays regular sized label.
    */
   largeLabel: PropTypes.bool,
 }
