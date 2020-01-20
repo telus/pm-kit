@@ -67,6 +67,11 @@ export const Playground = () => {
       options={cities}
       onChange={() => {}}
       placeholder={text('placeholder', 'Cities')}
+      matchForm={select('match form', ['start', 'any'], 'start')}
+      trim={select('trim', [true, false], true)}
+      ignoreAccents={select('ignore accents', [true, false], true)}
+      ignoreCase={select('ignore case', [true, false], true)}
+      largeLabel={select('large label', [true, false], false)}
     />
   )
 }

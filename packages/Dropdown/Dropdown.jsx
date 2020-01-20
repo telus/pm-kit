@@ -123,7 +123,7 @@ export const Dropdown = ({
   type,
   value,
   placeholder,
-  big,
+  largeLabel,
   ignoreCase,
   ignoreAccents,
   trim,
@@ -141,7 +141,7 @@ export const Dropdown = ({
   const labelStyle = [basicLabel]
   const inputWrapperStyle = [inputWrapper]
 
-  if (big) {
+  if (largeLabel) {
     labelStyle.push(bigLabel)
   }
 
@@ -247,6 +247,9 @@ Dropdown.propTypes = {
    * A feedback state.
    */
   feedback: PropTypes.oneOf(['success', 'error']),
+  /**
+   * A success, error or waiting image to corrospond to feedback.
+   */
   feedbackIcon: PropTypes.bool,
   /**
    * A unique id.
@@ -257,9 +260,12 @@ Dropdown.propTypes = {
    */
   label: PropTypes.string.isRequired,
   /**
-   * Dropdown options data
+   * A function called on picking one of the options.
    */
   onChange: PropTypes.func.isRequired,
+  /**
+   * Dropdown options data
+   */
   options: PropTypes.array,
   required: PropTypes.bool,
   /**
@@ -271,15 +277,27 @@ Dropdown.propTypes = {
    * See examples below for more details.
    */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
-
   /**
-   * A `Tooltip`
+   * The order of search. 'start' searches options that begin with your search input and
+   * 'any' searches options that contain your search input.
    */
-  // tooltip: componentWithName('Tooltip'),
   matchFrom: PropTypes.oneOf(['any', 'start']),
+  /**
+   * Trim your search input.
+   */
   trim: PropTypes.bool,
+  /**
+   * Ignore accents.
+   */
   ignoreAccents: PropTypes.bool,
+  /**
+   * Ignore Case of your search
+   */
   ignoreCase: PropTypes.bool,
+  /**
+   * Displays largeLabel if true is passed. Otherwise, displays regular sized label.
+   */
+  largeLabel: PropTypes.bool,
 }
 
 Dropdown.defaultProps = {
@@ -297,6 +315,7 @@ Dropdown.defaultProps = {
   trim: true,
   ignoreAccents: true,
   ignoreCase: true,
+  largeLabel: false,
 }
 
 const DropdownWithRef = forwardRef((props, ref) => <Dropdown {...props} forwardedRef={ref} />)
