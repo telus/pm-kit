@@ -17,8 +17,10 @@ export const Default = () => {
   const radioButtonContainer = css`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 105px;
+
+    > * :not(last-child) {
+      margin-bottom: 10px;
+    }
   `
 
   return (
