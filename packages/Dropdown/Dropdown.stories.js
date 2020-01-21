@@ -26,14 +26,21 @@ export const Default = () => {
   return <Dropdown label="Select a city" value={city} options={cities} onChange={onCitySelect} required={true} />
 }
 
-export const DropdownWithBigLabel = () => {
+export const DropdownWithLargeLabel = () => {
   const [city, setCity] = useState(cities[0])
 
   const onCitySelect = citySelected => {
     setCity(citySelected)
   }
   return (
-    <Dropdown label="Select a city" value={city} options={cities} onChange={onCitySelect} required={true} big={true} />
+    <Dropdown
+      label="Select a city"
+      value={city}
+      options={cities}
+      onChange={onCitySelect}
+      required={true}
+      largeLabel={true}
+    />
   )
 }
 

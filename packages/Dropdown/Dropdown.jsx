@@ -27,7 +27,7 @@ const basicLabel = css`
   }
 `
 
-const bigLabel = css`
+const largeLabelStyle = css`
   margin: 0 0 0.5rem 0;
   & span {
     font-size: ${size.bodyLarge};
@@ -142,7 +142,7 @@ export const Dropdown = ({
   const inputWrapperStyle = [inputWrapper]
 
   if (largeLabel) {
-    labelStyle.push(bigLabel)
+    labelStyle.push(largeLabelStyle)
   }
 
   if (feedback === 'error') {
