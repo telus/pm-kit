@@ -301,8 +301,6 @@ Dropdown.propTypes = {
 }
 
 Dropdown.defaultProps = {
-  label: '',
-  onChange: () => {},
   error: undefined,
   feedback: undefined,
   feedbackIcon: false,
