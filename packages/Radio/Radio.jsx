@@ -182,8 +182,6 @@ Radio.defaultProps = {
   error: undefined,
   checked: undefined,
   label: '',
-  name: '',
-  value: '',
   id: undefined,
 }
 
