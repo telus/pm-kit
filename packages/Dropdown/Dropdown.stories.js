@@ -26,7 +26,7 @@ export const Default = () => {
   return <Dropdown label="Select a city" value={city} options={cities} onChange={onCitySelect} required={true} />
 }
 
-export const DropdownWithLargeLabel = () => {
+export const LargeLabel = () => {
   const [city, setCity] = useState(cities[0])
 
   const onCitySelect = citySelected => {
@@ -44,7 +44,7 @@ export const DropdownWithLargeLabel = () => {
   )
 }
 
-export const DropdownWithError = () => {
+export const Error = () => {
   const [errorState, setErrorState] = useState('error')
   const onCitySelect = citySelected => {
     setErrorState('success')
