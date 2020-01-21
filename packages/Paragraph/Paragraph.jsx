@@ -4,7 +4,7 @@ import { css } from '@emotion/core'
 import { size as fontSize, weight as fontWeight } from '@pm-kit/typography'
 import * as colors from '@pm-kit/colours'
 
-const Paragraph = ({ children, position, size, weight, color, decoration, forwardedRef, ...rest }) => {
+export const Paragraph = ({ children, position, size, weight, color, decoration, forwardedRef, ...rest }) => {
   const paragraph = css`
     text-align: ${position};
     width: 100%;
@@ -26,6 +26,9 @@ Paragraph.propTypes = {
    * The position of text
    */
   position: PropTypes.oneOf(['left', 'center', 'right', 'justify']),
+  /**
+   * The colour of text
+   */
   color: PropTypes.string,
   /**
    * The decoration of text. Example: add an underline below text.
@@ -34,7 +37,6 @@ Paragraph.propTypes = {
   /**
    * The font-weight of text. Example: bold.
    */
-
   weight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /**
    * The text size.
