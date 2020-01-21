@@ -24,21 +24,16 @@ Array [
       testing 
     </span>
   </label>,
-  .emotion-10 {
+  .emotion-9 {
   position: relative;
 }
 
-.emotion-0 {
-  color: #034045;
-  font-size: 16px;
-}
-
-.emotion-9 {
+.emotion-8 {
   position: relative;
   box-sizing: border-box;
 }
 
-.emotion-8 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -61,7 +56,7 @@ Array [
   cursor: pointer;
 }
 
-.emotion-3 {
+.emotion-2 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -83,7 +78,7 @@ Array [
   box-sizing: border-box;
 }
 
-.emotion-1 {
+.emotion-0 {
   color: #034045;
   margin-left: 2px;
   margin-right: 2px;
@@ -93,9 +88,11 @@ Array [
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   box-sizing: border-box;
+  color: #034045;
+  font-size: 16px;
 }
 
-.emotion-2 {
+.emotion-1 {
   margin: 2px;
   padding-bottom: 2px;
   padding-top: 2px;
@@ -104,7 +101,7 @@ Array [
   box-sizing: border-box;
 }
 
-.emotion-7 {
+.emotion-6 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -122,7 +119,7 @@ Array [
   box-sizing: border-box;
 }
 
-.emotion-4 {
+.emotion-3 {
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
   align-self: stretch;
@@ -134,7 +131,7 @@ Array [
   visibility: hidden;
 }
 
-.emotion-6 {
+.emotion-5 {
   color: #034045;
   display: -webkit-box;
   display: -webkit-flex;
@@ -146,11 +143,11 @@ Array [
   box-sizing: border-box;
 }
 
-.emotion-6:hover {
+.emotion-5:hover {
   color: hsl(0,0%,60%);
 }
 
-.emotion-5 {
+.emotion-4 {
   display: inline-block;
   fill: currentColor;
   line-height: 1;
@@ -159,25 +156,25 @@ Array [
 }
 
 <div
-    class="emotion-10"
+    class="emotion-9"
   >
     <div
-      class=" emotion-9"
+      class=" emotion-8"
       id="testing"
     >
       <div
-        class=" emotion-8"
+        class=" emotion-7"
       >
         <div
-          class=" emotion-3"
+          class=" emotion-2"
         >
           <div
-            class="emotion-0 emotion-1"
+            class="emotion-0"
           >
             Select...
           </div>
           <div
-            class="emotion-2"
+            class="emotion-1"
           >
             <div
               class=""
@@ -202,18 +199,18 @@ Array [
           </div>
         </div>
         <div
-          class=" emotion-7"
+          class=" emotion-6"
         >
           <span
-            class=" emotion-4"
+            class=" emotion-3"
           />
           <div
             aria-hidden="true"
-            class=" emotion-6"
+            class=" emotion-5"
           >
             <svg
               aria-hidden="true"
-              class="emotion-5"
+              class="emotion-4"
               focusable="false"
               height="20"
               viewBox="0 0 20 20"
