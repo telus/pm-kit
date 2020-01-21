@@ -10,20 +10,21 @@ export default {
 export const Default = () => {
   const [clicked, setClicked] = useState('en')
 
-  const handleSelectOption = en_ => {
-    setClicked(en_)
+  const handleSelectOption = e => {
+    setClicked(e.target.value)
   }
 
   const radioButtonContainer = css`
-    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 105px;
   `
 
   return (
-    <>
-      <Radio checked={clicked === 'en'} label="English" name="prefLang1" onChange={handleSelectOption} value="en" />
-      <div css={radioButtonContainer}>
-        <Radio checked={clicked === 'fr'} label="French" name="prefLang2" onChange={handleSelectOption} value="fr" />
-      </div>
-    </>
+    <div css={radioButtonContainer}>
+      <Radio checked={clicked === 'en'} label="English" name="prefLang" onChange={handleSelectOption} value="en" />
+      <Radio checked={clicked === 'fr'} label="French" name="prefLang" onChange={handleSelectOption} value="fr" />
+    </div>
   )
 }
