@@ -29,7 +29,7 @@ export const Playground = () => (
     label={text('Label', 'Label')}
     placeholder={text('Placeholder', 'Placeholder')}
     error={text('Error Message', 'Error')}
-    feedback={select('Feedback', [undefined, 'success', 'error'])}
+    feedback={select('Feedback', [undefined, 'success', 'error', 'waiting'])}
     small={boolean('Small Label', false)}
     feedbackicon={boolean('Feedback Icon', false)}
     required={boolean('Required Input', false)}

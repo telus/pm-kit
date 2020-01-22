@@ -23,8 +23,19 @@ exports[`Input renders 1`] = `
   margin-right: 0.5rem;
 }
 
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  position: relative;
+}
+
 .emotion-2 {
-  width: 100%;
+  min-width: 100%;
   padding: 0 16px;
   font-size: 18px;
   border: 1px solid #034045;
@@ -58,6 +69,13 @@ exports[`Input renders 1`] = `
   font-size: 16px;
 }
 
+.emotion-4 {
+  padding-left: 25px;
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+}
+
 <div>
   <div
     class="emotion-1"
@@ -70,12 +88,15 @@ exports[`Input renders 1`] = `
     </label>
   </div>
   <div
-    style="position:relative"
+    class="emotion-5"
   >
     <input
       aria-invalid="false"
       class="emotion-2 emotion-3"
       id="label"
+    />
+    <div
+      class="emotion-4"
     />
   </div>
 </div>

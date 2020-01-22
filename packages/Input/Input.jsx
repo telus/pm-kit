@@ -6,9 +6,10 @@ import { red, parkGreen, greyBlue, white } from '@pm-kit/colours'
 import checkmark from '../../shared/svg/checkmark.svg'
 import exclamation from '../../shared/svg/exclamation.svg'
 import generateId from '../../shared/utils/generateId/generateId.js'
+import FeedbackIcon from '@pm-kit/feedback-icon'
 
 const InputField = styled.input`
-  width: 100%;
+  min-width: 100%;
   padding: 0 16px;
   font-size: 18px;
   border: 1px solid ${({ feedback }) => (feedback === 'error' ? red : parkGreen)};
@@ -25,18 +26,15 @@ const InputField = styled.input`
   }
 `
 
-const FeedbackIcon = styled.div`
+const wrapper = css`
   display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 8px;
-  right: -50px;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 2px solid ${({ feedback }) => (feedback === 'error' ? red : parkGreen)};
-  background-color: ${({ feedback }) => (feedback === 'error' ? red : white)};
+  flex-wrap: nowrap;
+  position: relative;
+`
+
+const feedbackIconWrapper = css`
+  padding-left: 25px;
+  align-self: flex-end;
 `
 
 const labelContainer = css`
@@ -95,13 +93,9 @@ export const Input = ({
 
   const renderFeedback = errorMessage => <span css={feedbackError}>{`(${errorMessage})`}</span>
 
-  const renderFeedbackIcon = feedback => {
-    return (
-      <FeedbackIcon feedback={feedback}>
-        <img src={feedback === 'error' ? exclamation : checkmark} alt={feedback} />
-      </FeedbackIcon>
-    )
-  }
+  const renderFeedbackIcon = feedback => (
+    <FeedbackIcon state={feedback === 'error' ? 'failed' : feedback === 'success' ? 'passed' : 'waiting'} size="32px" />
+  )
 
   return (
     <div>
@@ -111,8 +105,7 @@ export const Input = ({
           {feedback === 'error' && error && renderFeedback(error)}
         </div>
       )}
-      <div style={{ position: 'relative' }}>
-        {feedbackicon && feedback !== undefined && renderFeedbackIcon(feedback)}
+      <div css={wrapper}>
         <InputField
           ref={forwardedRef}
           aria-invalid={feedback === 'error'}
@@ -123,6 +116,7 @@ export const Input = ({
           name={name}
           {...rest}
         />
+        <div css={feedbackIconWrapper}>{feedbackicon && feedback !== undefined && renderFeedbackIcon(feedback)}</div>
       </div>
     </div>
   )
