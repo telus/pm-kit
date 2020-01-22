@@ -177,6 +177,10 @@ export const Dropdown = ({
     </span>
   )
 
+  const renderFeedbackIcon = () => (
+    <FeedbackIcon state={feedback === 'error' ? 'failed' : feedback === 'success' ? 'passed' : 'waiting'} size="32px" />
+  )
+
   return (
     <>
       <label css={labelStyle} htmlFor={selectId.identity()}>
@@ -199,9 +203,7 @@ export const Dropdown = ({
             filterOption={createFilter(filterConfig)}
           />
         </div>
-        <div css={feedbackIconWrapper}>
-          {feedbackicon && <FeedbackIcon state={feedback === 'error' ? 'failed' : 'passed'} size="32px" />}
-        </div>
+        <div css={feedbackIconWrapper}>{feedbackicon && feedback !== 'undefined' && renderFeedbackIcon()}</div>
       </div>
     </>
   )

@@ -70,7 +70,7 @@ export const Playground = () => {
     <Dropdown
       label={text('Label', 'Testing')}
       required={select('Required', [true, false], false)}
-      feedback={select('feedback', ['error', 'success'], 'success')}
+      feedback={select('feedback', ['error', 'success', 'waiting', 'undefined'], 'success')}
       feedbackicon={select('feedback icon', [true, false], false)}
       error={text('Error', 'This field is required')}
       options={cities}
