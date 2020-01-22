@@ -40,6 +40,8 @@ export const LargeLabel = () => {
       onChange={onCitySelect}
       required={true}
       largeLabel={true}
+      feedback="success"
+      feedbackicon={true}
     />
   )
 }
@@ -69,6 +71,7 @@ export const Playground = () => {
       label={text('Label', 'Testing')}
       required={select('Required', [true, false], false)}
       feedback={select('feedback', ['error', 'success'], 'success')}
+      feedbackicon={select('feedback icon', [true, false], false)}
       error={text('Error', 'This field is required')}
       options={cities}
       onChange={() => {}}

@@ -6,15 +6,26 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { size, weight } from '@pm-kit/typography'
 import { parkGreen, red, lightTan, white } from '@pm-kit/colours'
 import generateId from '../../shared/utils/generateId/generateId.js'
+import FeedbackIcon from '@pm-kit/feedback-icon'
 
-const inputWrapper = css`
+const wrapper = css`
   position: relative;
+  flex-wrap: nowrap;
+  display: flex;
 `
 
-const inputWrapperWithError = css`
-  > div > div {
+const wrapperWithError = css`
+  > div > div > div {
     border-color: ${red};
   }
+`
+
+const dropdownWrapper = css`
+  min-width: 100%;
+`
+const feedbackIconWrapper = css`
+  padding-left: 20px;
+  align-self: flex-end;
 `
 
 const basicLabel = css`
@@ -115,6 +126,7 @@ const dropdownAnimate = {
 export const Dropdown = ({
   error,
   feedback,
+  feedbackicon,
   id,
   label,
   onChange,
@@ -139,14 +151,14 @@ export const Dropdown = ({
     matchFrom,
   }
   const labelStyle = [basicLabel]
-  const inputWrapperStyle = [inputWrapper]
+  const wrapperStyle = [wrapper]
 
   if (largeLabel) {
     labelStyle.push(largeLabelStyle)
   }
 
   if (feedback === 'error') {
-    inputWrapperStyle.push(inputWrapperWithError)
+    wrapperStyle.push(wrapperWithError)
   }
 
   const renderLabel = () => {
@@ -171,20 +183,25 @@ export const Dropdown = ({
         {renderLabel()}
         {feedback === 'error' && renderError(error)}
       </label>
-      <div css={inputWrapperStyle}>
-        <Select
-          value={value}
-          onChange={onChange}
-          options={options}
-          placeholder={placeholder}
-          id={selectId.identity()}
-          type={type}
-          styles={customDropdownStyles}
-          isClearable={true}
-          clearIndicator={false}
-          components={{ Menu, Option, SelectContainer, Placeholder }}
-          filterOption={createFilter(filterConfig)}
-        />
+      <div css={wrapperStyle}>
+        <div css={dropdownWrapper}>
+          <Select
+            value={value}
+            onChange={onChange}
+            options={options}
+            placeholder={placeholder}
+            id={selectId.identity()}
+            type={type}
+            styles={customDropdownStyles}
+            isClearable={true}
+            clearIndicator={false}
+            components={{ Menu, Option, SelectContainer, Placeholder }}
+            filterOption={createFilter(filterConfig)}
+          />
+        </div>
+        <div css={feedbackIconWrapper}>
+          {feedbackicon && <FeedbackIcon state={feedback === 'error' ? 'failed' : 'passed'} size="32px" />}
+        </div>
       </div>
     </>
   )
