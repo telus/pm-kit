@@ -1,6 +1,6 @@
 {
-  "name": "@pm-kit/paragraph",
-  "version": "1.0.1",
+  "name": "@pm-kit/dropdown",
+  "version": "1.0.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "license": "MIT",
@@ -22,6 +22,8 @@
   "dependencies": {
     "@pm-kit/colours": "^1.1.0",
     "@pm-kit/typography": "^1.0.0",
-    "prop-types": "^15.7.2"
+    "framer-motion": "^1.7.0",
+    "prop-types": "^15.7.2",
+    "react-select": "^3.0.8"
   }
 }

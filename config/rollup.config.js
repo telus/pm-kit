@@ -39,7 +39,7 @@ export default opts => {
         browser: true,
       }),
       commonjs({
-        include: '../../node_modules/**',
+        include: /node_modules/,
       }),
       options.css &&
         postcss({
