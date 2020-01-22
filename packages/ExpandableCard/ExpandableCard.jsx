@@ -11,7 +11,7 @@ import oval from '../../shared/png/EmptyOval/oval@3x.png'
 import Paragraph from '@pm-kit/paragraph'
 
 const card = css`
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   background-color: ${offWhite};
@@ -121,6 +121,9 @@ const cardContainerDetails = css`
   justify-content: space-between;
   flex-direction: column;
 `
+const placeholderContainer = css`
+  max-width: 20%;
+`
 
 const planVariant = {
   hidden: { opacity: 0, y: -10 },
@@ -131,7 +134,7 @@ const planVariant = {
   },
 }
 
-const ExpandableCard = ({ anchor, title, subtitle, details, selectedText, unSlectedText }) => {
+const ExpandableCard = ({ placeholder, title, subtitle, isSelectable, children, toggle }) => {
   const [openCard, setOpenCard] = useState(false)
   const [selectCard, setSelectCard] = useState(false)
 
@@ -142,7 +145,11 @@ const ExpandableCard = ({ anchor, title, subtitle, details, selectedText, unSlec
   }
 
   const toggleSelectCard = () => {
-    if (!selectCard) {
+    if (!toggle) {
+      if (!selectCard) {
+        setSelectCard(!selectCard)
+      }
+    } else {
       setSelectCard(!selectCard)
     }
   }
@@ -162,77 +169,75 @@ const ExpandableCard = ({ anchor, title, subtitle, details, selectedText, unSlec
   return (
     <motion.div css={styles} variants={planVariant}>
       <div css={cardContainerDetails}>
-        <div css={selectOptionContainer} onClick={toggleSelectCard}>
-          <div css={selectOption}>
-            {selectCard && (
-              <div css={planSelected}>
-                <p css={cardSelectedText}>{selectedText}</p>
-                <img src={checkmark} height="18px" width="18px" alt="selected" />
-              </div>
-            )}
-            {!selectCard && (
-              <div css={planSelected}>
-                <p css={cardNotSelectedText}>{unSlectedText}</p>
-                <img src={oval} height="18px" width="18px" alt="unselected" />
-              </div>
-            )}
-          </div>
+        <div css={selectOptionContainer} onClick={isSelectable ? toggleSelectCard : ''}>
+          {isSelectable && (
+            <div css={selectOption}>
+              {selectCard && (
+                <div css={planSelected}>
+                  <p css={cardSelectedText}>{isSelectable.selectedText}</p>
+                  <img src={checkmark} height="18px" width="18px" alt="selected" />
+                </div>
+              )}
+              {!selectCard && (
+                <div css={planSelected}>
+                  <p css={cardNotSelectedText}>{isSelectable.unSlectedText}</p>
+                  <img src={oval} height="18px" width="18px" alt="unselected" />
+                </div>
+              )}
+            </div>
+          )}
+
           <div css={cardRowContainer}>
-            {anchor && <Paragraph>{anchor}</Paragraph>}
+            <div css={placeholderContainer}>{placeholder && placeholder}</div>
             <div>
               <p css={titleStyle}>{title}</p>
               <p css={paddingLeft}>{subtitle}</p>
             </div>
           </div>
         </div>
+        {children && (
+          <>
+            <div css={line}></div>
+            <AnimatePresence>
+              {openCard && (
+                <motion.div
+                  css={cardDetails}
+                  onClick={toggleOpenCard}
+                  initial={{ height: 0 }}
+                  animate={{ height: 'auto' }}
+                  exit={{ height: '0px' }}
+                >
+                  <div css={detailSection}>{children}</div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
-        <div css={line}></div>
-        <AnimatePresence>
-          {openCard && details && (
-            <motion.div
-              css={cardDetails}
-              onClick={toggleOpenCard}
-              initial={{ height: 0 }}
-              animate={{ height: 'auto' }}
-              exit={{ height: '0px' }}
-            >
-              <div css={detailSection}>
-                <ul>
-                  {details.map((detail, index) => {
-                    return (
-                      <li key={index}>
-                        <span>{detail}</span>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        <div css={detailsBar} onClick={toggleOpenCard}>
-          {openCard && <Paragraph>Collapse</Paragraph>}
-          {!openCard && <Paragraph>Details</Paragraph>}
-          <img src={arrowImage} alt="arrow" />
-        </div>
+            <div css={detailsBar} onClick={toggleOpenCard}>
+              {openCard && <Paragraph>Collapse</Paragraph>}
+              {!openCard && <Paragraph>Details</Paragraph>}
+              <img src={arrowImage} alt="arrow" />
+            </div>
+          </>
+        )}
       </div>
     </motion.div>
   )
 }
 
 ExpandableCard.propTypes = {
-  anchor: PropTypes.node,
+  placeholder: PropTypes.node,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
-  details: PropTypes.array,
-  selectedText: PropTypes.string.isRequired,
-  unSlectedText: PropTypes.string.isRequired,
+  isSelectable: PropTypes.object,
+  children: PropTypes.node,
+  toggle: PropTypes.bool,
 }
 
 ExpandableCard.defaultProps = {
-  anchor: undefined,
-  details: undefined,
+  placeholder: undefined,
+  isSelectable: undefined,
+  children: undefined,
+  toggle: undefined,
 }
 
 export default ExpandableCard

@@ -1,5 +1,5 @@
 import React from 'react'
-import { withKnobs, text, array } from '@storybook/addon-knobs'
+import { withKnobs, text, array, boolean, select } from '@storybook/addon-knobs'
 import ExpandableCard from './ExpandableCard'
 import { version } from './package.json'
 
@@ -11,17 +11,46 @@ export default {
   },
   decorators: [withKnobs],
 }
-var details = ['Detail 1', 'Detail 2', 'Detail 3', 'Detail 4']
+
+const selectOptions = {
+  selectedText: 'Card Selected',
+  unSlectedText: 'Select Card',
+}
+
+const placeholderHTML = <p style={{ border: '1px solid' }}> PLACEHOLDER WITH CUSTOM CONTENT</p>
+
+const detailsHtml = <p> SAMPLE DETAIL</p>
 
 export const Primary = () => {
+  return <ExpandableCard title="Default Title" subtitle="Default Subtitle" />
+}
+
+export const Selectable = () => {
+  return <ExpandableCard title="Default Title" subtitle="Default Subtitle" isSelectable={selectOptions} />
+}
+
+export const ToggleSelect = () => {
+  return <ExpandableCard title="Default Title" subtitle="Default Subtitle" isSelectable={selectOptions} toggle />
+}
+
+export const Expandable = () => {
+  return (
+    <ExpandableCard title="Default Title" subtitle="Default Subtitle" isSelectable={selectOptions}>
+      {detailsHtml}
+    </ExpandableCard>
+  )
+}
+
+export const Placeholder = () => {
   return (
     <ExpandableCard
-      details={details}
+      placeholder={placeholderHTML}
       title="Default Title"
       subtitle="Default Subtitle"
-      selectedText="Card Selected"
-      unSlectedText="Select Card"
-    />
+      isSelectable={selectOptions}
+    >
+      {detailsHtml}
+    </ExpandableCard>
   )
 }
 
@@ -29,9 +58,13 @@ export const Playground = () => (
   <ExpandableCard
     title={text('Title', 'Default Title')}
     subtitle={text('Subtitle', 'Default Subtitle')}
-    selectedText={text('Selected Text', 'Card Selected')}
-    unSlectedText={text('Unselceted Text', 'Select Card')}
-    details={array('Details', ['Detail 1'], ',')}
+    isSelectable={{
+      selectedText: text('Selected Text', 'Card Selected'),
+      unSlectedText: text('Unselceted Text', 'Select Card'),
+    }}
+    toggle={boolean('Toggle Select', false)}
+    children={select('Details', [undefined, 'Detail'])}
+    placeholder={select('Placeholder', [undefined, 'Placeholder'])}
   />
 )
 
