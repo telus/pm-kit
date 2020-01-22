@@ -1,5 +1,5 @@
 import React from 'react'
-import { withKnobs, text, array, boolean, select } from '@storybook/addon-knobs'
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs'
 import ExpandableCard from './ExpandableCard'
 import { version } from './package.json'
 
@@ -17,7 +17,12 @@ const selectOptions = {
   unSlectedText: 'Select Card',
 }
 
-const placeholderHTML = <p style={{ border: '1px solid' }}> PLACEHOLDER WITH CUSTOM CONTENT</p>
+const placeholderHTML = (
+  <p style={{ border: '1px solid' }}>
+    CUSTOM
+    <br /> CONTENT
+  </p>
+)
 
 const detailsHtml = <p> SAMPLE DETAIL</p>
 
