@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/telus/pm-kit/compare/@pm-kit/colours@1.0.3...@pm-kit/colours@1.1.0) (2020-01-22)
+
+
+### Features
+
+* **colours:** added new midnight green colour ([#28](https://github.com/telus/pm-kit/issues/28)) ([58c74fb](https://github.com/telus/pm-kit/commit/58c74fb7d514bdfc77227559122ea0c513a6c1b2))
+
+
+
+
+
 ## [1.0.3](https://github.com/telus/pm-kit/compare/@pm-kit/colours@1.0.2...@pm-kit/colours@1.0.3) (2019-12-10)
 
 
