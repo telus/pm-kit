@@ -1,39 +1,36 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { css, jsx } from '@emotion/core'
+import { size, weight } from '@pm-kit/typography'
 
 const h1 = css`
-  font-size: 3rem;
-  font-weight: 500;
+  font-size: ${size.h1};
+  font-weight: ${weight.bold};
   line-height: 3rem;
   letter-spacing: -0.5px;
 `
 
 const h2 = css`
-  font-size: 2rem;
-  font-weight: 500;
-  line-height: 3.25em;
+  font-size: ${size.h2};
+  font-weight: ${weight.bold};
+  line-height: 2.4rem;
   letter-spacing: -0.5px;
 `
 
 const h3 = css`
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: ${size.h3};
+  font-weight: ${weight.bold};
   line-height: 1.8rem;
   letter-spacing: -0.5px;
 `
 const h4 = css`
-  font-size: 1.125rem;
-  font-weight: 500;
+  font-size: ${size.h4};
+  font-weight: ${weight.bold};
   line-height: 1.35rem;
   letter-spacing: -0.5px;
 `
 
-const disabledStyle = css`
-  opacity: 0.5;
-`
-
-const Heading = ({ level, tag = level, children, disabled, forwardedRef, ...rest }) => {
+const Heading = ({ level, tag = level, children, forwardedRef, ...rest }) => {
   let variantStyles
 
   switch (level) {
@@ -51,12 +48,7 @@ const Heading = ({ level, tag = level, children, disabled, forwardedRef, ...rest
       break
   }
 
-  const styles = [variantStyles]
-  if (disabled) {
-    styles.push(disabledStyle)
-  }
-
-  return jsx(tag || 'h1', { css: styles, ref: forwardedRef, ...rest }, children)
+  return jsx(tag || 'h1', { css: variantStyles, ref: forwardedRef, ...rest }, children)
 }
 
 Heading.propTypes = {
@@ -72,10 +64,6 @@ Heading.propTypes = {
    * The content. Can be text, other components, or HTML elements.
    */
   children: PropTypes.node.isRequired,
-  /**
-   * The content. Can be text, other components, or HTML elements.
-   */
-  disabled: PropTypes.bool,
 }
 
 Heading.defaultProps = {

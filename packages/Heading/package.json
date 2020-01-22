@@ -1,6 +1,6 @@
 {
   "name": "@pm-kit/heading",
-  "version": "1.0.0-0",
+  "version": "1.0.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "license": "MIT",
@@ -20,6 +20,7 @@
     "react-dom": "^16.12.0"
   },
   "dependencies": {
+    "@pm-kit/typography": "^1.0.0",
     "prop-types": "^15.7.2"
   }
 }

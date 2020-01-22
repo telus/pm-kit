@@ -37,7 +37,7 @@ export const Default = () => {
   return (
     <div css={list}>
       {colourNames.map(name => (
-        <div css={listItem}>
+        <div css={listItem} key={name}>
           <ColourBox colour={colours[name]} />
           <p>{name}</p>
         </div>
