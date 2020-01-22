@@ -203,7 +203,7 @@ export const Dropdown = ({
             filterOption={createFilter(filterConfig)}
           />
         </div>
-        <div css={feedbackIconWrapper}>{feedbackicon && feedback !== 'undefined' && renderFeedbackIcon()}</div>
+        <div css={feedbackIconWrapper}>{feedbackicon && feedback !== undefined && renderFeedbackIcon()}</div>
       </div>
     </>
   )
