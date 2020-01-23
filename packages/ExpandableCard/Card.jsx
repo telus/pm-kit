@@ -123,6 +123,7 @@ const cardContainerDetails = css`
 `
 const placeholderContainer = css`
   max-width: 20%;
+  display: flex;
 `
 
 const planVariant = {
@@ -134,24 +135,17 @@ const planVariant = {
   },
 }
 
-const ExpandableCard = ({ placeholder, title, subtitle, isSelectable, children, toggle }) => {
+const Card = ({ placeholder, title, subtitle, children, onClick, isSelected, selectable }) => {
   const [openCard, setOpenCard] = useState(false)
-  const [selectCard, setSelectCard] = useState(false)
 
   const styles = [card]
 
-  if (selectCard) {
+  if (isSelected) {
     styles.push(selectedCard)
   }
 
-  const toggleSelectCard = () => {
-    if (!toggle) {
-      if (!selectCard) {
-        setSelectCard(!selectCard)
-      }
-    } else {
-      setSelectCard(!selectCard)
-    }
+  const onCardClick = () => {
+    onClick()
   }
 
   const toggleOpenCard = () => {
@@ -169,18 +163,18 @@ const ExpandableCard = ({ placeholder, title, subtitle, isSelectable, children, 
   return (
     <motion.div css={styles} variants={planVariant}>
       <div css={cardContainerDetails}>
-        <div css={selectOptionContainer} onClick={isSelectable ? toggleSelectCard : ''}>
-          {isSelectable && (
+        <div css={selectOptionContainer} onClick={selectable ? onCardClick : undefined}>
+          {selectable && (
             <div css={selectOption}>
-              {selectCard && (
+              {isSelected && (
                 <div css={planSelected}>
-                  <p css={cardSelectedText}>{isSelectable.selectedText}</p>
+                  <p css={cardSelectedText}>{selectable.selectedText}</p>
                   <img src={checkmark} height="18px" width="18px" alt="selected" />
                 </div>
               )}
-              {!selectCard && (
+              {!isSelected && (
                 <div css={planSelected}>
-                  <p css={cardNotSelectedText}>{isSelectable.unSlectedText}</p>
+                  <p css={cardNotSelectedText}>{selectable.unSelectedText}</p>
                   <img src={oval} height="18px" width="18px" alt="unselected" />
                 </div>
               )}
@@ -224,20 +218,26 @@ const ExpandableCard = ({ placeholder, title, subtitle, isSelectable, children, 
   )
 }
 
-ExpandableCard.propTypes = {
+Card.propTypes = {
   placeholder: PropTypes.node,
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
   isSelectable: PropTypes.object,
   children: PropTypes.node,
   toggle: PropTypes.bool,
+  selectCard: PropTypes.bool,
+  setSelectCard: PropTypes.func,
 }
 
-ExpandableCard.defaultProps = {
+Card.defaultProps = {
   placeholder: undefined,
+  title: undefined,
+  subtitle: undefined,
   isSelectable: undefined,
   children: undefined,
   toggle: undefined,
+  selectCard: undefined,
+  setSelectCard: undefined,
 }
 
-export default ExpandableCard
+export default Card

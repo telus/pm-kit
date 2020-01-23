@@ -1,12 +1,12 @@
 import React from 'react'
 import { render } from 'enzyme'
 
-import ExpandableCard from '../ExpandableCard'
+import Card from '../Card'
 
-describe('ExpandableCard', () => {
+describe('Card', () => {
   it('renders', () => {
-    const expandableCard = render(<ExpandableCard title="title" subtitle="subtitle" />)
+    const card = render(<Card title="title" subtitle="subtitle" />)
 
-    expect(expandableCard).toMatchSnapshot()
+    expect(card).toMatchSnapshot()
   })
 })

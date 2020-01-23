@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ExpandableCard renders 1`] = `
+exports[`Card renders 1`] = `
 .emotion-6 {
   width: 100%;
   display: -webkit-box;

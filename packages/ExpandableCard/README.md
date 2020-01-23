@@ -1,1 +1,1 @@
-# PM-Kit: ExpandableCard
+# PM-Kit: Card
