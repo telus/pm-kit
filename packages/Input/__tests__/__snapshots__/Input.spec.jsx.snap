@@ -13,10 +13,10 @@ exports[`Input renders 1`] = `
   -webkit-box-align: flex-end;
   -ms-flex-align: flex-end;
   align-items: flex-end;
-  margin: 0 0 0.5rem 0.2rem;
   color: #034045;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0 0 0.5rem 16px;
 }
 
 .emotion-1 label {

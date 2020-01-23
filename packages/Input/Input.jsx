@@ -39,20 +39,20 @@ const labelContainer = css`
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
-  margin: 0 0 0.5rem 0.2rem;
   color: ${parkGreen};
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0 0 0.5rem 16px;
   & label {
     margin-right: 0.5rem;
   }
 `
 
-const smallLabelContainer = css`
+const largeLabelContainer = css`
   ${labelContainer}
-  font-size: 14px;
-  font-weight: 300;
-  margin-left: 16px;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 0.5rem 0.2rem;
 `
 
 const isDisabled = css`
@@ -64,14 +64,13 @@ const feedbackError = css`
 `
 
 export const Input = ({
-  variant,
   disabled,
   id,
   name,
   value,
   label,
   required,
-  small,
+  largeLabel,
   feedback,
   error,
   feedbackicon,
@@ -80,6 +79,12 @@ export const Input = ({
   ...rest
 }) => {
   const inputId = generateId(id, rest.name, label)
+  const labelContainerStyle = [labelContainer]
+
+  if (largeLabel) {
+    labelContainerStyle.push(largeLabelContainer)
+  }
+
   const renderLabel = (label, required, disabled) => {
     const labelText = `${label}${required ? true && '*' : ''}`
     return (
@@ -98,7 +103,7 @@ export const Input = ({
   return (
     <div>
       {!hideLabel && (
-        <div css={small ? smallLabelContainer : labelContainer}>
+        <div css={labelContainerStyle}>
           {label && renderLabel(label, required, disabled)}
           {feedback === 'error' && error && renderFeedback(error)}
         </div>
@@ -146,7 +151,7 @@ Input.propTypes = {
    */
   error: PropTypes.string,
   /**
-   * A success or error image to correspond with feedback.
+   * Control whether to dispaly feedback-icon or not.
    */
   feedbackicon: PropTypes.bool,
   /**
@@ -157,6 +162,10 @@ Input.propTypes = {
    * Use `value` for controlled Inputs. For uncontrolled Inputs, use React's built-in `defaultValue` prop.
    */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /**
+   * Controls the size of label.
+   */
+  largeLabel: PropTypes.bool,
 }
 
 Input.defaultProps = {
@@ -168,6 +177,7 @@ Input.defaultProps = {
   feedbackicon: false,
   name: undefined,
   value: undefined,
+  largeLabel: false,
 }
 
 const InputWithRef = forwardRef((props, ref) => <Input {...props} forwardedRef={ref} />)
