@@ -14,7 +14,7 @@ exports[`Input renders 1`] = `
   -ms-flex-align: flex-end;
   align-items: flex-end;
   color: #034045;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 300;
   margin: 0 0 0.5rem 16px;
 }
@@ -30,7 +30,7 @@ exports[`Input renders 1`] = `
 .emotion-2 {
   width: 100%;
   padding: 0 16px;
-  font-size: 18px;
+  font-size: 1.125rem;
   border: 1px solid #034045;
   border-radius: 8px;
   height: 48px;
@@ -44,22 +44,22 @@ exports[`Input renders 1`] = `
 
 .emotion-2::-webkit-input-placeholder {
   color: #819FA2;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .emotion-2::-moz-placeholder {
   color: #819FA2;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .emotion-2:-ms-input-placeholder {
   color: #819FA2;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .emotion-2::placeholder {
   color: #819FA2;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 <div>

@@ -4,11 +4,12 @@ import { css } from '@emotion/core'
 import { red, parkGreen, greyBlue } from '@pm-kit/colours'
 import generateId from '../../shared/utils/generateId/generateId.js'
 import FeedbackIcon from '@pm-kit/feedback-icon'
+import { size, weight } from '@pm-kit/typography'
 
 const inputField = css`
   width: 100%;
   padding: 0 16px;
-  font-size: 18px;
+  font-size: ${size.bodyLarge};
   border: 1px solid ${parkGreen};
   border-radius: 8px;
   height: 48px;
@@ -19,7 +20,7 @@ const inputField = css`
   }
   &::placeholder {
     color: ${greyBlue};
-    font-size: 16px;
+    font-size: ${size.bodyMedium};
   }
 `
 
@@ -44,8 +45,8 @@ const labelContainer = css`
   flex-wrap: wrap;
   align-items: flex-end;
   color: ${parkGreen};
-  font-size: 14px;
-  font-weight: 300;
+  font-size: ${size.bodySmall};
+  font-weight: ${weight.normal};
   margin: 0 0 0.5rem 16px;
   & label {
     margin-right: 0.5rem;
@@ -54,8 +55,8 @@ const labelContainer = css`
 
 const largeLabelContainer = css`
   ${labelContainer}
-  font-size: 18px;
-  font-weight: 500;
+  font-size: ${size.bodyLarge};
+  font-weight: ${weight.bold};
   margin: 0 0 0.5rem 0.2rem;
 `
 
@@ -64,7 +65,7 @@ const isDisabled = css`
 `
 const feedbackError = css`
   color: ${red};
-  font-weight: 300;
+  font-weight: ${weight.normal};
 `
 
 export const Input = ({
