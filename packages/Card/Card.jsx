@@ -121,10 +121,6 @@ const cardContainerDetails = css`
   justify-content: space-between;
   flex-direction: column;
 `
-const placeholderContainer = css`
-  max-width: 20%;
-  display: flex;
-`
 
 const planVariant = {
   hidden: { opacity: 0, y: -10 },
@@ -182,7 +178,7 @@ const Card = ({ placeholder, title, subtitle, children, onClick, isSelected, sel
           )}
 
           <div css={cardRowContainer}>
-            <div css={placeholderContainer}>{placeholder && placeholder}</div>
+            <div>{placeholder && placeholder}</div>
             <div>
               <p css={titleStyle}>{title}</p>
               <p css={paddingLeft}>{subtitle}</p>
@@ -228,6 +224,10 @@ Card.propTypes = {
    */
   subtitle: PropTypes.string,
   /**
+   * Any HTML element that you want to be rendered
+   */
+  placeholder: PropTypes.node,
+  /**
    * The Details of the Card. Having children of any type renders an expandable details row.
    * With the contents of the child supplied to it.
    */
@@ -250,6 +250,7 @@ Card.propTypes = {
 Card.defaultProps = {
   title: undefined,
   subtitle: undefined,
+  placeholder: undefined,
   children: undefined,
   onClick: undefined,
   isSelected: undefined,
