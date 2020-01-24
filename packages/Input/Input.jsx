@@ -6,7 +6,7 @@ import generateId from '../../shared/utils/generateId/generateId.js'
 import FeedbackIcon from '@pm-kit/feedback-icon'
 
 const inputField = css`
-  min-width: 100%;
+  width: 100%;
   padding: 0 16px;
   font-size: 18px;
   border: 1px solid ${parkGreen};
@@ -28,14 +28,15 @@ const inputFieldWithError = css`
 `
 
 const wrapper = css`
-  display: flex;
-  flex-wrap: nowrap;
   position: relative;
 `
 
 const feedbackIconWrapper = css`
-  padding-left: 25px;
-  align-self: flex-end;
+  position: absolute;
+  left: calc(100% + 24px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
 `
 
 const labelContainer = css`
@@ -122,14 +123,14 @@ export const Input = ({
           name={name}
           {...rest}
         />
-        <div css={feedbackIconWrapper}>
-          {feedbackicon && feedback !== undefined && (
+        {feedbackicon && feedback && (
+          <div css={feedbackIconWrapper}>
             <FeedbackIcon
               state={feedback === 'error' ? 'failed' : feedback === 'success' ? 'passed' : 'waiting'}
-              size="32px"
+              size="24px"
             />
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   )
@@ -151,7 +152,7 @@ Input.propTypes = {
   /**
    * A feedback state.
    */
-  feedback: PropTypes.oneOf(['success', 'error']),
+  feedback: PropTypes.oneOf(['success', 'error', 'waiting']),
   /**
    * Specifies if the label of Input field should be hidden.
    */
