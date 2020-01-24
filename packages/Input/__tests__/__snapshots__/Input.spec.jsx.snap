@@ -23,7 +23,7 @@ exports[`Input renders 1`] = `
   margin-right: 0.5rem;
 }
 
-.emotion-5 {
+.emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -69,7 +69,7 @@ exports[`Input renders 1`] = `
   font-size: 16px;
 }
 
-.emotion-4 {
+.emotion-3 {
   padding-left: 25px;
   -webkit-align-self: flex-end;
   -ms-flex-item-align: end;
@@ -88,15 +88,15 @@ exports[`Input renders 1`] = `
     </label>
   </div>
   <div
-    class="emotion-5"
+    class="emotion-4"
   >
     <input
       aria-invalid="false"
-      class="emotion-2 emotion-3"
+      class="emotion-2"
       id="label"
     />
     <div
-      class="emotion-4"
+      class="emotion-3"
     />
   </div>
 </div>

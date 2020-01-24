@@ -6,11 +6,11 @@ import { red, parkGreen, greyBlue } from '@pm-kit/colours'
 import generateId from '../../shared/utils/generateId/generateId.js'
 import FeedbackIcon from '@pm-kit/feedback-icon'
 
-const InputField = styled.input`
+const inputField = css`
   min-width: 100%;
   padding: 0 16px;
   font-size: 18px;
-  border: 1px solid ${({ feedback }) => (feedback === 'error' ? red : parkGreen)};
+  border: 1px solid ${parkGreen};
   border-radius: 8px;
   height: 48px;
   color: ${parkGreen};
@@ -22,6 +22,10 @@ const InputField = styled.input`
     color: ${greyBlue};
     font-size: 16px;
   }
+`
+
+const inputFieldWithError = css`
+  border-color: ${red};
 `
 
 const wrapper = css`
@@ -80,11 +84,14 @@ export const Input = ({
 }) => {
   const inputId = generateId(id, rest.name, label)
   const labelContainerStyle = [labelContainer]
-
+  const inputStyle = [inputField]
   if (largeLabel) {
     labelContainerStyle.push(largeLabelContainer)
   }
 
+  if (feedback === 'error') {
+    inputStyle.push(inputFieldWithError)
+  }
   const renderLabel = (label, required, disabled) => {
     const labelText = `${label}${required ? true && '*' : ''}`
     return (
@@ -96,10 +103,6 @@ export const Input = ({
 
   const renderFeedback = errorMessage => <span css={feedbackError}>{`(${errorMessage})`}</span>
 
-  const renderFeedbackIcon = feedback => (
-    <FeedbackIcon state={feedback === 'error' ? 'failed' : feedback === 'success' ? 'passed' : 'waiting'} size="32px" />
-  )
-
   return (
     <div>
       {!hideLabel && (
@@ -109,7 +112,8 @@ export const Input = ({
         </div>
       )}
       <div css={wrapper}>
-        <InputField
+        <input
+          css={inputStyle}
           ref={forwardedRef}
           aria-invalid={feedback === 'error'}
           aria-label={hideLabel ? label : null}
@@ -119,7 +123,14 @@ export const Input = ({
           name={name}
           {...rest}
         />
-        <div css={feedbackIconWrapper}>{feedbackicon && feedback !== undefined && renderFeedbackIcon(feedback)}</div>
+        <div css={feedbackIconWrapper}>
+          {feedbackicon && feedback !== undefined && (
+            <FeedbackIcon
+              state={feedback === 'error' ? 'failed' : feedback === 'success' ? 'passed' : 'waiting'}
+              size="32px"
+            />
+          )}
+        </div>
       </div>
     </div>
   )
