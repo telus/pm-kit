@@ -14,7 +14,7 @@ export default {
 
 export const Default = () => <Input placeholder="Placeholder" label="Label" />
 
-export const SmallLabel = () => <Input placeholder="Placeholder" label="Label" small />
+export const LargeLabel = () => <Input placeholder="Placeholder" label="Label" largeLabel={true} />
 
 export const Error = () => <Input placeholder="Placeholder" label="Label" feedback="error" error="error" />
 
@@ -29,8 +29,8 @@ export const Playground = () => (
     label={text('Label', 'Label')}
     placeholder={text('Placeholder', 'Placeholder')}
     error={text('Error Message', 'Error')}
-    feedback={select('Feedback', [undefined, 'success', 'error'])}
-    small={boolean('Small Label', false)}
+    feedback={select('Feedback', [undefined, 'success', 'error', 'waiting'])}
+    largeLabel={boolean('large Label', false)}
     feedbackicon={boolean('Feedback Icon', false)}
     required={boolean('Required Input', false)}
     disabled={boolean('Disable Input', false)}

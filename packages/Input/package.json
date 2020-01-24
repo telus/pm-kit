@@ -21,6 +21,8 @@
   },
   "dependencies": {
     "@pm-kit/colours": "^1.1.0",
+    "@pm-kit/feedback-icon": "^1.0.0",
+    "@pm-kit/typography": "^1.0.0",
     "prop-types": "^15.7.2"
   }
 }
