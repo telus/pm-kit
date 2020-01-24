@@ -1,6 +1,6 @@
 {
-  "name": "@pm-kit/dropdown",
-  "version": "1.0.1",
+  "name": "@pm-kit/card",
+  "version": "1.0.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "license": "MIT",
@@ -20,10 +20,10 @@
     "react-dom": "^16.12.0"
   },
   "dependencies": {
-    "@pm-kit/colours": "^1.1.0",
+    "@pm-kit/colours": "^1.0.3",
+    "@pm-kit/paragraph": "^1.0.0-0",
     "@pm-kit/typography": "^1.0.0",
     "framer-motion": "^1.7.0",
-    "prop-types": "^15.7.2",
-    "react-select": "^3.0.8"
+    "prop-types": "^15.7.2"
   }
 }
