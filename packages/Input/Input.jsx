@@ -1,17 +1,16 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
-import styled from '@emotion/styled'
-import { red, parkGreen, greyBlue, white } from '@pm-kit/colours'
-import checkmark from '../../shared/svg/checkmark.svg'
-import exclamation from '../../shared/svg/exclamation.svg'
+import { red, parkGreen, greyBlue } from '@pm-kit/colours'
 import generateId from '../../shared/utils/generateId/generateId.js'
+import FeedbackIcon from '@pm-kit/feedback-icon'
+import { size, weight } from '@pm-kit/typography'
 
-const InputField = styled.input`
+const inputField = css`
   width: 100%;
   padding: 0 16px;
-  font-size: 18px;
-  border: 1px solid ${({ feedback }) => (feedback === 'error' ? red : parkGreen)};
+  font-size: ${size.bodyLarge};
+  border: 1px solid ${parkGreen};
   border-radius: 8px;
   height: 48px;
   color: ${parkGreen};
@@ -21,42 +20,44 @@ const InputField = styled.input`
   }
   &::placeholder {
     color: ${greyBlue};
-    font-size: 16px;
+    font-size: ${size.bodyMedium};
   }
 `
 
-const FeedbackIcon = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const inputFieldWithError = css`
+  border-color: ${red};
+`
+
+const wrapper = css`
+  position: relative;
+`
+
+const feedbackIconWrapper = css`
   position: absolute;
-  top: 8px;
-  right: -50px;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 2px solid ${({ feedback }) => (feedback === 'error' ? red : parkGreen)};
-  background-color: ${({ feedback }) => (feedback === 'error' ? red : white)};
+  left: calc(100% + 24px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
 `
 
 const labelContainer = css`
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
-  margin: 0 0 0.5rem 0.2rem;
   color: ${parkGreen};
-  font-size: 18px;
-  font-weight: 500;
+  font-size: ${size.bodySmall};
+  font-weight: ${weight.normal};
+  margin: 0 0 0.5rem 16px;
   & label {
     margin-right: 0.5rem;
   }
 `
 
-const smallLabelContainer = css`
+const largeLabelContainer = css`
   ${labelContainer}
-  font-size: 14px;
-  font-weight: 300;
-  margin-left: 16px;
+  font-size: ${size.bodyLarge};
+  font-weight: ${weight.bold};
+  margin: 0 0 0.5rem 0.2rem;
 `
 
 const isDisabled = css`
@@ -64,18 +65,17 @@ const isDisabled = css`
 `
 const feedbackError = css`
   color: ${red};
-  font-weight: 300;
+  font-weight: ${weight.normal};
 `
 
 export const Input = ({
-  variant,
   disabled,
   id,
   name,
   value,
   label,
   required,
-  small,
+  largeLabel,
   feedback,
   error,
   feedbackicon,
@@ -84,6 +84,15 @@ export const Input = ({
   ...rest
 }) => {
   const inputId = generateId(id, rest.name, label)
+  const labelContainerStyle = [labelContainer]
+  const inputStyle = [inputField]
+  if (largeLabel) {
+    labelContainerStyle.push(largeLabelContainer)
+  }
+
+  if (feedback === 'error') {
+    inputStyle.push(inputFieldWithError)
+  }
   const renderLabel = (label, required, disabled) => {
     const labelText = `${label}${required ? true && '*' : ''}`
     return (
@@ -95,25 +104,17 @@ export const Input = ({
 
   const renderFeedback = errorMessage => <span css={feedbackError}>{`(${errorMessage})`}</span>
 
-  const renderFeedbackIcon = feedback => {
-    return (
-      <FeedbackIcon feedback={feedback}>
-        <img src={feedback === 'error' ? exclamation : checkmark} alt={feedback} />
-      </FeedbackIcon>
-    )
-  }
-
   return (
     <div>
       {!hideLabel && (
-        <div css={small ? smallLabelContainer : labelContainer}>
+        <div css={labelContainerStyle}>
           {label && renderLabel(label, required, disabled)}
           {feedback === 'error' && error && renderFeedback(error)}
         </div>
       )}
-      <div style={{ position: 'relative' }}>
-        {feedbackicon && feedback !== undefined && renderFeedbackIcon(feedback)}
-        <InputField
+      <div css={wrapper}>
+        <input
+          css={inputStyle}
           ref={forwardedRef}
           aria-invalid={feedback === 'error'}
           aria-label={hideLabel ? label : null}
@@ -123,6 +124,14 @@ export const Input = ({
           name={name}
           {...rest}
         />
+        {feedbackicon && feedback && (
+          <div css={feedbackIconWrapper}>
+            <FeedbackIcon
+              state={feedback === 'error' ? 'failed' : feedback === 'success' ? 'passed' : 'waiting'}
+              size="24px"
+            />
+          </div>
+        )}
       </div>
     </div>
   )
@@ -144,7 +153,7 @@ Input.propTypes = {
   /**
    * A feedback state.
    */
-  feedback: PropTypes.oneOf(['success', 'error']),
+  feedback: PropTypes.oneOf(['success', 'error', 'waiting']),
   /**
    * Specifies if the label of Input field should be hidden.
    */
@@ -154,7 +163,7 @@ Input.propTypes = {
    */
   error: PropTypes.string,
   /**
-   * A success or error image to correspond with feedback.
+   * Control whether to dispaly feedback-icon or not.
    */
   feedbackicon: PropTypes.bool,
   /**
@@ -165,6 +174,10 @@ Input.propTypes = {
    * Use `value` for controlled Inputs. For uncontrolled Inputs, use React's built-in `defaultValue` prop.
    */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /**
+   * Controls the size of label.
+   */
+  largeLabel: PropTypes.bool,
 }
 
 Input.defaultProps = {
@@ -176,6 +189,7 @@ Input.defaultProps = {
   feedbackicon: false,
   name: undefined,
   value: undefined,
+  largeLabel: false,
 }
 
 const InputWithRef = forwardRef((props, ref) => <Input {...props} forwardedRef={ref} />)
