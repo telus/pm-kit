@@ -47,7 +47,6 @@ exports[`Card renders 1`] = `
 
 .emotion-3 {
   padding: 23px 23px 0px 23px;
-  cursor: pointer;
 }
 
 .emotion-2 {

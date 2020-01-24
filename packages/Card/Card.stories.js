@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { withKnobs, text, select, object } from '@storybook/addon-knobs'
+import { withKnobs, text, select, boolean, object } from '@storybook/addon-knobs'
 import Card from './Card'
 import { version } from './package.json'
 
@@ -36,7 +36,15 @@ export const Selectable = () => {
 
 export const Expandable = () => {
   return (
-    <Card title="Default Title" subtitle="Default Subtitle">
+    <Card title="Default Title" subtitle="Default Subtitle" isExpandable={true}>
+      {detailsHtml}
+    </Card>
+  )
+}
+
+export const NotExpandable = () => {
+  return (
+    <Card title="Default Title" subtitle="Default Subtitle" isExpandable={false}>
       {detailsHtml}
     </Card>
   )
@@ -53,6 +61,7 @@ export const WithPlaceholder = () => {
       selectable={{ selectedText: 'Selected', unSelectedText: 'Select' }}
       isSelected={selectCard === id}
       onClick={() => setSelectedCard(id)}
+      isExpandable={true}
     >
       <p>Default Details</p>
     </Card>
@@ -71,6 +80,7 @@ export const MultipleCards = () => {
           selectable={{ selectedText: 'Selected', unSelectedText: 'Select' }}
           isSelected={selectCard === idCard1}
           onClick={() => setSelectedCard(idCard1)}
+          isExpandable={true}
         >
           <p>Card 1</p>
         </Card>
@@ -81,6 +91,7 @@ export const MultipleCards = () => {
           selectable={{ selectedText: 'Selected', unSelectedText: 'Select' }}
           isSelected={selectCard === idCard2}
           onClick={() => setSelectedCard(idCard2)}
+          isExpandable={true}
         >
           <p>Card 2</p>
         </Card>
@@ -100,6 +111,7 @@ export const Playground = () => {
       onClick={() => setSelectedCard(id)}
       isSelected={selectCard === id}
       selectable={object('Selected Text', { unSelectedText: 'Select', selectedText: 'Selected' })}
+      isExpandable={boolean('Expandable', true)}
     >
       {text('Edit Details', 'Edit Details')}
     </Card>
