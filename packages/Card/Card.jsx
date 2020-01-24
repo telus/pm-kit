@@ -219,11 +219,31 @@ const Card = ({ placeholder, title, subtitle, children, onClick, isSelected, sel
 }
 
 Card.propTypes = {
+  /**
+   * The title of the Card.
+   */
   title: PropTypes.string,
+  /**
+   * The subtitle of the Card.
+   */
   subtitle: PropTypes.string,
+  /**
+   * The Details of the Card. Having children of any type renders an expandable details row.
+   * With the contents of the child supplied to it.
+   */
   children: PropTypes.node,
+  /**
+   * This is a fuction that is passed into the component that executes when the component is clicked.
+   */
   onClick: PropTypes.func,
+  /**
+   * A boolean that if true renders the selected state of the card. If false renders the default state.
+   */
   isSelected: PropTypes.bool,
+  /**
+   * Contains and object with the selected and unselected text in the top right of the Card.
+   * This allows the card to be selectable.
+   */
   selectable: PropTypes.object,
 }
 
