@@ -11,12 +11,6 @@ const inputWrapper = css`
   position: relative;
 `
 
-const inputWrapperWithError = css`
-  > div > div {
-    border-color: ${red};
-  }
-`
-
 const basicLabel = css`
   display: block;
   margin: 0 0 0.2rem 1rem;
@@ -56,51 +50,6 @@ const placeholder = css`
   font-size: 16px;
 `
 
-const customDropdownStyles = {
-  option: (provided, state) => ({
-    ...provided,
-    padding: '10px 17px',
-    borderBottom: '1px dotted #DDD',
-    backgroundColor: state.isFocused ? `${lightTan}` : 'inherit',
-    color: `${parkGreen}`,
-    fontWeight: state.isSelected ? `${weight.bold}` : `${weight.normal}`,
-    fontSize: '1rem',
-    cursor: 'pointer',
-    '&:hover': {
-      backgroundColor: `${lightTan}`,
-    },
-  }),
-  control: () => ({
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    minWidth: '100%',
-    height: '48px',
-    padding: '0 0 0 7px',
-    fontSize: '18px',
-    borderRadius: '8px',
-    border: `1px solid  ${parkGreen}`,
-    backgroundColor: `${white}`,
-    color: `${parkGreen}`,
-    cursor: 'pointer',
-  }),
-  singleValue: () => ({
-    color: `${parkGreen}`,
-  }),
-  indicatorSeparator: provided => ({
-    ...provided,
-    visibility: 'hidden',
-  }),
-  dropdownIndicator: provided => ({ ...provided, color: `${parkGreen}` }),
-  clearIndicator: () => ({
-    display: 'none',
-  }),
-  placeholder: provided => ({
-    ...provided,
-    color: `${parkGreen}`,
-  }),
-}
-
 const dropdownAnimate = {
   hide: {
     height: 0,
@@ -131,6 +80,52 @@ export const Dropdown = ({
   forwardedRef,
   ...rest
 }) => {
+  const customDropdownStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      padding: '10px 17px',
+      borderBottom: '1px dotted #DDD',
+      backgroundColor: state.isFocused ? `${lightTan}` : 'inherit',
+      color: `${parkGreen}`,
+      fontWeight: state.isSelected ? `${weight.bold}` : `${weight.normal}`,
+      fontSize: '1rem',
+      cursor: 'pointer',
+      '&:hover': {
+        backgroundColor: `${lightTan}`,
+      },
+    }),
+    control: () => ({
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      minWidth: '100%',
+      height: '48px',
+      padding: '0 0 0 7px',
+      fontSize: '18px',
+      borderRadius: '8px',
+      border: `1px solid`,
+      borderColor: `${feedback === 'error'}` ? `${red}` : 'initial',
+      backgroundColor: `${white}`,
+      color: `${parkGreen}`,
+      cursor: 'pointer',
+    }),
+    singleValue: () => ({
+      color: `${parkGreen}`,
+    }),
+    indicatorSeparator: provided => ({
+      ...provided,
+      visibility: 'hidden',
+    }),
+    dropdownIndicator: provided => ({ ...provided, color: `${parkGreen}` }),
+    clearIndicator: () => ({
+      display: 'none',
+    }),
+    placeholder: provided => ({
+      ...provided,
+      color: `${parkGreen}`,
+    }),
+  }
+
   const selectId = generateId(id, label)
   const filterConfig = {
     ignoreCase,
@@ -139,14 +134,9 @@ export const Dropdown = ({
     matchFrom,
   }
   const labelStyle = [basicLabel]
-  const inputWrapperStyle = [inputWrapper]
 
   if (largeLabel) {
     labelStyle.push(largeLabelStyle)
-  }
-
-  if (feedback === 'error') {
-    inputWrapperStyle.push(inputWrapperWithError)
   }
 
   const renderLabel = () => {
@@ -171,7 +161,7 @@ export const Dropdown = ({
         {renderLabel()}
         {feedback === 'error' && renderError(error)}
       </label>
-      <div css={inputWrapperStyle}>
+      <div css={inputWrapper}>
         <Select
           value={value}
           onChange={onChange}
@@ -248,10 +238,6 @@ Dropdown.propTypes = {
    */
   feedback: PropTypes.oneOf(['success', 'error']),
   /**
-   * A success, error or waiting image to corrospond to feedback.
-   */
-  feedbackIcon: PropTypes.bool,
-  /**
    * A unique id.
    */
   id: PropTypes.string,
@@ -303,7 +289,6 @@ Dropdown.propTypes = {
 Dropdown.defaultProps = {
   error: undefined,
   feedback: undefined,
-  feedbackIcon: false,
   id: undefined,
   options: [],
   required: false,
