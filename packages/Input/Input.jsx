@@ -72,6 +72,8 @@ export const Input = ({
   disabled,
   id,
   name,
+  value,
+  onChange,
   label,
   required,
   largeLabel,
@@ -121,6 +123,8 @@ export const Input = ({
           disabled={disabled}
           id={inputId.identity()}
           name={name}
+          value={value}
+          onChange={onChange}
           {...rest}
         />
         {feedbackicon && feedback && (
@@ -173,6 +177,14 @@ Input.propTypes = {
    * Controls the size of label.
    */
   largeLabel: PropTypes.bool,
+  /**
+   * The value of input.
+   */
+  value: PropTypes.string,
+  /**
+   * The on input field change function.
+   */
+  onChange: PropTypes.func,
 }
 
 Input.defaultProps = {
@@ -183,7 +195,6 @@ Input.defaultProps = {
   error: undefined,
   feedbackicon: false,
   name: undefined,
-  largeLabel: false,
 }
 
 const InputWithRef = forwardRef((props, ref) => <Input {...props} forwardedRef={ref} />)
