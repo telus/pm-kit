@@ -178,11 +178,11 @@ Input.propTypes = {
    */
   largeLabel: PropTypes.bool,
   /**
-   * The value of input.
+   * Use `value` for controlled Inputs. For uncontrolled Inputs, use React's built-in `defaultValue` prop.
    */
   value: PropTypes.string,
   /**
-   * The on input field change function.
+   * A callback function to handle changes.
    */
   onChange: PropTypes.func,
 }
