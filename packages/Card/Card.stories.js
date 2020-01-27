@@ -45,7 +45,7 @@ export const Expandable = () => {
 export const NotExpandable = () => {
   return (
     <Card title="Default Title" subtitle="Default Subtitle" isExpandable={false}>
-      {detailsHtml}
+      <p> This Card cannot Expand and cannot be Selected</p>
     </Card>
   )
 }
