@@ -72,7 +72,6 @@ export const Input = ({
   disabled,
   id,
   name,
-  value,
   label,
   required,
   largeLabel,
@@ -171,10 +170,6 @@ Input.propTypes = {
    */
   name: PropTypes.string,
   /**
-   * Use `value` for controlled Inputs. For uncontrolled Inputs, use React's built-in `defaultValue` prop.
-   */
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /**
    * Controls the size of label.
    */
   largeLabel: PropTypes.bool,
@@ -188,7 +183,6 @@ Input.defaultProps = {
   error: undefined,
   feedbackicon: false,
   name: undefined,
-  value: undefined,
   largeLabel: false,
 }
 
