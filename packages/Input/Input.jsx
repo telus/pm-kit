@@ -73,6 +73,7 @@ export const Input = ({
   id,
   name,
   value,
+  onChange,
   label,
   required,
   largeLabel,
@@ -122,6 +123,8 @@ export const Input = ({
           disabled={disabled}
           id={inputId.identity()}
           name={name}
+          value={value}
+          onChange={onChange}
           {...rest}
         />
         {feedbackicon && feedback && (
@@ -171,13 +174,17 @@ Input.propTypes = {
    */
   name: PropTypes.string,
   /**
-   * Use `value` for controlled Inputs. For uncontrolled Inputs, use React's built-in `defaultValue` prop.
-   */
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /**
    * Controls the size of label.
    */
   largeLabel: PropTypes.bool,
+  /**
+   * Use `value` for controlled Inputs. For uncontrolled Inputs, use React's built-in `defaultValue` prop.
+   */
+  value: PropTypes.string,
+  /**
+   * A callback function to handle changes.
+   */
+  onChange: PropTypes.func,
 }
 
 Input.defaultProps = {
@@ -188,7 +195,6 @@ Input.defaultProps = {
   error: undefined,
   feedbackicon: false,
   name: undefined,
-  value: undefined,
   largeLabel: false,
 }
 

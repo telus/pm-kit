@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/telus/pm-kit/compare/@pm-kit/input@1.1.0...@pm-kit/input@1.1.1) (2020-01-27)
+
+
+### Bug Fixes
+
+* **input:** fixed props ([#41](https://github.com/telus/pm-kit/issues/41)) ([dd14c5e](https://github.com/telus/pm-kit/commit/dd14c5e079f0dd5527614340a31fe90012499825))
+
+
+
+
+
 # [1.1.0](https://github.com/telus/pm-kit/compare/@pm-kit/input@1.0.5...@pm-kit/input@1.1.0) (2020-01-24)
 
 
