@@ -195,6 +195,7 @@ Input.defaultProps = {
   error: undefined,
   feedbackicon: false,
   name: undefined,
+  largeLabel: false,
 }
 
 const InputWithRef = forwardRef((props, ref) => <Input {...props} forwardedRef={ref} />)
