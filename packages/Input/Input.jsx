@@ -8,6 +8,21 @@ import { size, weight } from '@pm-kit/typography'
 import show from '../../shared/png/show/show.png'
 import hide from '../../shared/png/hide/hide.png'
 
+const inputWrapper = css`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`
+
+const passwordInputWrapper = css`
+  display: flex;
+  border: solid 1px ${parkGreen};
+  border-radius: 8px;
+  background-color: white;
+  width: 100%;
+  justify-content: space-around;
+`
+
 const inputField = css`
   width: 100%;
   padding: 0 16px;
@@ -79,15 +94,6 @@ const isDisabled = css`
 const feedbackError = css`
   color: ${red};
   font-weight: ${weight.normal};
-`
-
-const passwordInputWrapper = css`
-  display: flex;
-  border: solid 1px ${parkGreen};
-  border-radius: 8px;
-  background-color: white;
-  width: 100%;
-  justify-content: space-around;
 `
 
 const eyeButton = css`
@@ -170,7 +176,7 @@ export const Input = ({
   }
 
   return (
-    <div>
+    <div css={inputWrapper}>
       {!hideLabel && (
         <div css={labelContainerStyle}>
           {label && renderLabel(label, required, disabled)}
