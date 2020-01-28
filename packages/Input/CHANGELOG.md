@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/telus/pm-kit/compare/@pm-kit/input@1.1.1...@pm-kit/input@1.2.0) (2020-01-28)
+
+
+### Features
+
+* **input:** added input of type password ([#42](https://github.com/telus/pm-kit/issues/42)) ([eb31ef6](https://github.com/telus/pm-kit/commit/eb31ef66feb3f22510e380ca6ef232c0921052e8))
+* **input:** fixed the eye image for password input ([#43](https://github.com/telus/pm-kit/issues/43)) ([52fd61a](https://github.com/telus/pm-kit/commit/52fd61ac98acc6d69c716b01ae3e3c9681db3d8f))
+
+
+
+
+
 ## [1.1.1](https://github.com/telus/pm-kit/compare/@pm-kit/input@1.1.0...@pm-kit/input@1.1.1) (2020-01-27)
 
 
