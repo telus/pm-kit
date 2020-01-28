@@ -56,7 +56,7 @@ const inputFieldWithError = css`
   border-color: ${red};
 `
 
-const wrapper = css`
+const inputAndFeedbackWrapper = css`
   position: relative;
 `
 
@@ -183,7 +183,7 @@ export const Input = ({
           {feedback === 'error' && error && renderFeedback(error)}
         </div>
       )}
-      <div css={wrapper}>
+      <div css={inputAndFeedbackWrapper}>
         {type === 'password' ? (
           <div css={passwordInputStyle}>
             <input
