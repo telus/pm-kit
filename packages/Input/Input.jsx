@@ -9,8 +9,6 @@ import show from '../../shared/png/show/show.png'
 import hide from '../../shared/png/hide/hide.png'
 
 const inputWrapper = css`
-  display: flex;
-  flex-direction: column;
   width: 100%;
 `
 
