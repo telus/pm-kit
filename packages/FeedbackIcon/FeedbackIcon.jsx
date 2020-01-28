@@ -28,11 +28,11 @@ const FeedbackIcon = ({ state, size }) => {
 
   return (
     <>
-      {state !== 'disabled' && (
+      {state !== undefined && (
         <>
           {state === 'waiting' && <div css={loader}></div>}
-          {state === 'passed' && <img css={imageStyles} src={successPath} alt="passed" />}
-          {state === 'failed' && <img css={imageStyles} src={failPath} alt="failed" />}
+          {state === 'success' && <img css={imageStyles} src={successPath} alt="success" />}
+          {state === 'error' && <img css={imageStyles} src={failPath} alt="error" />}
         </>
       )}
     </>
@@ -43,7 +43,7 @@ FeedbackIcon.propTypes = {
   /**
    * The icon you want to render.
    */
-  state: PropTypes.oneOf(['waiting', 'passed', 'failed', 'disabled']),
+  state: PropTypes.oneOf(['waiting', 'success', 'error', undefined]),
   /**
    * The height and width of feedback-icon.
    */
@@ -51,7 +51,7 @@ FeedbackIcon.propTypes = {
 }
 
 FeedbackIcon.defaultProps = {
-  state: 'disabled',
+  state: undefined,
   size: '1.125rem',
 }
 

@@ -1,32 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FeedbackIcon renders checkmark when passed 1`] = `
+exports[`FeedbackIcon renders checkmark when success 1`] = `
 .emotion-0 {
   width: 1.125rem;
   height: 1.125rem;
 }
 
 <img
-  alt="passed"
+  alt="success"
   class="emotion-0"
   src="test-file-stub"
 />
 `;
 
-exports[`FeedbackIcon renders error icon when failed 1`] = `
+exports[`FeedbackIcon renders error icon when error 1`] = `
 .emotion-0 {
   width: 1.125rem;
   height: 1.125rem;
 }
 
 <img
-  alt="failed"
+  alt="error"
   class="emotion-0"
   src="test-file-stub"
 />
 `;
 
-exports[`FeedbackIcon renders nothing when disabled 1`] = `null`;
+exports[`FeedbackIcon renders nothing when undefined 1`] = `null`;
 
 exports[`FeedbackIcon renders spinner when waiting 1`] = `
 .emotion-0 {

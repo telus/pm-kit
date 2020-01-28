@@ -8,18 +8,18 @@ export default {
   decorators: [withKnobs],
 }
 
-export const passed = () => <FeedbackIcon state="passed" />
+export const success = () => <FeedbackIcon state="success" />
 
-export const failed = () => <FeedbackIcon state="failed" />
+export const error = () => <FeedbackIcon state="error" />
 
 export const waiting = () => <FeedbackIcon state="waiting" />
 
-export const disabled = () => <FeedbackIcon state="disabled" />
+export const undefined = () => <FeedbackIcon state={undefined} />
 
 export const Playground = () => {
   return (
     <FeedbackIcon
-      state={select('state', ['passed', 'failed', 'waiting', 'disabled'], 'disabled')}
+      state={select('state', ['success', 'error', 'waiting', undefined], undefined)}
       size={text('size', '1.125rem')}
     />
   )
