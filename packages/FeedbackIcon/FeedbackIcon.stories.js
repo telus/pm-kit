@@ -14,12 +14,12 @@ export const error = () => <FeedbackIcon state="error" />
 
 export const waiting = () => <FeedbackIcon state="waiting" />
 
-export const undefined = () => <FeedbackIcon state={undefined} />
+export const disabled = () => <FeedbackIcon state="disabled" />
 
 export const Playground = () => {
   return (
     <FeedbackIcon
-      state={select('state', ['success', 'error', 'waiting', undefined], undefined)}
+      state={select('state', ['success', 'error', 'waiting', 'disabled'], 'disabled')}
       size={text('size', '1.125rem')}
     />
   )

@@ -26,7 +26,7 @@ exports[`FeedbackIcon renders error icon when error 1`] = `
 />
 `;
 
-exports[`FeedbackIcon renders nothing when undefined 1`] = `null`;
+exports[`FeedbackIcon renders nothing when disabled 1`] = `null`;
 
 exports[`FeedbackIcon renders spinner when waiting 1`] = `
 .emotion-0 {

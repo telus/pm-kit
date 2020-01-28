@@ -4,8 +4,8 @@ import { render } from 'enzyme'
 import FeedbackIcon from '../FeedbackIcon'
 
 describe('FeedbackIcon', () => {
-  it('renders nothing when undefined', () => {
-    const feedbackIcon = render(<FeedbackIcon state={undefined} />)
+  it('renders nothing when disabled', () => {
+    const feedbackIcon = render(<FeedbackIcon state="disabled" />)
     expect(feedbackIcon).toMatchSnapshot()
   })
 
