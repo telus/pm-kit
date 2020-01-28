@@ -101,6 +101,12 @@ const eyeButton = css`
   }
 `
 
+const eyeImage = css`
+  width: 32px;
+  height: 22px;
+  align-self: center;
+`
+
 export const Input = ({
   disabled,
   id,
@@ -189,7 +195,7 @@ export const Input = ({
               {...rest}
             />
             <button css={eyeButton} onClick={showPassword}>
-              <img src={display ? hide : show} alt="show password" />
+              <img css={eyeImage} src={display ? hide : show} alt="show password" />
             </button>
           </div>
         ) : (
