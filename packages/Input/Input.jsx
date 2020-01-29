@@ -153,7 +153,7 @@ export const Input = ({
       inputStyle.push(inputFieldWithError)
     }
   }
-  const renderLabel = (label, required, disabled, alternate) => {
+  const renderLabel = (label, required, disabled) => {
     const labelText = `${label}${required ? true && '*' : ''}`
     return (
       <label css={disabled ? isDisabled : null} htmlFor={inputId.identity()}>
@@ -274,6 +274,10 @@ Input.propTypes = {
    */
   largeLabel: PropTypes.bool,
   /**
+   * Controls the position of label.
+   */
+  alternate: PropTypes.bool,
+  /**
    * Use `value` for controlled Inputs. For uncontrolled Inputs, use React's built-in `defaultValue` prop.
    * For input of type `password`, value is required.
    */
@@ -303,6 +307,7 @@ Input.defaultProps = {
   largeLabel: false,
   type: 'text',
   forwardedRef: undefined,
+  alternate: false,
 }
 
 const InputWithRef = forwardRef((props, ref) => <Input {...props} forwardedRef={ref} />)
