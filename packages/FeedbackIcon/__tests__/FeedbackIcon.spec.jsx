@@ -9,13 +9,13 @@ describe('FeedbackIcon', () => {
     expect(feedbackIcon).toMatchSnapshot()
   })
 
-  it('renders checkmark when passed', () => {
-    const feedbackIcon = render(<FeedbackIcon state="passed" />)
+  it('renders checkmark when success', () => {
+    const feedbackIcon = render(<FeedbackIcon state="success" />)
     expect(feedbackIcon).toMatchSnapshot()
   })
 
-  it('renders error icon when failed', () => {
-    const feedbackIcon = render(<FeedbackIcon state="failed" />)
+  it('renders error icon when error', () => {
+    const feedbackIcon = render(<FeedbackIcon state="error" />)
     expect(feedbackIcon).toMatchSnapshot()
   })
 

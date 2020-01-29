@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs'
 import Input from './Input.jsx'
 import { version } from './package.json'
@@ -22,21 +22,50 @@ export const ErrorWithIcon = () => (
   <Input placeholder="Placeholder" label="Label" feedback="error" error="error" feedbackicon />
 )
 
+export const Password = () => {
+  const inputRef = useRef()
+  const [inputValue, setInputValue] = useState('')
+  const inputValueChange = e => {
+    setInputValue(e.target.value)
+  }
+  return (
+    <Input
+      placeholder="Placeholder"
+      label="Label"
+      type="password"
+      ref={inputRef}
+      value={inputValue}
+      onChange={inputValueChange}
+    />
+  )
+}
+
 export const Disabled = () => <Input disabled={true} placeholder="Disabled" label="Label" />
 
-export const Playground = () => (
-  <Input
-    label={text('Label', 'Label')}
-    placeholder={text('Placeholder', 'Placeholder')}
-    error={text('Error Message', 'Error')}
-    feedback={select('Feedback', [undefined, 'success', 'error', 'waiting'])}
-    largeLabel={boolean('large Label', false)}
-    feedbackicon={boolean('Feedback Icon', false)}
-    required={boolean('Required Input', false)}
-    disabled={boolean('Disable Input', false)}
-    hideLabel={boolean('Hide Label', false)}
-  />
-)
+export const Playground = () => {
+  const inputRef = useRef()
+  const [inputValue, setInputValue] = useState('')
+  const inputValueChange = e => {
+    setInputValue(e.target.value)
+  }
+  return (
+    <Input
+      label={text('Label', 'Label')}
+      placeholder={text('Placeholder', 'Placeholder')}
+      error={text('Error Message', 'Error')}
+      feedback={select('Feedback', [undefined, 'success', 'error', 'waiting'])}
+      largeLabel={boolean('large Label', false)}
+      feedbackicon={boolean('Feedback Icon', false)}
+      required={boolean('Required Input', false)}
+      disabled={boolean('Disable Input', false)}
+      hideLabel={boolean('Hide Label', false)}
+      type={select('Type', ['text', 'password'])}
+      ref={inputRef}
+      value={inputValue}
+      onChange={inputValueChange}
+    />
+  )
+}
 
 Playground.story = {
   name: 'playground',

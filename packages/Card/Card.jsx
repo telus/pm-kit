@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -76,6 +76,10 @@ const selectOptionContainer = css`
   cursor: pointer;
 `
 
+const selectOptionContainerNoCurser = css`
+  padding: 23px 23px 0px 23px;
+`
+
 const cardDetails = css`
   color: ${parkGreen};
   padding: 0px 23px 0px 23px;
@@ -121,10 +125,6 @@ const cardContainerDetails = css`
   justify-content: space-between;
   flex-direction: column;
 `
-const placeholderContainer = css`
-  max-width: 20%;
-  display: flex;
-`
 
 const planVariant = {
   hidden: { opacity: 0, y: -10 },
@@ -135,7 +135,7 @@ const planVariant = {
   },
 }
 
-const Card = ({ placeholder, title, subtitle, children, onClick, isSelected, selectable }) => {
+const Card = ({ isExpandable, placeholder, title, subtitle, children, onClick, isSelected, selectable }) => {
   const [openCard, setOpenCard] = useState(false)
 
   const styles = [card]
@@ -152,6 +152,12 @@ const Card = ({ placeholder, title, subtitle, children, onClick, isSelected, sel
     setOpenCard(!openCard)
   }
 
+  useEffect(() => {
+    if (isExpandable === false) {
+      setOpenCard(true)
+    }
+  }, [isExpandable])
+
   let arrowImage = downArrow
 
   if (openCard) {
@@ -163,7 +169,10 @@ const Card = ({ placeholder, title, subtitle, children, onClick, isSelected, sel
   return (
     <motion.div css={styles} variants={planVariant}>
       <div css={cardContainerDetails}>
-        <div css={selectOptionContainer} onClick={selectable ? onCardClick : undefined}>
+        <div
+          css={selectable ? selectOptionContainer : selectOptionContainerNoCurser}
+          onClick={selectable ? onCardClick : undefined}
+        >
           {selectable && (
             <div css={selectOption}>
               {isSelected && (
@@ -182,7 +191,7 @@ const Card = ({ placeholder, title, subtitle, children, onClick, isSelected, sel
           )}
 
           <div css={cardRowContainer}>
-            <div css={placeholderContainer}>{placeholder && placeholder}</div>
+            <div>{placeholder && placeholder}</div>
             <div>
               <p css={titleStyle}>{title}</p>
               <p css={paddingLeft}>{subtitle}</p>
@@ -196,7 +205,7 @@ const Card = ({ placeholder, title, subtitle, children, onClick, isSelected, sel
               {openCard && (
                 <motion.div
                   css={cardDetails}
-                  onClick={toggleOpenCard}
+                  onClick={isExpandable ? toggleOpenCard : undefined}
                   initial={{ height: 0 }}
                   animate={{ height: 'auto' }}
                   exit={{ height: '0px' }}
@@ -205,13 +214,14 @@ const Card = ({ placeholder, title, subtitle, children, onClick, isSelected, sel
                 </motion.div>
               )}
             </AnimatePresence>
-
-            <div css={detailsBar} onClick={toggleOpenCard}>
-              {openCard && <Paragraph>Collapse</Paragraph>}
-              {!openCard && <Paragraph>Details</Paragraph>}
-              <img src={arrowImage} alt="arrow" />
-            </div>
           </>
+        )}
+        {isExpandable && (
+          <div css={detailsBar} onClick={toggleOpenCard}>
+            {openCard && <Paragraph>Collapse</Paragraph>}
+            {!openCard && <Paragraph>Details</Paragraph>}
+            <img src={arrowImage} alt="arrow" />
+          </div>
         )}
       </div>
     </motion.div>
@@ -227,6 +237,10 @@ Card.propTypes = {
    * The subtitle of the Card.
    */
   subtitle: PropTypes.string,
+  /**
+   * Any HTML element that you want to be rendered
+   */
+  placeholder: PropTypes.node,
   /**
    * The Details of the Card. Having children of any type renders an expandable details row.
    * With the contents of the child supplied to it.
@@ -245,15 +259,21 @@ Card.propTypes = {
    * This allows the card to be selectable.
    */
   selectable: PropTypes.object,
+  /**
+   * A boolean that if true renders the card has a details bar. If false renders an open card.
+   */
+  isExpandable: PropTypes.bool,
 }
 
 Card.defaultProps = {
   title: undefined,
   subtitle: undefined,
+  placeholder: undefined,
   children: undefined,
   onClick: undefined,
   isSelected: undefined,
   selectable: undefined,
+  isExpandable: undefined,
 }
 
 export default Card

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Card renders 1`] = `
-.emotion-6 {
+.emotion-5 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -27,11 +27,11 @@ exports[`Card renders 1`] = `
   margin-bottom: '32px';
 }
 
-.emotion-6:hover {
+.emotion-5:hover {
   box-shadow: 0 2px 18px 0 rgba(0,0,0,0.25);
 }
 
-.emotion-5 {
+.emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -45,12 +45,11 @@ exports[`Card renders 1`] = `
   flex-direction: column;
 }
 
-.emotion-4 {
+.emotion-3 {
   padding: 23px 23px 0px 23px;
-  cursor: pointer;
 }
 
-.emotion-3 {
+.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -67,47 +66,37 @@ exports[`Card renders 1`] = `
 }
 
 .emotion-0 {
-  max-width: 20%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-1 {
   color: #034045;
   font-weight: 500;
   padding-left: 8px;
   width: 100%;
 }
 
-.emotion-2 {
+.emotion-1 {
   padding-left: 8px;
 }
 
 <div
-  class="emotion-6"
+  class="emotion-5"
 >
   <div
-    class="emotion-5"
+    class="emotion-4"
   >
     <div
-      class="emotion-4"
+      class="emotion-3"
     >
       <div
-        class="emotion-3"
+        class="emotion-2"
       >
-        <div
-          class="emotion-0"
-        />
+        <div />
         <div>
           <p
-            class="emotion-1"
+            class="emotion-0"
           >
             title
           </p>
           <p
-            class="emotion-2"
+            class="emotion-1"
           >
             subtitle
           </p>
