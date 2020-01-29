@@ -220,10 +220,7 @@ export const Input = ({
         )}
         {feedbackicon && feedback && (
           <div css={feedbackIconWrapper}>
-            <FeedbackIcon
-              state={feedback === 'error' ? 'failed' : feedback === 'success' ? 'passed' : 'waiting'}
-              size="24px"
-            />
+            <FeedbackIcon state={!feedback ? 'disabled' : feedback} size="24px" />
           </div>
         )}
       </div>
