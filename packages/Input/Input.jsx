@@ -79,6 +79,11 @@ const labelContainer = css`
   }
 `
 
+const alternateLabel = css`
+  ${labelContainer}
+  margin: 0 0 0 0.2rem;
+`
+
 const largeLabelContainer = css`
   ${labelContainer}
   font-size: ${size.bodyLarge};
@@ -125,6 +130,7 @@ export const Input = ({
   feedbackicon,
   hideLabel,
   type,
+  alternate,
   forwardedRef,
   ...rest
 }) => {
@@ -136,6 +142,8 @@ export const Input = ({
 
   if (largeLabel) {
     labelContainerStyle.push(largeLabelContainer)
+  } else if (alternate) {
+    labelContainerStyle.push(alternateLabel)
   }
 
   if (feedback === 'error') {
@@ -145,7 +153,7 @@ export const Input = ({
       inputStyle.push(inputFieldWithError)
     }
   }
-  const renderLabel = (label, required, disabled) => {
+  const renderLabel = (label, required, disabled, alternate) => {
     const labelText = `${label}${required ? true && '*' : ''}`
     return (
       <label css={disabled ? isDisabled : null} htmlFor={inputId.identity()}>
