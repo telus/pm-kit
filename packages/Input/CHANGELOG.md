@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/telus/pm-kit/compare/@pm-kit/input@1.2.0...@pm-kit/input@1.2.1) (2020-01-29)
+
+
+### Bug Fixes
+
+* **input:** updated to use new feedbackIcon state values ([#46](https://github.com/telus/pm-kit/issues/46)) ([e34c8f1](https://github.com/telus/pm-kit/commit/e34c8f156bef858059d71cba2e6255ed6eae96a0))
+* **input:** updated width ([#44](https://github.com/telus/pm-kit/issues/44)) ([346e0ea](https://github.com/telus/pm-kit/commit/346e0ead70263ac94a2afafb57928a85547a0f04))
+
+
+
+
+
 # [1.2.0](https://github.com/telus/pm-kit/compare/@pm-kit/input@1.1.1...@pm-kit/input@1.2.0) (2020-01-28)
 
 
