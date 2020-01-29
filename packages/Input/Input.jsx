@@ -8,6 +8,19 @@ import { size, weight } from '@pm-kit/typography'
 import show from '../../shared/png/show/show.png'
 import hide from '../../shared/png/hide/hide.png'
 
+const inputWrapper = css`
+  width: 100%;
+`
+
+const passwordInputWrapper = css`
+  display: flex;
+  border: solid 1px ${parkGreen};
+  border-radius: 8px;
+  background-color: white;
+  width: 100%;
+  justify-content: space-around;
+`
+
 const inputField = css`
   width: 100%;
   padding: 0 16px;
@@ -41,7 +54,7 @@ const inputFieldWithError = css`
   border-color: ${red};
 `
 
-const wrapper = css`
+const inputAndFeedbackWrapper = css`
   position: relative;
 `
 
@@ -79,15 +92,6 @@ const isDisabled = css`
 const feedbackError = css`
   color: ${red};
   font-weight: ${weight.normal};
-`
-
-const passwordInputWrapper = css`
-  display: flex;
-  border: solid 1px ${parkGreen};
-  border-radius: 8px;
-  background-color: white;
-  width: 100%;
-  justify-content: space-around;
 `
 
 const eyeButton = css`
@@ -170,14 +174,14 @@ export const Input = ({
   }
 
   return (
-    <div>
+    <div css={inputWrapper}>
       {!hideLabel && (
         <div css={labelContainerStyle}>
           {label && renderLabel(label, required, disabled)}
           {feedback === 'error' && error && renderFeedback(error)}
         </div>
       )}
-      <div css={wrapper}>
+      <div css={inputAndFeedbackWrapper}>
         {type === 'password' ? (
           <div css={passwordInputStyle}>
             <input
