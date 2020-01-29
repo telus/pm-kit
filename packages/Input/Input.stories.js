@@ -14,9 +14,7 @@ export default {
 
 export const Default = () => <Input placeholder="Placeholder" label="Label" />
 
-export const LargeLabel = () => (
-  <Input placeholder="Placeholder" label="Label" largeLabel={true} feedback="error" error="error" />
-)
+export const LargeLabel = () => <Input placeholder="Placeholder" label="Label" largeLabel={true} />
 
 export const Error = () => <Input placeholder="Placeholder" label="Label" feedback="error" error="error" />
 

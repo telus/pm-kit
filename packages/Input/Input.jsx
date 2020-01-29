@@ -177,7 +177,6 @@ export const Input = ({
   const showPassword = () => {
     if (value && forwardedRef && forwardedRef.current) {
       setDisplay(!display)
-      !display ? (forwardedRef.current.type = 'text') : (forwardedRef.current.type = 'password')
     }
   }
 
@@ -200,7 +199,7 @@ export const Input = ({
               name={name}
               onKeyDown={handleKeyDown}
               ref={forwardedRef}
-              type={type}
+              type={display ? 'text' : 'password'}
               value={value}
               onChange={onChange}
               disabled={disabled}
@@ -221,6 +220,7 @@ export const Input = ({
             id={inputId.identity()}
             name={name}
             value={value}
+            type={type}
             onChange={onChange}
             onKeyDown={handleKeyDown}
             {...rest}
