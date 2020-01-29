@@ -61,6 +61,7 @@ export const Playground = () => {
       required={boolean('Required Input', false)}
       disabled={boolean('Disable Input', false)}
       hideLabel={boolean('Hide Label', false)}
+      alternate={boolean('Alternate', false)}
       type={select('Type', ['text', 'password'])}
       ref={inputRef}
       value={inputValue}

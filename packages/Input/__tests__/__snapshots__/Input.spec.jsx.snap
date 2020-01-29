@@ -21,6 +21,11 @@ exports[`Input renders 1`] = `
   font-size: 0.875rem;
   font-weight: 300;
   margin: 0 0 0.5rem 16px;
+  line-height: 1.35;
+  -webkit-letter-spacing: 0.05px;
+  -moz-letter-spacing: 0.05px;
+  -ms-letter-spacing: 0.05px;
+  letter-spacing: 0.05px;
 }
 
 .emotion-1 label {

@@ -74,6 +74,8 @@ const labelContainer = css`
   font-size: ${size.bodySmall};
   font-weight: ${weight.normal};
   margin: 0 0 0.5rem 16px;
+  line-height: 1.35;
+  letter-spacing: 0.05px;
   & label {
     margin-right: 0.5rem;
   }
@@ -81,7 +83,10 @@ const labelContainer = css`
 
 const alternateLabel = css`
   ${labelContainer}
-  margin: 0 0 0 0.2rem;
+  margin: 0 0 0.5rem 0.2rem;
+  & label {
+    margin: 0;
+  }
 `
 
 const largeLabelContainer = css`
