@@ -135,7 +135,7 @@ export const Input = ({
   ...rest
 }) => {
   const [display, setDisplay] = useState(false)
-  const inputId = generateId(id, rest.name, label)
+  const inputId = generateId(id, name, label)
   const labelContainerStyle = [labelContainer]
   const inputStyle = [inputField]
   const passwordInputStyle = [passwordInputWrapper]
