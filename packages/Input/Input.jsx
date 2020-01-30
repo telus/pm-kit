@@ -175,7 +175,7 @@ export const Input = ({
   }
 
   return (
-    <div css={inputWrapper} ref={forwardedRef}>
+    <div css={inputWrapper}>
       {!hideLabel && (
         <div css={labelContainerStyle}>
           {label && renderLabel(label, required, disabled)}
@@ -196,6 +196,7 @@ export const Input = ({
               value={value}
               onChange={onChange}
               disabled={disabled}
+              ref={forwardedRef}
               {...rest}
             />
             <button css={eyeButton} onClick={showPassword}>
@@ -215,6 +216,7 @@ export const Input = ({
             value={value}
             onChange={onChange}
             onKeyDown={handleKeyDown}
+            ref={forwardedRef}
             {...rest}
           />
         )}
