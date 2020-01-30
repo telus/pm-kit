@@ -167,9 +167,10 @@ export const Input = ({
   }
 
   const showPassword = () => {
-    if (value && forwardedRef && forwardedRef.current) {
+    if (!value || value === '') {
+      setDisplay(false)
+    } else {
       setDisplay(!display)
-      !display ? (forwardedRef.current.type = 'text') : (forwardedRef.current.type = 'password')
     }
   }
 
@@ -191,8 +192,7 @@ export const Input = ({
               id={inputId.identity()}
               name={name}
               onKeyDown={handleKeyDown}
-              ref={forwardedRef}
-              type={type}
+              type={display ? 'text' : 'password'}
               value={value}
               onChange={onChange}
               disabled={disabled}
@@ -205,12 +205,12 @@ export const Input = ({
         ) : (
           <input
             css={inputStyle}
-            ref={forwardedRef}
             aria-invalid={feedback === 'error'}
             aria-label={hideLabel ? label : null}
             feedback={feedback}
             disabled={disabled}
             id={inputId.identity()}
+            type={type}
             name={name}
             value={value}
             onChange={onChange}
