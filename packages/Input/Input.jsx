@@ -180,7 +180,9 @@ export const Input = ({
   }
 
   const showPassword = () => {
-    if (value) {
+    if (value === '' || !value) {
+      setDisplay(false)
+    } else {
       setDisplay(!display)
     }
   }
