@@ -104,7 +104,7 @@ export const Dropdown = ({
       fontSize: '18px',
       borderRadius: '8px',
       border: `1px solid`,
-      borderColor: `${feedback === 'error'}` ? `${red}` : 'initial',
+      borderColor: `${feedback}` === 'error' ? `${red}` : 'initial',
       backgroundColor: `${white}`,
       color: `${parkGreen}`,
       cursor: 'pointer',
@@ -174,6 +174,7 @@ export const Dropdown = ({
           clearIndicator={false}
           components={{ Menu, Option, SelectContainer, Placeholder }}
           filterOption={createFilter(filterConfig)}
+          {...rest}
         />
       </div>
     </>
