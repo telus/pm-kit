@@ -180,7 +180,7 @@ export const Input = ({
   }
 
   const showPassword = () => {
-    if (value && forwardedRef && forwardedRef.current) {
+    if (value) {
       setDisplay(!display)
     }
   }
