@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/telus/pm-kit/compare/@pm-kit/input@1.2.1...@pm-kit/input@1.2.2) (2020-01-30)
+
+
+### Bug Fixes
+
+* **input:** fixed generateId encountering undefined error, input type fix ([#48](https://github.com/telus/pm-kit/issues/48)) ([d4f8516](https://github.com/telus/pm-kit/commit/d4f8516b0f51a7841ffd6e14c53fba2e3443fd9d))
+
+
+
+
+
 ## [1.2.1](https://github.com/telus/pm-kit/compare/@pm-kit/input@1.2.0...@pm-kit/input@1.2.1) (2020-01-29)
 
 
