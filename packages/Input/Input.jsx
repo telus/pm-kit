@@ -175,7 +175,7 @@ export const Input = ({
   }
 
   return (
-    <div css={inputWrapper}>
+    <div css={inputWrapper} ref={forwardRef}>
       {!hideLabel && (
         <div css={labelContainerStyle}>
           {label && renderLabel(label, required, disabled)}
