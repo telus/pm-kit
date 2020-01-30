@@ -175,7 +175,7 @@ export const Input = ({
   }
 
   return (
-    <div css={inputWrapper} ref={forwardRef}>
+    <div css={inputWrapper} ref={forwardedRef}>
       {!hideLabel && (
         <div css={labelContainerStyle}>
           {label && renderLabel(label, required, disabled)}
@@ -278,10 +278,6 @@ Input.propTypes = {
    * The HTML5 type of the input field.
    */
   type: PropTypes.oneOf(['text', 'number', 'password', 'email', 'search', 'tel', 'url']),
-  /**
-   * The ref for your input. For input of type `password`, forwardedRef is required.
-   */
-  forwardedRef: PropTypes.object,
 }
 
 Input.defaultProps = {
