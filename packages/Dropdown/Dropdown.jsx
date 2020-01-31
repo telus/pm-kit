@@ -22,7 +22,7 @@ const basicLabel = css`
 `
 
 const largeLabelStyle = css`
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.5rem 0.2rem;
   & span {
     font-size: ${size.bodyLarge};
     font-weight: ${weight.bold};
@@ -139,27 +139,13 @@ export const Dropdown = ({
     labelStyle.push(largeLabelStyle)
   }
 
-  const renderLabel = () => {
-    return (
-      <span>
-        {label} {required && '*'}
-      </span>
-    )
-  }
-
-  const renderError = () => (
-    <span css={errorFeedback}>
-      <span>(</span>
-      {error}
-      <span>)</span>
-    </span>
-  )
-
   return (
     <>
       <label css={labelStyle} htmlFor={selectId.identity()}>
-        {renderLabel()}
-        {feedback === 'error' && renderError(error)}
+        <span>
+          {label} {required && '*'}
+        </span>
+        {feedback === 'error' && <span css={errorFeedback}>({error})</span>}
       </label>
       <div css={inputWrapper}>
         <Select
