@@ -36,7 +36,7 @@ export default opts => {
       image(),
       nodeResolve({
         extensions: ['.js', '.jsx'],
-        browser: true,
+        browser: false,
       }),
       commonjs({
         include: /node_modules/,
