@@ -18,7 +18,7 @@ const cities = [
 ]
 
 export const Default = () => {
-  const [city, setCity] = useState(cities[0])
+  const [city, setCity] = useState(undefined)
 
   const onCitySelect = citySelected => {
     setCity(citySelected)

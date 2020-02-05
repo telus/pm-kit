@@ -129,7 +129,7 @@ export const Input = ({
   ...rest
 }) => {
   const [display, setDisplay] = useState(false)
-  const inputId = generateId(id, rest.name, label)
+  const inputId = generateId(id, name, label)
   const labelContainerStyle = [labelContainer]
   const inputStyle = [inputField]
   const passwordInputStyle = [passwordInputWrapper]
@@ -167,9 +167,10 @@ export const Input = ({
   }
 
   const showPassword = () => {
-    if (value && forwardedRef && forwardedRef.current) {
+    if (!value || value === '') {
+      setDisplay(false)
+    } else {
       setDisplay(!display)
-      !display ? (forwardedRef.current.type = 'text') : (forwardedRef.current.type = 'password')
     }
   }
 
@@ -191,11 +192,11 @@ export const Input = ({
               id={inputId.identity()}
               name={name}
               onKeyDown={handleKeyDown}
-              ref={forwardedRef}
-              type={type}
+              type={display ? 'text' : 'password'}
               value={value}
               onChange={onChange}
               disabled={disabled}
+              ref={forwardedRef}
               {...rest}
             />
             <button css={eyeButton} onClick={showPassword}>
@@ -205,16 +206,17 @@ export const Input = ({
         ) : (
           <input
             css={inputStyle}
-            ref={forwardedRef}
             aria-invalid={feedback === 'error'}
             aria-label={hideLabel ? label : null}
             feedback={feedback}
             disabled={disabled}
             id={inputId.identity()}
+            type={type}
             name={name}
             value={value}
             onChange={onChange}
             onKeyDown={handleKeyDown}
+            ref={forwardedRef}
             {...rest}
           />
         )}
@@ -278,10 +280,6 @@ Input.propTypes = {
    * The HTML5 type of the input field.
    */
   type: PropTypes.oneOf(['text', 'number', 'password', 'email', 'search', 'tel', 'url']),
-  /**
-   * The ref for your input. For input of type `password`, forwardedRef is required.
-   */
-  forwardedRef: PropTypes.object,
 }
 
 Input.defaultProps = {

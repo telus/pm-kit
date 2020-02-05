@@ -86,6 +86,7 @@ exports[`Input renders 1`] = `
       aria-invalid="false"
       class="emotion-2"
       id="label"
+      type="text"
     />
   </div>
 </div>

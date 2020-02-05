@@ -7,8 +7,8 @@ import { size, weight } from '@pm-kit/typography'
 import { parkGreen, red, lightTan, white } from '@pm-kit/colours'
 import generateId from '../../shared/utils/generateId/generateId.js'
 
-const inputWrapper = css`
-  position: relative;
+const dropdownWrapper = css`
+  width: 100%;
 `
 
 const basicLabel = css`
@@ -22,7 +22,7 @@ const basicLabel = css`
 `
 
 const largeLabelStyle = css`
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.5rem 0.2rem;
   & span {
     font-size: ${size.bodyLarge};
     font-weight: ${weight.bold};
@@ -104,7 +104,7 @@ export const Dropdown = ({
       fontSize: '18px',
       borderRadius: '8px',
       border: `1px solid`,
-      borderColor: `${feedback === 'error'}` ? `${red}` : 'initial',
+      borderColor: `${feedback === 'error' ? red : 'initial'}`,
       backgroundColor: `${white}`,
       color: `${parkGreen}`,
       cursor: 'pointer',
@@ -139,44 +139,30 @@ export const Dropdown = ({
     labelStyle.push(largeLabelStyle)
   }
 
-  const renderLabel = () => {
-    return (
-      <span>
-        {label} {required && '*'}
-      </span>
-    )
-  }
-
-  const renderError = () => (
-    <span css={errorFeedback}>
-      <span>(</span>
-      {error}
-      <span>)</span>
-    </span>
-  )
-
   return (
-    <>
+    <div css={dropdownWrapper}>
       <label css={labelStyle} htmlFor={selectId.identity()}>
-        {renderLabel()}
-        {feedback === 'error' && renderError(error)}
+        <span>
+          {label} {required && '*'}
+        </span>
+        {feedback === 'error' && <span css={errorFeedback}>({error})</span>}
       </label>
-      <div css={inputWrapper}>
-        <Select
-          value={value}
-          onChange={onChange}
-          options={options}
-          placeholder={placeholder}
-          id={selectId.identity()}
-          type={type}
-          styles={customDropdownStyles}
-          isClearable={true}
-          clearIndicator={false}
-          components={{ Menu, Option, SelectContainer, Placeholder }}
-          filterOption={createFilter(filterConfig)}
-        />
-      </div>
-    </>
+      <Select
+        value={value}
+        onChange={onChange}
+        options={options}
+        placeholder={placeholder}
+        id={selectId.identity()}
+        type={type}
+        styles={customDropdownStyles}
+        isClearable={true}
+        clearIndicator={false}
+        components={{ Menu, Option, SelectContainer, Placeholder }}
+        filterOption={createFilter(filterConfig)}
+        ref={forwardedRef}
+        {...rest}
+      />
+    </div>
   )
 }
 
