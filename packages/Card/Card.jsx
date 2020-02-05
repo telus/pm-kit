@@ -218,8 +218,8 @@ const Card = ({ isExpandable, placeholder, title, subtitle, children, onClick, i
         )}
         {isExpandable && (
           <div css={detailsBar} onClick={toggleOpenCard}>
-            {openCard && <Paragraph>Collapse</Paragraph>}
-            {!openCard && <Paragraph>Details</Paragraph>}
+            {openCard && <Paragraph weight={weight.bold}>Collapse</Paragraph>}
+            {!openCard && <Paragraph weight={weight.bold}>Details</Paragraph>}
             <img src={arrowImage} alt="arrow" />
           </div>
         )}
