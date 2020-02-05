@@ -1,10 +1,25 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
 import { red, parkGreen, greyBlue } from '@pm-kit/colours'
 import generateId from '../../shared/utils/generateId/generateId.js'
 import FeedbackIcon from '@pm-kit/feedback-icon'
 import { size, weight } from '@pm-kit/typography'
+import show from '../../shared/png/show/show.png'
+import hide from '../../shared/png/hide/hide.png'
+
+const inputWrapper = css`
+  width: 100%;
+`
+
+const passwordInputWrapper = css`
+  display: flex;
+  border: solid 1px ${parkGreen};
+  border-radius: 8px;
+  background-color: white;
+  width: 100%;
+  justify-content: space-around;
+`
 
 const inputField = css`
   width: 100%;
@@ -24,11 +39,22 @@ const inputField = css`
   }
 `
 
+const passwordInput = css`
+  ${inputField};
+  padding: 0;
+  border: none;
+  height: 46px;
+  margin-left: 16px;
+  &:focus {
+    outline: none;
+  }
+`
+
 const inputFieldWithError = css`
   border-color: ${red};
 `
 
-const wrapper = css`
+const inputAndFeedbackWrapper = css`
   position: relative;
 `
 
@@ -68,11 +94,29 @@ const feedbackError = css`
   font-weight: ${weight.normal};
 `
 
+const eyeButton = css`
+  border: none;
+  background: none;
+  display: flex;
+  justify-content: space-around;
+  margin-right: 5px;
+  &:focus {
+    outline: none;
+  }
+`
+
+const eyeImage = css`
+  width: 32px;
+  height: 22px;
+  align-self: center;
+`
+
 export const Input = ({
   disabled,
   id,
   name,
   value,
+  onChange,
   label,
   required,
   largeLabel,
@@ -80,18 +124,26 @@ export const Input = ({
   error,
   feedbackicon,
   hideLabel,
+  type,
   forwardedRef,
   ...rest
 }) => {
-  const inputId = generateId(id, rest.name, label)
+  const [display, setDisplay] = useState(false)
+  const inputId = generateId(id, name, label)
   const labelContainerStyle = [labelContainer]
   const inputStyle = [inputField]
+  const passwordInputStyle = [passwordInputWrapper]
+
   if (largeLabel) {
     labelContainerStyle.push(largeLabelContainer)
   }
 
   if (feedback === 'error') {
-    inputStyle.push(inputFieldWithError)
+    if (type === 'password') {
+      passwordInputStyle.push(inputFieldWithError)
+    } else {
+      inputStyle.push(inputFieldWithError)
+    }
   }
   const renderLabel = (label, required, disabled) => {
     const labelText = `${label}${required ? true && '*' : ''}`
@@ -104,32 +156,73 @@ export const Input = ({
 
   const renderFeedback = errorMessage => <span css={feedbackError}>{`(${errorMessage})`}</span>
 
+  /**
+   * this is a workaround for a bug in chrome that moves
+   * the cursor into a wrong position if prepended with a space
+   */
+  const handleKeyDown = e => {
+    if (type === 'email' && e.key === ' ') {
+      e.preventDefault()
+    }
+  }
+
+  const showPassword = () => {
+    if (!value || value === '') {
+      setDisplay(false)
+    } else {
+      setDisplay(!display)
+    }
+  }
+
   return (
-    <div>
+    <div css={inputWrapper}>
       {!hideLabel && (
         <div css={labelContainerStyle}>
           {label && renderLabel(label, required, disabled)}
           {feedback === 'error' && error && renderFeedback(error)}
         </div>
       )}
-      <div css={wrapper}>
-        <input
-          css={inputStyle}
-          ref={forwardedRef}
-          aria-invalid={feedback === 'error'}
-          aria-label={hideLabel ? label : null}
-          feedback={feedback}
-          disabled={disabled}
-          id={inputId.identity()}
-          name={name}
-          {...rest}
-        />
+      <div css={inputAndFeedbackWrapper}>
+        {type === 'password' ? (
+          <div css={passwordInputStyle}>
+            <input
+              aria-invalid={feedback}
+              aria-label={hideLabel ? label : null}
+              css={passwordInput}
+              id={inputId.identity()}
+              name={name}
+              onKeyDown={handleKeyDown}
+              type={display ? 'text' : 'password'}
+              value={value}
+              onChange={onChange}
+              disabled={disabled}
+              ref={forwardedRef}
+              {...rest}
+            />
+            <button css={eyeButton} onClick={showPassword}>
+              <img css={eyeImage} src={display ? hide : show} alt="show password" />
+            </button>
+          </div>
+        ) : (
+          <input
+            css={inputStyle}
+            aria-invalid={feedback === 'error'}
+            aria-label={hideLabel ? label : null}
+            feedback={feedback}
+            disabled={disabled}
+            id={inputId.identity()}
+            type={type}
+            name={name}
+            value={value}
+            onChange={onChange}
+            onKeyDown={handleKeyDown}
+            ref={forwardedRef}
+            {...rest}
+          />
+        )}
         {feedbackicon && feedback && (
           <div css={feedbackIconWrapper}>
-            <FeedbackIcon
-              state={feedback === 'error' ? 'failed' : feedback === 'success' ? 'passed' : 'waiting'}
-              size="24px"
-            />
+            <FeedbackIcon state={!feedback ? 'disabled' : feedback} size="24px" />
           </div>
         )}
       </div>
@@ -171,13 +264,22 @@ Input.propTypes = {
    */
   name: PropTypes.string,
   /**
-   * Use `value` for controlled Inputs. For uncontrolled Inputs, use React's built-in `defaultValue` prop.
-   */
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /**
    * Controls the size of label.
    */
   largeLabel: PropTypes.bool,
+  /**
+   * Use `value` for controlled Inputs. For uncontrolled Inputs, use React's built-in `defaultValue` prop.
+   * For input of type `password`, value is required.
+   */
+  value: PropTypes.string,
+  /**
+   * A callback function to handle changes. For input with `value`, onChange is required.
+   */
+  onChange: PropTypes.func,
+  /**
+   * The HTML5 type of the input field.
+   */
+  type: PropTypes.oneOf(['text', 'number', 'password', 'email', 'search', 'tel', 'url']),
 }
 
 Input.defaultProps = {
@@ -188,8 +290,9 @@ Input.defaultProps = {
   error: undefined,
   feedbackicon: false,
   name: undefined,
-  value: undefined,
   largeLabel: false,
+  type: 'text',
+  forwardedRef: undefined,
 }
 
 const InputWithRef = forwardRef((props, ref) => <Input {...props} forwardedRef={ref} />)

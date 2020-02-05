@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Input renders 1`] = `
+.emotion-4 {
+  width: 100%;
+}
+
 .emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -62,7 +66,9 @@ exports[`Input renders 1`] = `
   font-size: 1rem;
 }
 
-<div>
+<div
+  class="emotion-4"
+>
   <div
     class="emotion-1"
   >
@@ -80,6 +86,7 @@ exports[`Input renders 1`] = `
       aria-invalid="false"
       class="emotion-2"
       id="label"
+      type="text"
     />
   </div>
 </div>

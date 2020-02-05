@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/telus/pm-kit/compare/@pm-kit/input@1.2.2...@pm-kit/input@1.2.3) (2020-01-31)
+
+
+### Bug Fixes
+
+* **input:** moved forwarded ref back to input element ([#49](https://github.com/telus/pm-kit/issues/49)) ([6708413](https://github.com/telus/pm-kit/commit/670841369a202940048224df7e5d21e2919091ac))
+
+
+
+
+
+## [1.2.2](https://github.com/telus/pm-kit/compare/@pm-kit/input@1.2.1...@pm-kit/input@1.2.2) (2020-01-30)
+
+
+### Bug Fixes
+
+* **input:** fixed generateId encountering undefined error, input type fix ([#48](https://github.com/telus/pm-kit/issues/48)) ([d4f8516](https://github.com/telus/pm-kit/commit/d4f8516b0f51a7841ffd6e14c53fba2e3443fd9d))
+
+
+
+
+
+## [1.2.1](https://github.com/telus/pm-kit/compare/@pm-kit/input@1.2.0...@pm-kit/input@1.2.1) (2020-01-29)
+
+
+### Bug Fixes
+
+* **input:** updated to use new feedbackIcon state values ([#46](https://github.com/telus/pm-kit/issues/46)) ([e34c8f1](https://github.com/telus/pm-kit/commit/e34c8f156bef858059d71cba2e6255ed6eae96a0))
+* **input:** updated width ([#44](https://github.com/telus/pm-kit/issues/44)) ([346e0ea](https://github.com/telus/pm-kit/commit/346e0ead70263ac94a2afafb57928a85547a0f04))
+
+
+
+
+
+# [1.2.0](https://github.com/telus/pm-kit/compare/@pm-kit/input@1.1.1...@pm-kit/input@1.2.0) (2020-01-28)
+
+
+### Features
+
+* **input:** added input of type password ([#42](https://github.com/telus/pm-kit/issues/42)) ([eb31ef6](https://github.com/telus/pm-kit/commit/eb31ef66feb3f22510e380ca6ef232c0921052e8))
+* **input:** fixed the eye image for password input ([#43](https://github.com/telus/pm-kit/issues/43)) ([52fd61a](https://github.com/telus/pm-kit/commit/52fd61ac98acc6d69c716b01ae3e3c9681db3d8f))
+
+
+
+
+
+## [1.1.1](https://github.com/telus/pm-kit/compare/@pm-kit/input@1.1.0...@pm-kit/input@1.1.1) (2020-01-27)
+
+
+### Bug Fixes
+
+* **input:** fixed props ([#41](https://github.com/telus/pm-kit/issues/41)) ([dd14c5e](https://github.com/telus/pm-kit/commit/dd14c5e079f0dd5527614340a31fe90012499825))
+
+
+
+
+
 # [1.1.0](https://github.com/telus/pm-kit/compare/@pm-kit/input@1.0.5...@pm-kit/input@1.1.0) (2020-01-24)
 
 
