@@ -255,7 +255,7 @@ Card.propTypes = {
    */
   isSelected: PropTypes.bool,
   /**
-   * Contains and object with the selected and unselected text in the top right of the Card.
+   * Contains an object with the selected and unselected text in the top right of the Card.
    * This allows the card to be selectable.
    */
   selectable: PropTypes.PropTypes.exact({
@@ -263,7 +263,7 @@ Card.propTypes = {
     unSelectedText: PropTypes.string.isRequired,
   }),
   /**
-   * Contains and object with the details and collapse text in the details bar of the Card.
+   * Contains an object with the details and collapse text in the details bar of the Card.
    * This allows the card to be expandable.
    */
   expandable: PropTypes.exact({
