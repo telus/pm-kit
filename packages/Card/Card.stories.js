@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { withKnobs, text, select, boolean, object } from '@storybook/addon-knobs'
+import { withKnobs, text, select, object } from '@storybook/addon-knobs'
 import Card from './Card'
 import { version } from './package.json'
 
