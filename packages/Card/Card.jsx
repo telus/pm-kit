@@ -135,7 +135,7 @@ const planVariant = {
   },
 }
 
-const Card = ({ isExpandable, placeholder, title, subtitle, children, onClick, isSelected, selectable }) => {
+const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isSelected, selectable }) => {
   const [openCard, setOpenCard] = useState(false)
 
   const styles = [card]
@@ -153,10 +153,10 @@ const Card = ({ isExpandable, placeholder, title, subtitle, children, onClick, i
   }
 
   useEffect(() => {
-    if (isExpandable === false) {
+    if (!expandable) {
       setOpenCard(true)
     }
-  }, [isExpandable])
+  }, [expandable])
 
   let arrowImage = downArrow
 
@@ -205,7 +205,7 @@ const Card = ({ isExpandable, placeholder, title, subtitle, children, onClick, i
               {openCard && (
                 <motion.div
                   css={cardDetails}
-                  onClick={isExpandable ? toggleOpenCard : undefined}
+                  onClick={expandable ? toggleOpenCard : undefined}
                   initial={{ height: 0 }}
                   animate={{ height: 'auto' }}
                   exit={{ height: '0px' }}
@@ -216,10 +216,10 @@ const Card = ({ isExpandable, placeholder, title, subtitle, children, onClick, i
             </AnimatePresence>
           </>
         )}
-        {isExpandable && (
+        {expandable && (
           <div css={detailsBar} onClick={toggleOpenCard}>
-            {openCard && <Paragraph weight={weight.bold}>Collapse</Paragraph>}
-            {!openCard && <Paragraph weight={weight.bold}>Details</Paragraph>}
+            {openCard && <Paragraph weight={weight.bold}>{expandable.collapse}</Paragraph>}
+            {!openCard && <Paragraph weight={weight.bold}>{expandable.details}</Paragraph>}
             <img src={arrowImage} alt="arrow" />
           </div>
         )}
@@ -260,9 +260,9 @@ Card.propTypes = {
    */
   selectable: PropTypes.object,
   /**
-   * A boolean that if true renders the card has a details bar. If false renders an open card.
+   * An object that renders the card with a details bar.
    */
-  isExpandable: PropTypes.bool,
+  expandable: PropTypes.object,
 }
 
 Card.defaultProps = {
@@ -273,7 +273,7 @@ Card.defaultProps = {
   onClick: undefined,
   isSelected: undefined,
   selectable: undefined,
-  isExpandable: undefined,
+  expandable: undefined,
 }
 
 export default Card

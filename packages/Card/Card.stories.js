@@ -36,7 +36,7 @@ export const Selectable = () => {
 
 export const Expandable = () => {
   return (
-    <Card title="Default Title" subtitle="Default Subtitle" isExpandable={true}>
+    <Card title="Default Title" subtitle="Default Subtitle" expandable={{ details: 'Details', collapse: 'Collapse' }}>
       {detailsHtml}
     </Card>
   )
@@ -44,7 +44,7 @@ export const Expandable = () => {
 
 export const NotExpandable = () => {
   return (
-    <Card title="Default Title" subtitle="Default Subtitle" isExpandable={false}>
+    <Card title="Default Title" subtitle="Default Subtitle" expandable={{ details: 'Details', collapse: 'Collapse' }}>
       <p> This Card cannot Expand and cannot be Selected</p>
     </Card>
   )
@@ -61,7 +61,7 @@ export const WithPlaceholder = () => {
       selectable={{ selectedText: 'Selected', unSelectedText: 'Select' }}
       isSelected={selectCard === id}
       onClick={() => setSelectedCard(id)}
-      isExpandable={true}
+      expandable={{ details: 'Details', collapse: 'Collapse' }}
     >
       <p>Default Details</p>
     </Card>
@@ -80,7 +80,7 @@ export const MultipleCards = () => {
           selectable={{ selectedText: 'Selected', unSelectedText: 'Select' }}
           isSelected={selectCard === idCard1}
           onClick={() => setSelectedCard(idCard1)}
-          isExpandable={true}
+          expandable={{ details: 'Details', collapse: 'Collapse' }}
         >
           <p>Card 1</p>
         </Card>
@@ -91,7 +91,7 @@ export const MultipleCards = () => {
           selectable={{ selectedText: 'Selected', unSelectedText: 'Select' }}
           isSelected={selectCard === idCard2}
           onClick={() => setSelectedCard(idCard2)}
-          isExpandable={true}
+          expandable={{ details: 'Details', collapse: 'Collapse' }}
         >
           <p>Card 2</p>
         </Card>
@@ -111,7 +111,7 @@ export const Playground = () => {
       onClick={() => setSelectedCard(id)}
       isSelected={selectCard === id}
       selectable={object('Selected Text', { unSelectedText: 'Select', selectedText: 'Selected' })}
-      isExpandable={boolean('Expandable', true)}
+      expandable={object('Expandable Text', { details: 'Details', collapse: 'Collapse' })}
     >
       {text('Edit Details', 'Edit Details')}
     </Card>
