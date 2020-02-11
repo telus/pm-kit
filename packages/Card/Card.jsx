@@ -258,11 +258,18 @@ Card.propTypes = {
    * Contains and object with the selected and unselected text in the top right of the Card.
    * This allows the card to be selectable.
    */
-  selectable: PropTypes.object,
+  selectable: PropTypes.PropTypes.exact({
+    selectedText: PropTypes.string.isRequired,
+    unSelectedText: PropTypes.string.isRequired,
+  }),
   /**
-   * An object that renders the card with a details bar.
+   * Contains and object with the details and collapse text in the details bar of the Card.
+   * This allows the card to be expandable.
    */
-  expandable: PropTypes.object,
+  expandable: PropTypes.exact({
+    details: PropTypes.string.isRequired,
+    collapse: PropTypes.string.isRequired,
+  }),
 }
 
 Card.defaultProps = {
