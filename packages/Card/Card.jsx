@@ -263,7 +263,7 @@ Card.propTypes = {
     unSelectedText: PropTypes.string.isRequired,
   }),
   /**
-   * Contains an object with the details and collapse text in the details bar of the Card.
+   * Contains an object with the details and collapse text to be shown in the the details bar of the Card.
    * This allows the card to be expandable.
    */
   expandable: PropTypes.exact({
