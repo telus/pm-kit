@@ -7,7 +7,7 @@ Array [
   margin: 0 0 0.2rem 1rem;
 }
 
-.emotion-0 span {
+.emotion-0 > span:first-child {
   -webkit-letter-spacing: 0.05px;
   -moz-letter-spacing: 0.05px;
   -ms-letter-spacing: 0.05px;

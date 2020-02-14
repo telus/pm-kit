@@ -14,7 +14,7 @@ const inputWrapper = css`
 const basicLabel = css`
   display: block;
   margin: 0 0 0.2rem 1rem;
-  & span {
+  & > span:first-child {
     letter-spacing: 0.05px;
     font-size: ${size.bodySmall};
     font-weight: ${weight.normal};
@@ -23,7 +23,7 @@ const basicLabel = css`
 
 const largeLabelStyle = css`
   margin: 0 0 0.5rem 0.2rem;
-  & span {
+  & > span:first-child {
     font-size: ${size.bodyLarge};
     font-weight: ${weight.bold};
   }
@@ -32,6 +32,7 @@ const largeLabelStyle = css`
 const errorFeedback = css`
   margin-left: 0.5rem;
   font-weight: ${weight.normal};
+  font-size: ${size.bodySmall};
   color: ${red};
   & span {
     color: ${red};
