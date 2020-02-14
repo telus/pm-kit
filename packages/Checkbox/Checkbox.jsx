@@ -4,7 +4,7 @@ import { css } from '@emotion/core'
 import { parkGreen, red } from '@pm-kit/colours'
 import { motion, AnimatePresence } from 'framer-motion'
 import generateId from '../../shared/utils/generateId/generateId.js'
-
+import { size, weight } from '@pm-kit/typography'
 /**
  * @version ./package.json
  */
@@ -54,7 +54,7 @@ const hiddenInput = css`
 `
 
 const feedbackError = css`
-  font-weight: 500;
+  font-weight: ${weight.normal};
   color: ${red};
 `
 const styledLabel = css`
@@ -62,7 +62,7 @@ const styledLabel = css`
 `
 
 const labelText = css`
-  font-weight: bold;
+  font-weight: ${weight.bold};
   margin-left: 12px;
 `
 
@@ -79,11 +79,10 @@ export const Checkbox = (
   ref
 ) => {
   const inputId = generateId(id, rest.name, label)
-  const renderFeedback = errorMessage => <span css={feedbackError}>{`(${errorMessage})`}</span>
   return (
     <AnimatePresence>
       <div {...rest}>
-        <div>{feedback === 'error' && error && renderFeedback(error)}</div>
+        <div>{feedback === 'error' && error && <span css={feedbackError}>{`(${error})`}</span>}</div>
         <input
           css={hiddenInput}
           type="checkbox"
