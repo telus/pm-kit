@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/telus/pm-kit/compare/@pm-kit/dropdown@1.0.2...@pm-kit/dropdown@1.0.3) (2020-02-03)
+
+
+### Bug Fixes
+
+* **dropdown:** added a wrapper div around label and dropdown ([#51](https://github.com/telus/pm-kit/issues/51)) ([843f9c3](https://github.com/telus/pm-kit/commit/843f9c35d5297a8391e7fbd0fd8891028323b98a))
+
+
+
+
+
 ## [1.0.2](https://github.com/telus/pm-kit/compare/@pm-kit/dropdown@1.0.1...@pm-kit/dropdown@1.0.2) (2020-01-31)
 
 

@@ -7,8 +7,8 @@ import { size, weight } from '@pm-kit/typography'
 import { parkGreen, red, lightTan, white } from '@pm-kit/colours'
 import generateId from '../../shared/utils/generateId/generateId.js'
 
-const inputWrapper = css`
-  position: relative;
+const dropdownWrapper = css`
+  width: 100%;
 `
 
 const basicLabel = css`
@@ -136,30 +136,29 @@ export const Dropdown = ({
   }
 
   return (
-    <>
+    <div css={dropdownWrapper}>
       <label css={labelStyle} htmlFor={selectId.identity()}>
         <span>
           {label} {required && '*'}
         </span>
         {feedback === 'error' && <span css={errorFeedback}>({error})</span>}
       </label>
-      <div css={inputWrapper}>
-        <Select
-          value={value}
-          onChange={onChange}
-          options={options}
-          placeholder={placeholder}
-          id={selectId.identity()}
-          type={type}
-          styles={customDropdownStyles}
-          isClearable={true}
-          clearIndicator={false}
-          components={{ Menu, Option, SelectContainer, Placeholder }}
-          filterOption={createFilter(filterConfig)}
-          {...rest}
-        />
-      </div>
-    </>
+      <Select
+        value={value}
+        onChange={onChange}
+        options={options}
+        placeholder={placeholder}
+        id={selectId.identity()}
+        type={type}
+        styles={customDropdownStyles}
+        isClearable={true}
+        clearIndicator={false}
+        components={{ Menu, Option, SelectContainer, Placeholder }}
+        filterOption={createFilter(filterConfig)}
+        ref={forwardedRef}
+        {...rest}
+      />
+    </div>
   )
 }
 
