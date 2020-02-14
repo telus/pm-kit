@@ -135,7 +135,7 @@ const planVariant = {
   },
 }
 
-const Card = ({ isExpandable, placeholder, title, subtitle, children, onClick, isSelected, selectable }) => {
+const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isSelected, selectable }) => {
   const [openCard, setOpenCard] = useState(false)
 
   const styles = [card]
@@ -153,10 +153,10 @@ const Card = ({ isExpandable, placeholder, title, subtitle, children, onClick, i
   }
 
   useEffect(() => {
-    if (isExpandable === false) {
+    if (!expandable) {
       setOpenCard(true)
     }
-  }, [isExpandable])
+  }, [expandable])
 
   let arrowImage = downArrow
 
@@ -205,7 +205,7 @@ const Card = ({ isExpandable, placeholder, title, subtitle, children, onClick, i
               {openCard && (
                 <motion.div
                   css={cardDetails}
-                  onClick={isExpandable ? toggleOpenCard : undefined}
+                  onClick={expandable ? toggleOpenCard : undefined}
                   initial={{ height: 0 }}
                   animate={{ height: 'auto' }}
                   exit={{ height: '0px' }}
@@ -216,10 +216,10 @@ const Card = ({ isExpandable, placeholder, title, subtitle, children, onClick, i
             </AnimatePresence>
           </>
         )}
-        {isExpandable && (
+        {expandable && (
           <div css={detailsBar} onClick={toggleOpenCard}>
-            {openCard && <Paragraph>Collapse</Paragraph>}
-            {!openCard && <Paragraph>Details</Paragraph>}
+            {openCard && <Paragraph weight={weight.bold}>{expandable.collapse}</Paragraph>}
+            {!openCard && <Paragraph weight={weight.bold}>{expandable.details}</Paragraph>}
             <img src={arrowImage} alt="arrow" />
           </div>
         )}
@@ -255,14 +255,21 @@ Card.propTypes = {
    */
   isSelected: PropTypes.bool,
   /**
-   * Contains and object with the selected and unselected text in the top right of the Card.
+   * Contains an object with the selected and unselected text in the top right of the Card.
    * This allows the card to be selectable.
    */
-  selectable: PropTypes.object,
+  selectable: PropTypes.PropTypes.exact({
+    selectedText: PropTypes.string.isRequired,
+    unSelectedText: PropTypes.string.isRequired,
+  }),
   /**
-   * A boolean that if true renders the card has a details bar. If false renders an open card.
+   * Contains an object with the details and collapse text to be shown in the the details bar of the Card.
+   * This allows the card to be expandable.
    */
-  isExpandable: PropTypes.bool,
+  expandable: PropTypes.exact({
+    details: PropTypes.string.isRequired,
+    collapse: PropTypes.string.isRequired,
+  }),
 }
 
 Card.defaultProps = {
@@ -273,7 +280,7 @@ Card.defaultProps = {
   onClick: undefined,
   isSelected: undefined,
   selectable: undefined,
-  isExpandable: undefined,
+  expandable: undefined,
 }
 
 export default Card
