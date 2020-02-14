@@ -4,7 +4,7 @@ import { css } from '@emotion/core'
 import { parkGreen, red } from '@pm-kit/colours'
 import { motion, AnimatePresence } from 'framer-motion'
 import generateId from '../../shared/utils/generateId/generateId.js'
-import { size, weight } from '@pm-kit/typography'
+import { weight } from '@pm-kit/typography'
 /**
  * @version ./package.json
  */
