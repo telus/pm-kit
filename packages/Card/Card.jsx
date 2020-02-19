@@ -4,8 +4,8 @@ import { css } from '@emotion/core'
 import { motion, AnimatePresence } from 'framer-motion'
 import { offWhite, parkGreen, lilyGreen } from '@pm-kit/colours'
 import { weight } from '@pm-kit/typography'
-import downArrow from '../../shared/svg/arrow-show.svg'
-import upArrow from '../../shared/svg/arrow-hide.svg'
+import downArrow from '../../shared/png/DownArrow/arrow-show@3x.png'
+import upArrow from '../../shared/png/UpArrow/arrow-hide@3x.png'
 import checkmark from '../../shared/png/Checkmark/verified@3x.png'
 import oval from '../../shared/png/EmptyOval/oval@3x.png'
 import Paragraph from '@pm-kit/paragraph'
@@ -220,7 +220,7 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
           <div css={detailsBar} onClick={toggleOpenCard}>
             {openCard && <Paragraph weight={weight.bold}>{expandable.collapse}</Paragraph>}
             {!openCard && <Paragraph weight={weight.bold}>{expandable.details}</Paragraph>}
-            <img src={arrowImage} alt="arrow" />
+            <img src={arrowImage} alt="arrow" height="24px" width="24px" />
           </div>
         )}
       </div>
