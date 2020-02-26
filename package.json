@@ -49,10 +49,7 @@
     "bracketSpacing": true
   },
   "lint-staged": {
-    "*.{js,jsx}": [
-      "eslint --ext '.js,.jsx' --config config/eslint.config.js --quiet --fix",
-      "git add"
-    ]
+    "*.{js,jsx}": "eslint --ext '.js,.jsx' --config config/eslint.config.js --quiet --fix"
   },
   "dependencies": {
     "@babel/runtime": "^7.7.2",
@@ -72,7 +69,7 @@
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.23",
     "@mdx-js/loader": "^1.5.1",
-    "@rollup/plugin-image": "^2.0.0",
+    "@rollup/plugin-image": "^2.0.4",
     "@rollup/plugin-url": "^4.0.0",
     "@storybook/addon-a11y": "^5.2.8",
     "@storybook/addon-actions": "^5.2.8",
@@ -105,13 +102,13 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.3.0",
-    "husky": "^3.0.0",
+    "husky": "^4.0.0",
     "jest": "^24.9.0",
     "jest-emotion": "^10.0.17",
     "jest-environment-enzyme": "^7.1.2",
     "jest-enzyme": "^7.1.2",
     "lerna": "^3.18.4",
-    "lint-staged": "^9.4.3",
+    "lint-staged": "^10.0.0",
     "node-fetch": "^2.6.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.19.1",
@@ -123,9 +120,9 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-postcss": "^2.0.3",
-    "semantic-release": "^15.13.31",
+    "semantic-release": "^17.0.0",
     "set-interval-async": "^1.0.29",
-    "stylelint": "^12.0.0",
+    "stylelint": "^13.0.0",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.9.0"
