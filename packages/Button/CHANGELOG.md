@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/telus/pm-kit/compare/@pm-kit/button@1.0.5...@pm-kit/button@1.1.0) (2020-02-27)
+
+
+### Features
+
+* **button:** added new alternative button variant ([#57](https://github.com/telus/pm-kit/issues/57)) ([b9c1067](https://github.com/telus/pm-kit/commit/b9c10677f041bf2c158a8d591f412ea94bcad7cd))
+
+
+
+
+
 ## [1.0.5](https://github.com/telus/pm-kit/compare/@pm-kit/button@1.0.4...@pm-kit/button@1.0.5) (2020-01-22)
 
 **Note:** Version bump only for package @pm-kit/button
