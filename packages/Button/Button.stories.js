@@ -33,9 +33,15 @@ export const Disabled = () => (
   </Button>
 )
 
+export const Alternative = () => (
+  <Button variant="alternative" onClick={action('clicked')}>
+    Alternative Button
+  </Button>
+)
+
 export const Playground = () => (
   <Button
-    variant={select('Variant', ['primary', 'secondary', 'inverted'])}
+    variant={select('Variant', ['primary', 'secondary', 'inverted', 'alternative'])}
     disabled={boolean('Disabled', false)}
     onClick={action('clicked')}
   >

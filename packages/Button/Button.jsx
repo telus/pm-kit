@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
-import { parkGreen, lightTan, lilyGreen } from '@pm-kit/colours'
+import { parkGreen, lightTan, lilyGreen, white, softSandBrown } from '@pm-kit/colours'
 
 const base = css`
   display: block;
@@ -23,7 +23,7 @@ const base = css`
 `
 
 const primary = css`
-  color: white;
+  color: ${white};
   background-color: ${parkGreen};
   &:hover {
     background-color: ${lilyGreen};
@@ -57,6 +57,17 @@ const inverted = css`
     background-color: ${lightTan};
   }
 `
+const alternative = css`
+  color: ${white};
+  background-color: ${parkGreen};
+  &:hover {
+    background-color: ${softSandBrown};
+    color: ${parkGreen};
+  }
+  &:active {
+    background-color: ${softSandBrown};
+  }
+`
 
 const disabledStyle = css`
   opacity: 0.5;
@@ -74,6 +85,9 @@ export const Button = ({ children, type, variant, wide, disabled, forwardedRef, 
       break
     case 'inverted':
       variantStyles = inverted
+      break
+    case 'alternative':
+      variantStyles = alternative
       break
     default:
       variantStyles = primary
@@ -103,7 +117,7 @@ Button.propTypes = {
   /**
    * The style.
    */
-  variant: PropTypes.oneOf(['primary', 'secondary', 'inverted']),
+  variant: PropTypes.oneOf(['primary', 'secondary', 'inverted', 'alternative']),
   /**
    * The label. It can include the `A11yContent` component or strings.
    */
