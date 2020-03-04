@@ -86,6 +86,12 @@ const largeLabelContainer = css`
   margin: 0 0 0.5rem 0.2rem;
 `
 
+const mobileLabelContainer = css`
+  ${labelContainer}
+  font-size: ${size.bodyMedium};
+  margin: 0 0 0.5rem 0.2rem;
+`
+
 const isDisabled = css`
   opacity: 0.5;
 `
@@ -120,6 +126,7 @@ export const Input = ({
   label,
   required,
   largeLabel,
+  mobileLabel,
   feedback,
   error,
   feedbackicon,
@@ -136,6 +143,9 @@ export const Input = ({
 
   if (largeLabel) {
     labelContainerStyle.push(largeLabelContainer)
+  }
+  if (mobileLabel) {
+    labelContainerStyle.push(mobileLabelContainer)
   }
 
   if (feedback === 'error') {
