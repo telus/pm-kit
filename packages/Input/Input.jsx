@@ -272,7 +272,7 @@ Input.propTypes = {
    */
   name: PropTypes.string,
   /**
-   * The type of label.
+   * The type of label to display.
    */
   largeType: PropTypes.oneOf(['large', 'mobile', 'small']),
   /**
