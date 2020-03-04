@@ -183,7 +183,7 @@ export const Input = ({
 
   return (
     <div css={inputWrapper}>
-      {labelType !== 'none' && (
+      {labelType !== 'hidden' && (
         <div css={labelContainerStyle}>
           {label && renderLabel(label, required, disabled)}
           {feedback === 'error' && error && renderFeedback(error)}
@@ -269,7 +269,7 @@ Input.propTypes = {
   /**
    * The type of label to display.
    */
-  largeType: PropTypes.oneOf(['large', 'mobile', 'small', 'none']),
+  labelType: PropTypes.oneOf(['large', 'mobile', 'small', 'hidden']),
   /**
    * Use `value` for controlled Inputs. For uncontrolled Inputs, use React's built-in `defaultValue` prop.
    * For input of type `password`, value is required.
