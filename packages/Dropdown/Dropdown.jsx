@@ -29,6 +29,12 @@ const largeLabelStyle = css`
   }
 `
 
+const mobileLabelStyle = css`
+  & span {
+    font-size: ${size.bodyMedium};
+  }
+`
+
 const errorFeedback = css`
   margin-left: 0.5rem;
   font-weight: ${weight.normal};
@@ -66,14 +72,13 @@ export const Dropdown = ({
   feedback,
   id,
   label,
-  hideLabel,
+  labelType,
   onChange,
   options,
   required,
   type,
   value,
   placeholder,
-  largeLabel,
   ignoreCase,
   ignoreAccents,
   trim,
@@ -136,13 +141,16 @@ export const Dropdown = ({
   }
   const labelStyle = [basicLabel]
 
-  if (largeLabel) {
+  if (labelType === 'large') {
     labelStyle.push(largeLabelStyle)
+  }
+  if (labelType === 'mobile') {
+    labelStyle.push(mobileLabelStyle)
   }
 
   return (
     <div css={dropdownWrapper}>
-      {!hideLabel && (
+      {labelType !== 'none' && (
         <label css={labelStyle} htmlFor={selectId.identity()}>
           <span>
             {label} {required && '*'}
@@ -272,11 +280,7 @@ Dropdown.propTypes = {
   /**
    * Displays large label if true is passed. Otherwise, displays regular sized label.
    */
-  largeLabel: PropTypes.bool,
-  /**
-   * Specifies if the label of Input field should be hidden.
-   */
-  hideLabel: PropTypes.bool,
+  labelType: PropTypes.oneOf(['large', 'small', 'none', 'mobile']),
 }
 
 Dropdown.defaultProps = {
@@ -291,8 +295,7 @@ Dropdown.defaultProps = {
   trim: true,
   ignoreAccents: true,
   ignoreCase: true,
-  largeLabel: false,
-  hideLabel: false,
+  labelType: 'small',
 }
 
 const DropdownWithRef = forwardRef((props, ref) => <Dropdown {...props} forwardedRef={ref} />)

@@ -39,7 +39,7 @@ export const LargeLabel = () => {
       options={cities}
       onChange={onCitySelect}
       required={true}
-      largeLabel={true}
+      labelType="large"
     />
   )
 }
@@ -53,12 +53,11 @@ export const HideLabel = () => {
   return (
     <Dropdown
       label="Select a city"
-      hideLabel
       value={city}
       options={cities}
       onChange={onCitySelect}
       required={true}
-      largeLabel={true}
+      labelType="none"
     />
   )
 }
@@ -96,8 +95,7 @@ export const Playground = () => {
       trim={select('trim', [true, false], true)}
       ignoreAccents={select('ignore accents', [true, false], true)}
       ignoreCase={select('ignore case', [true, false], true)}
-      largeLabel={select('large label', [true, false], false)}
-      hideLabel={boolean('hide label', false)}
+      labelType={select('label type', ['none', 'large', 'small', 'mobile'], 'small')}
     />
   )
 }
