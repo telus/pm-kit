@@ -62,7 +62,7 @@ export const HideLabel = () => {
   )
 }
 
-export const mobileLabel = () => {
+export const MobileLabel = () => {
   const [city, setCity] = useState(cities[0])
 
   const onCitySelect = citySelected => {
