@@ -62,6 +62,24 @@ export const HideLabel = () => {
   )
 }
 
+export const mobileLabel = () => {
+  const [city, setCity] = useState(cities[0])
+
+  const onCitySelect = citySelected => {
+    setCity(citySelected)
+  }
+  return (
+    <Dropdown
+      label="Select a city"
+      value={city}
+      options={cities}
+      onChange={onCitySelect}
+      required={true}
+      labelType="mobile"
+    />
+  )
+}
+
 export const Error = () => {
   const [errorState, setErrorState] = useState('error')
   const onCitySelect = citySelected => {
