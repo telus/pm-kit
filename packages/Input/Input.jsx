@@ -128,7 +128,6 @@ export const Input = ({
   feedback,
   error,
   feedbackicon,
-  hideLabel,
   type,
   forwardedRef,
   ...rest
@@ -184,7 +183,7 @@ export const Input = ({
 
   return (
     <div css={inputWrapper}>
-      {!hideLabel && (
+      {labelType !== 'none' && (
         <div css={labelContainerStyle}>
           {label && renderLabel(label, required, disabled)}
           {feedback === 'error' && error && renderFeedback(error)}
@@ -195,7 +194,7 @@ export const Input = ({
           <div css={passwordInputStyle}>
             <input
               aria-invalid={feedback}
-              aria-label={hideLabel ? label : null}
+              aria-label={label}
               css={passwordInput}
               id={inputId.identity()}
               name={name}
@@ -215,7 +214,7 @@ export const Input = ({
           <input
             css={inputStyle}
             aria-invalid={feedback === 'error'}
-            aria-label={hideLabel ? label : null}
+            aria-label={label}
             feedback={feedback}
             disabled={disabled}
             id={inputId.identity()}
@@ -256,10 +255,6 @@ Input.propTypes = {
    */
   feedback: PropTypes.oneOf(['success', 'error', 'waiting']),
   /**
-   * Specifies if the label of Input field should be hidden.
-   */
-  hideLabel: PropTypes.bool,
-  /**
    * An error message. Should be limited to text and links. See usage criteria for more details.
    */
   error: PropTypes.string,
@@ -274,7 +269,7 @@ Input.propTypes = {
   /**
    * The type of label to display.
    */
-  largeType: PropTypes.oneOf(['large', 'mobile', 'small']),
+  largeType: PropTypes.oneOf(['large', 'mobile', 'small', 'none']),
   /**
    * Use `value` for controlled Inputs. For uncontrolled Inputs, use React's built-in `defaultValue` prop.
    * For input of type `password`, value is required.
@@ -294,7 +289,6 @@ Input.defaultProps = {
   required: false,
   disabled: false,
   feedback: undefined,
-  hideLabel: false,
   error: undefined,
   feedbackicon: false,
   name: undefined,
