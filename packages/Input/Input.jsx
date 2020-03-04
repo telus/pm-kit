@@ -89,7 +89,6 @@ const largeLabelContainer = css`
 const mobileLabelContainer = css`
   ${labelContainer}
   font-size: ${size.bodyMedium};
-  margin: 0 0 0.5rem 0.2rem;
 `
 
 const isDisabled = css`
@@ -125,8 +124,7 @@ export const Input = ({
   onChange,
   label,
   required,
-  largeLabel,
-  mobileLabel,
+  labelType,
   feedback,
   error,
   feedbackicon,
@@ -141,10 +139,10 @@ export const Input = ({
   const inputStyle = [inputField]
   const passwordInputStyle = [passwordInputWrapper]
 
-  if (largeLabel) {
+  if (labelType === 'large') {
     labelContainerStyle.push(largeLabelContainer)
   }
-  if (mobileLabel) {
+  if (labelType === 'mobile') {
     labelContainerStyle.push(mobileLabelContainer)
   }
 
@@ -274,9 +272,9 @@ Input.propTypes = {
    */
   name: PropTypes.string,
   /**
-   * Controls the size of label.
+   * The type of label.
    */
-  largeLabel: PropTypes.bool,
+  largeType: PropTypes.oneOf(['large', 'mobile', 'small']),
   /**
    * Use `value` for controlled Inputs. For uncontrolled Inputs, use React's built-in `defaultValue` prop.
    * For input of type `password`, value is required.
@@ -300,7 +298,7 @@ Input.defaultProps = {
   error: undefined,
   feedbackicon: false,
   name: undefined,
-  largeLabel: false,
+  labelType: 'small',
   type: 'text',
   forwardedRef: undefined,
 }
