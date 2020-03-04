@@ -57,7 +57,7 @@ export const HideLabel = () => {
       options={cities}
       onChange={onCitySelect}
       required={true}
-      labelType="none"
+      labelType="hidden"
     />
   )
 }
@@ -113,7 +113,7 @@ export const Playground = () => {
       trim={select('trim', [true, false], true)}
       ignoreAccents={select('ignore accents', [true, false], true)}
       ignoreCase={select('ignore case', [true, false], true)}
-      labelType={select('label type', ['none', 'large', 'small', 'mobile'], 'small')}
+      labelType={select('label type', ['hidden', 'large', 'small', 'mobile'], 'small')}
     />
   )
 }

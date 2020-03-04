@@ -150,7 +150,7 @@ export const Dropdown = ({
 
   return (
     <div css={dropdownWrapper}>
-      {labelType !== 'none' && (
+      {labelType !== 'hidden' && (
         <label css={labelStyle} htmlFor={selectId.identity()}>
           <span>
             {label} {required && '*'}
@@ -280,7 +280,7 @@ Dropdown.propTypes = {
   /**
    * Displays large label if true is passed. Otherwise, displays regular sized label.
    */
-  labelType: PropTypes.oneOf(['large', 'small', 'none', 'mobile']),
+  labelType: PropTypes.oneOf(['large', 'small', 'hidden', 'mobile']),
 }
 
 Dropdown.defaultProps = {
