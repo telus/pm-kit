@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { withKnobs, text, select } from '@storybook/addon-knobs'
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs'
 import Dropdown from './Dropdown'
 export default {
   title: 'Design System|Dropdown',
@@ -44,6 +44,25 @@ export const LargeLabel = () => {
   )
 }
 
+export const HideLabel = () => {
+  const [city, setCity] = useState(cities[0])
+
+  const onCitySelect = citySelected => {
+    setCity(citySelected)
+  }
+  return (
+    <Dropdown
+      label="Select a city"
+      hideLabel
+      value={city}
+      options={cities}
+      onChange={onCitySelect}
+      required={true}
+      largeLabel={true}
+    />
+  )
+}
+
 export const Error = () => {
   const [errorState, setErrorState] = useState('error')
   const onCitySelect = citySelected => {
@@ -78,6 +97,7 @@ export const Playground = () => {
       ignoreAccents={select('ignore accents', [true, false], true)}
       ignoreCase={select('ignore case', [true, false], true)}
       largeLabel={select('large label', [true, false], false)}
+      hideLabel={boolean('hide label', false)}
     />
   )
 }

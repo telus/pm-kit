@@ -66,6 +66,7 @@ export const Dropdown = ({
   feedback,
   id,
   label,
+  hideLabel,
   onChange,
   options,
   required,
@@ -141,12 +142,14 @@ export const Dropdown = ({
 
   return (
     <div css={dropdownWrapper}>
-      <label css={labelStyle} htmlFor={selectId.identity()}>
-        <span>
-          {label} {required && '*'}
-        </span>
-        {feedback === 'error' && <span css={errorFeedback}>({error})</span>}
-      </label>
+      {!hideLabel && (
+        <label css={labelStyle} htmlFor={selectId.identity()}>
+          <span>
+            {label} {required && '*'}
+          </span>
+          {feedback === 'error' && <span css={errorFeedback}>({error})</span>}
+        </label>
+      )}
       <Select
         value={value}
         onChange={onChange}
@@ -270,6 +273,10 @@ Dropdown.propTypes = {
    * Displays large label if true is passed. Otherwise, displays regular sized label.
    */
   largeLabel: PropTypes.bool,
+  /**
+   * Specifies if the label of Input field should be hidden.
+   */
+  hideLabel: PropTypes.bool,
 }
 
 Dropdown.defaultProps = {
@@ -285,6 +292,7 @@ Dropdown.defaultProps = {
   ignoreAccents: true,
   ignoreCase: true,
   largeLabel: false,
+  hideLabel: false,
 }
 
 const DropdownWithRef = forwardRef((props, ref) => <Dropdown {...props} forwardedRef={ref} />)
