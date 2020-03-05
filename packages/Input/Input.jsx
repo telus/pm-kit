@@ -86,6 +86,11 @@ const largeLabelContainer = css`
   margin: 0 0 0.5rem 0.2rem;
 `
 
+const mobileLabelContainer = css`
+  ${labelContainer}
+  font-size: ${size.bodyMedium};
+`
+
 const isDisabled = css`
   opacity: 0.5;
 `
@@ -119,11 +124,10 @@ export const Input = ({
   onChange,
   label,
   required,
-  largeLabel,
+  labelType,
   feedback,
   error,
   feedbackicon,
-  hideLabel,
   type,
   forwardedRef,
   ...rest
@@ -134,8 +138,11 @@ export const Input = ({
   const inputStyle = [inputField]
   const passwordInputStyle = [passwordInputWrapper]
 
-  if (largeLabel) {
+  if (labelType === 'large') {
     labelContainerStyle.push(largeLabelContainer)
+  }
+  if (labelType === 'mobile') {
+    labelContainerStyle.push(mobileLabelContainer)
   }
 
   if (feedback === 'error') {
@@ -176,7 +183,7 @@ export const Input = ({
 
   return (
     <div css={inputWrapper}>
-      {!hideLabel && (
+      {labelType !== 'hidden' && (
         <div css={labelContainerStyle}>
           {label && renderLabel(label, required, disabled)}
           {feedback === 'error' && error && renderFeedback(error)}
@@ -187,7 +194,7 @@ export const Input = ({
           <div css={passwordInputStyle}>
             <input
               aria-invalid={feedback}
-              aria-label={hideLabel ? label : null}
+              aria-label={label}
               css={passwordInput}
               id={inputId.identity()}
               name={name}
@@ -207,7 +214,7 @@ export const Input = ({
           <input
             css={inputStyle}
             aria-invalid={feedback === 'error'}
-            aria-label={hideLabel ? label : null}
+            aria-label={label}
             feedback={feedback}
             disabled={disabled}
             id={inputId.identity()}
@@ -248,10 +255,6 @@ Input.propTypes = {
    */
   feedback: PropTypes.oneOf(['success', 'error', 'waiting']),
   /**
-   * Specifies if the label of Input field should be hidden.
-   */
-  hideLabel: PropTypes.bool,
-  /**
    * An error message. Should be limited to text and links. See usage criteria for more details.
    */
   error: PropTypes.string,
@@ -264,9 +267,9 @@ Input.propTypes = {
    */
   name: PropTypes.string,
   /**
-   * Controls the size of label.
+   * The type of label to display.
    */
-  largeLabel: PropTypes.bool,
+  labelType: PropTypes.oneOf(['large', 'mobile', 'small', 'hidden']),
   /**
    * Use `value` for controlled Inputs. For uncontrolled Inputs, use React's built-in `defaultValue` prop.
    * For input of type `password`, value is required.
@@ -286,11 +289,10 @@ Input.defaultProps = {
   required: false,
   disabled: false,
   feedback: undefined,
-  hideLabel: false,
   error: undefined,
   feedbackicon: false,
   name: undefined,
-  largeLabel: false,
+  labelType: 'small',
   type: 'text',
   forwardedRef: undefined,
 }
