@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/telus/pm-kit/compare/@pm-kit/dropdown@1.0.3...@pm-kit/dropdown@2.0.0) (2020-03-05)
+
+
+### Features
+
+* **drop-down:** changed label vairant prop ([#59](https://github.com/telus/pm-kit/issues/59)) ([2544d80](https://github.com/telus/pm-kit/commit/2544d80e732560c0bf99c14b7e1f07995f21eb40))
+
+
+### BREAKING CHANGES
+
+* **drop-down:** removed `largeLabel` prop, added `labelType` prop for label variants
+
+
+
+
+
 ## [1.0.3](https://github.com/telus/pm-kit/compare/@pm-kit/dropdown@1.0.2...@pm-kit/dropdown@1.0.3) (2020-02-03)
 
 

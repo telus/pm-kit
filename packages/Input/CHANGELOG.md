@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/telus/pm-kit/compare/@pm-kit/input@1.2.3...@pm-kit/input@2.0.0) (2020-03-05)
+
+
+### Features
+
+* **input:** changed label variants prop ([#60](https://github.com/telus/pm-kit/issues/60)) ([0dff8dd](https://github.com/telus/pm-kit/commit/0dff8dd1caed6495d0c3f2ae2739e89f3fa86304))
+
+
+### BREAKING CHANGES
+
+* **input:** replaced `largeLabel` prop with `labelType` prop
+
+
+
+
+
 ## [1.2.3](https://github.com/telus/pm-kit/compare/@pm-kit/input@1.2.2...@pm-kit/input@1.2.3) (2020-01-31)
 
 
