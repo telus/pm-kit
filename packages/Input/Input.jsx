@@ -58,12 +58,23 @@ const inputAndFeedbackWrapper = css`
   position: relative;
 `
 
+const inputAndFeedbackWrapperMobile = css`
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+`
+
 const feedbackIconWrapper = css`
   position: absolute;
   left: calc(100% + 24px);
   top: 50%;
   transform: translateY(-50%);
   display: flex;
+`
+const feedbackIconWrapperMobile = css`
+  display: flex;
+  align-self: center;
+  margin-left: 16px;
 `
 
 const labelContainer = css`
@@ -189,7 +200,7 @@ export const Input = ({
           {feedback === 'error' && error && renderFeedback(error)}
         </div>
       )}
-      <div css={inputAndFeedbackWrapper}>
+      <div css={labelType === 'mobile' ? inputAndFeedbackWrapperMobile : inputAndFeedbackWrapper}>
         {type === 'password' ? (
           <div css={passwordInputStyle}>
             <input
@@ -227,8 +238,8 @@ export const Input = ({
             {...rest}
           />
         )}
-        {feedbackicon && feedback && (
-          <div css={feedbackIconWrapper}>
+        {feedbackicon && (
+          <div css={labelType === 'mobile' ? feedbackIconWrapperMobile : feedbackIconWrapper}>
             <FeedbackIcon state={!feedback ? 'disabled' : feedback} size="24px" />
           </div>
         )}
