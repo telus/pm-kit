@@ -39,7 +39,43 @@ export const LargeLabel = () => {
       options={cities}
       onChange={onCitySelect}
       required={true}
-      largeLabel={true}
+      labelType="large"
+    />
+  )
+}
+
+export const HideLabel = () => {
+  const [city, setCity] = useState(cities[0])
+
+  const onCitySelect = citySelected => {
+    setCity(citySelected)
+  }
+  return (
+    <Dropdown
+      label="Select a city"
+      value={city}
+      options={cities}
+      onChange={onCitySelect}
+      required={true}
+      labelType="hidden"
+    />
+  )
+}
+
+export const MobileLabel = () => {
+  const [city, setCity] = useState(cities[0])
+
+  const onCitySelect = citySelected => {
+    setCity(citySelected)
+  }
+  return (
+    <Dropdown
+      label="Select a city"
+      value={city}
+      options={cities}
+      onChange={onCitySelect}
+      required={true}
+      labelType="mobile"
     />
   )
 }
@@ -77,7 +113,7 @@ export const Playground = () => {
       trim={select('trim', [true, false], true)}
       ignoreAccents={select('ignore accents', [true, false], true)}
       ignoreCase={select('ignore case', [true, false], true)}
-      largeLabel={select('large label', [true, false], false)}
+      labelType={select('label type', ['hidden', 'large', 'small', 'mobile'], 'small')}
     />
   )
 }
