@@ -15,10 +15,10 @@ const FeedbackIcon = ({ state, size }) => {
     border-radius: 50%;
     border-right-color: transparent;
     display: inline-block;
-    width: ${size};
-    height: ${size};
     animation: 1s linear infinite spinner;
     animation-delay: var(--spinner-delay);
+    height: 100%;
+    width: 100%;
   `
 
   const imageStyles = css`
@@ -27,15 +27,15 @@ const FeedbackIcon = ({ state, size }) => {
   `
 
   return (
-    <>
+    <div css={imageStyles}>
       {state !== 'disabled' && (
         <>
           {state === 'waiting' && <div css={loader}></div>}
-          {state === 'success' && <img css={imageStyles} src={successPath} alt="success" />}
-          {state === 'error' && <img css={imageStyles} src={failPath} alt="error" />}
+          {state === 'success' && <img src={successPath} alt="success" />}
+          {state === 'error' && <img src={failPath} alt="error" />}
         </>
       )}
-    </>
+    </div>
   )
 }
 

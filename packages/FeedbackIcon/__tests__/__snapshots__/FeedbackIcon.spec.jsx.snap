@@ -6,11 +6,14 @@ exports[`FeedbackIcon renders checkmark when success 1`] = `
   height: 1.125rem;
 }
 
-<img
-  alt="success"
+<div
   class="emotion-0"
-  src="test-file-stub"
-/>
+>
+  <img
+    alt="success"
+    src="test-file-stub"
+  />
+</div>
 `;
 
 exports[`FeedbackIcon renders error icon when error 1`] = `
@@ -19,30 +22,51 @@ exports[`FeedbackIcon renders error icon when error 1`] = `
   height: 1.125rem;
 }
 
-<img
-  alt="error"
+<div
   class="emotion-0"
-  src="test-file-stub"
-/>
+>
+  <img
+    alt="error"
+    src="test-file-stub"
+  />
+</div>
 `;
 
-exports[`FeedbackIcon renders nothing when disabled 1`] = `null`;
-
-exports[`FeedbackIcon renders spinner when waiting 1`] = `
+exports[`FeedbackIcon renders nothing when disabled 1`] = `
 .emotion-0 {
-  border: 3px solid #034045;
-  border-radius: 50%;
-  border-right-color: transparent;
-  display: inline-block;
   width: 1.125rem;
   height: 1.125rem;
-  -webkit-animation: 1s linear infinite spinner;
-  animation: 1s linear infinite spinner;
-  -webkit-animation-delay: var(--spinner-delay);
-  animation-delay: var(--spinner-delay);
 }
 
 <div
   class="emotion-0"
 />
+`;
+
+exports[`FeedbackIcon renders spinner when waiting 1`] = `
+.emotion-1 {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.emotion-0 {
+  border: 3px solid #034045;
+  border-radius: 50%;
+  border-right-color: transparent;
+  display: inline-block;
+  -webkit-animation: 1s linear infinite spinner;
+  animation: 1s linear infinite spinner;
+  -webkit-animation-delay: var(--spinner-delay);
+  animation-delay: var(--spinner-delay);
+  height: 100%;
+  width: 100%;
+}
+
+<div
+  class="emotion-1"
+>
+  <div
+    class="emotion-0"
+  />
+</div>
 `;
