@@ -7,6 +7,8 @@ import FeedbackIcon from '@pm-kit/feedback-icon'
 import { size, weight } from '@pm-kit/typography'
 import show from '../../shared/png/show/show.png'
 import hide from '../../shared/png/hide/hide.png'
+import { useMedia } from '../../shared/utils/hooks'
+import createBreakpoints from '../../shared/utils/breakpoints'
 
 const inputWrapper = css`
   width: 100%;
@@ -144,10 +146,15 @@ export const Input = ({
   ...rest
 }) => {
   const [display, setDisplay] = useState(false)
+
   const inputId = generateId(id, name, label)
+
   const labelContainerStyle = [labelContainer]
   const inputStyle = [inputField]
   const passwordInputStyle = [passwordInputWrapper]
+
+  const theme = createBreakpoints()
+  const isMobile = useMedia([theme.max('sm')]) // eslint-disable-line
 
   if (labelType === 'large') {
     labelContainerStyle.push(largeLabelContainer)

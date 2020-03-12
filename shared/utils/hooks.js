@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import mediaQuery from 'css-mediaquery'
-import { useTheme } from '../styles/themeContext'
 
 const ssrEstimateWidth = deviceType => {
   if (process.env.BROWSER) {
@@ -18,7 +17,6 @@ const ssrEstimateWidth = deviceType => {
 let hydrationCompleted = false
 
 export function useMedia(queries, values = [true], defaultValue = false) {
-  const themeContext = useTheme()
   const cleanedQueries = queries.map(q => q.replace('@media ', ''))
 
   const [value, setValue] = useState(() => {
@@ -26,7 +24,7 @@ export function useMedia(queries, values = [true], defaultValue = false) {
     if (hydrationCompleted) {
       matchList = cleanedQueries.map(q => window.matchMedia(q).matches)
     } else {
-      const options = { width: ssrEstimateWidth(themeContext.device) }
+      const options = { width: 1200 }
       matchList = cleanedQueries.map(q => mediaQuery.match(q, options))
     }
     const index = matchList.findIndex(mql => mql)

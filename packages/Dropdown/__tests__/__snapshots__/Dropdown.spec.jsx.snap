@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dropdown renders default dropdown 1`] = `
-.emotion-10 {
+.emotion-11 {
   width: 100%;
 }
 
@@ -19,12 +19,17 @@ exports[`Dropdown renders default dropdown 1`] = `
   font-weight: 300;
 }
 
-.emotion-9 {
+.emotion-1 {
+  color: #034045;
+  font-size: 16px;
+}
+
+.emotion-10 {
   position: relative;
   box-sizing: border-box;
 }
 
-.emotion-8 {
+.emotion-9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -48,7 +53,7 @@ exports[`Dropdown renders default dropdown 1`] = `
   cursor: pointer;
 }
 
-.emotion-3 {
+.emotion-4 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -70,7 +75,7 @@ exports[`Dropdown renders default dropdown 1`] = `
   box-sizing: border-box;
 }
 
-.emotion-1 {
+.emotion-2 {
   color: #034045;
   margin-left: 2px;
   margin-right: 2px;
@@ -80,11 +85,9 @@ exports[`Dropdown renders default dropdown 1`] = `
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   box-sizing: border-box;
-  color: #034045;
-  font-size: 16px;
 }
 
-.emotion-2 {
+.emotion-3 {
   margin: 2px;
   padding-bottom: 2px;
   padding-top: 2px;
@@ -93,7 +96,7 @@ exports[`Dropdown renders default dropdown 1`] = `
   box-sizing: border-box;
 }
 
-.emotion-7 {
+.emotion-8 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -111,7 +114,7 @@ exports[`Dropdown renders default dropdown 1`] = `
   box-sizing: border-box;
 }
 
-.emotion-4 {
+.emotion-5 {
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
   align-self: stretch;
@@ -123,7 +126,7 @@ exports[`Dropdown renders default dropdown 1`] = `
   visibility: hidden;
 }
 
-.emotion-6 {
+.emotion-7 {
   color: #034045;
   display: -webkit-box;
   display: -webkit-flex;
@@ -135,11 +138,11 @@ exports[`Dropdown renders default dropdown 1`] = `
   box-sizing: border-box;
 }
 
-.emotion-6:hover {
+.emotion-7:hover {
   color: hsl(0,0%,60%);
 }
 
-.emotion-5 {
+.emotion-6 {
   display: inline-block;
   fill: currentColor;
   line-height: 1;
@@ -148,7 +151,7 @@ exports[`Dropdown renders default dropdown 1`] = `
 }
 
 <div
-  class="emotion-10"
+  class="emotion-11"
 >
   <label
     class="emotion-0"
@@ -159,22 +162,22 @@ exports[`Dropdown renders default dropdown 1`] = `
     </span>
   </label>
   <div
-    class=" emotion-9"
+    class=" emotion-10"
     id="testing"
   >
     <div
-      class=" emotion-8"
+      class=" emotion-9"
     >
       <div
-        class=" emotion-3"
+        class=" emotion-4"
       >
         <div
-          class="emotion-1"
+          class="emotion-1 emotion-2"
         >
           Select...
         </div>
         <div
-          class="emotion-2"
+          class="emotion-3"
         >
           <div
             class=""
@@ -199,18 +202,18 @@ exports[`Dropdown renders default dropdown 1`] = `
         </div>
       </div>
       <div
-        class=" emotion-7"
+        class=" emotion-8"
       >
         <span
-          class=" emotion-4"
+          class=" emotion-5"
         />
         <div
           aria-hidden="true"
-          class=" emotion-6"
+          class=" emotion-7"
         >
           <svg
             aria-hidden="true"
-            class="emotion-5"
+            class="emotion-6"
             focusable="false"
             height="20"
             viewBox="0 0 20 20"
