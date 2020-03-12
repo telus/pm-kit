@@ -7,127 +7,7 @@ import FeedbackIcon from '@pm-kit/feedback-icon'
 import { size, weight } from '@pm-kit/typography'
 import show from '../../shared/png/show/show.png'
 import hide from '../../shared/png/hide/hide.png'
-import { useMedia } from '../../shared/utils/hooks'
 import createBreakpoints from '../../shared/utils/breakpoints'
-
-const inputWrapper = css`
-  width: 100%;
-`
-
-const passwordInputWrapper = css`
-  display: flex;
-  border: solid 1px ${parkGreen};
-  border-radius: 8px;
-  background-color: white;
-  width: 100%;
-  justify-content: space-around;
-`
-
-const inputField = css`
-  width: 100%;
-  padding: 0 16px;
-  font-size: ${size.bodyLarge};
-  border: 1px solid ${parkGreen};
-  border-radius: 8px;
-  height: 48px;
-  color: ${parkGreen};
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-  &::placeholder {
-    color: ${greyBlue};
-    font-size: ${size.bodyMedium};
-  }
-`
-
-const passwordInput = css`
-  ${inputField};
-  padding: 0;
-  border: none;
-  height: 46px;
-  margin-left: 16px;
-  &:focus {
-    outline: none;
-  }
-`
-
-const inputFieldWithError = css`
-  border-color: ${red};
-`
-
-const inputAndFeedbackWrapper = css`
-  position: relative;
-`
-
-const inputAndFeedbackWrapperMobile = css`
-  display: flex;
-  flex-direction: row;
-  /* justify-content: space-between; */
-`
-
-const feedbackIconWrapper = css`
-  position: absolute;
-  left: calc(100% + 24px);
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-`
-const feedbackIconWrapperMobile = css`
-  display: flex;
-  align-self: center;
-  margin-left: 16px;
-`
-
-const labelContainer = css`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  color: ${parkGreen};
-  font-size: ${size.bodySmall};
-  font-weight: ${weight.normal};
-  margin: 0 0 0.5rem 16px;
-  & label {
-    margin-right: 0.5rem;
-  }
-`
-
-const largeLabelContainer = css`
-  ${labelContainer}
-  font-size: ${size.bodyLarge};
-  font-weight: ${weight.bold};
-  margin: 0 0 0.5rem 0.2rem;
-`
-
-const mobileLabelContainer = css`
-  ${labelContainer}
-  font-size: ${size.bodyMedium};
-`
-
-const isDisabled = css`
-  opacity: 0.5;
-`
-const feedbackError = css`
-  color: ${red};
-  font-weight: ${weight.normal};
-`
-
-const eyeButton = css`
-  border: none;
-  background: none;
-  display: flex;
-  justify-content: space-around;
-  margin-right: 5px;
-  &:focus {
-    outline: none;
-  }
-`
-
-const eyeImage = css`
-  width: 32px;
-  height: 22px;
-  align-self: center;
-`
 
 export const Input = ({
   disabled,
@@ -145,6 +25,129 @@ export const Input = ({
   forwardedRef,
   ...rest
 }) => {
+  const theme = createBreakpoints()
+
+  const inputAndFeedbackWrapper = css`
+    ${theme.min('md')} {
+      position: relative;
+    }
+    ${theme.max('sm')} {
+      display: flex;
+      flex-direction: row;
+    }
+  `
+
+  const feedbackIconWrapper = css`
+    display: flex;
+    ${theme.min('md')} {
+      position: absolute;
+      left: calc(100% + 24px);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    ${theme.max('sm')} {
+      align-self: center;
+      margin-left: 16px;
+    }
+  `
+
+  const labelContainer = css`
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    color: ${parkGreen};
+    ${theme.max('sm')} {
+      font-size: ${size.bodyMedium};
+      font-weight: ${weight.normal};
+    }
+    ${theme.min('md')} {
+      font-size: ${size.bodySmall};
+      font-weight: ${weight.normal};
+    }
+    margin: 0 0 0.5rem 16px;
+    & label {
+      margin-right: 0.5rem;
+    }
+  `
+
+  const inputWrapper = css`
+    width: 100%;
+  `
+
+  const passwordInputWrapper = css`
+    display: flex;
+    border: solid 1px ${parkGreen};
+    border-radius: 8px;
+    background-color: white;
+    width: 100%;
+    justify-content: space-around;
+  `
+
+  const inputField = css`
+    width: 100%;
+    padding: 0 16px;
+    font-size: ${size.bodyLarge};
+    border: 1px solid ${parkGreen};
+    border-radius: 8px;
+    height: 48px;
+    color: ${parkGreen};
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+    &::placeholder {
+      color: ${greyBlue};
+      font-size: ${size.bodyMedium};
+    }
+  `
+
+  const passwordInput = css`
+    ${inputField};
+    padding: 0;
+    border: none;
+    height: 46px;
+    margin-left: 16px;
+    &:focus {
+      outline: none;
+    }
+  `
+
+  const inputFieldWithError = css`
+    border-color: ${red};
+  `
+
+  const isDisabled = css`
+    opacity: 0.5;
+  `
+  const feedbackError = css`
+    color: ${red};
+    font-weight: ${weight.normal};
+  `
+
+  const eyeButton = css`
+    border: none;
+    background: none;
+    display: flex;
+    justify-content: space-around;
+    margin-right: 5px;
+    &:focus {
+      outline: none;
+    }
+  `
+
+  const eyeImage = css`
+    width: 32px;
+    height: 22px;
+    align-self: center;
+  `
+
+  const largeLabelContainer = css`
+  ${labelContainer}
+  font-size: ${size.bodyLarge};
+  font-weight: ${weight.bold};
+  margin: 0 0 0.5rem 0.2rem;
+`
+
   const [display, setDisplay] = useState(false)
 
   const inputId = generateId(id, name, label)
@@ -153,14 +156,8 @@ export const Input = ({
   const inputStyle = [inputField]
   const passwordInputStyle = [passwordInputWrapper]
 
-  const theme = createBreakpoints()
-  const isMobile = useMedia([theme.max('sm')]) // eslint-disable-line
-
   if (labelType === 'large') {
     labelContainerStyle.push(largeLabelContainer)
-  }
-  if (labelType === 'mobile') {
-    labelContainerStyle.push(mobileLabelContainer)
   }
 
   if (feedback === 'error') {
@@ -207,7 +204,7 @@ export const Input = ({
           {feedback === 'error' && error && renderFeedback(error)}
         </div>
       )}
-      <div css={labelType === 'mobile' ? inputAndFeedbackWrapperMobile : inputAndFeedbackWrapper}>
+      <div css={inputAndFeedbackWrapper}>
         {type === 'password' ? (
           <div css={passwordInputStyle}>
             <input
@@ -246,7 +243,7 @@ export const Input = ({
           />
         )}
         {feedbackicon && (
-          <div css={labelType === 'mobile' ? feedbackIconWrapperMobile : feedbackIconWrapper}>
+          <div css={feedbackIconWrapper}>
             <FeedbackIcon state={!feedback ? 'disabled' : feedback} size="24px" />
           </div>
         )}
@@ -287,7 +284,7 @@ Input.propTypes = {
   /**
    * The type of label to display.
    */
-  labelType: PropTypes.oneOf(['large', 'mobile', 'small', 'hidden']),
+  labelType: PropTypes.oneOf(['large', 'small', 'hidden']),
   /**
    * Use `value` for controlled Inputs. For uncontrolled Inputs, use React's built-in `defaultValue` prop.
    * For input of type `password`, value is required.
