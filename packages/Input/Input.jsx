@@ -7,7 +7,128 @@ import FeedbackIcon from '@pm-kit/feedback-icon'
 import { size, weight } from '@pm-kit/typography'
 import show from '../../shared/png/show/show.png'
 import hide from '../../shared/png/hide/hide.png'
-import createBreakpoints from '../../shared/utils/breakpoints'
+import theme from '../../shared/utils/theme'
+
+const inputAndFeedbackWrapper = css`
+  ${theme.min('md')} {
+    position: relative;
+  }
+  ${theme.max('sm')} {
+    display: flex;
+    flex-direction: row;
+  }
+`
+
+const feedbackIconWrapper = css`
+  display: flex;
+  ${theme.min('md')} {
+    position: absolute;
+    left: calc(100% + 24px);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  ${theme.max('sm')} {
+    align-self: center;
+    margin-left: 16px;
+  }
+`
+
+const labelContainer = css`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  color: ${parkGreen};
+  ${theme.max('sm')} {
+    font-size: ${size.bodyMedium};
+    font-weight: ${weight.normal};
+  }
+  ${theme.min('md')} {
+    font-size: ${size.bodySmall};
+    font-weight: ${weight.normal};
+  }
+  margin: 0 0 0.5rem 16px;
+  & label {
+    margin-right: 0.5rem;
+  }
+`
+
+const inputWrapper = css`
+  width: 100%;
+`
+
+const passwordInputWrapper = css`
+  display: flex;
+  border: solid 1px ${parkGreen};
+  border-radius: 8px;
+  background-color: white;
+  width: 100%;
+  justify-content: space-around;
+`
+
+const inputField = css`
+  width: 100%;
+  padding: 0 16px;
+  font-size: ${size.bodyLarge};
+  border: 1px solid ${parkGreen};
+  border-radius: 8px;
+  height: 48px;
+  color: ${parkGreen};
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  &::placeholder {
+    color: ${greyBlue};
+    font-size: ${size.bodyMedium};
+  }
+`
+
+const passwordInput = css`
+  ${inputField};
+  padding: 0;
+  border: none;
+  height: 46px;
+  margin-left: 16px;
+  &:focus {
+    outline: none;
+  }
+`
+
+const inputFieldWithError = css`
+  border-color: ${red};
+`
+
+const isDisabled = css`
+  opacity: 0.5;
+`
+const feedbackError = css`
+  color: ${red};
+  font-weight: ${weight.normal};
+`
+
+const eyeButton = css`
+  border: none;
+  background: none;
+  display: flex;
+  justify-content: space-around;
+  margin-right: 5px;
+  &:focus {
+    outline: none;
+  }
+`
+
+const eyeImage = css`
+  width: 32px;
+  height: 22px;
+  align-self: center;
+`
+
+const largeLabelContainer = css`
+${labelContainer}
+font-size: ${size.bodyLarge};
+font-weight: ${weight.bold};
+margin: 0 0 0.5rem 0.2rem;
+`
 
 export const Input = ({
   disabled,
@@ -25,129 +146,6 @@ export const Input = ({
   forwardedRef,
   ...rest
 }) => {
-  const theme = createBreakpoints()
-
-  const inputAndFeedbackWrapper = css`
-    ${theme.min('md')} {
-      position: relative;
-    }
-    ${theme.max('sm')} {
-      display: flex;
-      flex-direction: row;
-    }
-  `
-
-  const feedbackIconWrapper = css`
-    display: flex;
-    ${theme.min('md')} {
-      position: absolute;
-      left: calc(100% + 24px);
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    ${theme.max('sm')} {
-      align-self: center;
-      margin-left: 16px;
-    }
-  `
-
-  const labelContainer = css`
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    color: ${parkGreen};
-    ${theme.max('sm')} {
-      font-size: ${size.bodyMedium};
-      font-weight: ${weight.normal};
-    }
-    ${theme.min('md')} {
-      font-size: ${size.bodySmall};
-      font-weight: ${weight.normal};
-    }
-    margin: 0 0 0.5rem 16px;
-    & label {
-      margin-right: 0.5rem;
-    }
-  `
-
-  const inputWrapper = css`
-    width: 100%;
-  `
-
-  const passwordInputWrapper = css`
-    display: flex;
-    border: solid 1px ${parkGreen};
-    border-radius: 8px;
-    background-color: white;
-    width: 100%;
-    justify-content: space-around;
-  `
-
-  const inputField = css`
-    width: 100%;
-    padding: 0 16px;
-    font-size: ${size.bodyLarge};
-    border: 1px solid ${parkGreen};
-    border-radius: 8px;
-    height: 48px;
-    color: ${parkGreen};
-    &:disabled {
-      cursor: not-allowed;
-      opacity: 0.5;
-    }
-    &::placeholder {
-      color: ${greyBlue};
-      font-size: ${size.bodyMedium};
-    }
-  `
-
-  const passwordInput = css`
-    ${inputField};
-    padding: 0;
-    border: none;
-    height: 46px;
-    margin-left: 16px;
-    &:focus {
-      outline: none;
-    }
-  `
-
-  const inputFieldWithError = css`
-    border-color: ${red};
-  `
-
-  const isDisabled = css`
-    opacity: 0.5;
-  `
-  const feedbackError = css`
-    color: ${red};
-    font-weight: ${weight.normal};
-  `
-
-  const eyeButton = css`
-    border: none;
-    background: none;
-    display: flex;
-    justify-content: space-around;
-    margin-right: 5px;
-    &:focus {
-      outline: none;
-    }
-  `
-
-  const eyeImage = css`
-    width: 32px;
-    height: 22px;
-    align-self: center;
-  `
-
-  const largeLabelContainer = css`
-  ${labelContainer}
-  font-size: ${size.bodyLarge};
-  font-weight: ${weight.bold};
-  margin: 0 0 0.5rem 0.2rem;
-`
-
   const [display, setDisplay] = useState(false)
 
   const inputId = generateId(id, name, label)
