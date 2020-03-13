@@ -24,7 +24,7 @@ export function useMedia(queries, values = [true], defaultValue = false) {
     if (hydrationCompleted) {
       matchList = cleanedQueries.map(q => window.matchMedia(q).matches)
     } else {
-      const options = { width: 1200 }
+      const options = { width: ssrEstimateWidth('desktop') }
       matchList = cleanedQueries.map(q => mediaQuery.match(q, options))
     }
     const index = matchList.findIndex(mql => mql)
