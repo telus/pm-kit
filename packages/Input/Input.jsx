@@ -87,7 +87,6 @@ const passwordInput = css`
   ${inputField};
   padding: 0;
   border: none;
-  height: 46px;
   margin-left: 16px;
   &:focus {
     outline: none;
