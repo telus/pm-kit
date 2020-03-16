@@ -129,29 +129,45 @@ export const Input = ({
   error,
   feedbackicon,
   type,
+  styles,
   forwardedRef,
   ...rest
 }) => {
   const [display, setDisplay] = useState(false)
   const inputId = generateId(id, name, label)
-  const labelContainerStyle = [labelContainer]
-  const inputStyle = [inputField]
-  const passwordInputStyle = [passwordInputWrapper]
+
+  const inputWrapperArr = [inputWrapper]
+  const labelContainerArr = [labelContainer]
+  const inputAndFeedbackWrapperArr = [inputAndFeedbackWrapper]
+  const inputFieldArr = [inputField]
+  const passwordInputWrapperArr = [passwordInputWrapper]
+  const eyeButtonArr = [eyeButton]
+  const feedbackIconWrapperArr = [feedbackIconWrapper]
 
   if (labelType === 'large') {
-    labelContainerStyle.push(largeLabelContainer)
+    labelContainerArr.push(largeLabelContainer)
   }
   if (labelType === 'mobile') {
-    labelContainerStyle.push(mobileLabelContainer)
+    labelContainerArr.push(mobileLabelContainer)
   }
 
   if (feedback === 'error') {
     if (type === 'password') {
-      passwordInputStyle.push(inputFieldWithError)
+      passwordInputWrapperArr.push(inputFieldWithError)
     } else {
-      inputStyle.push(inputFieldWithError)
+      inputFieldArr.push(inputFieldWithError)
     }
   }
+
+  if (styles) {
+    inputWrapperArr.push(styles.inputWrapperStyle)
+    labelContainerArr.push(styles.labelStyle)
+    inputAndFeedbackWrapperArr.push(styles.inputAndFeedbackWrapperStyle)
+    eyeButtonArr.push(styles.eyeButtonStyle)
+    feedbackIconWrapperArr.push(styles.feedbackIconStyle)
+    inputFieldArr.push(styles.inputStyle)
+  }
+
   const renderLabel = (label, required, disabled) => {
     const labelText = `${label}${required ? true && '*' : ''}`
     return (
@@ -182,16 +198,28 @@ export const Input = ({
   }
 
   return (
-    <div css={inputWrapper}>
+    <div css={inputWrapperArr}>
       {labelType !== 'hidden' && (
-        <div css={labelContainerStyle}>
+        <div css={labelContainerArr}>
           {label && renderLabel(label, required, disabled)}
           {feedback === 'error' && error && renderFeedback(error)}
         </div>
       )}
-      <div css={inputAndFeedbackWrapper}>
+      <div css={inputAndFeedbackWrapperArr}>
         {type === 'password' ? (
-          <div css={passwordInputStyle}>
+          <div
+            css={
+              styles
+                ? css`
+                    ${passwordInputWrapper};
+                    ${styles.inputStyle};
+                    & > input {
+                      ${styles.inputStyle};
+                    }
+                  `
+                : passwordInputWrapper
+            }
+          >
             <input
               aria-invalid={feedback}
               aria-label={label}
@@ -206,13 +234,13 @@ export const Input = ({
               ref={forwardedRef}
               {...rest}
             />
-            <button css={eyeButton} onClick={showPassword}>
+            <button css={eyeButtonArr} onClick={showPassword}>
               <img css={eyeImage} src={display ? hide : show} alt="show password" />
             </button>
           </div>
         ) : (
           <input
-            css={inputStyle}
+            css={inputFieldArr}
             aria-invalid={feedback === 'error'}
             aria-label={label}
             feedback={feedback}
@@ -228,7 +256,7 @@ export const Input = ({
           />
         )}
         {feedbackicon && feedback && (
-          <div css={feedbackIconWrapper}>
+          <div css={feedbackIconWrapperArr}>
             <FeedbackIcon state={!feedback ? 'disabled' : feedback} size="24px" />
           </div>
         )}
@@ -283,6 +311,19 @@ Input.propTypes = {
    * The HTML5 type of the input field.
    */
   type: PropTypes.oneOf(['text', 'number', 'password', 'email', 'search', 'tel', 'url']),
+  /**
+   * Customizes the input according to your needs.
+   * Accepts an object of styles in the structure below.
+   * {
+   *  inputWrapperStyle:{},
+   *  inputStyle: {}
+   *  labelStyle:{},
+   *  inputAndFeedbackWrapperStyle: {},
+   *  eyeButtonStyle: {},
+   *  feedbackIconStyle: {},
+   * }
+   */
+  styles: PropTypes.object,
 }
 
 Input.defaultProps = {
@@ -295,6 +336,7 @@ Input.defaultProps = {
   labelType: 'small',
   type: 'text',
   forwardedRef: undefined,
+  styles: {},
 }
 
 const InputWithRef = forwardRef((props, ref) => <Input {...props} forwardedRef={ref} />)

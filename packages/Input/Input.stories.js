@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs'
+import { withKnobs, text, select, boolean, object } from '@storybook/addon-knobs'
 import Input from './Input.jsx'
 import { version } from './package.json'
 
@@ -63,6 +63,14 @@ export const Playground = () => {
       disabled={boolean('Disable Input', false)}
       type={select('Type', ['text', 'password'])}
       labelType={select('Label Type', ['large', 'mobile', 'small', 'hidden'], 'small')}
+      styles={object('Styles', {
+        inputWrapperStyle: {},
+        inputStyle: {},
+        labelStyle: {},
+        inputAndFeedbackWrapperStyle: {},
+        eyeButtonStyle: {},
+        feedbackIconStyle: {},
+      })}
       ref={inputRef}
       value={inputValue}
       onChange={inputValueChange}
