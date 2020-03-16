@@ -18,43 +18,23 @@ exports[`Input renders 1`] = `
   -ms-flex-align: flex-end;
   align-items: flex-end;
   color: #034045;
+  font-size: 1rem;
+  font-weight: 300;
   margin: 0 0 0.5rem 16px;
-}
-
-@media (max-width:767.95px) {
-  .emotion-1 {
-    font-size: 1rem;
-    font-weight: 300;
-  }
-}
-
-@media (min-width:768px) {
-  .emotion-1 {
-    font-size: 0.875rem;
-    font-weight: 300;
-  }
 }
 
 .emotion-1 label {
   margin-right: 0.5rem;
 }
 
-@media (min-width:768px) {
-  .emotion-3 {
-    position: relative;
-  }
-}
-
-@media (max-width:767.95px) {
-  .emotion-3 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-  }
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 .emotion-2 {

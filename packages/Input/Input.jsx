@@ -7,30 +7,16 @@ import FeedbackIcon from '@pm-kit/feedback-icon'
 import { size, weight } from '@pm-kit/typography'
 import show from '../../shared/png/show/show.png'
 import hide from '../../shared/png/hide/hide.png'
-import theme from '../../shared/utils/theme'
 
 const inputAndFeedbackWrapper = css`
-  ${theme.min('md')} {
-    position: relative;
-  }
-  ${theme.max('sm')} {
-    display: flex;
-    flex-direction: row;
-  }
+  display: flex;
+  flex-direction: row;
 `
 
 const feedbackIconWrapper = css`
   display: flex;
-  ${theme.min('md')} {
-    position: absolute;
-    left: calc(100% + 24px);
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  ${theme.max('sm')} {
-    align-self: center;
-    margin-left: 16px;
-  }
+  align-self: center;
+  margin-left: 16px;
 `
 
 const labelContainer = css`
@@ -38,14 +24,8 @@ const labelContainer = css`
   flex-wrap: wrap;
   align-items: flex-end;
   color: ${parkGreen};
-  ${theme.max('sm')} {
-    font-size: ${size.bodyMedium};
-    font-weight: ${weight.normal};
-  }
-  ${theme.min('md')} {
-    font-size: ${size.bodySmall};
-    font-weight: ${weight.normal};
-  }
+  font-size: ${size.bodyMedium};
+  font-weight: ${weight.normal};
   margin: 0 0 0.5rem 16px;
   & label {
     margin-right: 0.5rem;
