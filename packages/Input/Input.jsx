@@ -86,11 +86,6 @@ const largeLabelContainer = css`
   margin: 0 0 0.5rem 0.2rem;
 `
 
-const mobileLabelContainer = css`
-  ${labelContainer}
-  font-size: ${size.bodyMedium};
-`
-
 const isDisabled = css`
   opacity: 0.5;
 `
@@ -147,9 +142,6 @@ export const Input = ({
 
   if (labelType === 'large') {
     labelContainerArr.push(largeLabelContainer)
-  }
-  if (labelType === 'mobile') {
-    labelContainerArr.push(mobileLabelContainer)
   }
 
   if (feedback === 'error') {
@@ -300,7 +292,7 @@ Input.propTypes = {
   /**
    * The type of label to display.
    */
-  labelType: PropTypes.oneOf(['large', 'mobile', 'small', 'hidden']),
+  labelType: PropTypes.oneOf(['large', 'small', 'hidden']),
   /**
    * Use `value` for controlled Inputs. For uncontrolled Inputs, use React's built-in `defaultValue` prop.
    * For input of type `password`, value is required.
