@@ -16,8 +16,6 @@ export const Default = () => <Input placeholder="Placeholder" label="Label" />
 
 export const LargeLabel = () => <Input placeholder="Placeholder" label="Label" labelType="large" />
 
-export const MobileLabel = () => <Input placeholder="Placeholder" label="Label" labelType="mobile" />
-
 export const NoLabel = () => <Input placeholder="Placeholder" label="Label" labelType="hidden" />
 
 export const Error = () => <Input placeholder="Placeholder" label="Label" feedback="error" error="error" />
@@ -62,7 +60,8 @@ export const Playground = () => {
       required={boolean('Required Input', false)}
       disabled={boolean('Disable Input', false)}
       type={select('Type', ['text', 'password'])}
-      labelType={select('Label Type', ['large', 'mobile', 'small', 'hidden'], 'small')}
+      labelType={select('Label Type', ['large', 'small', 'hidden'], 'small')}
+      disableUnmasking={boolean('Disable unmasking Password', false)}
       styles={object('Styles', {
         inputWrapperStyle: {},
         inputStyle: {},

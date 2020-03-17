@@ -86,11 +86,6 @@ const largeLabelContainer = css`
   margin: 0 0 0.5rem 0.2rem;
 `
 
-const mobileLabelContainer = css`
-  ${labelContainer}
-  font-size: ${size.bodyMedium};
-`
-
 const isDisabled = css`
   opacity: 0.5;
 `
@@ -129,6 +124,7 @@ export const Input = ({
   error,
   feedbackicon,
   type,
+  disableUnmasking,
   styles,
   forwardedRef,
   ...rest
@@ -146,9 +142,6 @@ export const Input = ({
 
   if (labelType === 'large') {
     labelContainerArr.push(largeLabelContainer)
-  }
-  if (labelType === 'mobile') {
-    labelContainerArr.push(mobileLabelContainer)
   }
 
   if (feedback === 'error') {
@@ -227,16 +220,18 @@ export const Input = ({
               id={inputId.identity()}
               name={name}
               onKeyDown={handleKeyDown}
-              type={display ? 'text' : 'password'}
+              type={!disableUnmasking && display ? 'text' : 'password'}
               value={value}
               onChange={onChange}
               disabled={disabled}
               ref={forwardedRef}
               {...rest}
             />
-            <button css={eyeButtonArr} onClick={showPassword}>
-              <img css={eyeImage} src={display ? hide : show} alt="show password" />
-            </button>
+            {!disableUnmasking && (
+              <button css={eyeButtonArr} onClick={showPassword}>
+                <img css={eyeImage} src={display ? hide : show} alt="show password" />
+              </button>
+            )}
           </div>
         ) : (
           <input
@@ -297,7 +292,7 @@ Input.propTypes = {
   /**
    * The type of label to display.
    */
-  labelType: PropTypes.oneOf(['large', 'mobile', 'small', 'hidden']),
+  labelType: PropTypes.oneOf(['large', 'small', 'hidden']),
   /**
    * Use `value` for controlled Inputs. For uncontrolled Inputs, use React's built-in `defaultValue` prop.
    * For input of type `password`, value is required.
@@ -311,6 +306,10 @@ Input.propTypes = {
    * The HTML5 type of the input field.
    */
   type: PropTypes.oneOf(['text', 'number', 'password', 'email', 'search', 'tel', 'url']),
+  /**
+   * Controls whether the option of unmask password be given or not.
+   */
+  disableUnmasking: PropTypes.bool,
   /**
    * Customizes the input according to your needs.
    * Accepts an object of styles in the structure below.
@@ -336,6 +335,7 @@ Input.defaultProps = {
   labelType: 'small',
   type: 'text',
   forwardedRef: undefined,
+  disableUnmasking: false,
   styles: {},
 }
 
