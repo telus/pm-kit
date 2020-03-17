@@ -129,6 +129,7 @@ export const Input = ({
   error,
   feedbackicon,
   type,
+  canUnmaskPassword,
   styles,
   forwardedRef,
   ...rest
@@ -227,16 +228,18 @@ export const Input = ({
               id={inputId.identity()}
               name={name}
               onKeyDown={handleKeyDown}
-              type={display ? 'text' : 'password'}
+              type={canUnmaskPassword && display ? 'text' : 'password'}
               value={value}
               onChange={onChange}
               disabled={disabled}
               ref={forwardedRef}
               {...rest}
             />
-            <button css={eyeButtonArr} onClick={showPassword}>
-              <img css={eyeImage} src={display ? hide : show} alt="show password" />
-            </button>
+            {canUnmaskPassword && (
+              <button css={eyeButtonArr} onClick={showPassword}>
+                <img css={eyeImage} src={display ? hide : show} alt="show password" />
+              </button>
+            )}
           </div>
         ) : (
           <input
@@ -312,6 +315,10 @@ Input.propTypes = {
    */
   type: PropTypes.oneOf(['text', 'number', 'password', 'email', 'search', 'tel', 'url']),
   /**
+   * Controls whether the option of unmask password be given or not.
+   */
+  canUnmaskPassword: PropTypes.bool,
+  /**
    * Customizes the input according to your needs.
    * Accepts an object of styles in the structure below.
    * {
@@ -336,6 +343,7 @@ Input.defaultProps = {
   labelType: 'small',
   type: 'text',
   forwardedRef: undefined,
+  canUnmaskPassword: true,
   styles: {},
 }
 
