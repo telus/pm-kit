@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/telus/pm-kit/compare/@pm-kit/input@2.0.0...@pm-kit/input@2.1.0) (2020-03-17)
+
+
+### Features
+
+* **input:** added styles prop to be able to customize styles ([#64](https://github.com/telus/pm-kit/issues/64)) ([8cc6eaa](https://github.com/telus/pm-kit/commit/8cc6eaacef5c8a763af5dae0e80726e6bea5f05c))
+
+
+
+
+
 # [2.0.0](https://github.com/telus/pm-kit/compare/@pm-kit/input@1.2.3...@pm-kit/input@2.0.0) (2020-03-05)
 
 
