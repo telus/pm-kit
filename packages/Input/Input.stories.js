@@ -63,7 +63,7 @@ export const Playground = () => {
       disabled={boolean('Disable Input', false)}
       type={select('Type', ['text', 'password'])}
       labelType={select('Label Type', ['large', 'mobile', 'small', 'hidden'], 'small')}
-      canUnmaskPassword={boolean('Can unmask Password', true)}
+      disableUnmasking={boolean('Disable unmasking Password', false)}
       styles={object('Styles', {
         inputWrapperStyle: {},
         inputStyle: {},

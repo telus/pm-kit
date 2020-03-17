@@ -129,7 +129,7 @@ export const Input = ({
   error,
   feedbackicon,
   type,
-  canUnmaskPassword,
+  disableUnmasking,
   styles,
   forwardedRef,
   ...rest
@@ -228,14 +228,14 @@ export const Input = ({
               id={inputId.identity()}
               name={name}
               onKeyDown={handleKeyDown}
-              type={canUnmaskPassword && display ? 'text' : 'password'}
+              type={!disableUnmasking && display ? 'text' : 'password'}
               value={value}
               onChange={onChange}
               disabled={disabled}
               ref={forwardedRef}
               {...rest}
             />
-            {canUnmaskPassword && (
+            {!disableUnmasking && (
               <button css={eyeButtonArr} onClick={showPassword}>
                 <img css={eyeImage} src={display ? hide : show} alt="show password" />
               </button>
@@ -317,7 +317,7 @@ Input.propTypes = {
   /**
    * Controls whether the option of unmask password be given or not.
    */
-  canUnmaskPassword: PropTypes.bool,
+  disableUnmasking: PropTypes.bool,
   /**
    * Customizes the input according to your needs.
    * Accepts an object of styles in the structure below.
@@ -343,7 +343,7 @@ Input.defaultProps = {
   labelType: 'small',
   type: 'text',
   forwardedRef: undefined,
-  canUnmaskPassword: true,
+  disableUnmasking: false,
   styles: {},
 }
 
