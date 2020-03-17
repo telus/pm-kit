@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/telus/pm-kit/compare/@pm-kit/input@2.1.0...@pm-kit/input@2.2.0) (2020-03-17)
+
+
+### Features
+
+* **input:** added prop to disable unmasking ([#65](https://github.com/telus/pm-kit/issues/65)) ([a91dca9](https://github.com/telus/pm-kit/commit/a91dca96b91677a82b1702d8709778335868d0fc))
+
+
+
+
+
 # [2.1.0](https://github.com/telus/pm-kit/compare/@pm-kit/input@2.0.0...@pm-kit/input@2.1.0) (2020-03-17)
 
 
