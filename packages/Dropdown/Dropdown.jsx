@@ -14,25 +14,15 @@ const dropdownWrapper = css`
 const basicLabel = css`
   display: block;
   margin: 0 0 0.2rem 1rem;
-  & span {
-    letter-spacing: 0.05px;
-    font-size: ${size.bodySmall};
-    font-weight: ${weight.normal};
-  }
+  letter-spacing: 0.05px;
+  font-size: ${size.bodySmall};
+  font-weight: ${weight.normal};
 `
 
 const largeLabelStyle = css`
   margin: 0 0 0.5rem 0.2rem;
-  & span {
-    font-size: ${size.bodyLarge};
-    font-weight: ${weight.bold};
-  }
-`
-
-const mobileLabelStyle = css`
-  & span {
-    font-size: ${size.bodyMedium};
-  }
+  font-size: ${size.bodyLarge};
+  font-weight: ${weight.bold};
 `
 
 const errorFeedback = css`
@@ -83,6 +73,7 @@ export const Dropdown = ({
   ignoreAccents,
   trim,
   matchFrom,
+  styles,
   forwardedRef,
   ...rest
 }) => {
@@ -139,19 +130,22 @@ export const Dropdown = ({
     trim,
     matchFrom,
   }
-  const labelStyle = [basicLabel]
+  const labelStyleArr = [basicLabel]
+  const dropdownWrapperArr = [dropdownWrapper]
 
   if (labelType === 'large') {
-    labelStyle.push(largeLabelStyle)
+    labelStyleArr.push(largeLabelStyle)
   }
-  if (labelType === 'mobile') {
-    labelStyle.push(mobileLabelStyle)
+
+  if (styles) {
+    dropdownWrapperArr.push(styles.dropdownStyle)
+    labelStyleArr.push(styles.labelStyle)
   }
 
   return (
-    <div css={dropdownWrapper}>
+    <div css={dropdownWrapperArr}>
       {labelType !== 'hidden' && (
-        <label css={labelStyle} htmlFor={selectId.identity()}>
+        <label css={labelStyleArr} htmlFor={selectId.identity()}>
           <span>
             {label} {required && '*'}
           </span>
@@ -280,7 +274,16 @@ Dropdown.propTypes = {
   /**
    * Displays large label if true is passed. Otherwise, displays regular sized label.
    */
-  labelType: PropTypes.oneOf(['large', 'small', 'hidden', 'mobile']),
+  labelType: PropTypes.oneOf(['large', 'small', 'hidden']),
+  /**
+   * Customizes the input according to your needs.
+   * Accepts an object of styles in the structure below.
+   * {
+   *  dropdownStyle:{},
+   *  labelStyle:{},
+   * }
+   */
+  styles: PropTypes.object,
 }
 
 Dropdown.defaultProps = {
@@ -296,6 +299,7 @@ Dropdown.defaultProps = {
   ignoreAccents: true,
   ignoreCase: true,
   labelType: 'small',
+  styles: {},
 }
 
 const DropdownWithRef = forwardRef((props, ref) => <Dropdown {...props} forwardedRef={ref} />)
