@@ -47,6 +47,9 @@ exports[`Card renders 1`] = `
 
 .emotion-3 {
   padding: 23px 23px 0px 23px;
+  cursor: pointer;
+  padding: 23px 23px 0px 23px;
+  cursor: default;
 }
 
 .emotion-2 {
@@ -66,6 +69,12 @@ exports[`Card renders 1`] = `
 }
 
 .emotion-0 {
+  text-align: left;
+  width: 100%;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 300;
+  color: #034045;
   color: #034045;
   font-weight: 500;
   padding-left: 8px;
