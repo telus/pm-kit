@@ -138,8 +138,12 @@ export const Dropdown = ({
   }
 
   if (styles) {
-    dropdownWrapperArr.push(styles.dropdownStyle)
-    labelStyleArr.push(styles.labelStyle)
+    if (styles.dropdownStyle) {
+      dropdownWrapperArr.push(styles.dropdownStyle)
+    }
+    if (styles.labelStyle) {
+      labelStyleArr.push(styles.labelStyle)
+    }
   }
 
   return (
