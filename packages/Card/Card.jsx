@@ -78,6 +78,7 @@ const selectOptionContainer = css`
 
 const selectOptionContainerNoCurser = css`
   padding: 23px 23px 0px 23px;
+  cursor: default;
 `
 
 const cardDetails = css`
@@ -135,13 +136,20 @@ const planVariant = {
   },
 }
 
-const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isSelected, selectable }) => {
+const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isSelected, styles, selectable }) => {
   const [openCard, setOpenCard] = useState(false)
 
-  const styles = [card]
+  const cardStyles = [card]
+
+  const detailsBarStyles = [detailsBar]
+  const selectOptionContainerStyles = [selectOptionContainer]
+
+  if (!selectable) {
+    selectOptionContainerStyles.push(selectOptionContainerNoCurser)
+  }
 
   if (isSelected) {
-    styles.push(selectedCard)
+    cardStyles.push(selectedCard)
   }
 
   const onCardClick = () => {
@@ -166,24 +174,38 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
     arrowImage = downArrow
   }
 
+  if (styles) {
+    if (styles.detailsBarStylingOverride) {
+      detailsBarStyles.push(styles.detailsBarStylingOverride)
+    }
+    if (styles.selectOptionContainerStylingOverride) {
+      selectOptionContainerStyles.push(styles.selectOptionContainerStylingOverride)
+    }
+  }
+
+  const paragraphSmallSizeStyle = styles && styles.fontSizeSmallOverride ? styles.fontSizeSmallOverride : ''
+  const paragraphLargeSizeStyle = styles && styles.fontSizeLargeOverride ? styles.fontSizeLargeOverride : ''
+  const paragraphInheritSizeStyle = styles && styles.fontSizeSmallOverride ? styles.fontSizeSmallOverride : 'inherit'
+
   return (
-    <motion.div css={styles} variants={planVariant}>
+    <motion.div css={cardStyles} variants={planVariant}>
       <div css={cardContainerDetails}>
-        <div
-          css={selectable ? selectOptionContainer : selectOptionContainerNoCurser}
-          onClick={selectable ? onCardClick : undefined}
-        >
+        <div css={selectOptionContainerStyles} onClick={selectable ? onCardClick : undefined}>
           {selectable && (
             <div css={selectOption}>
               {isSelected && (
                 <div css={planSelected}>
-                  <p css={cardSelectedText}>{selectable.selectedText}</p>
+                  <Paragraph weight={weight.bold} css={cardSelectedText} size={paragraphSmallSizeStyle}>
+                    {selectable.selectedText}
+                  </Paragraph>
                   <img src={checkmark} height="18px" width="18px" alt="selected" />
                 </div>
               )}
               {!isSelected && (
                 <div css={planSelected}>
-                  <p css={cardNotSelectedText}>{selectable.unSelectedText}</p>
+                  <Paragraph weight={weight.bold} css={cardNotSelectedText} size={paragraphSmallSizeStyle}>
+                    {selectable.unSelectedText}
+                  </Paragraph>
                   <img src={oval} height="18px" width="18px" alt="unselected" />
                 </div>
               )}
@@ -193,7 +215,9 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
           <div css={cardRowContainer}>
             <div>{placeholder && placeholder}</div>
             <div>
-              <p css={titleStyle}>{title}</p>
+              <Paragraph css={titleStyle} size={paragraphLargeSizeStyle}>
+                {title}
+              </Paragraph>
               <p css={paddingLeft}>{subtitle}</p>
             </div>
           </div>
@@ -217,9 +241,11 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
           </>
         )}
         {expandable && (
-          <div css={detailsBar} onClick={toggleOpenCard}>
-            {openCard && <Paragraph weight={weight.bold}>{expandable.collapse}</Paragraph>}
-            {!openCard && <Paragraph weight={weight.bold}>{expandable.details}</Paragraph>}
+          <div css={detailsBarStyles} onClick={toggleOpenCard}>
+            <Paragraph weight={weight.bold} size={paragraphInheritSizeStyle}>
+              {openCard && <>{expandable.collapse}</>}
+              {!openCard && <>{expandable.details}</>}
+            </Paragraph>
             <img src={arrowImage} alt="arrow" />
           </div>
         )}
@@ -270,6 +296,17 @@ Card.propTypes = {
     details: PropTypes.string.isRequired,
     collapse: PropTypes.string.isRequired,
   }),
+  /**
+   * Customizes the Card according to your needs.
+   * Accepts an object of styles in the structure below.
+   * {
+   *  selectOptionContainerStylingOverride: {},
+   *  detailsBarStylingOverride: {},
+   *  fontSizeSmallOverride: "",
+   *  fontSizeLargeOverride: "",
+   * }
+   * */
+  styles: PropTypes.object,
 }
 
 Card.defaultProps = {
