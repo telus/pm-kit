@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { withKnobs, text, select } from '@storybook/addon-knobs'
+import { withKnobs, text, select, object } from '@storybook/addon-knobs'
 import Dropdown from './Dropdown'
 export default {
   title: 'Design System|Dropdown',
@@ -62,24 +62,6 @@ export const HideLabel = () => {
   )
 }
 
-export const MobileLabel = () => {
-  const [city, setCity] = useState(cities[0])
-
-  const onCitySelect = citySelected => {
-    setCity(citySelected)
-  }
-  return (
-    <Dropdown
-      label="Select a city"
-      value={city}
-      options={cities}
-      onChange={onCitySelect}
-      required={true}
-      labelType="mobile"
-    />
-  )
-}
-
 export const Error = () => {
   const [errorState, setErrorState] = useState('error')
   const onCitySelect = citySelected => {
@@ -113,7 +95,11 @@ export const Playground = () => {
       trim={select('trim', [true, false], true)}
       ignoreAccents={select('ignore accents', [true, false], true)}
       ignoreCase={select('ignore case', [true, false], true)}
-      labelType={select('label type', ['hidden', 'large', 'small', 'mobile'], 'small')}
+      labelType={select('label type', ['hidden', 'large', 'small'], 'small')}
+      styles={object('Styles', {
+        dropdownStyle: {},
+        labelStyle: {},
+      })}
     />
   )
 }
