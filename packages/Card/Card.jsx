@@ -183,6 +183,10 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
     }
   }
 
+  const paragrpahSmallSizeStyle = styles && styles.fontSizeSmallOverride ? styles.fontSizeSmallOverride : ''
+  const paragrpahLargeSizeStyle = styles && styles.fontSizeLargeOverride ? styles.fontSizeLargeOverride : ''
+  const paragrpahInheritSizeStyle = styles && styles.fontSizeSmallOverride ? styles.fontSizeSmallOverride : 'inherit'
+
   return (
     <motion.div css={cardStyles} variants={planVariant}>
       <div css={cardContainerDetails}>
@@ -191,11 +195,7 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
             <div css={selectOption}>
               {isSelected && (
                 <div css={planSelected}>
-                  <Paragraph
-                    weight={weight.bold}
-                    css={cardSelectedText}
-                    size={styles && styles.fontSizeSmallOverride ? styles.fontSizeSmallOverride : ''}
-                  >
+                  <Paragraph weight={weight.bold} css={cardSelectedText} size={paragrpahSmallSizeStyle}>
                     {selectable.selectedText}
                   </Paragraph>
                   <img src={checkmark} height="18px" width="18px" alt="selected" />
@@ -203,11 +203,7 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
               )}
               {!isSelected && (
                 <div css={planSelected}>
-                  <Paragraph
-                    weight={weight.bold}
-                    css={cardNotSelectedText}
-                    size={styles && styles.fontSizeSmallOverride ? styles.fontSizeSmallOverride : ''}
-                  >
+                  <Paragraph weight={weight.bold} css={cardNotSelectedText} size={paragrpahSmallSizeStyle}>
                     {selectable.unSelectedText}
                   </Paragraph>
                   <img src={oval} height="18px" width="18px" alt="unselected" />
@@ -219,10 +215,7 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
           <div css={cardRowContainer}>
             <div>{placeholder && placeholder}</div>
             <div>
-              <Paragraph
-                css={titleStyle}
-                size={styles && styles.fontSizeLargeOverride ? styles.fontSizeLargeOverride : ''}
-              >
+              <Paragraph css={titleStyle} size={paragrpahLargeSizeStyle}>
                 {title}
               </Paragraph>
               <p css={paddingLeft}>{subtitle}</p>
@@ -249,22 +242,10 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
         )}
         {expandable && (
           <div css={detailsBarStyles} onClick={toggleOpenCard}>
-            {openCard && (
-              <Paragraph
-                weight={weight.bold}
-                size={styles && styles.fontSizeSmallOverride ? styles.fontSizeSmallOverride : 'inherit'}
-              >
-                {expandable.collapse}
-              </Paragraph>
-            )}
-            {!openCard && (
-              <Paragraph
-                weight={weight.bold}
-                size={styles && styles.fontSizeSmallOverride ? styles.fontSizeSmallOverride : 'inherit'}
-              >
-                {expandable.details}
-              </Paragraph>
-            )}
+            <Paragraph weight={weight.bold} size={paragrpahInheritSizeStyle}>
+              {openCard && <>{expandable.collapse}</>}
+              {!openCard && <>{expandable.details}</>}
+            </Paragraph>
             <img src={arrowImage} alt="arrow" />
           </div>
         )}
