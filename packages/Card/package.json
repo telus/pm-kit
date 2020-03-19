@@ -1,6 +1,6 @@
 {
   "name": "@pm-kit/card",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "license": "MIT",

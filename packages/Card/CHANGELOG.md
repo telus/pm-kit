@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/telus/pm-kit/compare/@pm-kit/card@2.0.1...@pm-kit/card@2.1.0) (2020-03-19)
+
+
+### Features
+
+* **card:** impelemented cutsom styles to allow for responssiveness ([#66](https://github.com/telus/pm-kit/issues/66)) ([5165ff4](https://github.com/telus/pm-kit/commit/5165ff4e05399f88f074aed8302510ab07b6568c))
+
+
+
+
+
 # [2.0.0](https://github.com/telus/pm-kit/compare/@pm-kit/card@1.1.1...@pm-kit/card@2.0.0) (2020-02-11)
 
 
