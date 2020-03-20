@@ -63,7 +63,7 @@ export const Playground = () => {
       labelType={select('Label Type', ['large', 'small', 'hidden'], 'small')}
       disableUnmasking={boolean('Disable unmasking Password', false)}
       styles={object('Styles', {
-        inputWrapperStyle: {},
+        containerStyle: {},
         inputStyle: {},
         labelStyle: {},
         inputAndFeedbackWrapperStyle: {},
