@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/telus/pm-kit/compare/@pm-kit/input@2.2.0...@pm-kit/input@2.2.1) (2020-03-23)
+
+
+### Bug Fixes
+
+* **input:** update border color to red on error(password type) ([#68](https://github.com/telus/pm-kit/issues/68)) ([055064c](https://github.com/telus/pm-kit/commit/055064cf568097e90bb3db509038b9cd3bb34645))
+
+
+
+
+
 # [2.2.0](https://github.com/telus/pm-kit/compare/@pm-kit/input@2.1.0...@pm-kit/input@2.2.0) (2020-03-17)
 
 
