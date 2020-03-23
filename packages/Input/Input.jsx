@@ -132,7 +132,7 @@ export const Input = ({
   const [display, setDisplay] = useState(false)
   const inputId = generateId(id, name, label)
 
-  const inputWrapperArr = [inputWrapper]
+  const containerArr = [inputWrapper]
   const labelContainerArr = [labelContainer]
   const inputAndFeedbackWrapperArr = [inputAndFeedbackWrapper]
   const inputFieldArr = [inputField]
@@ -153,12 +153,16 @@ export const Input = ({
   }
 
   if (styles) {
-    inputWrapperArr.push(styles.inputWrapperStyle)
+    containerArr.push(styles.containerStyle)
     labelContainerArr.push(styles.labelStyle)
     inputAndFeedbackWrapperArr.push(styles.inputAndFeedbackWrapperStyle)
     eyeButtonArr.push(styles.eyeButtonStyle)
     feedbackIconWrapperArr.push(styles.feedbackIconStyle)
-    inputFieldArr.push(styles.inputStyle)
+    if (type === 'password') {
+      passwordInputWrapperArr.push(styles.inputStyle)
+    } else {
+      inputFieldArr.push(styles.inputStyle)
+    }
   }
 
   const renderLabel = (label, required, disabled) => {
@@ -191,7 +195,7 @@ export const Input = ({
   }
 
   return (
-    <div css={inputWrapperArr}>
+    <div css={containerArr}>
       {labelType !== 'hidden' && (
         <div css={labelContainerArr}>
           {label && renderLabel(label, required, disabled)}
@@ -200,19 +204,7 @@ export const Input = ({
       )}
       <div css={inputAndFeedbackWrapperArr}>
         {type === 'password' ? (
-          <div
-            css={
-              styles
-                ? css`
-                    ${passwordInputWrapper};
-                    ${styles.inputStyle};
-                    & > input {
-                      ${styles.inputStyle};
-                    }
-                  `
-                : passwordInputWrapper
-            }
-          >
+          <div css={passwordInputWrapperArr}>
             <input
               aria-invalid={feedback}
               aria-label={label}
@@ -314,7 +306,7 @@ Input.propTypes = {
    * Customizes the input according to your needs.
    * Accepts an object of styles in the structure below.
    * {
-   *  inputWrapperStyle:{},
+   *  containerStyle:{},
    *  inputStyle: {}
    *  labelStyle:{},
    *  inputAndFeedbackWrapperStyle: {},
