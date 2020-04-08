@@ -70,7 +70,6 @@ exports[`Checkbox renders 1`] = `
 }
 
 <div>
-  <div />
   <input
     class="emotion-0"
     id="testing"

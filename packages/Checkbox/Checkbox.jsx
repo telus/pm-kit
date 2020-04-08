@@ -73,18 +73,37 @@ const checkVariants = {
   },
 }
 
-export const Checkbox = (
-  { error, feedback, label, name, value, id, onChange, checked, forwardedRef, ...rest },
-  ref
-) => {
+export const Checkbox = ({
+  error,
+  feedback,
+  label,
+  name,
+  value,
+  id,
+  onChange,
+  checked,
+  styles,
+  forwardedRef,
+  ...rest
+}) => {
   const inputId = generateId(id, rest.name, label)
+  const checkboxContainer = [fakeCheckbox]
+  const labelContainer = [labelText]
+
+  if (checked) {
+    checkboxContainer.push(checkedFakeCheckbox)
+  }
+  if (styles) {
+    checkboxContainer.push(styles.checkBoxStyle)
+    labelContainer.push(styles.labelStyle)
+  }
 
   return (
     <AnimatePresence>
       <div {...rest}>
-        <div>
-          {feedback === 'error' && error && <Paragraph size={size.bodySmall} color={red}>{`(${error})`}</Paragraph>}
-        </div>
+        {feedback === 'error' && error && (
+          <Paragraph size={size.bodySmall} color={red} css={styles && styles.errorStyle}>{`(${error})`}</Paragraph>
+        )}
         <input
           css={hiddenInput}
           type="checkbox"
@@ -97,7 +116,7 @@ export const Checkbox = (
         />
         <label css={styledLabel} htmlFor={inputId.identity()}>
           <div css={container}>
-            <span css={checked ? checkedFakeCheckbox : fakeCheckbox}>
+            <span css={checkboxContainer}>
               <motion.span
                 css={fakeCheckboxInner}
                 variants={checkVariants}
@@ -116,7 +135,7 @@ export const Checkbox = (
               </motion.span>
             </span>
 
-            <Paragraph css={labelText} weight={weight.bold} size={size.bodyLarge}>
+            <Paragraph css={labelContainer} weight={weight.bold} size={size.bodyLarge}>
               {label}
             </Paragraph>
           </div>
@@ -141,6 +160,16 @@ Checkbox.propTypes = {
   id: PropTypes.string,
   onChange: PropTypes.func,
   checked: PropTypes.bool,
+  /**
+   * Customizes the checkbox according to your needs.
+   * Accepts an object of styles in the structure below.
+   * {
+   *  errorStyle:{},
+   *  checkBoxStyle: {}
+   *  labelStyle:{},
+   * }
+   */
+  styles: PropTypes.object,
 }
 
 Checkbox.defaultProps = {
@@ -152,6 +181,7 @@ Checkbox.defaultProps = {
   label: '',
   name: '',
   value: true,
+  styles: {},
 }
 
 const CheckboxWithRef = forwardRef((props, ref) => <Checkbox {...props} forwardedRef={ref} />)
