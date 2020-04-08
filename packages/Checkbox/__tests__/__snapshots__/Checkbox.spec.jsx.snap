@@ -59,12 +59,17 @@ exports[`Checkbox renders 1`] = `
 }
 
 .emotion-3 {
-  font-weight: bold;
+  text-align: left;
+  width: 100%;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #034045;
   margin-left: 12px;
 }
 
 <div>
-  <div />
   <input
     class="emotion-0"
     id="testing"
@@ -100,11 +105,11 @@ exports[`Checkbox renders 1`] = `
           </svg>
         </span>
       </span>
-      <span
+      <p
         class="emotion-3"
       >
         Testing
-      </span>
+      </p>
     </div>
   </label>
 </div>

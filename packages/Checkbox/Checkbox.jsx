@@ -2,7 +2,11 @@ import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
 import { parkGreen, red } from '@pm-kit/colours'
+import Paragraph from '@pm-kit/paragraph'
+import { size, weight } from '@pm-kit/typography'
+
 import { motion, AnimatePresence } from 'framer-motion'
+
 import generateId from '../../shared/utils/generateId/generateId.js'
 
 /**
@@ -53,16 +57,11 @@ const hiddenInput = css`
   pointer-events: none;
 `
 
-const feedbackError = css`
-  font-weight: 500;
-  color: ${red};
-`
 const styledLabel = css`
   display: flex;
 `
 
 const labelText = css`
-  font-weight: bold;
   margin-left: 12px;
 `
 
@@ -74,16 +73,37 @@ const checkVariants = {
   },
 }
 
-export const Checkbox = (
-  { error, feedback, label, name, value, id, onChange, checked, forwardedRef, ...rest },
-  ref
-) => {
+export const Checkbox = ({
+  error,
+  feedback,
+  label,
+  name,
+  value,
+  id,
+  onChange,
+  checked,
+  styles,
+  forwardedRef,
+  ...rest
+}) => {
   const inputId = generateId(id, rest.name, label)
-  const renderFeedback = errorMessage => <span css={feedbackError}>{`(${errorMessage})`}</span>
+  const checkboxContainer = [fakeCheckbox]
+  const labelContainer = [labelText]
+
+  if (checked) {
+    checkboxContainer.push(checkedFakeCheckbox)
+  }
+  if (styles) {
+    checkboxContainer.push(styles.checkBoxStyle)
+    labelContainer.push(styles.labelStyle)
+  }
+
   return (
     <AnimatePresence>
       <div {...rest}>
-        <div>{feedback === 'error' && error && renderFeedback(error)}</div>
+        {feedback === 'error' && error && (
+          <Paragraph size={size.bodySmall} color={red} css={styles && styles.errorStyle}>{`(${error})`}</Paragraph>
+        )}
         <input
           css={hiddenInput}
           type="checkbox"
@@ -96,7 +116,7 @@ export const Checkbox = (
         />
         <label css={styledLabel} htmlFor={inputId.identity()}>
           <div css={container}>
-            <span css={checked ? checkedFakeCheckbox : fakeCheckbox}>
+            <span css={checkboxContainer}>
               <motion.span
                 css={fakeCheckboxInner}
                 variants={checkVariants}
@@ -115,7 +135,9 @@ export const Checkbox = (
               </motion.span>
             </span>
 
-            <span css={labelText}>{label}</span>
+            <Paragraph css={labelContainer} weight={weight.bold} size={size.bodyLarge}>
+              {label}
+            </Paragraph>
           </div>
         </label>
       </div>
@@ -138,6 +160,16 @@ Checkbox.propTypes = {
   id: PropTypes.string,
   onChange: PropTypes.func,
   checked: PropTypes.bool,
+  /**
+   * Customizes the checkbox according to your needs.
+   * Accepts an object of styles in the structure below.
+   * {
+   *  errorStyle:{},
+   *  checkBoxStyle: {}
+   *  labelStyle:{},
+   * }
+   */
+  styles: PropTypes.object,
 }
 
 Checkbox.defaultProps = {
@@ -149,6 +181,7 @@ Checkbox.defaultProps = {
   label: '',
   name: '',
   value: true,
+  styles: {},
 }
 
 const CheckboxWithRef = forwardRef((props, ref) => <Checkbox {...props} forwardedRef={ref} />)

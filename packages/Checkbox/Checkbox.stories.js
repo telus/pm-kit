@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Checkbox from './Checkbox'
-import { withKnobs, select, text } from '@storybook/addon-knobs'
+import { withKnobs, select, text, object } from '@storybook/addon-knobs'
 
 export default {
   title: 'Design System|Checkbox',
@@ -61,6 +61,11 @@ export const Playground = () => {
       checked={checked}
       feedback={select('Feedback', [undefined, 'error'])}
       error={text('Error', 'This field is required')}
+      styles={object('Styles', {
+        errorStyle: {},
+        checkBoxStyle: {},
+        labelStyle: {},
+      })}
     />
   )
 }
