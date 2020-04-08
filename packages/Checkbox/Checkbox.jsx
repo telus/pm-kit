@@ -2,7 +2,11 @@ import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
 import { parkGreen, red } from '@pm-kit/colours'
+import Paragraph from '@pm-kit/paragraph'
+import { size, weight } from '@pm-kit/typography'
+
 import { motion, AnimatePresence } from 'framer-motion'
+
 import generateId from '../../shared/utils/generateId/generateId.js'
 
 /**
@@ -53,16 +57,11 @@ const hiddenInput = css`
   pointer-events: none;
 `
 
-const feedbackError = css`
-  font-weight: 500;
-  color: ${red};
-`
 const styledLabel = css`
   display: flex;
 `
 
 const labelText = css`
-  font-weight: bold;
   margin-left: 12px;
 `
 
@@ -79,11 +78,13 @@ export const Checkbox = (
   ref
 ) => {
   const inputId = generateId(id, rest.name, label)
-  const renderFeedback = errorMessage => <span css={feedbackError}>{`(${errorMessage})`}</span>
+
   return (
     <AnimatePresence>
       <div {...rest}>
-        <div>{feedback === 'error' && error && renderFeedback(error)}</div>
+        <div>
+          {feedback === 'error' && error && <Paragraph size={size.bodySmall} color={red}>{`(${error})`}</Paragraph>}
+        </div>
         <input
           css={hiddenInput}
           type="checkbox"
@@ -115,7 +116,9 @@ export const Checkbox = (
               </motion.span>
             </span>
 
-            <span css={labelText}>{label}</span>
+            <Paragraph css={labelText} weight={weight.bold} size={size.bodyLarge}>
+              {label}
+            </Paragraph>
           </div>
         </label>
       </div>
