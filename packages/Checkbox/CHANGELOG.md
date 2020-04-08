@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/telus/pm-kit/compare/@pm-kit/checkbox@1.1.4...@pm-kit/checkbox@1.2.0) (2020-04-08)
+
+
+### Bug Fixes
+
+* **checkbox:** Update error message font styles ([#73](https://github.com/telus/pm-kit/issues/73)) ([37cec91](https://github.com/telus/pm-kit/commit/37cec91c91010a8a3e32ddd67ef5e449e17c9ae4))
+
+
+### Features
+
+* **input:** added styles prop to be able to customize styles ([#64](https://github.com/telus/pm-kit/issues/64)) ([8cc6eaa](https://github.com/telus/pm-kit/commit/8cc6eaacef5c8a763af5dae0e80726e6bea5f05c))
+* **input:** updated to use FeedbackIcon and typography ([#37](https://github.com/telus/pm-kit/issues/37)) ([a89e26d](https://github.com/telus/pm-kit/commit/a89e26df0a120cb42cfb0d66ce0f395b501a10a2))
+
+
+
+
+
 ## [1.1.4](https://github.com/telus/pm-kit/compare/@pm-kit/checkbox@1.1.3...@pm-kit/checkbox@1.1.4) (2020-01-22)
 
 **Note:** Version bump only for package @pm-kit/checkbox
