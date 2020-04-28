@@ -198,7 +198,7 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
           {selectable && (
             <div css={selectOption}>
               {isSelected && (
-                <button type="button" css={planSelected}>
+                <button name="selectedPlan" type="button" css={planSelected}>
                   <Paragraph weight={weight.bold} css={cardSelectedText} size={paragraphSmallSizeStyle}>
                     {selectable.selectedText}
                   </Paragraph>
@@ -206,7 +206,7 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
                 </button>
               )}
               {!isSelected && (
-                <button type="button" css={planSelected}>
+                <button name="selectPlan" type="button" css={planSelected}>
                   <Paragraph weight={weight.bold} css={cardNotSelectedText} size={paragraphSmallSizeStyle}>
                     {selectable.unSelectedText}
                   </Paragraph>
@@ -245,7 +245,7 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
           </>
         )}
         {expandable && (
-          <button type="button" css={detailsBarStyles} onClick={toggleOpenCard}>
+          <button name="details" type="button" css={detailsBarStyles} onClick={toggleOpenCard}>
             <Paragraph weight={weight.bold} size={paragraphInheritSizeStyle}>
               {openCard && <>{expandable.collapse}</>}
               {!openCard && <>{expandable.details}</>}
