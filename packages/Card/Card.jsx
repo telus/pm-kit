@@ -61,6 +61,8 @@ const detailsBar = css`
   text-decoration: underline;
   padding: 16px 23px 23px 23px;
   cursor: pointer;
+  background-color: inherit;
+  border: none;
 `
 
 const cardRowContainer = css`
@@ -112,6 +114,8 @@ const planSelected = css`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  background-color: inherit;
+  border: none;
 `
 
 const cardSelectedText = css`
@@ -194,20 +198,20 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
           {selectable && (
             <div css={selectOption}>
               {isSelected && (
-                <div css={planSelected}>
+                <button type="button" css={planSelected}>
                   <Paragraph weight={weight.bold} css={cardSelectedText} size={paragraphSmallSizeStyle}>
                     {selectable.selectedText}
                   </Paragraph>
                   <img src={checkmark} height="18px" width="18px" alt="selected" />
-                </div>
+                </button>
               )}
               {!isSelected && (
-                <div css={planSelected}>
+                <button type="button" css={planSelected}>
                   <Paragraph weight={weight.bold} css={cardNotSelectedText} size={paragraphSmallSizeStyle}>
                     {selectable.unSelectedText}
                   </Paragraph>
                   <img src={oval} height="18px" width="18px" alt="unselected" />
-                </div>
+                </button>
               )}
             </div>
           )}
@@ -241,13 +245,13 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
           </>
         )}
         {expandable && (
-          <div css={detailsBarStyles} onClick={toggleOpenCard}>
+          <button type="button" css={detailsBarStyles} onClick={toggleOpenCard}>
             <Paragraph weight={weight.bold} size={paragraphInheritSizeStyle}>
               {openCard && <>{expandable.collapse}</>}
               {!openCard && <>{expandable.details}</>}
             </Paragraph>
             <img src={arrowImage} alt="arrow" />
-          </div>
+          </button>
         )}
       </div>
     </motion.div>
