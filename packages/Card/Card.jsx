@@ -203,14 +203,12 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
     <motion.div css={cardStyles} variants={planVariant}>
       <div css={cardContainerDetails}>
         <div css={selectOptionContainerStyles} onClick={selectable ? onCardClick : undefined}>
-          <div css={cardRowContainer}>
+          <div css={cardRowContainer} tabIndex="0">
             <div>{placeholder && placeholder}</div>
-            <div tabIndex="0">
-              <Paragraph css={titleStyle} size={paragraphLargeSizeStyle}>
-                {title}
-              </Paragraph>
-              <p css={paddingLeft}>{subtitle}</p>
-            </div>
+            <Paragraph css={titleStyle} size={paragraphLargeSizeStyle}>
+              {title}
+            </Paragraph>
+            <p css={paddingLeft}>{subtitle}</p>
           </div>
           {selectable && (
             <div css={selectOption}>
