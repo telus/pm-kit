@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -143,6 +143,7 @@ const planVariant = {
 const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isSelected, styles, selectable }) => {
   const [openCard, setOpenCard] = useState(false)
 
+  const detailsRef = useRef()
   const cardStyles = [card]
 
   const detailsBarStyles = [detailsBar]
@@ -162,6 +163,11 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
 
   const toggleOpenCard = () => {
     setOpenCard(!openCard)
+    if (openCard) {
+      detailsRef.current.blur()
+    } else if (detailsRef && detailsRef.current) {
+      detailsRef.current.focus()
+    }
   }
 
   useEffect(() => {
@@ -227,13 +233,12 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
           </div>
         </div>
         {children && (
-          <>
+          <div ref={detailsRef} tabIndex="-1">
             <div css={line}></div>
             <AnimatePresence>
               {openCard && (
                 <motion.div
                   css={cardDetails}
-                  onClick={expandable ? toggleOpenCard : undefined}
                   initial={{ height: 0 }}
                   animate={{ height: 'auto' }}
                   exit={{ height: '0px' }}
@@ -242,7 +247,7 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
                 </motion.div>
               )}
             </AnimatePresence>
-          </>
+          </div>
         )}
         {expandable && (
           <button name="details" type="button" css={detailsBarStyles} onClick={toggleOpenCard}>
