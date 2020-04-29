@@ -76,6 +76,8 @@ const cardRowContainer = css`
 const selectOptionContainer = css`
   padding: 23px 23px 0px 23px;
   cursor: pointer;
+  display: flex;
+  flex-direction: column-reverse;
 `
 
 const selectOptionContainerNoCurser = css`
@@ -201,10 +203,19 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
     <motion.div css={cardStyles} variants={planVariant}>
       <div css={cardContainerDetails}>
         <div css={selectOptionContainerStyles} onClick={selectable ? onCardClick : undefined}>
+          <div css={cardRowContainer}>
+            <div>{placeholder && placeholder}</div>
+            <div tabIndex="0">
+              <Paragraph css={titleStyle} size={paragraphLargeSizeStyle}>
+                {title}
+              </Paragraph>
+              <p css={paddingLeft}>{subtitle}</p>
+            </div>
+          </div>
           {selectable && (
             <div css={selectOption}>
               {isSelected && (
-                <button name="selectedPlan" type="button" css={planSelected}>
+                <button name="plan" type="button" css={planSelected}>
                   <Paragraph weight={weight.bold} css={cardSelectedText} size={paragraphSmallSizeStyle}>
                     {selectable.selectedText}
                   </Paragraph>
@@ -212,7 +223,7 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
                 </button>
               )}
               {!isSelected && (
-                <button name="selectPlan" type="button" css={planSelected}>
+                <button name="plan" type="button" css={planSelected}>
                   <Paragraph weight={weight.bold} css={cardNotSelectedText} size={paragraphSmallSizeStyle}>
                     {selectable.unSelectedText}
                   </Paragraph>
@@ -221,16 +232,6 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
               )}
             </div>
           )}
-
-          <div css={cardRowContainer}>
-            <div>{placeholder && placeholder}</div>
-            <div>
-              <Paragraph css={titleStyle} size={paragraphLargeSizeStyle}>
-                {title}
-              </Paragraph>
-              <p css={paddingLeft}>{subtitle}</p>
-            </div>
-          </div>
         </div>
         {children && (
           <div ref={detailsRef} tabIndex="-1">
