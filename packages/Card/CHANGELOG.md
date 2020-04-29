@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/telus/pm-kit/compare/@pm-kit/card@2.1.0...@pm-kit/card@2.1.1) (2020-04-29)
+
+
+### Bug Fixes
+
+* **card:** adde tab accessibility between selected plan and details ([#75](https://github.com/telus/pm-kit/issues/75)) ([4c90273](https://github.com/telus/pm-kit/commit/4c9027347b54d1e4e3196f3ed15e545fc69b377d))
+
+
+
+
+
 # [2.1.0](https://github.com/telus/pm-kit/compare/@pm-kit/card@2.0.1...@pm-kit/card@2.1.0) (2020-03-19)
 
 
