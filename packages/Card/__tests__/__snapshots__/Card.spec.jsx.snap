@@ -103,22 +103,19 @@ exports[`Card renders 1`] = `
     >
       <div
         class="emotion-2"
+        tabindex="0"
       >
         <div />
-        <div
-          tabindex="0"
+        <p
+          class="emotion-0"
         >
-          <p
-            class="emotion-0"
-          >
-            title
-          </p>
-          <p
-            class="emotion-1"
-          >
-            subtitle
-          </p>
-        </div>
+          title
+        </p>
+        <p
+          class="emotion-1"
+        >
+          subtitle
+        </p>
       </div>
     </div>
   </div>
