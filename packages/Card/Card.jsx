@@ -4,11 +4,12 @@ import { css } from '@emotion/core'
 import { motion, AnimatePresence } from 'framer-motion'
 import { offWhite, parkGreen, lilyGreen } from '@pm-kit/colours'
 import { weight } from '@pm-kit/typography'
+import Paragraph from '@pm-kit/paragraph'
+
 import downArrow from '../../shared/svg/arrow-show.svg'
 import upArrow from '../../shared/svg/arrow-hide.svg'
 import checkmark from '../../shared/png/Checkmark/verified@3x.png'
 import oval from '../../shared/png/EmptyOval/oval@3x.png'
-import Paragraph from '@pm-kit/paragraph'
 
 const card = css`
   width: 100%;
@@ -51,6 +52,9 @@ const line = css`
   border-bottom-width: 1px;
   margin-left: 35px;
   margin-right: 35px;
+  &:focus {
+    outline: none;
+  }
 `
 
 const detailsBar = css`
@@ -232,8 +236,8 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
           )}
         </div>
         {children && (
-          <div ref={detailsRef} tabIndex="-1">
-            <div css={line}></div>
+          <>
+            <div css={line} ref={detailsRef} tabIndex="-1" />
             <AnimatePresence>
               {openCard && (
                 <motion.div
@@ -246,7 +250,7 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
+          </>
         )}
         {expandable && (
           <button name="details" type="button" css={detailsBarStyles} onClick={toggleOpenCard}>
