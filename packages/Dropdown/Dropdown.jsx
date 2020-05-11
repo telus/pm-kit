@@ -108,6 +108,18 @@ export const Dropdown = ({
     }),
     singleValue: () => ({
       color: `${parkGreen}`,
+      marginLeft: '2px',
+      marginRight: '2px',
+      position: 'absolute',
+      top: '50%',
+      '-webkit-transform': 'translateY(-50%)',
+      '-ms-transform': 'translateY(-50%)',
+      transform: 'translateY(-50%)',
+      boxSizing: 'border-box',
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      maxWidth: '-webkit-fill-available',
     }),
     indicatorSeparator: provided => ({
       ...provided,
