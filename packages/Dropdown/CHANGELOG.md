@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/telus/pm-kit/compare/@pm-kit/dropdown@2.0.2...@pm-kit/dropdown@2.0.3) (2020-05-12)
+
+
+### Bug Fixes
+
+* **dropdown:** fixed console error ([#81](https://github.com/telus/pm-kit/issues/81)) ([4efde1b](https://github.com/telus/pm-kit/commit/4efde1b9c53e23c5c744fa4975ee01d6f4652fb5))
+
+
+
+
+
 ## [2.0.2](https://github.com/telus/pm-kit/compare/@pm-kit/dropdown@2.0.1...@pm-kit/dropdown@2.0.2) (2020-05-12)
 
 

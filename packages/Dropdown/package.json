@@ -1,6 +1,6 @@
 {
   "name": "@pm-kit/dropdown",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "license": "MIT",
