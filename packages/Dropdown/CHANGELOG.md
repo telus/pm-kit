@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/telus/pm-kit/compare/@pm-kit/dropdown@2.0.1...@pm-kit/dropdown@2.0.2) (2020-05-12)
+
+
+### Bug Fixes
+
+* **card:** adde tab accessibility between selected plan and details ([#75](https://github.com/telus/pm-kit/issues/75)) ([4c90273](https://github.com/telus/pm-kit/commit/4c9027347b54d1e4e3196f3ed15e545fc69b377d))
+* **card:** enable reading details before moving to button (a11y) ([#78](https://github.com/telus/pm-kit/issues/78)) ([0c8505e](https://github.com/telus/pm-kit/commit/0c8505eb67af308c3d8ca82e929fb168aac81f15))
+* **checkbox:** Update error message font styles ([#73](https://github.com/telus/pm-kit/issues/73)) ([37cec91](https://github.com/telus/pm-kit/commit/37cec91c91010a8a3e32ddd67ef5e449e17c9ae4))
+* **dropdown:** updated css of selected value ([#80](https://github.com/telus/pm-kit/issues/80)) ([5483bf2](https://github.com/telus/pm-kit/commit/5483bf2c91c8c22bd406b174593baff4f4cf4f41))
+
+
+
+
+
 ## [2.0.1](https://github.com/telus/pm-kit/compare/@pm-kit/dropdown@2.0.0...@pm-kit/dropdown@2.0.1) (2020-03-19)
 
 
