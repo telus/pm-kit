@@ -151,9 +151,7 @@ exports[`Dropdown renders default dropdown 1`] = `
     class="emotion-0"
     for="testing"
   >
-    <span>
-      testing 
-    </span>
+    testing
   </label>
   <div
     class=" emotion-9"

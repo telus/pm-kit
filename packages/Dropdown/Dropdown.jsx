@@ -167,9 +167,8 @@ export const Dropdown = ({
     <div css={dropdownWrapperArr}>
       {labelType !== 'hidden' && (
         <label css={labelStyleArr} htmlFor={selectId.identity()}>
-          <span>
-            {label} {required && '*'}
-          </span>
+          {label}
+          {required && '*'}
           {feedback === 'error' && <span css={errorFeedback}>({error})</span>}
         </label>
       )}
