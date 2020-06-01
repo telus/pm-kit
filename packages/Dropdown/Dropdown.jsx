@@ -73,6 +73,7 @@ export const Dropdown = ({
   ignoreAccents,
   trim,
   matchFrom,
+  searchMaxLength,
   styles,
   forwardedRef,
   ...rest
@@ -158,13 +159,16 @@ export const Dropdown = ({
     }
   }
 
+  const Input = props => {
+    return <components.Input {...props} maxLength={searchMaxLength} />
+  }
+
   return (
     <div css={dropdownWrapperArr}>
       {labelType !== 'hidden' && (
         <label css={labelStyleArr} htmlFor={selectId.identity()}>
-          <span>
-            {label} {required && '*'}
-          </span>
+          {label}
+          {required && '*'}
           {feedback === 'error' && <span css={errorFeedback}>({error})</span>}
         </label>
       )}
@@ -178,7 +182,7 @@ export const Dropdown = ({
         styles={customDropdownStyles}
         isClearable={true}
         clearIndicator={false}
-        components={{ Menu, Option, SelectContainer, Placeholder }}
+        components={{ Menu, Option, SelectContainer, Placeholder, Input }}
         filterOption={createFilter(filterConfig)}
         ref={forwardedRef}
         {...rest}
@@ -292,6 +296,10 @@ Dropdown.propTypes = {
    */
   labelType: PropTypes.oneOf(['large', 'small', 'hidden']),
   /**
+   * Maximum characters you can enter to search for a dropdown input.
+   */
+  searchMaxLength: PropTypes.number,
+  /**
    * Customizes the input according to your needs.
    * Accepts an object of styles in the structure below.
    * {
@@ -315,6 +323,7 @@ Dropdown.defaultProps = {
   ignoreAccents: true,
   ignoreCase: true,
   labelType: 'small',
+  searchMaxLength: 100,
   styles: {},
 }
 
