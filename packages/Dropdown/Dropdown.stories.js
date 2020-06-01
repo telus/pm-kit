@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { withKnobs, text, select, object } from '@storybook/addon-knobs'
+import { withKnobs, text, select, object, number } from '@storybook/addon-knobs'
 import Dropdown from './Dropdown'
 export default {
   title: 'Design System|Dropdown',
@@ -96,6 +96,7 @@ export const Playground = () => {
       ignoreAccents={select('ignore accents', [true, false], true)}
       ignoreCase={select('ignore case', [true, false], true)}
       labelType={select('label type', ['hidden', 'large', 'small'], 'small')}
+      searchMaxLength={number('max length')}
       styles={object('Styles', {
         dropdownStyle: {},
         labelStyle: {},
