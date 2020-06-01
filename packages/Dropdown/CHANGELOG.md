@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/telus/pm-kit/compare/@pm-kit/dropdown@2.0.3...@pm-kit/dropdown@2.1.0) (2020-06-01)
+
+
+### Features
+
+* **dropdown:** added a max character limit to input's search ([#85](https://github.com/telus/pm-kit/issues/85)) ([f9ca5e3](https://github.com/telus/pm-kit/commit/f9ca5e3b0d92ec70df8754b03edcca2328af1ecc))
+
+
+
+
+
 ## [2.0.3](https://github.com/telus/pm-kit/compare/@pm-kit/dropdown@2.0.2...@pm-kit/dropdown@2.0.3) (2020-05-12)
 
 
