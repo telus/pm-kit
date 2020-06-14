@@ -97,6 +97,7 @@ export const Playground = () => {
       ignoreCase={select('ignore case', [true, false], true)}
       labelType={select('label type', ['hidden', 'large', 'small'], 'small')}
       searchMaxLength={number('max length')}
+      loadingState={select('loading state', ['success', 'waiting', 'error'], 'success')}
       styles={object('Styles', {
         dropdownStyle: {},
         labelStyle: {},
