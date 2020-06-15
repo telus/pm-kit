@@ -5,6 +5,7 @@ import Select, { components, createFilter } from 'react-select'
 import { motion, AnimatePresence } from 'framer-motion'
 import { size, weight } from '@pm-kit/typography'
 import { parkGreen, red, lightTan, white } from '@pm-kit/colours'
+import FeedbackIcon from '@pm-kit/feedback-icon'
 import generateId from '../../shared/utils/generateId/generateId.js'
 
 const dropdownWrapper = css`
@@ -68,6 +69,7 @@ export const Dropdown = ({
   required,
   type,
   value,
+  loadingState,
   placeholder,
   ignoreCase,
   ignoreAccents,
@@ -163,6 +165,14 @@ export const Dropdown = ({
     return <components.Input {...props} maxLength={searchMaxLength} />
   }
 
+  const DropdownIndicator = props => {
+    return (
+      <components.DropdownIndicator {...props}>
+        {loadingState !== 'success' && <FeedbackIcon state={loadingState} />}
+      </components.DropdownIndicator>
+    )
+  }
+
   return (
     <div css={dropdownWrapperArr}>
       {labelType !== 'hidden' && (
@@ -182,7 +192,7 @@ export const Dropdown = ({
         styles={customDropdownStyles}
         isClearable={true}
         clearIndicator={false}
-        components={{ Menu, Option, SelectContainer, Placeholder, Input }}
+        components={{ Menu, Option, SelectContainer, Placeholder, Input, DropdownIndicator }}
         filterOption={createFilter(filterConfig)}
         ref={forwardedRef}
         {...rest}
@@ -308,6 +318,10 @@ Dropdown.propTypes = {
    * }
    */
   styles: PropTypes.object,
+  /**
+   * Replaces chevron with a feedback icon based on loading state of options.
+   */
+  loadingState: PropTypes.oneOf(['waiting', 'success', 'error']),
 }
 
 Dropdown.defaultProps = {
@@ -325,6 +339,7 @@ Dropdown.defaultProps = {
   labelType: 'small',
   searchMaxLength: 100,
   styles: {},
+  loadingState: 'success',
 }
 
 const DropdownWithRef = forwardRef((props, ref) => <Dropdown {...props} forwardedRef={ref} />)
