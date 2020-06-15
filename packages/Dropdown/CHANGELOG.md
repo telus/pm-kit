@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/telus/pm-kit/compare/@pm-kit/dropdown@2.1.0...@pm-kit/dropdown@2.2.0) (2020-06-15)
+
+
+### Features
+
+* **dropdown:** added a loading state ([#87](https://github.com/telus/pm-kit/issues/87)) ([98c1ff9](https://github.com/telus/pm-kit/commit/98c1ff977b3a01654ac25756703e08179f8adc9d))
+
+
+
+
+
 # [2.1.0](https://github.com/telus/pm-kit/compare/@pm-kit/dropdown@2.0.3...@pm-kit/dropdown@2.1.0) (2020-06-01)
 
 
