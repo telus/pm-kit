@@ -194,6 +194,7 @@ export const Dropdown = ({
         clearIndicator={false}
         components={{ Menu, Option, SelectContainer, Placeholder, Input, DropdownIndicator }}
         filterOption={createFilter(filterConfig)}
+        blurInputOnSelect={false}
         ref={forwardedRef}
         {...rest}
       />
