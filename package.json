@@ -89,7 +89,7 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-emotion": "^10.0.23",
     "case": "^1.6.2",
-    "chalk": "^3.0.0",
+    "chalk": "^4.0.0",
     "css-mediaquery": "^0.1.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
