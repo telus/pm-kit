@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/telus/pm-kit/compare/@pm-kit/dropdown@2.2.0...@pm-kit/dropdown@2.2.1) (2020-06-25)
+
+
+### Bug Fixes
+
+* **dropdown:** removed onblur being triggered on touch screens ([#89](https://github.com/telus/pm-kit/issues/89)) ([46f5130](https://github.com/telus/pm-kit/commit/46f51304b93c07d0d918e2b2b0e0f908ca913ce7))
+
+
+
+
+
 # [2.2.0](https://github.com/telus/pm-kit/compare/@pm-kit/dropdown@2.1.0...@pm-kit/dropdown@2.2.0) (2020-06-15)
 
 
