@@ -125,6 +125,8 @@ export const Input = ({
   feedbackicon,
   type,
   disableUnmasking,
+  inputMode,
+  autoComplete,
   styles,
   forwardedRef,
   ...rest
@@ -174,8 +176,6 @@ export const Input = ({
     )
   }
 
-  const renderFeedback = errorMessage => <span css={feedbackError}>{`(${errorMessage})`}</span>
-
   /**
    * this is a workaround for a bug in chrome that moves
    * the cursor into a wrong position if prepended with a space
@@ -199,7 +199,7 @@ export const Input = ({
       {labelType !== 'hidden' && (
         <div css={labelContainerArr}>
           {label && renderLabel(label, required, disabled)}
-          {feedback === 'error' && error && renderFeedback(error)}
+          {feedback === 'error' && error && <span css={feedbackError}>{error}</span>}
         </div>
       )}
       <div css={inputAndFeedbackWrapperArr}>
@@ -216,6 +216,8 @@ export const Input = ({
               value={value}
               onChange={onChange}
               disabled={disabled}
+              inputMode={inputMode}
+              autoComplete={autoComplete}
               ref={forwardedRef}
               {...rest}
             />
@@ -238,6 +240,8 @@ export const Input = ({
             value={value}
             onChange={onChange}
             onKeyDown={handleKeyDown}
+            inputMode={inputMode}
+            autoComplete={autoComplete}
             ref={forwardedRef}
             {...rest}
           />
@@ -303,6 +307,14 @@ Input.propTypes = {
    */
   disableUnmasking: PropTypes.bool,
   /**
+   * Overrides the mobile keyboard specified by input's type attribute.
+   */
+  inputMode: PropTypes.oneOf(['none', 'text', 'decimal', 'numeric', 'tel', 'search', 'email', 'url']),
+  /**
+   * Provides suggestion for user's input.
+   */
+  autoComplete: PropTypes.string,
+  /**
    * Customizes the input according to your needs.
    * Accepts an object of styles in the structure below.
    * {
@@ -328,6 +340,8 @@ Input.defaultProps = {
   type: 'text',
   forwardedRef: undefined,
   disableUnmasking: false,
+  inputMode: 'text',
+  autoComplete: 'on',
   styles: {},
 }
 

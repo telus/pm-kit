@@ -59,9 +59,20 @@ export const Playground = () => {
       feedbackicon={boolean('Feedback Icon', false)}
       required={boolean('Required Input', false)}
       disabled={boolean('Disable Input', false)}
-      type={select('Type', ['text', 'password'])}
+      type={select('Type', ['text', 'password', 'number', 'email', 'url', 'tel'])}
       labelType={select('Label Type', ['large', 'small', 'hidden'], 'small')}
       disableUnmasking={boolean('Disable unmasking Password', false)}
+      inputMode={select('Input mode', ['none', 'text', 'decimal', 'numeric', 'tel', 'search', 'email', 'url'])}
+      autoComplete={select('Auto Complete', [
+        'on',
+        'off',
+        'family-name',
+        'given-name',
+        'email',
+        'new-password',
+        'street-address',
+        'postal-code',
+      ])}
       styles={object('Styles', {
         containerStyle: {},
         inputStyle: {},
