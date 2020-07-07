@@ -92,6 +92,7 @@ const isDisabled = css`
 const feedbackError = css`
   color: ${red};
   font-weight: ${weight.normal};
+  font-size: ${size.bodySmall};
 `
 
 const eyeButton = css`
