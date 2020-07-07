@@ -85,7 +85,6 @@ exports[`Input renders 1`] = `
     <input
       aria-invalid="false"
       aria-label="Label"
-      autocomplete="on"
       class="emotion-2"
       id="label"
       inputmode="text"

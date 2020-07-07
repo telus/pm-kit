@@ -1,6 +1,12 @@
 import React, { useRef, useState } from 'react'
 import { withKnobs, text, select, boolean, object } from '@storybook/addon-knobs'
-import Input from './Input.jsx'
+import Input, {
+  AUTO_COMPLETE_OPTIONS,
+  FEED_BACK_OPTIONS,
+  INPUT_MODE_OPTIONS,
+  LABEL_TYPE_OPTIONS,
+  TYPE_OPTIONS,
+} from './Input.jsx'
 import { version } from './package.json'
 
 export default {
@@ -55,24 +61,15 @@ export const Playground = () => {
       label={text('Label', 'Label')}
       placeholder={text('Placeholder', 'Placeholder')}
       error={text('Error Message', 'Error')}
-      feedback={select('Feedback', [undefined, 'success', 'error', 'waiting'])}
+      feedback={select('Feedback', FEED_BACK_OPTIONS)}
       feedbackicon={boolean('Feedback Icon', false)}
       required={boolean('Required Input', false)}
       disabled={boolean('Disable Input', false)}
-      type={select('Type', ['text', 'password', 'number', 'email', 'url', 'tel'])}
-      labelType={select('Label Type', ['large', 'small', 'hidden'], 'small')}
+      type={select('Type', TYPE_OPTIONS)}
+      labelType={select('Label Type', LABEL_TYPE_OPTIONS, 'small')}
       disableUnmasking={boolean('Disable unmasking Password', false)}
-      inputMode={select('Input mode', ['none', 'text', 'decimal', 'numeric', 'tel', 'search', 'email', 'url'])}
-      autoComplete={select('Auto Complete', [
-        'on',
-        'off',
-        'family-name',
-        'given-name',
-        'email',
-        'new-password',
-        'street-address',
-        'postal-code',
-      ])}
+      inputMode={select('Input mode', INPUT_MODE_OPTIONS, undefined)}
+      autoComplete={select('Auto Complete', AUTO_COMPLETE_OPTIONS)}
       styles={object('Styles', {
         containerStyle: {},
         inputStyle: {},
