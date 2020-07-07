@@ -210,12 +210,12 @@ export const Input = ({
   const inputId = generateId(id, name, label)
 
   const containerArr = [inputWrapper]
-  const labelContainerArr = [labelContainer]
-  const inputAndFeedbackWrapperArr = [inputAndFeedbackWrapper]
-  const inputFieldArr = [inputField]
-  const passwordInputWrapperArr = [passwordInputWrapper]
   const eyeButtonArr = [eyeButton]
   const feedbackIconWrapperArr = [feedbackIconWrapper]
+  const inputAndFeedbackWrapperArr = [inputAndFeedbackWrapper]
+  const inputFieldArr = [inputField]
+  const labelContainerArr = [labelContainer]
+  const passwordInputWrapperArr = [passwordInputWrapper]
 
   if (labelType === 'large') {
     labelContainerArr.push(largeLabelContainer)
@@ -231,10 +231,10 @@ export const Input = ({
 
   if (styles) {
     containerArr.push(styles.containerStyle)
-    labelContainerArr.push(styles.labelStyle)
-    inputAndFeedbackWrapperArr.push(styles.inputAndFeedbackWrapperStyle)
     eyeButtonArr.push(styles.eyeButtonStyle)
     feedbackIconWrapperArr.push(styles.feedbackIconStyle)
+    inputAndFeedbackWrapperArr.push(styles.inputAndFeedbackWrapperStyle)
+    labelContainerArr.push(styles.labelStyle)
     if (type === 'password') {
       passwordInputWrapperArr.push(styles.inputStyle)
     } else {
@@ -242,13 +242,22 @@ export const Input = ({
     }
   }
 
-  const renderLabel = (label, required, disabled) => {
-    const labelText = `${label}${required ? true && '*' : ''}`
-    return (
-      <label css={disabled ? isDisabled : null} htmlFor={inputId.identity()}>
-        {labelText}
-      </label>
-    )
+  /**
+   * this is a workaround for a bug in chrome that moves
+   * the cursor into a wrong position if prepended with a space
+   */
+  const handleKeyDown = e => {
+    if (type === 'email' && e.key === ' ') {
+      e.preventDefault()
+    }
+  }
+
+  const renderAutoComplete = (type, autoComplete) => {
+    if (!autoComplete && (type === 'email' || type === 'url')) {
+      console.log('returning type: ', type)
+      return type
+    }
+    return autoComplete
   }
 
   const renderInputMode = (type, inputMode) => {
@@ -264,22 +273,13 @@ export const Input = ({
     return type
   }
 
-  const renderAutoComplete = (type, autoComplete) => {
-    if (!autoComplete && (type === 'email' || type === 'url')) {
-      console.log('returning type: ', type)
-      return type
-    }
-    return autoComplete
-  }
-
-  /**
-   * this is a workaround for a bug in chrome that moves
-   * the cursor into a wrong position if prepended with a space
-   */
-  const handleKeyDown = e => {
-    if (type === 'email' && e.key === ' ') {
-      e.preventDefault()
-    }
+  const renderLabel = (label, required, disabled) => {
+    const labelText = `${label}${required ? true && '*' : ''}`
+    return (
+      <label css={disabled ? isDisabled : null} htmlFor={inputId.identity()}>
+        {labelText}
+      </label>
+    )
   }
 
   const showPassword = () => {
