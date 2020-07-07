@@ -1,6 +1,15 @@
 import React, { useRef, useState } from 'react'
 import { withKnobs, text, select, boolean, object } from '@storybook/addon-knobs'
-import Input from './Input.jsx'
+
+// functional components
+import Input, {
+  AUTO_COMPLETE_OPTIONS,
+  FEED_BACK_OPTIONS,
+  INPUT_MODE_OPTIONS,
+  LABEL_TYPE_OPTIONS,
+  TYPE_OPTIONS,
+} from './Input.jsx'
+
 import { version } from './package.json'
 
 export default {
@@ -14,15 +23,17 @@ export default {
 
 export const Default = () => <Input placeholder="Placeholder" label="Label" />
 
-export const LargeLabel = () => <Input placeholder="Placeholder" label="Label" labelType="large" />
+export const Disabled = () => <Input disabled={true} label="Label" placeholder="Disabled" />
 
-export const NoLabel = () => <Input placeholder="Placeholder" label="Label" labelType="hidden" />
-
-export const Error = () => <Input placeholder="Placeholder" label="Label" feedback="error" error="error" />
+export const Error = () => <Input error="(error)" feedback="error" label="Label" placeholder="Placeholder" />
 
 export const ErrorWithIcon = () => (
-  <Input placeholder="Placeholder" label="Label" feedback="error" error="error" feedbackicon />
+  <Input error="(error)" feedback="error" feedbackicon label="Label" placeholder="Placeholder" />
 )
+
+export const LargeLabel = () => <Input label="Label" labelType="large" placeholder="Placeholder" />
+
+export const NoLabel = () => <Input label="Label" labelType="hidden" placeholder="Placeholder" />
 
 export const Password = () => {
   const inputRef = useRef()
@@ -32,17 +43,15 @@ export const Password = () => {
   }
   return (
     <Input
-      placeholder="Placeholder"
       label="Label"
-      type="password"
-      ref={inputRef}
-      value={inputValue}
       onChange={inputValueChange}
+      placeholder="Placeholder"
+      ref={inputRef}
+      type="password"
+      value={inputValue}
     />
   )
 }
-
-export const Disabled = () => <Input disabled={true} placeholder="Disabled" label="Label" />
 
 export const Playground = () => {
   const inputRef = useRef()
@@ -52,27 +61,29 @@ export const Playground = () => {
   }
   return (
     <Input
-      label={text('Label', 'Label')}
-      placeholder={text('Placeholder', 'Placeholder')}
-      error={text('Error Message', 'Error')}
-      feedback={select('Feedback', [undefined, 'success', 'error', 'waiting'])}
-      feedbackicon={boolean('Feedback Icon', false)}
-      required={boolean('Required Input', false)}
+      autoComplete={select('Auto Complete', AUTO_COMPLETE_OPTIONS)}
       disabled={boolean('Disable Input', false)}
-      type={select('Type', ['text', 'password'])}
-      labelType={select('Label Type', ['large', 'small', 'hidden'], 'small')}
       disableUnmasking={boolean('Disable unmasking Password', false)}
+      error={text('Error Message', 'Error')}
+      feedback={select('Feedback', FEED_BACK_OPTIONS)}
+      feedbackicon={boolean('Feedback Icon', false)}
+      inputMode={select('Input mode', INPUT_MODE_OPTIONS, undefined)}
+      label={text('Label', 'Label')}
+      labelType={select('Label Type', LABEL_TYPE_OPTIONS, 'small')}
+      onChange={inputValueChange}
+      placeholder={text('Placeholder', 'Placeholder')}
+      ref={inputRef}
+      required={boolean('Required Input', false)}
       styles={object('Styles', {
         containerStyle: {},
-        inputStyle: {},
-        labelStyle: {},
-        inputAndFeedbackWrapperStyle: {},
         eyeButtonStyle: {},
         feedbackIconStyle: {},
+        inputStyle: {},
+        inputAndFeedbackWrapperStyle: {},
+        labelStyle: {},
       })}
-      ref={inputRef}
+      type={select('Type', TYPE_OPTIONS)}
       value={inputValue}
-      onChange={inputValueChange}
     />
   )
 }
