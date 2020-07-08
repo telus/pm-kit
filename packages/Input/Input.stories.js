@@ -2,13 +2,7 @@ import React, { useRef, useState } from 'react'
 import { withKnobs, text, select, boolean, object } from '@storybook/addon-knobs'
 
 // functional components
-import Input, {
-  AUTO_COMPLETE_OPTIONS,
-  FEED_BACK_OPTIONS,
-  INPUT_MODE_OPTIONS,
-  LABEL_TYPE_OPTIONS,
-  TYPE_OPTIONS,
-} from './Input.jsx'
+import Input, { FEED_BACK_OPTIONS, INPUT_MODE_OPTIONS, LABEL_TYPE_OPTIONS, TYPE_OPTIONS } from './Input.jsx'
 
 import { version } from './package.json'
 
