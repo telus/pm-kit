@@ -252,7 +252,9 @@ export const Input = ({
   )
 }
 
-Input.propTypes = {
+const InputWithRef = forwardRef((props, ref) => <Input {...props} forwardedRef={ref} />)
+
+InputWithRef.propTypes = {
   /**
    * The label.
    */
@@ -317,7 +319,7 @@ Input.propTypes = {
   styles: PropTypes.object,
 }
 
-Input.defaultProps = {
+InputWithRef.defaultProps = {
   required: false,
   disabled: false,
   feedback: undefined,
@@ -330,7 +332,5 @@ Input.defaultProps = {
   disableUnmasking: false,
   styles: {},
 }
-
-const InputWithRef = forwardRef((props, ref) => <Input {...props} forwardedRef={ref} />)
 
 export default InputWithRef

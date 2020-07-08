@@ -109,7 +109,9 @@ export const Button = ({ children, type, variant, wide, disabled, forwardedRef, 
   )
 }
 
-Button.propTypes = {
+const ButtonWithRef = forwardRef((props, ref) => <Button {...props} forwardedRef={ref} />)
+
+ButtonWithRef.propTypes = {
   /**
    * The HTML button type.
    */
@@ -126,12 +128,10 @@ Button.propTypes = {
   disabled: PropTypes.bool,
 }
 
-Button.defaultProps = {
+ButtonWithRef.defaultProps = {
   type: 'button',
   variant: 'primary',
   wide: false,
 }
-
-const ButtonWithRef = forwardRef((props, ref) => <Button {...props} forwardedRef={ref} />)
 
 export default ButtonWithRef

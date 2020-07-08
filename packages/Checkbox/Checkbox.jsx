@@ -145,7 +145,9 @@ export const Checkbox = ({
   )
 }
 
-Checkbox.propTypes = {
+const CheckboxWithRef = forwardRef((props, ref) => <Checkbox {...props} forwardedRef={ref} />)
+
+CheckboxWithRef.propTypes = {
   /**
    * The error message.
    */
@@ -172,7 +174,7 @@ Checkbox.propTypes = {
   styles: PropTypes.object,
 }
 
-Checkbox.defaultProps = {
+CheckboxWithRef.defaultProps = {
   id: undefined,
   error: undefined,
   feedback: undefined,
@@ -183,7 +185,5 @@ Checkbox.defaultProps = {
   value: true,
   styles: {},
 }
-
-const CheckboxWithRef = forwardRef((props, ref) => <Checkbox {...props} forwardedRef={ref} />)
 
 export default CheckboxWithRef

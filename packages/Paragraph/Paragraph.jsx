@@ -21,7 +21,9 @@ export const Paragraph = ({ children, position, size, weight, color, decoration,
   )
 }
 
-Paragraph.propTypes = {
+const ParagraphWithRef = forwardRef((props, ref) => <Paragraph {...props} forwardedRef={ref} />)
+
+ParagraphWithRef.propTypes = {
   /**
    * The position of text
    */
@@ -48,7 +50,7 @@ Paragraph.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
 }
 
-Paragraph.defaultProps = {
+ParagraphWithRef.defaultProps = {
   position: 'left',
   color: colors.parkGreen,
   decoration: 'none',
@@ -56,7 +58,5 @@ Paragraph.defaultProps = {
   size: fontSize.bodyLarge,
   children: '',
 }
-
-const ParagraphWithRef = forwardRef((props, ref) => <Paragraph {...props} forwardedRef={ref} />)
 
 export default ParagraphWithRef
