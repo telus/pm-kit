@@ -15,68 +15,9 @@ import generateId from '../../shared/utils/generateId/generateId.js'
 import hide from '../../shared/png/hide/hide.png'
 import show from '../../shared/png/show/show.png'
 
-export const AUTO_COMPLETE_OPTIONS = [
-  'off',
-  'on',
-  'name',
-  'honorific-prefix',
-  'given-name',
-  'additional-name',
-  'family-name',
-  'honorific-suffix',
-  'nickname',
-  'email',
-  'username',
-  'new-password',
-  'current-password',
-  'one-time-code',
-  'organization-title',
-  'organization',
-  'street-address',
-  'address-line1',
-  'address-line2',
-  'address-line3',
-  'address-level4',
-  'address-level3',
-  'address-level2',
-  'address-level1',
-  'country',
-  'country-name',
-  'postal-code',
-  'cc-name',
-  'cc-given-name',
-  'cc-additional-name',
-  'cc-family-name',
-  'cc-number',
-  'cc-exp',
-  'cc-exp-month',
-  'cc-exp-year',
-  'cc-csc',
-  'cc-type',
-  'transaction-currency',
-  'transaction-amount',
-  'language',
-  'bday',
-  'bday-day',
-  'bday-month',
-  'bday-year',
-  'sex',
-  'tel',
-  'tel-country-code',
-  'tel-national',
-  'tel-area-code',
-  'tel-local',
-  'tel-local-prefix',
-  'tel-local-suffix',
-  'tel-extension',
-  'impp',
-  'url',
-  'photo',
-]
-
 export const FEED_BACK_OPTIONS = ['success', 'error', 'waiting']
 
-export const INPUT_MODE_OPTIONS = ['none', 'text', 'decimal', 'numeric', 'tel', 'search', 'email', 'url']
+export const INPUT_MODE_OPTIONS = ['text', 'none', 'decimal', 'numeric', 'tel', 'search', 'email', 'url']
 
 export const LABEL_TYPE_OPTIONS = ['large', 'small', 'hidden']
 
@@ -187,7 +128,6 @@ const eyeImage = css`
 `
 
 export const Input = ({
-  autoComplete,
   disabled,
   disableUnmasking,
   error,
@@ -252,24 +192,11 @@ export const Input = ({
     }
   }
 
-  const renderAutoComplete = (type, autoComplete) => {
-    if (!autoComplete && (type === 'email' || type === 'url')) {
-      return type
-    }
-    return autoComplete
-  }
-
   const renderInputMode = (type, inputMode) => {
-    if (inputMode) {
-      return inputMode
-    }
     if (type === 'number') {
       return 'decimal'
     }
-    if (type === 'password') {
-      return 'text'
-    }
-    return type
+    return inputMode
   }
 
   const renderLabel = (label, required, disabled) => {
@@ -303,7 +230,6 @@ export const Input = ({
             <input
               aria-invalid={feedback}
               aria-label={label}
-              autoComplete={renderAutoComplete(type, autoComplete)}
               css={passwordInput}
               disabled={disabled}
               id={inputId.identity()}
@@ -326,7 +252,6 @@ export const Input = ({
           <input
             aria-invalid={feedback === 'error'}
             aria-label={label}
-            autoComplete={renderAutoComplete(type, autoComplete)}
             css={inputFieldArr}
             disabled={disabled}
             feedback={feedback}
@@ -352,10 +277,6 @@ export const Input = ({
 }
 
 Input.propTypes = {
-  /**
-   * Provides suggestion for user's input.
-   */
-  autoComplete: PropTypes.oneOf(AUTO_COMPLETE_OPTIONS),
   /**
    * Specifies if the Input field should be disabled.
    */
@@ -425,14 +346,13 @@ Input.propTypes = {
 }
 
 Input.defaultProps = {
-  autoComplete: undefined,
   disabled: false,
   disableUnmasking: false,
   error: undefined,
   feedback: undefined,
   feedbackicon: false,
   forwardedRef: undefined,
-  inputMode: undefined,
+  inputMode: 'text',
   labelType: 'small',
   name: undefined,
   onChange: () => {},

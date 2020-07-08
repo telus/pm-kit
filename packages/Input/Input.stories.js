@@ -61,13 +61,12 @@ export const Playground = () => {
   }
   return (
     <Input
-      autoComplete={select('Auto Complete', AUTO_COMPLETE_OPTIONS)}
       disabled={boolean('Disable Input', false)}
       disableUnmasking={boolean('Disable unmasking Password', false)}
       error={text('Error Message', 'Error')}
       feedback={select('Feedback', FEED_BACK_OPTIONS)}
       feedbackicon={boolean('Feedback Icon', false)}
-      inputMode={select('Input mode', INPUT_MODE_OPTIONS, undefined)}
+      inputMode={select('Input mode', INPUT_MODE_OPTIONS, 'text')}
       label={text('Label', 'Label')}
       labelType={select('Label Type', LABEL_TYPE_OPTIONS, 'small')}
       onChange={inputValueChange}
