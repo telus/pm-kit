@@ -32,7 +32,7 @@ export const NoLabel = () => <Input label="Label" labelType="hidden" placeholder
 export const Password = () => {
   const inputRef = useRef()
   const [inputValue, setInputValue] = useState('')
-  const inputValueChange = e => {
+  const inputValueChange = (e) => {
     setInputValue(e.target.value)
   }
   return (
@@ -50,7 +50,7 @@ export const Password = () => {
 export const Playground = () => {
   const inputRef = useRef()
   const [inputValue, setInputValue] = useState('')
-  const inputValueChange = e => {
+  const inputValueChange = (e) => {
     setInputValue(e.target.value)
   }
   return (

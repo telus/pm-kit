@@ -186,7 +186,7 @@ export const Input = ({
    * this is a workaround for a bug in chrome that moves
    * the cursor into a wrong position if prepended with a space
    */
-  const handleKeyDown = e => {
+  const handleKeyDown = (e) => {
     if (type === 'email' && e.key === ' ') {
       e.preventDefault()
     }
