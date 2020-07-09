@@ -51,7 +51,9 @@ const Heading = ({ level, tag = level, children, forwardedRef, ...rest }) => {
   return jsx(tag || 'h1', { css: variantStyles, ref: forwardedRef, ...rest }, children)
 }
 
-Heading.propTypes = {
+const HeadingWithRef = forwardRef((props, ref) => <Heading {...props} forwardedRef={ref} />)
+
+HeadingWithRef.propTypes = {
   /**
    * The visual level of the heading. If `tag` is not specified, then `level` determines what HTML element to render.
    */
@@ -66,11 +68,9 @@ Heading.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-Heading.defaultProps = {
+HeadingWithRef.defaultProps = {
   tag: undefined,
   level: 'h1',
 }
-
-const HeadingWithRef = forwardRef((props, ref) => <Heading {...props} forwardedRef={ref} />)
 
 export default HeadingWithRef

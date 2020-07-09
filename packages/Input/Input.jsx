@@ -276,7 +276,9 @@ export const Input = ({
   )
 }
 
-Input.propTypes = {
+const InputWithRef = forwardRef((props, ref) => <Input {...props} forwardedRef={ref} />)
+
+InputWithRef.propTypes = {
   /**
    * Specifies if the Input field should be disabled.
    */
@@ -345,7 +347,7 @@ Input.propTypes = {
   value: PropTypes.string,
 }
 
-Input.defaultProps = {
+InputWithRef.defaultProps = {
   disabled: false,
   disableUnmasking: false,
   error: undefined,
@@ -360,7 +362,5 @@ Input.defaultProps = {
   styles: {},
   type: 'text',
 }
-
-const InputWithRef = forwardRef((props, ref) => <Input {...props} forwardedRef={ref} />)
 
 export default InputWithRef

@@ -223,7 +223,9 @@ const Placeholder = props => {
   return <components.Placeholder css={placeholder} {...props} />
 }
 
-Dropdown.propTypes = {
+const DropdownWithRef = forwardRef((props, ref) => <Dropdown {...props} forwardedRef={ref} />)
+
+DropdownWithRef.propTypes = {
   /**
    * An error message. Should be limited to text and links. See usage criteria for more details.
    */
@@ -290,7 +292,7 @@ Dropdown.propTypes = {
   styles: PropTypes.object,
 }
 
-Dropdown.defaultProps = {
+DropdownWithRef.defaultProps = {
   error: undefined,
   feedback: undefined,
   id: undefined,
@@ -305,7 +307,5 @@ Dropdown.defaultProps = {
   labelType: 'small',
   styles: {},
 }
-
-const DropdownWithRef = forwardRef((props, ref) => <Dropdown {...props} forwardedRef={ref} />)
 
 export default DropdownWithRef
