@@ -87,6 +87,7 @@ exports[`Input renders 1`] = `
       aria-label="Label"
       class="emotion-2"
       id="label"
+      inputmode="text"
       type="text"
     />
   </div>
