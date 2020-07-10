@@ -10,7 +10,7 @@
     "url": "https://github.com/telus/public-mobile-design-system.git"
   },
   "scripts": {
-    "bootstrap": "npm ci && npx lerna bootstrap --hoist && npm run build -- --all",
+    "bootstrap": "npm ci && npx lerna bootstrap --hoist && npm run build -- --all && npx npm-force-resolutions",
     "bootstrap:skip-install": "npx lerna bootstrap --hoist && npm run build -- --all",
     "build": "node scripts/build.js",
     "contributors:update": "node scripts/updateContributors.js",
@@ -33,6 +33,9 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
+  },
+  "resolutions": {
+    "yargs-parser": "^18.1.3"
   },
   "husky": {
     "hooks": {
