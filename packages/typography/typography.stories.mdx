@@ -1,10 +1,13 @@
-import { Meta, Story } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Subtitle } from '@storybook/addon-docs/blocks'
 import * as typography from './typography.js'
 import { version } from './package.json'
 
 <Meta title="Design System|Typography" component={typography} parameters={{ componentSubtitle: `version` }} />
 
 # Typography
+<Subtitle>
+version {version}
+</Subtitle>
 
 This package exposes values for typography-related css, such as font sizes and font weights. The exports available are the following:
 
@@ -30,3 +33,19 @@ This package exposes values for typography-related css, such as font sizes and f
   bold: 500,
 }
 ```
+
+## Usage
+* To install `Typography` package with npm run terminal:
+
+```jsx
+npm i @pm-kit/typography
+
+```
+* Import `Typography` in your componenent to render
+
+```jsx
+import {size, weight} from '@pm-kit/typography'
+
+```
+
+<Story name="Docs"/>

@@ -1,0 +1,73 @@
+import { Meta, Story, Preview, Props, Subtitle } from '@storybook/addon-docs/blocks'
+import Button from './Button.jsx'
+import { action } from '@storybook/addon-actions'
+import { version } from './package.json'
+
+<Meta title="Design System|Button" componenent={Button}/>
+
+# Button
+<Subtitle>
+version {version}
+</Subtitle>
+
+
+## Usage
+* To install `Button` package with npm run terminal:
+
+```jsx
+npm i @pm-kit/button
+```
+* Import `Button` in your componenent to render
+
+```jsx
+import Button from '@pm-kit/button'
+```
+
+## Properties 
+
+<Props of={Button} />
+
+## Stories
+
+Primary
+<Preview>
+<Story name="Primary">
+  <Button onClick={action('clicked')}>Primary Button</Button>
+</Story>
+</Preview>
+
+Secondary
+<Preview>
+<Story name="Secondary">
+  <Button variant="secondary" onClick={action('clicked')}>
+    Secondary Button
+  </Button>
+</Story>
+</Preview>
+
+Inverted
+<Preview>
+<Story name="Inverted">
+  <Button variant="inverted" onClick={action('clicked')}>
+    Inverted Button
+  </Button>
+</Story>
+</Preview>
+
+Disabled
+<Preview>
+<Story name="Disabled">
+  <Button disabled onClick={action('clicked')}>
+    Disabled Button
+  </Button>
+</Story>
+</Preview>
+
+Alternative
+<Preview>
+<Story name="Alternative">
+  <Button variant="alternative" onClick={action('clicked')}>
+    Alternative Button
+  </Button>
+</Story>
+</Preview>

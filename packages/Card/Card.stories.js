@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
-import { withKnobs, text, select, object } from '@storybook/addon-knobs'
+import { text, select, object } from '@storybook/addon-knobs'
 import Card from './Card'
-import { version } from './package.json'
 
-export default {
-  title: 'Design System|Card',
-  component: Card,
-  parameters: {
-    componentSubtitle: `version ${version}`,
-  },
-  decorators: [withKnobs],
-}
+// export default {
+//   title: 'Design System|Card',
+//   component: Card,
+//   parameters: {
+//     componentSubtitle: `version ${version}`,
+//   },
+//   decorators: [withKnobs],
+// }
 
 const placeholderHTML = <p style={{ border: '1px solid', height: '50px', width: '50px' }}></p>
 
@@ -82,7 +81,16 @@ export const MultipleCards = () => {
           onClick={() => setSelectedCard(idCard1)}
           expandable={{ details: 'Details', collapse: 'Collapse' }}
         >
-          <p>Card 1</p>
+          <>
+            <p>Details for card1</p>
+            <ul>
+              <li>Detail 1</li>
+              <li>Detail 2</li>
+              <li>Detail 3</li>
+              <li>Detail 4</li>
+              <li>Detail 5</li>
+            </ul>
+          </>
         </Card>
       </div>
       <div style={{ width: '40%' }}>
@@ -93,7 +101,16 @@ export const MultipleCards = () => {
           onClick={() => setSelectedCard(idCard2)}
           expandable={{ details: 'Details', collapse: 'Collapse' }}
         >
-          <p>Card 2</p>
+          <>
+            <p>Details for card2</p>
+            <ul>
+              <li>Detail 1</li>
+              <li>Detail 2</li>
+              <li>Detail 3</li>
+              <li>Detail 4</li>
+              <li>Detail 5</li>
+            </ul>
+          </>
         </Card>
       </div>
     </div>
