@@ -151,9 +151,7 @@ exports[`Dropdown renders default dropdown 1`] = `
     class="emotion-0"
     for="testing"
   >
-    <span>
-      testing 
-    </span>
+    testing
   </label>
   <div
     class=" emotion-9"
@@ -183,6 +181,7 @@ exports[`Dropdown renders default dropdown 1`] = `
               autocomplete="off"
               autocorrect="off"
               id="react-select-2-input"
+              maxlength="100"
               spellcheck="false"
               style="box-sizing:content-box;width:1px;label:input;background:0;border:0;font-size:inherit;opacity:1;outline:0;padding:0;color:inherit"
               tabindex="0"

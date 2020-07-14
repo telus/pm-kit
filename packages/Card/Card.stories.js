@@ -82,7 +82,16 @@ export const MultipleCards = () => {
           onClick={() => setSelectedCard(idCard1)}
           expandable={{ details: 'Details', collapse: 'Collapse' }}
         >
-          <p>Card 1</p>
+          <>
+            <p>Details for card1</p>
+            <ul>
+              <li>Detail 1</li>
+              <li>Detail 2</li>
+              <li>Detail 3</li>
+              <li>Detail 4</li>
+              <li>Detail 5</li>
+            </ul>
+          </>
         </Card>
       </div>
       <div style={{ width: '40%' }}>
@@ -93,7 +102,16 @@ export const MultipleCards = () => {
           onClick={() => setSelectedCard(idCard2)}
           expandable={{ details: 'Details', collapse: 'Collapse' }}
         >
-          <p>Card 2</p>
+          <>
+            <p>Details for card2</p>
+            <ul>
+              <li>Detail 1</li>
+              <li>Detail 2</li>
+              <li>Detail 3</li>
+              <li>Detail 4</li>
+              <li>Detail 5</li>
+            </ul>
+          </>
         </Card>
       </div>
     </div>

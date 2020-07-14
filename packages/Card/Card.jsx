@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
 import { motion, AnimatePresence } from 'framer-motion'
 import { offWhite, parkGreen, lilyGreen } from '@pm-kit/colours'
 import { weight } from '@pm-kit/typography'
+import Paragraph from '@pm-kit/paragraph'
+
 import downArrow from '../../shared/svg/arrow-show.svg'
 import upArrow from '../../shared/svg/arrow-hide.svg'
 import checkmark from '../../shared/png/Checkmark/verified@3x.png'
 import oval from '../../shared/png/EmptyOval/oval@3x.png'
-import Paragraph from '@pm-kit/paragraph'
 
 const card = css`
   width: 100%;
@@ -51,6 +52,9 @@ const line = css`
   border-bottom-width: 1px;
   margin-left: 35px;
   margin-right: 35px;
+  &:focus {
+    outline: none;
+  }
 `
 
 const detailsBar = css`
@@ -61,6 +65,8 @@ const detailsBar = css`
   text-decoration: underline;
   padding: 16px 23px 23px 23px;
   cursor: pointer;
+  background-color: inherit;
+  border: none;
 `
 
 const cardRowContainer = css`
@@ -74,6 +80,8 @@ const cardRowContainer = css`
 const selectOptionContainer = css`
   padding: 23px 23px 0px 23px;
   cursor: pointer;
+  display: flex;
+  flex-direction: column-reverse;
 `
 
 const selectOptionContainerNoCurser = css`
@@ -112,6 +120,8 @@ const planSelected = css`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  background-color: inherit;
+  border: none;
 `
 
 const cardSelectedText = css`
@@ -139,6 +149,7 @@ const planVariant = {
 const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isSelected, styles, selectable }) => {
   const [openCard, setOpenCard] = useState(false)
 
+  const detailsRef = useRef()
   const cardStyles = [card]
 
   const detailsBarStyles = [detailsBar]
@@ -158,6 +169,11 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
 
   const toggleOpenCard = () => {
     setOpenCard(!openCard)
+    if (openCard) {
+      detailsRef.current.blur()
+    } else if (detailsRef && detailsRef.current) {
+      detailsRef.current.focus()
+    }
   }
 
   useEffect(() => {
@@ -191,45 +207,41 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
     <motion.div css={cardStyles} variants={planVariant}>
       <div css={cardContainerDetails}>
         <div css={selectOptionContainerStyles} onClick={selectable ? onCardClick : undefined}>
+          <div css={cardRowContainer} tabIndex="0">
+            <div>{placeholder && placeholder}</div>
+            <Paragraph css={titleStyle} size={paragraphLargeSizeStyle}>
+              {title}
+            </Paragraph>
+            <p css={paddingLeft}>{subtitle}</p>
+          </div>
           {selectable && (
             <div css={selectOption}>
               {isSelected && (
-                <div css={planSelected}>
+                <button name="plan" type="button" css={planSelected}>
                   <Paragraph weight={weight.bold} css={cardSelectedText} size={paragraphSmallSizeStyle}>
                     {selectable.selectedText}
                   </Paragraph>
                   <img src={checkmark} height="18px" width="18px" alt="selected" />
-                </div>
+                </button>
               )}
               {!isSelected && (
-                <div css={planSelected}>
+                <button name="plan" type="button" css={planSelected}>
                   <Paragraph weight={weight.bold} css={cardNotSelectedText} size={paragraphSmallSizeStyle}>
                     {selectable.unSelectedText}
                   </Paragraph>
                   <img src={oval} height="18px" width="18px" alt="unselected" />
-                </div>
+                </button>
               )}
             </div>
           )}
-
-          <div css={cardRowContainer}>
-            <div>{placeholder && placeholder}</div>
-            <div>
-              <Paragraph css={titleStyle} size={paragraphLargeSizeStyle}>
-                {title}
-              </Paragraph>
-              <p css={paddingLeft}>{subtitle}</p>
-            </div>
-          </div>
         </div>
         {children && (
           <>
-            <div css={line}></div>
+            <div css={line} ref={detailsRef} tabIndex="-1" />
             <AnimatePresence>
               {openCard && (
                 <motion.div
                   css={cardDetails}
-                  onClick={expandable ? toggleOpenCard : undefined}
                   initial={{ height: 0 }}
                   animate={{ height: 'auto' }}
                   exit={{ height: '0px' }}
@@ -241,13 +253,13 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
           </>
         )}
         {expandable && (
-          <div css={detailsBarStyles} onClick={toggleOpenCard}>
+          <button name="details" type="button" css={detailsBarStyles} onClick={toggleOpenCard}>
             <Paragraph weight={weight.bold} size={paragraphInheritSizeStyle}>
               {openCard && <>{expandable.collapse}</>}
               {!openCard && <>{expandable.details}</>}
             </Paragraph>
             <img src={arrowImage} alt="arrow" />
-          </div>
+          </button>
         )}
       </div>
     </motion.div>
