@@ -40,7 +40,7 @@ exports[`Dropdown renders default dropdown 1`] = `
   border-radius: 8px;
   border: 1px solid;
   border-color: initial;
-  background-color: #FFF;
+  background-color: #FFFFFF;
   color: #034045;
   cursor: pointer;
 }
