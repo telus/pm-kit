@@ -48,6 +48,13 @@ exports[`Card renders 1`] = `
 .emotion-3 {
   padding: 23px 23px 0px 23px;
   cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column-reverse;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
   padding: 23px 23px 0px 23px;
   cursor: default;
 }
@@ -96,20 +103,19 @@ exports[`Card renders 1`] = `
     >
       <div
         class="emotion-2"
+        tabindex="0"
       >
         <div />
-        <div>
-          <p
-            class="emotion-0"
-          >
-            title
-          </p>
-          <p
-            class="emotion-1"
-          >
-            subtitle
-          </p>
-        </div>
+        <p
+          class="emotion-0"
+        >
+          title
+        </p>
+        <p
+          class="emotion-1"
+        >
+          subtitle
+        </p>
       </div>
     </div>
   </div>

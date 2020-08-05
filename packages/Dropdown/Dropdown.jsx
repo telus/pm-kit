@@ -5,6 +5,7 @@ import Select, { components, createFilter } from 'react-select'
 import { motion, AnimatePresence } from 'framer-motion'
 import { size, weight } from '@pm-kit/typography'
 import { parkGreen, red, lightTan, white } from '@pm-kit/colours'
+import FeedbackIcon from '@pm-kit/feedback-icon'
 import generateId from '../../shared/utils/generateId/generateId.js'
 
 const dropdownWrapper = css`
@@ -68,11 +69,13 @@ export const Dropdown = ({
   required,
   type,
   value,
+  loadingState,
   placeholder,
   ignoreCase,
   ignoreAccents,
   trim,
   matchFrom,
+  searchMaxLength,
   styles,
   forwardedRef,
   ...rest
@@ -108,6 +111,18 @@ export const Dropdown = ({
     }),
     singleValue: () => ({
       color: `${parkGreen}`,
+      marginLeft: '2px',
+      marginRight: '2px',
+      position: 'absolute',
+      top: '50%',
+      webkitTransform: 'translateY(-50%)',
+      msTransform: 'translateY(-50%)',
+      transform: 'translateY(-50%)',
+      boxSizing: 'border-box',
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      maxWidth: '-webkit-fill-available',
     }),
     indicatorSeparator: provided => ({
       ...provided,
@@ -146,13 +161,24 @@ export const Dropdown = ({
     }
   }
 
+  const Input = props => {
+    return <components.Input {...props} maxLength={searchMaxLength} />
+  }
+
+  const DropdownIndicator = props => {
+    return (
+      <components.DropdownIndicator {...props}>
+        {loadingState !== 'success' && <FeedbackIcon state={loadingState} />}
+      </components.DropdownIndicator>
+    )
+  }
+
   return (
     <div css={dropdownWrapperArr}>
       {labelType !== 'hidden' && (
         <label css={labelStyleArr} htmlFor={selectId.identity()}>
-          <span>
-            {label} {required && '*'}
-          </span>
+          {label}
+          {required && '*'}
           {feedback === 'error' && <span css={errorFeedback}>({error})</span>}
         </label>
       )}
@@ -166,8 +192,9 @@ export const Dropdown = ({
         styles={customDropdownStyles}
         isClearable={true}
         clearIndicator={false}
-        components={{ Menu, Option, SelectContainer, Placeholder }}
+        components={{ Menu, Option, SelectContainer, Placeholder, Input, DropdownIndicator }}
         filterOption={createFilter(filterConfig)}
+        blurInputOnSelect={false}
         ref={forwardedRef}
         {...rest}
       />
@@ -282,6 +309,10 @@ DropdownWithRef.propTypes = {
    */
   labelType: PropTypes.oneOf(['large', 'small', 'hidden']),
   /**
+   * Maximum characters you can enter to search for a dropdown input.
+   */
+  searchMaxLength: PropTypes.number,
+  /**
    * Customizes the input according to your needs.
    * Accepts an object of styles in the structure below.
    * {
@@ -290,6 +321,10 @@ DropdownWithRef.propTypes = {
    * }
    */
   styles: PropTypes.object,
+  /**
+   * Replaces chevron with a feedback icon based on loading state of options.
+   */
+  loadingState: PropTypes.oneOf(['waiting', 'success', 'error']),
 }
 
 DropdownWithRef.defaultProps = {
@@ -305,7 +340,9 @@ DropdownWithRef.defaultProps = {
   ignoreAccents: true,
   ignoreCase: true,
   labelType: 'small',
+  searchMaxLength: 100,
   styles: {},
+  loadingState: 'success',
 }
 
 export default DropdownWithRef
