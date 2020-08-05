@@ -1,0 +1,36 @@
+import { Meta, Story, Preview, Props, Subtitle } from '@storybook/addon-docs/blocks'
+import Radio from './Radio.jsx'
+import { Default } from './Radio.stories.js'
+import { version } from './package.json'
+
+<Meta title="Design System|Radio" componenent={Radio} />
+
+# Radio
+<Subtitle>
+version {version}
+</Subtitle>
+
+## Usage
+* To install `Radio` package with npm run terminal:
+
+```jsx
+npm i @pm-kit/radio
+```
+* Import `Radio` in your componenent to render
+
+```jsx
+import Radio from '@pm-kit/radio'
+```
+
+## Properties 
+
+<Props of={Radio} />
+
+## Stories
+
+#### Default
+<Preview>
+<Story name="Default">
+    <Default />
+</Story>
+</Preview>

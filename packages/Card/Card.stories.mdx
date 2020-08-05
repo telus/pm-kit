@@ -1,0 +1,72 @@
+import { Meta, Story, Preview, Props, Subtitle } from '@storybook/addon-docs/blocks'
+import Card from './Card.jsx'
+import {Primary, Selectable, Expandable, NotExpandable, WithPlaceholder, MultipleCards} from './Card.stories.js'
+import { version } from './package.json'
+
+<Meta title="Design System|Card" componenent={Card} />
+
+# Card
+<Subtitle>
+version {version}
+</Subtitle>
+
+## Usage
+* To install `Card` package with npm run terminal:
+
+```jsx
+npm i @pm-kit/card
+```
+* Import `Card` in your componenent to render
+
+```jsx
+import Card from '@pm-kit/card'
+```
+
+## Properties 
+
+<Props of={Card} />
+
+## Stories
+
+
+#### Default
+<Preview>
+<Story name="Default">
+ <Primary />
+</Story>
+</Preview>
+
+#### Selectable
+<Preview>
+<Story name="Selectable">
+ <Selectable />
+</Story>
+</Preview>
+
+#### Expandable
+<Preview>
+<Story name="Expandable">
+ <Expandable />
+</Story>
+</Preview>
+
+#### Not Expandable
+<Preview>
+<Story name="Not Expandable">
+ <NotExpandable />
+</Story>
+</Preview>
+
+#### With Placeholder
+<Preview>
+<Story name="With Placeholder">
+ <WithPlaceholder />
+</Story>
+</Preview>
+
+#### Multiple Cards
+<Preview>
+<Story name="Multiple Cards">
+ <MultipleCards />
+</Story>
+</Preview>

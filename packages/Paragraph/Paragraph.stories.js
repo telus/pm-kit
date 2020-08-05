@@ -1,15 +1,15 @@
 import React from 'react'
-import { withKnobs, text, select } from '@storybook/addon-knobs'
+import { text, select } from '@storybook/addon-knobs'
 import Paragraph from './Paragraph.jsx'
 import * as colors from '../colours/colours'
 import { size, weight } from '../typography/typography'
-export default {
-  title: 'Design System|Paragraph',
-  component: Paragraph,
-  decorators: [withKnobs],
-}
+// export default {
+//   title: 'Design System|Paragraph',
+//   component: Paragraph,
+//   decorators: [withKnobs],
+// }
 
-export const Default = () => <Paragraph>Test</Paragraph>
+// export const Default = () => <Paragraph>Test</Paragraph>
 
 export const Playground = () => {
   return (

@@ -1,0 +1,50 @@
+import { Meta, Story, Preview, Props, Subtitle } from '@storybook/addon-docs/blocks'
+import Dropdown from './Dropdown.jsx'
+import {Default, LargeLabel, HideLabel, Error} from './Dropdown.stories.js'
+import { version } from './package.json'
+
+<Meta title="Design System|Dropdown" componenent={Dropdown} />
+
+# Dropdown
+<Subtitle>
+version {version}
+</Subtitle>
+
+## Usage
+* To install `Dropdown` package with npm run terminal:
+
+```jsx
+npm i @pm-kit/dropdown
+```
+* Import `Dropdown` in your componenent to render
+
+```jsx
+import Dropdown from '@pm-kit/dropdown'
+```
+
+## Properties 
+
+<Props of={Dropdown} />
+
+## Stories
+
+
+#### Default
+<Story name="Default">
+ <Default />
+</Story>
+
+#### Large Label
+<Story name="Large Label">
+ <LargeLabel />
+</Story>
+
+#### Hide Label
+<Story name="Hide Label">
+ <HideLabel />
+</Story>
+
+#### Error
+<Story name="Error">
+ <Error />
+</Story>

@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { withKnobs, text, select, object, number } from '@storybook/addon-knobs'
+import { text, select, object, number } from '@storybook/addon-knobs'
 import Dropdown from './Dropdown'
-export default {
-  title: 'Design System|Dropdown',
-  component: Dropdown,
-  decorators: [withKnobs],
-}
+
+// export default {
+//   title: 'Design System|Dropdown',
+//   component: Dropdown,
+//   decorators: [withKnobs],
+// }
 
 const cities = [
   { label: 'Toronto', value: '1' },
@@ -20,7 +21,7 @@ const cities = [
 export const Default = () => {
   const [city, setCity] = useState(undefined)
 
-  const onCitySelect = citySelected => {
+  const onCitySelect = (citySelected) => {
     setCity(citySelected)
   }
   return <Dropdown label="Select a city" value={city} options={cities} onChange={onCitySelect} required={true} />
@@ -29,7 +30,7 @@ export const Default = () => {
 export const LargeLabel = () => {
   const [city, setCity] = useState(cities[0])
 
-  const onCitySelect = citySelected => {
+  const onCitySelect = (citySelected) => {
     setCity(citySelected)
   }
   return (
@@ -47,7 +48,7 @@ export const LargeLabel = () => {
 export const HideLabel = () => {
   const [city, setCity] = useState(cities[0])
 
-  const onCitySelect = citySelected => {
+  const onCitySelect = (citySelected) => {
     setCity(citySelected)
   }
   return (
@@ -64,7 +65,7 @@ export const HideLabel = () => {
 
 export const Error = () => {
   const [errorState, setErrorState] = useState('error')
-  const onCitySelect = citySelected => {
+  const onCitySelect = (citySelected) => {
     setErrorState('success')
   }
   return (

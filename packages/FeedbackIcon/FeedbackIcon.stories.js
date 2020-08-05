@@ -1,12 +1,12 @@
 import React from 'react'
 import FeedbackIcon from './FeedbackIcon'
-import { withKnobs, select, text } from '@storybook/addon-knobs'
+import { select, text } from '@storybook/addon-knobs'
 
-export default {
-  title: 'Design System|FeedbackIcon',
-  component: FeedbackIcon,
-  decorators: [withKnobs],
-}
+// export default {
+//   title: 'Design System|FeedbackIcon',
+//   component: FeedbackIcon,
+//   decorators: [withKnobs],
+// }
 
 export const success = () => <FeedbackIcon state="success" />
 

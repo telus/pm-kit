@@ -1,0 +1,45 @@
+import { Meta, Story, Preview, Props, Subtitle } from '@storybook/addon-docs/blocks'
+import Checkbox from './Checkbox.jsx'
+import {Default, CheckboxWithError} from './Checkbox.stories.js'
+import { version } from './package.json'
+
+<Meta title="Design System|Checkbox" componenent={Checkbox} />
+
+# Checkbox
+<Subtitle>
+version {version}
+</Subtitle>
+
+## Usage
+* To install `Checkbox` package with npm run terminal:
+
+```jsx
+npm i @pm-kit/checkbox
+
+```
+* Import `Checkbox` in your componenent to render
+
+```jsx
+import Checkbox from '@pm-kit/checkbox'
+
+```
+## Properties 
+
+<Props of={Checkbox} />
+
+## Stories
+
+#### Default
+<Preview>
+<Story name="Default">
+  <Default />
+  </Story>
+</Preview>
+
+#### Checkbox With Error
+<Preview>
+<Story name="Checkbox With Error">
+  <CheckboxWithError />
+</Story>
+</Preview>
+

@@ -1,0 +1,31 @@
+import { Meta, Story, Subtitle } from '@storybook/addon-docs/blocks'
+import {Default} from './colours.stories.js'
+import { version } from './package.json'
+
+<Meta title="Design System|colours"/>
+
+# Colours
+<Subtitle>
+version {version}
+</Subtitle>
+
+## Usage
+
+* To install `colours` package with npm run terminal:
+
+```jsx
+npm i @pm-kit/colours
+```
+* Example Import `red` in your componenent to render
+
+```jsx
+import { red } from '@pm-kit/colours'
+```
+
+
+## Colours
+<Preview>
+<Story name="Default">
+    <Default/>
+</Story>
+</Preview>
