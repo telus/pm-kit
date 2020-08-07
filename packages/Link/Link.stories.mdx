@@ -1,0 +1,36 @@
+import { Meta, Story, Preview, Props, Subtitle } from '@storybook/addon-docs/blocks'
+import { withKnobs } from '@storybook/addon-knobs'
+import Link from './Link.jsx'
+import { version } from './package.json'
+
+<Meta title="Design System|Link" componenent={Link} />
+
+# Input
+<Subtitle>
+version {version}
+</Subtitle>
+
+## Usage
+* To install `Link` package with npm run terminal:
+
+```jsx
+npm i @pm-kit/input
+```
+* Import `Link` in your componenent to render
+
+```jsx
+import Link from '@pm-kit/link'
+```
+
+## Properties 
+
+<Props of={Link} />
+
+## Stories
+
+#### Default
+<Preview>
+<Story name="Default">
+  <Link link="http://www.google.com">Go To Google</Link>
+</Story>
+</Preview>

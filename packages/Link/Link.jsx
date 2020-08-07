@@ -29,22 +29,18 @@ const LinkWithRef = forwardRef((props, ref) => <Link {...props} forwardedRef={re
 
 LinkWithRef.propTypes = {
   /**
-   * The visual level of the heading. If `tag` is not specified, then `level` determines what HTML element to render.
-   */
-  level: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4']).isRequired,
-  /**
-   * The semantic level of the heading. Renders the specified HTML element, otherwise it matches `level`.
-   */
-  tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'div', 'span']),
-  /**
    * The content. Can be text, other components, or HTML elements.
    */
   children: PropTypes.node.isRequired,
+  /**
+   * The external Link
+   */
+  link: PropTypes.string,
 }
 
 LinkWithRef.defaultProps = {
-  tag: undefined,
-  level: 'h1',
+  children: undefined,
+  link: undefined,
 }
 
 export default LinkWithRef
