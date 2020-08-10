@@ -28,7 +28,7 @@ LinkWithRef.propTypes = {
   /**
    * The external Link
    */
-  link: PropTypes.string,
+  link: PropTypes.string.isRequired,
   /**
    * The external Link
    */

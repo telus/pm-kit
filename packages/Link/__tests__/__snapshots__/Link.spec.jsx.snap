@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link renders 1`] = `
+.emotion-0 {
+  color: #034045;
+}
+
+.emotion-0::hover {
+  color: #034045;
+}
+
+<a
+  class="emotion-0"
+  href="http://www.google.com"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Google
+</a>
+`;
