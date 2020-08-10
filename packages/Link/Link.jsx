@@ -1,27 +1,20 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
-import { css, jsx } from '@emotion/core'
-import { size, weight } from '@pm-kit/typography'
+import { css } from '@emotion/core'
 import { parkGreen } from '@pm-kit/colours'
 
 const linkStyle = css`
-  font-size: ${size.bodySmall};
   color: ${parkGreen};
   &::hover {
     color: ${parkGreen};
-    font-size: ${size.bodyMedium};
   }
 `
 
-const Link = ({ children, forwardedRef, link, ...rest }) => {
-  let variantStyles
-
+const Link = ({ children, forwardedRef, link, target, ...rest }) => {
   return (
-    <>
-      <a css={linkStyle} href={link} target="_blank" rel="noopener noreferrer">
-        {children}
-      </a>
-    </>
+    <a css={linkStyle} href={link} target={target} rel="noopener noreferrer">
+      {children}
+    </a>
   )
 }
 
@@ -31,16 +24,21 @@ LinkWithRef.propTypes = {
   /**
    * The content. Can be text, other components, or HTML elements.
    */
-  children: PropTypes.node.isRequired,
+  children: PropTypes.string.isRequired,
   /**
    * The external Link
    */
   link: PropTypes.string,
+  /**
+   * The external Link
+   */
+  target: PropTypes.oneOf(['_blank', '_self']),
 }
 
 LinkWithRef.defaultProps = {
   children: undefined,
   link: undefined,
+  target: '_blank',
 }
 
 export default LinkWithRef

@@ -31,6 +31,24 @@ import Link from '@pm-kit/link'
 #### Default
 <Preview>
 <Story name="Default">
-  <Link link="http://www.google.com">Go To Google</Link>
+  <Link link="http://www.google.com" target="_blank">Go To Google</Link>
+</Story>
+</Preview>
+
+#### Bold
+<Preview>
+<Story name="Bold">
+  <div style={{ fontWeight: 'bold' }}>
+    <Link link="http://www.google.com" target="_blank">Go To Google</Link>
+  </div>
+</Story>
+</Preview>
+
+#### Large
+<Preview>
+<Story name="Large">
+  <div style={{ fontSize: '32px' }}>
+    <Link link="http://www.google.com" target="_blank">Go To Google</Link>
+  </div>
 </Story>
 </Preview>
