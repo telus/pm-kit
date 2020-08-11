@@ -1,11 +1,13 @@
 import { Meta, Story, Preview, Props, Subtitle } from '@storybook/addon-docs/blocks'
 import { withKnobs } from '@storybook/addon-knobs'
 import Link from './Link.jsx'
+import Paragraph from '@pm-kit/paragraph'
+import { size, weight } from '@pm-kit/typography'
 import { version } from './package.json'
 
 <Meta title="Design System|Link" componenent={Link} />
 
-# Input
+# Link
 <Subtitle>
 version {version}
 </Subtitle>
@@ -14,7 +16,7 @@ version {version}
 * To install `Link` package with npm run terminal:
 
 ```jsx
-npm i @pm-kit/input
+npm i @pm-kit/link
 ```
 * Import `Link` in your componenent to render
 
@@ -38,17 +40,17 @@ import Link from '@pm-kit/link'
 #### Bold
 <Preview>
 <Story name="Bold">
-  <div style={{ fontWeight: 'bold' }}>
+  <Paragraph weight={weight.bold}>
     <Link link="http://www.google.com" target="_blank">Go To Google</Link>
-  </div>
+  </Paragraph>
 </Story>
 </Preview>
 
 #### Large
 <Preview>
 <Story name="Large">
-  <div style={{ fontSize: '32px' }}>
+  <Paragraph size="3.125rem">
     <Link link="http://www.google.com" target="_blank">Go To Google</Link>
-  </div>
+  </Paragraph>
 </Story>
 </Preview>

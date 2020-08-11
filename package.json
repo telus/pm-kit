@@ -56,6 +56,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.7.2",
+    "array-find-es6": "^2.0.3",
+    "framer-motion": "^2.3.0",
     "prop-types": "^15.7.2"
   },
   "devDependencies": {
@@ -65,7 +67,7 @@
     "@babel/plugin-transform-runtime": "^7.6.2",
     "@babel/preset-env": "^7.7.1",
     "@babel/preset-react": "^7.7.0",
-    "@commitlint/cli": "^9.0.0",
+    "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.0.0",
     "@commitlint/config-lerna-scopes": "^9.0.0",
     "@emotion/babel-preset-css-prop": "^10.0.23",

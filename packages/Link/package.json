@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@pm-kit/typography": "^1.0.0",
+    "@pm-kit/paragraph": "^1.0.1",
     "@pm-kit/colours": "^1.1.0",
     "framer-motion": "^1.7.0",
     "prop-types": "^15.7.2"

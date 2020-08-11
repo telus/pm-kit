@@ -12,7 +12,7 @@ const linkStyle = css`
 
 const Link = ({ children, forwardedRef, link, target, ...rest }) => {
   return (
-    <a css={linkStyle} href={link} target={target} rel="noopener noreferrer">
+    <a css={linkStyle} href={link} target={target}>
       {children}
     </a>
   )
@@ -38,7 +38,7 @@ LinkWithRef.propTypes = {
 LinkWithRef.defaultProps = {
   children: undefined,
   link: undefined,
-  target: '_blank',
+  target: '_self',
 }
 
 export default LinkWithRef

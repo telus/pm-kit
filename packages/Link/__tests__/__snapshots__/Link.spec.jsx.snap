@@ -12,8 +12,7 @@ exports[`Link renders 1`] = `
 <a
   class="emotion-0"
   href="http://www.google.com"
-  rel="noopener noreferrer"
-  target="_blank"
+  target="_self"
 >
   Google
 </a>
