@@ -10,9 +10,9 @@ const linkStyle = css`
   }
 `
 
-const Link = ({ children, forwardedRef, link, target, ...rest }) => {
+const Link = ({ children, forwardedRef, href, target, ...rest }) => {
   return (
-    <a css={linkStyle} href={link} target={target}>
+    <a css={linkStyle} href={href} target={target}>
       {children}
     </a>
   )
@@ -28,16 +28,16 @@ LinkWithRef.propTypes = {
   /**
    * The external Link
    */
-  link: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
   /**
    * The external Link
    */
-  target: PropTypes.oneOf(['_blank', '_self']),
+  target: PropTypes.oneOf(['_blank', '_self', '_parent', '_top']),
 }
 
 LinkWithRef.defaultProps = {
   children: undefined,
-  link: undefined,
+  href: undefined,
   target: '_self',
 }
 

@@ -5,7 +5,7 @@ import Link from '../Link'
 
 describe('Link', () => {
   it('renders', () => {
-    const link = render(<Link link="http://www.google.com">Google</Link>)
+    const link = render(<Link href="http://www.google.com">Google</Link>)
 
     expect(link).toMatchSnapshot()
   })
