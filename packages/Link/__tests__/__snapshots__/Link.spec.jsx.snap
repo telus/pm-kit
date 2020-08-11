@@ -1,5 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Link load document in a new window 1`] = `
+.emotion-0 {
+  color: #034045;
+}
+
+.emotion-0::hover {
+  color: #034045;
+}
+
+<a
+  class="emotion-0"
+  href="http://www.google.com"
+  target="_blank"
+>
+  Google
+</a>
+`;
+
+exports[`Link load document to full original window 1`] = `
+.emotion-0 {
+  color: #034045;
+}
+
+.emotion-0::hover {
+  color: #034045;
+}
+
+<a
+  class="emotion-0"
+  href="http://www.google.com"
+  target="_top"
+>
+  Google
+</a>
+`;
+
+exports[`Link load document to immediate frameset parent in new tab 1`] = `
+.emotion-0 {
+  color: #034045;
+}
+
+.emotion-0::hover {
+  color: #034045;
+}
+
+<a
+  class="emotion-0"
+  href="http://www.google.com"
+  target="_parent"
+>
+  Google
+</a>
+`;
+
 exports[`Link renders 1`] = `
 .emotion-0 {
   color: #034045;
