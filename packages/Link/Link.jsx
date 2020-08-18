@@ -5,7 +5,7 @@ import { parkGreen } from '@pm-kit/colours'
 
 const linkStyle = css`
   color: ${parkGreen};
-  &::hover {
+  &:hover {
     color: ${parkGreen};
   }
 `
