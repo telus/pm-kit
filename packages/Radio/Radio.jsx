@@ -109,7 +109,6 @@ export const Radio = ({
   return (
     <motion.div whileTap="whileTap">
       <input
-        aria-invalid={feedback === 'error'}
         checked={checked}
         css={radio}
         data-testid="hidden-input"
