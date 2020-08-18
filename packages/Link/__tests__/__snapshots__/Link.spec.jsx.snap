@@ -5,7 +5,7 @@ exports[`Link load document in a new window 1`] = `
   color: #034045;
 }
 
-.emotion-0::hover {
+.emotion-0:hover {
   color: #034045;
 }
 
@@ -23,7 +23,7 @@ exports[`Link load document to full original window 1`] = `
   color: #034045;
 }
 
-.emotion-0::hover {
+.emotion-0:hover {
   color: #034045;
 }
 
@@ -41,7 +41,7 @@ exports[`Link load document to immediate frameset parent in new tab 1`] = `
   color: #034045;
 }
 
-.emotion-0::hover {
+.emotion-0:hover {
   color: #034045;
 }
 
@@ -59,7 +59,7 @@ exports[`Link renders 1`] = `
   color: #034045;
 }
 
-.emotion-0::hover {
+.emotion-0:hover {
   color: #034045;
 }
 
