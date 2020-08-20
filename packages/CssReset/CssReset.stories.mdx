@@ -1,10 +1,13 @@
-import { Meta, Story } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Subtitle } from '@storybook/addon-docs/blocks'
 import CssReset from './CssReset'
 import { version } from './package.json'
 
 <Meta title="Design System|CssReset" component={CssReset} parameters={{ componentSubtitle: `version ${version}` }} />
 
 # CssReset
+<Subtitle>
+version {version}
+</Subtitle>
 
 This package includes a global emotion component that adds page-level styles to establish a common baseline:
 
@@ -17,6 +20,13 @@ This package includes a global emotion component that adds page-level styles to 
 \- Default body styles to establish the base font settings
 
 ## Usage
+
+* To install `CssReset` package with npm run terminal:
+
+```jsx
+npm i @pm-kit/css-reset
+
+```
 
 Import `CssReset` somewhere at the top level of your app and add it to the render
 
@@ -32,3 +42,5 @@ const App = () => {
   )
 }
 ```
+
+<Story name="Docs"/>

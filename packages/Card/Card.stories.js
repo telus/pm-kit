@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
-import { withKnobs, text, select, object } from '@storybook/addon-knobs'
+import { text, select, object } from '@storybook/addon-knobs'
 import Card from './Card'
-import { version } from './package.json'
 
-export default {
-  title: 'Design System|Card',
-  component: Card,
-  parameters: {
-    componentSubtitle: `version ${version}`,
-  },
-  decorators: [withKnobs],
-}
+// export default {
+//   title: 'Design System|Card',
+//   component: Card,
+//   parameters: {
+//     componentSubtitle: `version ${version}`,
+//   },
+//   decorators: [withKnobs],
+// }
 
 const placeholderHTML = <p style={{ border: '1px solid', height: '50px', width: '50px' }}></p>
 

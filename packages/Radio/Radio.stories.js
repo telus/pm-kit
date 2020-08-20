@@ -2,15 +2,15 @@ import React, { useState } from 'react'
 import Radio from './Radio'
 import { css } from '@emotion/core'
 
-export default {
-  title: 'Design System|Radio',
-  component: Radio,
-}
+// export default {
+//   title: 'Design System|Radio',
+//   component: Radio,
+// }
 
 export const Default = () => {
   const [clicked, setClicked] = useState('en')
 
-  const handleSelectOption = e => {
+  const handleSelectOption = (e) => {
     setClicked(e.target.value)
   }
 

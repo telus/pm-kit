@@ -1,0 +1,58 @@
+import { Meta, Story, Preview, Props, Subtitle } from '@storybook/addon-docs/blocks'
+import { withKnobs } from '@storybook/addon-knobs'
+import Link from './Link.jsx'
+import Paragraph from '@pm-kit/paragraph'
+import { size, weight } from '@pm-kit/typography'
+import { version } from './package.json'
+
+<Meta title="Design System|Link" componenent={Link} />
+
+# Link
+<Subtitle>
+version {version}
+</Subtitle>
+
+## Usage
+* To install `Link` package with npm run terminal:
+
+```jsx
+npm i @pm-kit/link
+```
+* Import `Link` in your componenent to render
+
+```jsx
+import Link from '@pm-kit/link'
+```
+
+## Usage Guidelines
+
+When you use `target="_blank"` with Links, it is recommended to always set `rel="noopener"` or `rel="noreferrer"` when linking to third party content.
+
+* `rel="noopener"` prevents the new page from being able to access the `window.opener` property and ensures it runs in a separate process. 
+Without this, the target page can potentially redirect your page to a malicious URL.
+
++ `rel="noreferrer"` has the same effect, but also prevents the Referer header from being sent to the new page. 
+
+Removing the referrer header will affect analytics.
+
+## Properties 
+
+<Props of={Link} />
+
+## Stories
+
+#### Default
+<Preview>
+<Story name="Default">
+  <Link href="http://www.google.com">Go To Google</Link>
+</Story>
+</Preview>
+
+#### Bold
+<Preview>
+<Story name="Bold">
+  <Paragraph weight={weight.bold}>
+    <Link href="http://www.google.com" target="_blank">Go To Google</Link>
+  </Paragraph>
+</Story>
+</Preview>

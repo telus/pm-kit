@@ -1,0 +1,35 @@
+import { Meta, Story, Preview, Props, Subtitle } from '@storybook/addon-docs/blocks'
+import { version } from './package.json'
+import Paragraph from './Paragraph'
+
+<Meta title="Design System|Paragraph" componenent={Paragraph} />
+
+# Paragraph
+<Subtitle>
+version {version}
+</Subtitle>
+
+## Usage
+* To install `Paragraph` package with npm run terminal:
+
+```jsx
+npm i @pm-kit/paragraph
+```
+* Import `Paragraph` in your componenent to render
+
+```jsx
+import Paragraph from '@pm-kit/paragraph'
+```
+
+## Properties 
+
+<Props of={Paragraph} />
+
+## Stories
+
+#### Default
+<Preview>
+<Story name="Default">
+  <Paragraph>Test</Paragraph>
+</Story>
+</Preview>

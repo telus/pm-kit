@@ -1,0 +1,56 @@
+import { Meta, Story, Preview, Props, Subtitle } from '@storybook/addon-docs/blocks'
+import FeedbackIcon from './FeedbackIcon.jsx'
+import { version } from './package.json'
+
+<Meta title="Design System|FeedbackIcon" componenent={FeedbackIcon} />
+
+# Feedback Icon
+<Subtitle>
+version {version}
+</Subtitle>
+
+## Usage
+* To install `FeedbackIcon` package with npm run terminal:
+
+```jsx
+npm i @pm-kit/feedback-icon
+```
+* Import `FeedbackIcon` in your componenent to render
+
+```jsx
+import FeedbackIcon from '@pm-kit/feedback-icon'
+```
+
+## Properties 
+
+<Props of={FeedbackIcon} />
+
+## Stories
+
+#### Success
+<Preview>
+<Story name="Success">
+  <FeedbackIcon state="success" />
+</Story>
+</Preview>
+
+#### Error
+<Preview>
+<Story name="Error">
+<FeedbackIcon state="error" />
+</Story>
+</Preview>
+
+#### Waiting
+<Preview>
+<Story name="Waiting">
+<FeedbackIcon state="waiting" />
+</Story>
+</Preview>
+
+#### Disabled
+<Preview>
+<Story name="Disabled">
+<FeedbackIcon state="disabled" />
+</Story>
+</Preview>

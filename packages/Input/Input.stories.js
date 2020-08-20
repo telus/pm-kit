@@ -1,16 +1,15 @@
 import React, { useRef, useState } from 'react'
-import { withKnobs, text, select, boolean, object } from '@storybook/addon-knobs'
+import { text, select, boolean, object } from '@storybook/addon-knobs'
 import Input from './Input.jsx'
-import { version } from './package.json'
 
-export default {
-  title: 'Design System|Input',
-  component: Input,
-  parameters: {
-    componentSubtitle: `version ${version}`,
-  },
-  decorators: [withKnobs],
-}
+// export default {
+//   title: 'Design System|Input',
+//   component: Input,
+//   parameters: {
+//     componentSubtitle: `version ${version}`,
+//   },
+//   decorators: [withKnobs],
+// }
 
 export const Default = () => <Input placeholder="Placeholder" label="Label" />
 
@@ -27,7 +26,7 @@ export const ErrorWithIcon = () => (
 export const Password = () => {
   const inputRef = useRef()
   const [inputValue, setInputValue] = useState('')
-  const inputValueChange = e => {
+  const inputValueChange = (e) => {
     setInputValue(e.target.value)
   }
   return (
@@ -47,7 +46,7 @@ export const Disabled = () => <Input disabled={true} placeholder="Disabled" labe
 export const Playground = () => {
   const inputRef = useRef()
   const [inputValue, setInputValue] = useState('')
-  const inputValueChange = e => {
+  const inputValueChange = (e) => {
     setInputValue(e.target.value)
   }
   return (

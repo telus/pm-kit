@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, shallow } from 'enzyme'
+import { shallow } from 'enzyme'
 
 import Button from '../Button'
 
@@ -15,7 +15,7 @@ describe('Button', () => {
   })
 
   it('renders', () => {
-    const button = render(<Button>Submit</Button>)
+    const button = shallow(<Button>Submit</Button>)
 
     expect(button).toMatchSnapshot()
   })

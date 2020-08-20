@@ -1,16 +1,15 @@
 import React from 'react'
-import { withKnobs, text, select } from '@storybook/addon-knobs'
+import { text, select } from '@storybook/addon-knobs'
 import Heading from './Heading.jsx'
-import { version } from './package.json'
 
-export default {
-  title: 'Design System|Heading',
-  component: Heading,
-  parameters: {
-    componentSubtitle: `version ${version}`,
-  },
-  decorators: [withKnobs],
-}
+// export default {
+//   title: 'Design System|Heading',
+//   component: Heading,
+//   parameters: {
+//     componentSubtitle: `version ${version}`,
+//   },
+//   decorators: [withKnobs],
+// }
 
 export const Heading1 = () => (
   <Heading tag="h1" level="h1">

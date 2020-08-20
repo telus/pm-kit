@@ -1,0 +1,71 @@
+import { Meta, Story, Preview, Props, Subtitle } from '@storybook/addon-docs/blocks'
+import { withKnobs } from '@storybook/addon-knobs'
+import Input from './Input.jsx'
+import { version } from './package.json'
+
+<Meta title="Design System|Input" componenent={Input} />
+
+# Input
+<Subtitle>
+version {version}
+</Subtitle>
+
+## Usage
+* To install `Input` package with npm run terminal:
+
+```jsx
+npm i @pm-kit/input
+```
+* Import `Input` in your componenent to render
+
+```jsx
+import Input from '@pm-kit/input'
+```
+
+## Properties 
+
+<Props of={Input} />
+
+## Stories
+
+#### Default
+<Preview>
+<Story name="Default">
+  <Input placeholder="Placeholder" label="Label" />
+</Story>
+</Preview>
+
+#### Large Label
+<Preview>
+<Story name="Large Label">
+  <Input placeholder="Placeholder" label="Label" labelType="large" />
+</Story>
+</Preview>
+
+#### No Label
+<Preview>
+<Story name="No Label">
+  <Input placeholder="Placeholder" label="Label" labelType="hidden" />
+</Story>
+</Preview>
+
+#### Error
+<Preview>
+<Story name="Error">
+  <Input placeholder="Placeholder" label="Label" feedback="error" error="error" />
+</Story>
+</Preview>
+
+#### Error With Icon
+<Preview>
+<Story name="Error With Icon">
+  <Input placeholder="Placeholder" label="Label" feedback="error" error="error" feedbackicon />
+</Story>
+</Preview>
+
+#### Disabled
+<Preview>
+<Story name="Disabled">
+   <Input disabled={true} placeholder="Disabled" label="Label" />
+</Story>
+</Preview>

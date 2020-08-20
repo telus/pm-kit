@@ -109,7 +109,6 @@ export const Radio = ({
   return (
     <motion.div whileTap="whileTap">
       <input
-        aria-invalid={feedback === 'error'}
         checked={checked}
         css={radio}
         data-testid="hidden-input"
@@ -135,7 +134,9 @@ export const Radio = ({
   )
 }
 
-Radio.propTypes = {
+const RadioWithRef = forwardRef((props, ref) => <Radio {...props} forwardedRef={ref} />)
+
+RadioWithRef.propTypes = {
   /**
    * The label.
    */
@@ -175,7 +176,7 @@ Radio.propTypes = {
   error: PropTypes.string,
 }
 
-Radio.defaultProps = {
+RadioWithRef.defaultProps = {
   variant: 'borderless',
   description: undefined,
   feedback: undefined,
@@ -186,7 +187,5 @@ Radio.defaultProps = {
 }
 
 Radio.displayName = 'Radio'
-
-const RadioWithRef = forwardRef((props, ref) => <Radio {...props} forwardedRef={ref} />)
 
 export default RadioWithRef

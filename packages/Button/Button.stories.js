@@ -1,17 +1,17 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs'
+import { text, select, boolean } from '@storybook/addon-knobs'
 import Button from './Button.jsx'
-import { version } from './package.json'
+// import { version } from './package.json'
 
-export default {
-  title: 'Design System|Button',
-  component: Button,
-  parameters: {
-    componentSubtitle: `version ${version}`,
-  },
-  decorators: [withKnobs],
-}
+// export default {
+//   title: 'Design System|Button',
+//   component: Button,
+//   parameters: {
+//     componentSubtitle: `version ${version}`,
+//   },
+//   decorators: [withKnobs],
+// }
 
 export const Primary = () => <Button onClick={action('clicked')}>Primary Button</Button>
 

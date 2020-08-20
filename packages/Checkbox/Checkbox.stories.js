@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import Checkbox from './Checkbox'
-import { withKnobs, select, text, object } from '@storybook/addon-knobs'
+import { select, text, object } from '@storybook/addon-knobs'
 
-export default {
-  title: 'Design System|Checkbox',
-  component: Checkbox,
-  decorators: [withKnobs],
-}
+// export default {
+//   title: 'Design System|Checkbox',
+//   component: Checkbox,
+//   decorators: [withKnobs],
+// }
 
 export const Default = () => {
   const [checked, setChecked] = useState(true)

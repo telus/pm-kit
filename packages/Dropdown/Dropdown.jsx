@@ -250,7 +250,9 @@ const Placeholder = props => {
   return <components.Placeholder css={placeholder} {...props} />
 }
 
-Dropdown.propTypes = {
+const DropdownWithRef = forwardRef((props, ref) => <Dropdown {...props} forwardedRef={ref} />)
+
+DropdownWithRef.propTypes = {
   /**
    * An error message. Should be limited to text and links. See usage criteria for more details.
    */
@@ -325,7 +327,7 @@ Dropdown.propTypes = {
   loadingState: PropTypes.oneOf(['waiting', 'success', 'error']),
 }
 
-Dropdown.defaultProps = {
+DropdownWithRef.defaultProps = {
   error: undefined,
   feedback: undefined,
   id: undefined,
@@ -342,7 +344,5 @@ Dropdown.defaultProps = {
   styles: {},
   loadingState: 'success',
 }
-
-const DropdownWithRef = forwardRef((props, ref) => <Dropdown {...props} forwardedRef={ref} />)
 
 export default DropdownWithRef

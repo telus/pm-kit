@@ -1,0 +1,64 @@
+import { Meta, Story, Preview, Props, Subtitle } from '@storybook/addon-docs/blocks'
+import Heading from './Heading.jsx'
+import { version } from './package.json'
+
+<Meta title="Design System|Heading" componenent={Heading} />
+
+# Heading
+<Subtitle>
+version {version}
+</Subtitle>
+
+## Usage
+* To install `Heading` package with npm run terminal:
+
+```jsx
+npm i @pm-kit/heading
+```
+* Import `Heading` in your componenent to render
+
+```jsx
+import Heading from '@pm-kit/heading'
+```
+
+## Properties 
+
+<Props of={Heading} />
+
+## Stories
+
+#### H1
+<Preview>
+<Story name="h1">
+  <Heading tag="h1" level="h1">
+    Heading 1
+  </Heading>
+</Story>
+</Preview>
+
+#### H2
+<Preview>
+<Story name="h2">
+  <Heading level="h2" tag="h2">
+    Heading 2
+  </Heading>
+</Story>
+</Preview>
+
+#### H3
+<Preview>
+<Story name="h3">
+  <Heading level="h3" tag="h3">
+    Heading 3
+  </Heading>
+</Story>
+</Preview>
+
+#### H4
+<Preview>
+<Story name="h4">
+  <Heading level="h4" tag="h4">
+    Heading 4
+  </Heading>
+</Story>
+</Preview>
