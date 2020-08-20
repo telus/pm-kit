@@ -1,11 +1,11 @@
 import React from 'react'
-import { render } from 'enzyme'
+import { shallow } from 'enzyme'
 
 import Radio from '../Radio'
 
 describe('Radio', () => {
   it('renders', () => {
-    const radio = render(<Radio label="Testing" name="Test" value={true} />)
+    const radio = shallow(<Radio label="Testing" name="Test" value={true} />)
 
     expect(radio).toMatchSnapshot()
   })
