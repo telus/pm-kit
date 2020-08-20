@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio renders 1`] = `
+.emotion-0 {
+  opacity: 0;
+  position: fixed;
+  pointer-events: none;
+}
+
+.emotion-0:checked ~ label > div {
+  background-color: initial;
+}
+
+.emotion-0:checked ~ label > div > span {
+  display: block;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 12px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  background-position: right bottom;
+  background-color: #034045;
+  width: 100%;
+  background-color: #dbd7c9;
+}
+
+.emotion-4:hover {
+  background-color: #B6EBDB;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  min-height: 17px;
+  min-width: 17px;
+  margin-top: -2px;
+  outline: 0;
+  line-height: 0;
+  border-radius: 50%;
+  border: 2px solid #034045;
+  cursor: pointer;
+  -webkit-transition: border-color 0.1s linear,background-color 0.1s linear;
+  transition: border-color 0.1s linear,background-color 0.1s linear;
+}
+
+.emotion-1 {
+  display: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #f4e8d9;
+}
+
+.emotion-3 {
+  margin-left: 1rem;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+<div>
+  <input
+    class="emotion-0"
+    data-testid="hidden-input"
+    id="testing"
+    name="Test"
+    type="radio"
+    value="true"
+  />
+  <label
+    class="emotion-4"
+    data-testid="checkbox-label"
+    for="testing"
+  >
+    <div
+      class="emotion-2"
+      data-testid="fake-input"
+    >
+      <span
+        class="emotion-1"
+      />
+    </div>
+    <span
+      class="emotion-3"
+    >
+      Testing
+    </span>
+  </label>
+</div>
+`;
