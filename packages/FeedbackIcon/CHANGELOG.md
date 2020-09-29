@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/telus/pm-kit/compare/@pm-kit/feedback-icon@2.0.1...@pm-kit/feedback-icon@2.0.2) (2020-09-29)
+
+
+### Bug Fixes
+
+* **checkbox:** Update error message font styles ([#73](https://github.com/telus/pm-kit/issues/73)) ([37cec91](https://github.com/telus/pm-kit/commit/37cec91c91010a8a3e32ddd67ef5e449e17c9ae4))
+
+
+
+
+
 ## [2.0.1](https://github.com/telus/pm-kit/compare/@pm-kit/feedback-icon@2.0.0...@pm-kit/feedback-icon@2.0.1) (2020-03-17)
 
 
