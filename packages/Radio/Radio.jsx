@@ -2,9 +2,19 @@ import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
 import generateId from '../../shared/utils/generateId/generateId.js'
-import { parkGreen, softSandBrown, lilyGreen, lightTan, midnightGreen } from '@pm-kit/colours'
+import {
+  parkGreen,
+  softSandBrown,
+  lilyGreen,
+  lightTan,
+  midnightGreen,
+  forestFog,
+  seafoam,
+  birch,
+} from '@pm-kit/colours'
 import { motion } from 'framer-motion'
 
+// Default Radio Button
 const radio = css`
   opacity: 0;
   position: fixed;
@@ -78,6 +88,53 @@ const labelText = css`
   font-weight: 700;
 `
 
+// Alternative Radio Button
+const basicRadioFakeAlt = css`
+  ${basicRadioFake}
+  border: 2px solid ${parkGreen};
+`
+
+const basicLabelAlt = css`
+  ${basicLabel}
+  background-color: ${parkGreen};
+`
+
+const labelNotSelectedAlt = css`
+  &:hover {
+    background-color: ${birch};
+  }
+  background-color: ${forestFog};
+`
+
+const labelSelectedAlt = css`
+  :hover {
+    background-color: ${lilyGreen};
+  }
+  background-color: ${seafoam};
+  color: ${parkGreen};
+`
+const radioFakeSelectedAlt = css`
+  border: 2px solid ${parkGreen};
+`
+const radioInnerAlt = css`
+  ${radioInner}
+  background-color: ${parkGreen};
+`
+
+// Disabled Radio Button
+const labelNotSelectedAltDisabled = css`
+  ${labelNotSelectedAlt}
+  opacity: 0.5;
+  :hover {
+    background-color: ${forestFog};
+  }
+  cursor: not-allowed;
+`
+const radioFakeSelectedAltDisabled = css`
+  ${basicRadioFakeAlt}
+  cursor: not-allowed;
+`
+
 export const Radio = ({
   checked,
   description,
@@ -88,16 +145,28 @@ export const Radio = ({
   name,
   value,
   variant,
+  type,
   forwardedRef,
+  disabled,
   ...rest
 }) => {
   const radioId = generateId(id, rest.name, label)
   const radioFakeStyle = [basicRadioFake]
   const labelStyle = [basicLabel, labelNotSelected]
+  const radioFakeStyleAlt = [basicRadioFakeAlt]
+  const labelStyleAlt = [basicLabelAlt, labelNotSelectedAlt]
 
   if (checked) {
-    labelStyle.push(labelSelected)
-    radioFakeStyle.push(radioFakeSelected)
+    if (type === 'alternative') {
+      labelStyleAlt.push(labelSelectedAlt)
+      radioFakeStyleAlt.push(radioFakeSelectedAlt)
+    } else {
+      labelStyle.push(labelSelected)
+      radioFakeStyle.push(radioFakeSelected)
+    }
+  } else if (disabled) {
+    labelStyleAlt.push(labelNotSelectedAltDisabled)
+    radioFakeStyleAlt.push(radioFakeSelectedAltDisabled)
   }
 
   const labelVariant = {
@@ -116,17 +185,18 @@ export const Radio = ({
         name={name}
         type="radio"
         value={value}
+        disabled={disabled}
         {...rest}
       />
       <motion.label
-        css={labelStyle}
+        css={type === 'alternative' ? labelStyleAlt : labelStyle}
         data-testid="checkbox-label"
         htmlFor={radioId.identity()}
-        variants={labelVariant}
-        transition={{ duration: 0.6 }}
+        variants={disabled ? '' : labelVariant}
+        transition={disabled ? '' : { duration: 0.6 }}
       >
-        <div css={radioFakeStyle} data-testid="fake-input">
-          <span css={radioInner} />
+        <div css={type === 'alternative' ? radioFakeStyleAlt : radioFakeStyle} data-testid="fake-input">
+          <span css={type === 'alternative' ? radioInnerAlt : radioInner} />
         </div>
         <span css={labelText}>{label}</span>
       </motion.label>
@@ -150,6 +220,10 @@ RadioWithRef.propTypes = {
    */
   variant: PropTypes.oneOf(['borderless', 'bordered']),
   /**
+   * Control the type of the component
+   */
+  type: PropTypes.oneOf(['default', 'alternative']),
+  /**
    * The value. Must be unique within the group.
    */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]).isRequired,
@@ -158,6 +232,10 @@ RadioWithRef.propTypes = {
    * See examples below for more details.
    */
   checked: PropTypes.bool,
+  /**
+   * Disabled state.
+   */
+  disabled: PropTypes.bool,
   /**
    * Description text below the radio.
    */
@@ -178,6 +256,8 @@ RadioWithRef.propTypes = {
 
 RadioWithRef.defaultProps = {
   variant: 'borderless',
+  type: 'default',
+  disabled: false,
   description: undefined,
   feedback: undefined,
   error: undefined,
