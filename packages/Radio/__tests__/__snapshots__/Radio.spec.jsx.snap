@@ -2,9 +2,11 @@
 
 exports[`Radio renders 1`] = `
 <Radio
+  disabled={false}
   forwardedRef={null}
   label="Testing"
   name="Test"
+  type="default"
   value={true}
   variant="borderless"
 />

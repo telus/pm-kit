@@ -30,3 +30,72 @@ export const Default = () => {
     </div>
   )
 }
+
+export const Alternative = () => {
+  const [clickedAlt, setClickedAlt] = useState('yes')
+
+  const handleSelectOptionAlt = (e) => {
+    setClickedAlt(e.target.value)
+  }
+
+  const radioButtonContainerAlt = css`
+    display: flex;
+    flex-direction: column;
+
+    > * :not(last-child) {
+      margin-bottom: 10px;
+    }
+  `
+
+  return (
+    <div css={radioButtonContainerAlt}>
+      <Radio
+        checked={clickedAlt === 'yes'}
+        label="Yes"
+        name="bool"
+        onChange={handleSelectOptionAlt}
+        value="yes"
+        type="alternative"
+      />
+      <Radio
+        checked={clickedAlt === 'no'}
+        label="No"
+        name="alternative"
+        onChange={handleSelectOptionAlt}
+        value="no"
+        type="alternative"
+      />
+    </div>
+  )
+}
+
+export const Disabled = () => {
+  const [clickedAltDisabled, setClickedAltDisabled] = useState()
+
+  const handleSelectOptionAltDisabled = (e) => {
+    setClickedAltDisabled(e.target.value)
+  }
+
+  const radioButtonContainerAltDisabled = css`
+    display: flex;
+    flex-direction: column;
+
+    > * :not(last-child) {
+      margin-bottom: 10px;
+    }
+  `
+
+  return (
+    <div css={radioButtonContainerAltDisabled}>
+      <Radio
+        checked={clickedAltDisabled === 'disabled'}
+        label="Disabled"
+        name="disabled"
+        onChange={handleSelectOptionAltDisabled}
+        value="disabled"
+        type="alternative"
+        disabled
+      />
+    </div>
+  )
+}
