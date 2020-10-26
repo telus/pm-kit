@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.4](https://github.com/telus/pm-kit/compare/@pm-kit/card@2.1.3...@pm-kit/card@2.1.4) (2020-09-29)
+
+
+### Bug Fixes
+
+* **other:** updated package-lock files ([#107](https://github.com/telus/pm-kit/issues/107)) ([459e9b1](https://github.com/telus/pm-kit/commit/459e9b190de7c011530498ee82961357eec7905b))
+
+
+
+
+
 ## [2.1.3](https://github.com/telus/pm-kit/compare/@pm-kit/card@2.1.2...@pm-kit/card@2.1.3) (2020-05-06)
 
 
