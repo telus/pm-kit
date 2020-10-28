@@ -117,7 +117,7 @@ const eyeButton = css`
   justify-content: space-around;
   margin-right: 5px;
   &:focus {
-    outline: none;
+    outline: 1px solid;
   }
 `
 
@@ -144,6 +144,7 @@ export const Input = ({
   styles,
   type,
   value,
+  alt,
   ...rest
 }) => {
   const [display, setDisplay] = useState(false)
@@ -156,7 +157,9 @@ export const Input = ({
   const inputFieldArr = [inputField]
   const labelContainerArr = [labelContainer]
   const passwordInputWrapperArr = [passwordInputWrapper]
-
+  const imgContent = alt
+  const options = { ...rest }
+  delete options.alt
   if (labelType === 'large') {
     labelContainerArr.push(largeLabelContainer)
   }
@@ -215,13 +218,17 @@ export const Input = ({
       setDisplay(!display)
     }
   }
-
+  console.log('disply' + display)
   return (
     <div css={containerArr}>
       {labelType !== 'hidden' && (
         <div css={labelContainerArr}>
           {label && renderLabel(label, required, disabled)}
-          {feedback === 'error' && error && <span css={feedbackError}>{error}</span>}
+          {feedback === 'error' && error && (
+            <span css={feedbackError} tabIndex={error ? 0 : -1}>
+              {error}
+            </span>
+          )}
         </div>
       )}
       <div css={inputAndFeedbackWrapperArr}>
@@ -240,11 +247,15 @@ export const Input = ({
               ref={forwardedRef}
               type={!disableUnmasking && display ? 'text' : 'password'}
               value={value}
-              {...rest}
+              {...options}
             />
             {!disableUnmasking && (
-              <button css={eyeButtonArr} onClick={showPassword}>
-                <img css={eyeImage} src={display ? hide : show} alt="show password" />
+              <button css={eyeButtonArr} onClick={showPassword} tabIndex="0">
+                <img
+                  css={eyeImage}
+                  src={display ? hide : show}
+                  alt={display ? `hide${imgContent}` : `show${imgContent}`}
+                />
               </button>
             )}
           </div>
@@ -279,6 +290,7 @@ export const Input = ({
 const InputWithRef = forwardRef((props, ref) => <Input {...props} forwardedRef={ref} />)
 
 InputWithRef.propTypes = {
+  alt: PropTypes.string,
   /**
    * Specifies if the Input field should be disabled.
    */
@@ -361,6 +373,7 @@ InputWithRef.defaultProps = {
   required: false,
   styles: {},
   type: 'text',
+  alt: '',
 }
 
 export default InputWithRef

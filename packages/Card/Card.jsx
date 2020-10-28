@@ -148,6 +148,7 @@ const planVariant = {
 
 const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isSelected, styles, selectable }) => {
   const [openCard, setOpenCard] = useState(false)
+  const [open, setOpen] = useState('expand')
 
   const detailsRef = useRef()
   const cardStyles = [card]
@@ -169,6 +170,7 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
 
   const toggleOpenCard = () => {
     setOpenCard(!openCard)
+    setOpen(!open)
     if (openCard) {
       detailsRef.current.blur()
     } else if (detailsRef && detailsRef.current) {
@@ -253,12 +255,12 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
           </>
         )}
         {expandable && (
-          <button name="details" type="button" css={detailsBarStyles} onClick={toggleOpenCard}>
+          <button name="details" type="button" css={detailsBarStyles} onClick={toggleOpenCard} aria-expanded={open}>
             <Paragraph weight={weight.bold} size={paragraphInheritSizeStyle}>
               {openCard && <>{expandable.collapse}</>}
               {!openCard && <>{expandable.details}</>}
             </Paragraph>
-            <img src={arrowImage} alt="arrow" />
+            <img src={arrowImage} />
           </button>
         )}
       </div>
