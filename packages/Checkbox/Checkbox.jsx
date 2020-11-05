@@ -27,7 +27,6 @@ const fakeCheckbox = css`
   width: 15px;
   min-height: 20px;
   min-width: 20px;
-  outline: 0;
   line-height: 0;
   display: flex;
   align-items: center;

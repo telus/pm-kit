@@ -124,15 +124,15 @@ export const Dropdown = ({
       textOverflow: 'ellipsis',
       maxWidth: '-webkit-fill-available',
     }),
-    indicatorSeparator: provided => ({
+    indicatorSeparator: (provided) => ({
       ...provided,
       visibility: 'hidden',
     }),
-    dropdownIndicator: provided => ({ ...provided, color: `${parkGreen}` }),
+    dropdownIndicator: (provided) => ({ ...provided, color: `${parkGreen}` }),
     clearIndicator: () => ({
       display: 'none',
     }),
-    placeholder: provided => ({
+    placeholder: (provided) => ({
       ...provided,
       color: `${parkGreen}`,
     }),
@@ -161,11 +161,11 @@ export const Dropdown = ({
     }
   }
 
-  const Input = props => {
+  const Input = (props) => {
     return <components.Input {...props} maxLength={searchMaxLength} />
   }
 
-  const DropdownIndicator = props => {
+  const DropdownIndicator = (props) => {
     return (
       <components.DropdownIndicator {...props}>
         {loadingState !== 'success' && <FeedbackIcon state={loadingState} />}
@@ -176,10 +176,14 @@ export const Dropdown = ({
   return (
     <div css={dropdownWrapperArr}>
       {labelType !== 'hidden' && (
-        <label css={labelStyleArr} htmlFor={selectId.identity()}>
+        <label css={labelStyleArr} htmlFor={selectId.identity()} tabIndex={0}>
           {label}
           {required && '*'}
-          {feedback === 'error' && <span css={errorFeedback}>({error})</span>}
+          {feedback === 'error' && (
+            <span css={errorFeedback} tabIndex={error ? 0 : -1}>
+              ({error})
+            </span>
+          )}
         </label>
       )}
       <Select
@@ -224,7 +228,7 @@ const SelectContainer = ({ children, ...props }) => {
 
   //Initially all children including Control and MenuPlacer
   const nonMenuChildren = [...children]
-  const menuChildIndex = children.findIndex(child => {
+  const menuChildIndex = children.findIndex((child) => {
     if (child && child.type.name === 'MenuPlacer') {
       return true
     }
@@ -246,7 +250,7 @@ const SelectContainer = ({ children, ...props }) => {
   )
 }
 
-const Placeholder = props => {
+const Placeholder = (props) => {
   return <components.Placeholder css={placeholder} {...props} />
 }
 

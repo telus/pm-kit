@@ -146,7 +146,19 @@ const planVariant = {
   },
 }
 
-const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isSelected, styles, selectable }) => {
+const Card = ({
+  expandable,
+  placeholder,
+  title,
+  subtitle,
+  children,
+  onClick,
+  isSelected,
+  styles,
+  selectable,
+  altCollapse,
+  altExpand,
+}) => {
   const [openCard, setOpenCard] = useState(false)
 
   const detailsRef = useRef()
@@ -258,7 +270,7 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
               {openCard && <>{expandable.collapse}</>}
               {!openCard && <>{expandable.details}</>}
             </Paragraph>
-            <img src={arrowImage} alt="arrow" />
+            <img src={arrowImage} alt={openCard ? altCollapse : altExpand} />
           </button>
         )}
       </div>
@@ -267,6 +279,8 @@ const Card = ({ expandable, placeholder, title, subtitle, children, onClick, isS
 }
 
 Card.propTypes = {
+  altExpand: PropTypes.string,
+  altCollapse: PropTypes.string,
   /**
    * The title of the Card.
    */
@@ -330,6 +344,8 @@ Card.defaultProps = {
   isSelected: undefined,
   selectable: undefined,
   expandable: undefined,
+  altCollapse: ' ',
+  altExpand: ' ',
 }
 
 export default Card
