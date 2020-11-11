@@ -17,10 +17,10 @@ export const LargeLabel = () => <Input placeholder="Placeholder" label="Label" l
 
 export const NoLabel = () => <Input placeholder="Placeholder" label="Label" labelType="hidden" />
 
-export const Error = () => <Input placeholder="Placeholder" label="Label" feedback="error" error="error" />
+export const Error = () => <Input placeholder="Placeholder" label="Label" feedback="error" error="Error" />
 
 export const ErrorWithIcon = () => (
-  <Input placeholder="Placeholder" label="Label" feedback="error" error="error" feedbackicon />
+  <Input placeholder="Placeholder" label="Label" feedback="error" error="Error" feedbackicon />
 )
 
 export const Password = () => {

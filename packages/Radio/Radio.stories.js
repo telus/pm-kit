@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Radio from './Radio'
 import { css } from '@emotion/core'
-
+import { Input } from '../Input/Input'
 // export default {
 //   title: 'Design System|Radio',
 //   component: Radio,
@@ -11,8 +11,14 @@ export const Default = () => {
   const [clicked, setClicked] = useState('en')
 
   const handleSelectOption = (e) => {
+    console.log("event11  ",e)
     setClicked(e.target.value)
+    console.log("e.target.value",e.target.value)
   }
+  const inputValueChange = (e) => {
+    setInputValue(e.target.value)
+  }
+  const [inputValue, setInputValue] = useState('')
 
   const radioButtonContainer = css`
     display: flex;
@@ -25,8 +31,9 @@ export const Default = () => {
 
   return (
     <div css={radioButtonContainer}>
-      <Radio checked={clicked === 'en'} label="English" name="prefLang" onChange={handleSelectOption} value="en" />
-      <Radio checked={clicked === 'fr'} label="French" name="prefLang" onChange={handleSelectOption} value="fr" />
+      <Radio checked={clicked === 'en'} label="English" name="prefLang"   value="en" onChange={handleSelectOption}  />
+      <Radio checked={clicked === 'fr'} label="French" name="prefLang"  value="fr" onChange={handleSelectOption} />
+      <Input placeholder="Placeholder" label="Label" type="password" value={inputValue} onChange={inputValueChange}/>
     </div>
   )
 }
