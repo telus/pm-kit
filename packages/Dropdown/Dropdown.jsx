@@ -19,8 +19,6 @@ const basicLabel = css`
   letter-spacing: 0.05px;
   font-size: ${size.bodySmall};
   font-weight: ${weight.normal};
-<<<<<<< Updated upstream
-
 `
 const selectStyle=css`
 &: focus-within{
