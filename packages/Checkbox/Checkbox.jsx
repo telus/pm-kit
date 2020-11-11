@@ -126,7 +126,7 @@ export const Checkbox = ({
         <div aria-live="assertive" aria-relevant="additions removals" id="errorIdCheckBox">
           {feedback === 'error' && error && (
             <Paragraph size={size.bodySmall} color={red} css={styles && styles.errorStyle}>
-              <img src={failPath} css={feedbackIconImgWrapper} alt="error" />
+              <img src={failPath} css={feedbackIconImgWrapper} alt="" />
               {`(${error})`}
             </Paragraph>
           )}

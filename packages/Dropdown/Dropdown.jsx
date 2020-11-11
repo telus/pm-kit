@@ -32,12 +32,7 @@ const selectStyle=css`
 
 }
 `
-=======
-<<<<<<< Updated upstream
-=======
 
-`
->>>>>>> Stashed changes
 const feedbackIconImg = css`
   width: 14px;
   height: 14px;
@@ -51,11 +46,24 @@ const selectStyle = css`
     box-shadow: 0 0 6px 2px #056f78;
     border-radius: 8px;
   }
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 `
+const selectStyle=css`
+&: focus-within{
+
+  outline: none;
+  background-color: ${white};
+  box-shadow: 0 0 6px 2px #056f78;
+  border-radius:8px;
+
+}`
+
+const feedbackIconImg = css`
+  width: 14px;
+  height: 14px;
+  margin: 2px 4px 0px 24px;
+  align-self: center;
+`
+
 
 const largeLabelStyle = css`
   margin: 0 0 0.5rem 0.2rem;
@@ -234,7 +242,8 @@ export const Dropdown = ({
           {required && '*'}
           {feedback === 'error' && (
             <span css={errorFeedback}>
-              <img src={failPath} css={feedbackIconImgWrapper} alt="Error"/> {error}
+              <img src={failPath} css={feedbackIconImgWrapper} alt="" /> {error}
+
             </span>
           )}
         </label></div>

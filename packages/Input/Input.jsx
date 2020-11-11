@@ -262,7 +262,7 @@ export const Input = ({
           {label && renderLabel(label, required, disabled)}
           {feedback === 'error' && error && (
             <span css={feedbackError}>
-              <img src={failPath} css={feedbackIconImgWrapper} alt="Error" /> {error}
+              <img src={failPath} css={feedbackIconImgWrapper} alt="" /> {error}
             </span>
           )}
         </div>
