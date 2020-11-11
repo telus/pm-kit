@@ -19,6 +19,7 @@ const basicLabel = css`
   letter-spacing: 0.05px;
   font-size: ${size.bodySmall};
   font-weight: ${weight.normal};
+<<<<<<< Updated upstream
 
 `
 const selectStyle=css`
@@ -31,6 +32,12 @@ const selectStyle=css`
 
 }
 `
+=======
+<<<<<<< Updated upstream
+=======
+
+`
+>>>>>>> Stashed changes
 const feedbackIconImg = css`
   width: 14px;
   height: 14px;
@@ -44,6 +51,10 @@ const selectStyle = css`
     box-shadow: 0 0 6px 2px #056f78;
     border-radius: 8px;
   }
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 `
 
 const largeLabelStyle = css`
