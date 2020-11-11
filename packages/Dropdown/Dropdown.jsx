@@ -22,14 +22,11 @@ const basicLabel = css`
 `
 const selectStyle=css`
 &: focus-within{
-
   outline: none;
   background-color: ${white};
   box-shadow: 0 0 6px 2px #056f78;
   border-radius:8px;
-
-}
-`
+}`
 
 const feedbackIconImg = css`
   width: 14px;
@@ -47,12 +44,10 @@ const selectStyle = css`
 `
 const selectStyle=css`
 &: focus-within{
-
   outline: none;
   background-color: ${white};
   box-shadow: 0 0 6px 2px #056f78;
   border-radius:8px;
-
 }`
 
 const feedbackIconImg = css`
@@ -61,14 +56,11 @@ const feedbackIconImg = css`
   margin: 2px 4px 0px 24px;
   align-self: center;
 `
-
-
 const largeLabelStyle = css`
   margin: 0 0 0.5rem 0.2rem;
   font-size: ${size.bodyLarge};
   font-weight: ${weight.bold};
 `
-
 const errorFeedback = css`
   margin-left: 0.5rem;
   font-weight: ${weight.normal};
