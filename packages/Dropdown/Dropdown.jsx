@@ -19,6 +19,14 @@ const basicLabel = css`
   font-size: ${size.bodySmall};
   font-weight: ${weight.normal};
 `
+const selectStyle = css`
+  &: focus-within {
+    outline: none;
+    background-color: ${white};
+    box-shadow: 0 0 6px 2px #056f78;
+    border-radius: 8px;
+  }
+`
 
 const largeLabelStyle = css`
   margin: 0 0 0.5rem 0.2rem;
@@ -32,6 +40,12 @@ const errorFeedback = css`
   color: ${red};
   & span {
     color: ${red};
+  }
+  &: focus-within {
+    background-color: ${white};
+    outline: none;
+    box-shadow: 0 0 8px 1px rgba(194, 53, 43, 0.7);
+    border: solid 2px #c2352b;
   }
 `
 
@@ -146,7 +160,12 @@ export const Dropdown = ({
     matchFrom,
   }
   const labelStyleArr = [basicLabel]
+  const selectStyleArr = [selectStyle]
   const dropdownWrapperArr = [dropdownWrapper]
+
+  if (feedback === 'error') {
+    selectStyleArr.push(errorFeedback)
+  }
 
   if (labelType === 'large') {
     labelStyleArr.push(largeLabelStyle)
@@ -176,32 +195,33 @@ export const Dropdown = ({
   return (
     <div css={dropdownWrapperArr}>
       {labelType !== 'hidden' && (
-        <label css={labelStyleArr} htmlFor={selectId.identity()} tabIndex={0}>
-          {label}
-          {required && '*'}
-          {feedback === 'error' && (
-            <span css={errorFeedback} tabIndex={error ? 0 : -1}>
-              ({error})
-            </span>
-          )}
-        </label>
+        <div aria-live="assertive" aria-relevant="additions removals" id="errorIdDropDown">
+          <label css={labelStyleArr} htmlFor={selectId.identity()}>
+            {label}
+            {required && '*'}
+            {feedback === 'error' && <span css={errorFeedback}>({error})</span>}
+          </label>
+        </div>
       )}
-      <Select
-        value={value}
-        onChange={onChange}
-        options={options}
-        placeholder={placeholder}
-        id={selectId.identity()}
-        type={type}
-        styles={customDropdownStyles}
-        isClearable={true}
-        clearIndicator={false}
-        components={{ Menu, Option, SelectContainer, Placeholder, Input, DropdownIndicator }}
-        filterOption={createFilter(filterConfig)}
-        blurInputOnSelect={false}
-        ref={forwardedRef}
-        {...rest}
-      />
+      <div css={selectStyleArr}>
+        <Select
+          value={value}
+          onChange={onChange}
+          options={options}
+          placeholder={placeholder}
+          id={selectId.identity()}
+          type={type}
+          styles={customDropdownStyles}
+          isClearable={true}
+          clearIndicator={false}
+          components={{ Menu, Option, SelectContainer, Placeholder, Input, DropdownIndicator }}
+          filterOption={createFilter(filterConfig)}
+          blurInputOnSelect={false}
+          ref={forwardedRef}
+          aria-labelledby="errorIdDropDown"
+          {...rest}
+        />
+      </div>
     </div>
   )
 }

@@ -6,6 +6,7 @@ import Paragraph from '@pm-kit/paragraph'
 import { size, weight } from '@pm-kit/typography'
 
 import { motion, AnimatePresence } from 'framer-motion'
+import failPath from '../../shared/svg/error.svg'
 
 import generateId from '../../shared/utils/generateId/generateId.js'
 
@@ -54,8 +55,24 @@ const hiddenInput = css`
   position: fixed;
   opacity: 0;
   pointer-events: none;
+  &:focus ~ label {
+    box-shadow: 0 0 6px 2px #056f78;
+  }
 `
-
+const feedbackIconImg = css`
+  width: 14px;
+  height: 14px;
+  margin: 0px 4px 0px 4px;
+  align-self: center;
+`
+const hiddenInputWithError = css`
+  border-color: ${red};
+  &:focus ~ label {
+    outline: none;
+    box-shadow: 0 0 8px 1px rgba(194, 53, 43, 0.7);
+    border: solid 2px #c2352b;
+  }
+`
 const styledLabel = css`
   display: flex;
 `
@@ -83,12 +100,18 @@ export const Checkbox = ({
   checked,
   styles,
   forwardedRef,
+  keyboardAccessibility,
   ...rest
 }) => {
   const inputId = generateId(id, rest.name, label)
   const checkboxContainer = [fakeCheckbox]
   const labelContainer = [labelText]
+  const feedbackIconImgWrapper = [feedbackIconImg]
+  const hiddenInputArr = [hiddenInput]
 
+  if (feedback === 'error') {
+    hiddenInputArr.push(hiddenInputWithError)
+  }
   if (checked) {
     checkboxContainer.push(checkedFakeCheckbox)
   }
@@ -100,45 +123,51 @@ export const Checkbox = ({
   return (
     <AnimatePresence>
       <div {...rest}>
-        {feedback === 'error' && error && (
-          <Paragraph size={size.bodySmall} color={red} css={styles && styles.errorStyle}>{`(${error})`}</Paragraph>
-        )}
-        <input
-          css={hiddenInput}
-          type="checkbox"
-          value={value}
-          id={inputId.identity()}
-          name={name}
-          onChange={onChange}
-          checked={checked}
-          ref={forwardedRef}
-        />
-        <label css={styledLabel} htmlFor={inputId.identity()}>
-          <div css={container}>
-            <span css={checkboxContainer}>
-              <motion.span
-                css={fakeCheckboxInner}
-                variants={checkVariants}
-                animate={checked ? 'show' : 'hidden'}
-                exit={{ opacity: 0 }}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17">
-                  <path
-                    fill="none"
-                    fillRule="evenodd"
-                    stroke="#034045"
-                    strokeWidth="4"
-                    d="M18.031 1.866L7.154 13.442l-5.37-5.944"
-                  />
-                </svg>
-              </motion.span>
-            </span>
-
-            <Paragraph css={labelContainer} weight={weight.bold} size={size.bodyLarge}>
-              {label}
+        <div aria-live="assertive" aria-relevant="additions removals" id="errorIdCheckBox">
+          {feedback === 'error' && error && (
+            <Paragraph size={size.bodySmall} color={red} css={styles && styles.errorStyle}>
+              <img src={failPath} css={feedbackIconImgWrapper} alt="error" />
+              {`(${error})`}
             </Paragraph>
-          </div>
-        </label>
+          )}
+          <input
+            css={hiddenInputArr}
+            type="checkbox"
+            value={value}
+            id={inputId.identity()}
+            name={name}
+            onChange={onChange}
+            checked={checked}
+            ref={forwardedRef}
+            aria-labelledby="errorIdCheckBox"
+          />
+          <label css={styledLabel} htmlFor={inputId.identity()}>
+            <div css={container}>
+              <span css={checkboxContainer}>
+                <motion.span
+                  css={fakeCheckboxInner}
+                  variants={checkVariants}
+                  animate={checked ? 'show' : 'hidden'}
+                  exit={{ opacity: 0 }}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17">
+                    <path
+                      fill="none"
+                      fillRule="evenodd"
+                      stroke="#034045"
+                      strokeWidth="4"
+                      d="M18.031 1.866L7.154 13.442l-5.37-5.944"
+                    />
+                  </svg>
+                </motion.span>
+              </span>
+
+              <Paragraph css={labelContainer} weight={weight.bold} size={size.bodyLarge}>
+                {label}
+              </Paragraph>
+            </div>
+          </label>
+        </div>
       </div>
     </AnimatePresence>
   )
@@ -183,6 +212,7 @@ CheckboxWithRef.defaultProps = {
   name: '',
   value: true,
   styles: {},
+  keyboardAccessibility: function () {},
 }
 
 export default CheckboxWithRef

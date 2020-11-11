@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 // pm-kit
 import FeedbackIcon from '@pm-kit/feedback-icon'
-import { red, parkGreen, greyBlue } from '@pm-kit/colours'
+import { red, parkGreen, greyBlue, white } from '@pm-kit/colours'
 import { size, weight } from '@pm-kit/typography'
 
 // functional components
@@ -14,6 +14,7 @@ import generateId from '../../shared/utils/generateId/generateId.js'
 // images
 import hide from '../../shared/png/hide/hide.png'
 import show from '../../shared/png/show/show.png'
+import failPath from '../../shared/svg/error.svg'
 
 export const FEED_BACK_OPTIONS = ['success', 'error', 'waiting']
 
@@ -26,7 +27,6 @@ export const TYPE_OPTIONS = ['text', 'number', 'password', 'email', 'search', 't
 const inputWrapper = css`
   width: 100%;
 `
-
 const passwordInputWrapper = css`
   display: flex;
   border: solid 1px ${parkGreen};
@@ -34,8 +34,13 @@ const passwordInputWrapper = css`
   background-color: white;
   width: 100%;
   justify-content: space-around;
+  &:focus-within {
+    outline: none;
+    background-color: ${white};
+    box-shadow: 0 0 6px 2px #056f78;
+    border-radius: 8px;
+  }
 `
-
 const inputField = css`
   width: 100%;
   padding: 0 16px;
@@ -48,6 +53,13 @@ const inputField = css`
     cursor: not-allowed;
     opacity: 0.5;
   }
+  &:focus {
+    outline: none;
+    background-color: ${white};
+    box-shadow: 0 0 6px 2px #056f78;
+    border-radius: 8px;
+  }
+
   &::placeholder {
     color: ${greyBlue};
     font-size: ${size.bodyMedium};
@@ -55,7 +67,15 @@ const inputField = css`
 `
 
 const passwordInput = css`
-  ${inputField};
+  width: 100%;
+  padding: 0 16px;
+  font-size: ${size.bodyLarge};
+  border-radius: 8px;
+  color: ${parkGreen};
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
   padding: 0;
   border: none;
   height: 46px;
@@ -63,12 +83,20 @@ const passwordInput = css`
   &:focus {
     outline: none;
   }
+  &::placeholder {
+    color: ${greyBlue};
+    font-size: ${size.bodyMedium};
+  }
 `
-
 const inputFieldWithError = css`
   border-color: ${red};
+  &:focus {
+    outline: none;
+    background-color: ${white};
+    box-shadow: 0 0 8px 1px rgba(194, 53, 43, 0.7);
+    border: solid 2px #c2352b;
+  }
 `
-
 const inputAndFeedbackWrapper = css`
   position: relative;
 `
@@ -80,7 +108,12 @@ const feedbackIconWrapper = css`
   transform: translateY(-50%);
   display: flex;
 `
-
+const feedbackIconImg = css`
+  width: 14px;
+  height: 14px;
+  margin: 2px 4px 0px 24px;
+  align-self: center;
+`
 const labelContainer = css`
   display: flex;
   flex-wrap: wrap;
@@ -93,14 +126,12 @@ const labelContainer = css`
     margin-right: 0.5rem;
   }
 `
-
 const largeLabelContainer = css`
   ${labelContainer}
   font-size: ${size.bodyLarge};
   font-weight: ${weight.bold};
   margin: 0 0 0.5rem 0.2rem;
 `
-
 const isDisabled = css`
   opacity: 0.5;
 `
@@ -109,7 +140,6 @@ const feedbackError = css`
   font-weight: ${weight.normal};
   font-size: ${size.bodySmall};
 `
-
 const eyeButton = css`
   border: none;
   background: none;
@@ -117,10 +147,15 @@ const eyeButton = css`
   justify-content: space-around;
   margin-right: 5px;
   &:focus {
-    outline: 1px solid;
+    width: 44px;
+    height: 26px;
+    outline: none;
+    margin: 10px 12px 10px 121px;
+    border-radius: 15px;
+    box-shadow: 0 0 6px 2px #056f78;
+    background-color: ${white};
   }
 `
-
 const eyeImage = css`
   width: 32px;
   height: 22px;
@@ -157,6 +192,7 @@ export const Input = ({
   const inputFieldArr = [inputField]
   const labelContainerArr = [labelContainer]
   const passwordInputWrapperArr = [passwordInputWrapper]
+  const feedbackIconImgWrapper = [feedbackIconImg]
   const imgContent = alt
   const options = { ...rest }
   delete options.alt
@@ -222,11 +258,11 @@ export const Input = ({
   return (
     <div css={containerArr}>
       {labelType !== 'hidden' && (
-        <div css={labelContainerArr}>
+        <div css={labelContainerArr} aria-live="assertive" aria-relevant="additions removals" id="errorIdInput">
           {label && renderLabel(label, required, disabled)}
           {feedback === 'error' && error && (
-            <span css={feedbackError} tabIndex={error ? 0 : -1}>
-              {error}
+            <span css={feedbackError}>
+              <img src={failPath} css={feedbackIconImgWrapper} /> {error}
             </span>
           )}
         </div>
@@ -237,6 +273,7 @@ export const Input = ({
             <input
               aria-invalid={feedback}
               aria-label={label}
+              aria-labelledby="errorIdInput"
               css={passwordInput}
               disabled={disabled}
               id={inputId.identity()}
@@ -263,6 +300,7 @@ export const Input = ({
           <input
             aria-invalid={feedback === 'error'}
             aria-label={label}
+            aria-labelledby="errorIdInput"
             css={inputFieldArr}
             disabled={disabled}
             feedback={feedback}

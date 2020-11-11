@@ -7,6 +7,10 @@ exports[`Checkbox renders 1`] = `
   pointer-events: none;
 }
 
+.emotion-0:focus ~ label {
+  box-shadow: 0 0 6px 2px #056f78;
+}
+
 .emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -69,47 +73,54 @@ exports[`Checkbox renders 1`] = `
 }
 
 <div>
-  <input
-    class="emotion-0"
-    id="testing"
-    name="Test"
-    type="checkbox"
-    value="true"
-  />
-  <label
-    class="emotion-5"
-    for="testing"
+  <div
+    aria-live="assertive"
+    aria-relevant="additions removals"
+    id="errorIdCheckBox"
   >
-    <div
-      class="emotion-4"
+    <input
+      aria-labelledby="errorIdCheckBox"
+      class="emotion-0"
+      id="testing"
+      name="Test"
+      type="checkbox"
+      value="true"
+    />
+    <label
+      class="emotion-5"
+      for="testing"
     >
-      <span
-        class="emotion-2"
+      <div
+        class="emotion-4"
       >
         <span
-          class="emotion-1"
+          class="emotion-2"
         >
-          <svg
-            height="17"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            class="emotion-1"
           >
-            <path
-              d="M18.031 1.866L7.154 13.442l-5.37-5.944"
-              fill="none"
-              fill-rule="evenodd"
-              stroke="#034045"
-              stroke-width="4"
-            />
-          </svg>
+            <svg
+              height="17"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.031 1.866L7.154 13.442l-5.37-5.944"
+                fill="none"
+                fill-rule="evenodd"
+                stroke="#034045"
+                stroke-width="4"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
-      <p
-        class="emotion-3"
-      >
-        Testing
-      </p>
-    </div>
-  </label>
+        <p
+          class="emotion-3"
+        >
+          Testing
+        </p>
+      </div>
+    </label>
+  </div>
 </div>
 `;

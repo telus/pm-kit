@@ -46,6 +46,13 @@ exports[`Input renders 1`] = `
   opacity: 0.5;
 }
 
+.emotion-2:focus {
+  outline: none;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 6px 2px #056f78;
+  border-radius: 8px;
+}
+
 .emotion-2::-webkit-input-placeholder {
   color: #819FA2;
   font-size: 1rem;
@@ -70,7 +77,10 @@ exports[`Input renders 1`] = `
   class="emotion-4"
 >
   <div
+    aria-live="assertive"
+    aria-relevant="additions removals"
     class="emotion-1"
+    id="errorIdInput"
   >
     <label
       class="emotion-0"
@@ -85,6 +95,7 @@ exports[`Input renders 1`] = `
     <input
       aria-invalid="false"
       aria-label="Label"
+      aria-labelledby="errorIdInput"
       class="emotion-2"
       id="label"
       inputmode="text"
