@@ -11,9 +11,9 @@ const doesQueryMatch = (query, viewportSize) => {
   })
 }
 
-export default viewportSize => {
+export default (viewportSize) => {
   const matchMedia = jest.fn()
-  matchMedia.mockImplementation(query => {
+  matchMedia.mockImplementation((query) => {
     const matches = doesQueryMatch(query, viewportSize)
 
     return {

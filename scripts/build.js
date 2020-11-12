@@ -16,7 +16,7 @@ const { spawnSync } = require('child_process')
 const getPackageNames = require('./utils/getPackageNames')
 const arrayToGlob = require('./utils/arrayToGlob')
 
-getPackageNames(packageNames => {
+getPackageNames((packageNames) => {
   const scopeGlob = arrayToGlob(packageNames)
 
   spawnSync('npx', ['lerna', 'exec', '--scope', scopeGlob, '--no-private', '--', '$LERNA_ROOT_PATH/scripts/build.sh'], {

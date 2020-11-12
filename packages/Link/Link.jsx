@@ -13,7 +13,7 @@ const linkStyle = css`
     height: 30px;
     margin: 77px 94px 111px 14px;
     padding: 3px 12px 5px;
-    outline:none;
+    outline: none;
     border-radius: 4px;
     background-color: rgba(182, 235, 219, 0.7);
   }
