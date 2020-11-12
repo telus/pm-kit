@@ -31,14 +31,6 @@ export const Default = () => {
     <div css={radioButtonContainer}>
       <Radio checked={clicked === 'en'} label="English" name="prefLang" value="en" onChange={handleSelectOption} />
       <Radio checked={clicked === 'fr'} label="French" name="prefLang" value="fr" onChange={handleSelectOption} />
-      <Input
-        placeholder="Placeholder"
-        label="Label"
-        type="password"
-        value={inputValue}
-        onChange={inputValueChange}
-        alt="password"
-      />
     </div>
   )
 }
