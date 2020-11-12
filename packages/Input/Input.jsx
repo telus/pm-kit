@@ -254,7 +254,6 @@ export const Input = ({
       setDisplay(!display)
     }
   }
-  console.log('disply' + display)
   return (
     <div css={containerArr}>
       {labelType !== 'hidden' && (
@@ -291,7 +290,7 @@ export const Input = ({
                 <img
                   css={eyeImage}
                   src={display ? hide : show}
-                  alt={display ? `hide${imgContent}` : `show${imgContent}`}
+                  alt={display ? `hide ${imgContent}` : `show ${imgContent}`}
                 />
               </button>
             )}

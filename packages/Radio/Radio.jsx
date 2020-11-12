@@ -153,7 +153,6 @@ export const Radio = ({
   forwardedRef,
   onChange,
   disabled,
-  keyboardAccessibility,
   ...rest
 }) => {
   const radioId = generateId(id, rest.name, label)
@@ -261,7 +260,6 @@ RadioWithRef.propTypes = {
    */
   error: PropTypes.string,
   onChange: PropTypes.func,
-  keyboardAccessibility: PropTypes.func,
 }
 
 RadioWithRef.defaultProps = {
@@ -275,7 +273,6 @@ RadioWithRef.defaultProps = {
   label: '',
   id: undefined,
   onChange: undefined,
-  keyboardAccessibility: undefined,
 }
 
 Radio.displayName = 'Radio'

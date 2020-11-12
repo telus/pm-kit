@@ -11,9 +11,7 @@ export const Default = () => {
   const [clicked, setClicked] = useState('en')
 
   const handleSelectOption = (e) => {
-    console.log("event11  ",e)
     setClicked(e.target.value)
-    console.log("e.target.value",e.target.value)
   }
   const inputValueChange = (e) => {
     setInputValue(e.target.value)
@@ -31,9 +29,16 @@ export const Default = () => {
 
   return (
     <div css={radioButtonContainer}>
-      <Radio checked={clicked === 'en'} label="English" name="prefLang"   value="en" onChange={handleSelectOption}  />
-      <Radio checked={clicked === 'fr'} label="French" name="prefLang"  value="fr" onChange={handleSelectOption} />
-      <Input placeholder="Placeholder" label="Label" type="password" value={inputValue} onChange={inputValueChange}/>
+      <Radio checked={clicked === 'en'} label="English" name="prefLang" value="en" onChange={handleSelectOption} />
+      <Radio checked={clicked === 'fr'} label="French" name="prefLang" value="fr" onChange={handleSelectOption} />
+      <Input
+        placeholder="Placeholder"
+        label="Label"
+        type="password"
+        value={inputValue}
+        onChange={inputValueChange}
+        alt="password"
+      />
     </div>
   )
 }

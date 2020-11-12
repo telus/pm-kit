@@ -20,14 +20,6 @@ const basicLabel = css`
   font-size: ${size.bodySmall};
   font-weight: ${weight.normal};
 `
-const selectStyle=css`
-&: focus-within{
-  outline: none;
-  background-color: ${white};
-  box-shadow: 0 0 6px 2px #056f78;
-  border-radius:8px;
-}`
-
 const feedbackIconImg = css`
   width: 14px;
   height: 14px;
@@ -42,20 +34,6 @@ const selectStyle = css`
     border-radius: 8px;
   }
 `
-const selectStyle=css`
-&: focus-within{
-  outline: none;
-  background-color: ${white};
-  box-shadow: 0 0 6px 2px #056f78;
-  border-radius:8px;
-}`
-
-const feedbackIconImg = css`
-  width: 14px;
-  height: 14px;
-  margin: 2px 4px 0px 24px;
-  align-self: center;
-`
 const largeLabelStyle = css`
   margin: 0 0 0.5rem 0.2rem;
   font-size: ${size.bodyLarge};
@@ -68,7 +46,7 @@ const errorFeedback = css`
   & span {
     color: ${red};
   }
-  &: focus-within{
+  &: focus-within {
     background-color: ${white};
     outline: none;
     box-shadow: 0 0 8px 1px rgba(194, 53, 43, 0.7);
@@ -186,13 +164,13 @@ export const Dropdown = ({
     matchFrom,
   }
   const labelStyleArr = [basicLabel]
-  const selectStyleArr=[selectStyle]
+  const selectStyleArr = [selectStyle]
   const dropdownWrapperArr = [dropdownWrapper]
   const feedbackIconImgWrapper = [feedbackIconImg]
 
   if (feedback === 'error') {
     selectStyleArr.push(errorFeedback)
-}
+  }
 
   if (feedback === 'error') {
     selectStyleArr.push(errorFeedback)
@@ -226,36 +204,36 @@ export const Dropdown = ({
   return (
     <div css={dropdownWrapperArr}>
       {labelType !== 'hidden' && (
-       <div aria-live='assertive' aria-relevant="additions removals" id="errorIdDropDown">
-        <label css={labelStyleArr} htmlFor={selectId.identity()} >
-          {label}
-          {required && '*'}
-          {feedback === 'error' && (
-            <span css={errorFeedback}>
-              <img src={failPath} css={feedbackIconImgWrapper} alt="" /> {error}
-
-            </span>
-          )}
-        </label></div>
+        <div aria-live="assertive" aria-relevant="additions removals" id="errorIdDropDown">
+          <label css={labelStyleArr} htmlFor={selectId.identity()}>
+            {label}
+            {required && '*'}
+            {feedback === 'error' && (
+              <span css={errorFeedback}>
+                <img src={failPath} css={feedbackIconImgWrapper} alt="" /> {error}
+              </span>
+            )}
+          </label>
+        </div>
       )}
       <div css={selectStyleArr}>
-      <Select
-        value={value}
-        onChange={onChange}
-        options={options}
-        placeholder={placeholder}
-        id={selectId.identity()}
-        type={type}
-        styles={customDropdownStyles}
-        isClearable={true}
-        clearIndicator={false}
-        components={{ Menu, Option, SelectContainer, Placeholder, Input, DropdownIndicator }}
-        filterOption={createFilter(filterConfig)}
-        blurInputOnSelect={false}
-        ref={forwardedRef}
-        aria-labelledby="errorIdDropDown"
-        {...rest}
-      />
+        <Select
+          value={value}
+          onChange={onChange}
+          options={options}
+          placeholder={placeholder}
+          id={selectId.identity()}
+          type={type}
+          styles={customDropdownStyles}
+          isClearable={true}
+          clearIndicator={false}
+          components={{ Menu, Option, SelectContainer, Placeholder, Input, DropdownIndicator }}
+          filterOption={createFilter(filterConfig)}
+          blurInputOnSelect={false}
+          ref={forwardedRef}
+          aria-labelledby="errorIdDropDown"
+          {...rest}
+        />
       </div>
     </div>
   )

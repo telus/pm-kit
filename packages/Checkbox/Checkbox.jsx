@@ -100,7 +100,6 @@ export const Checkbox = ({
   checked,
   styles,
   forwardedRef,
-  keyboardAccessibility,
   ...rest
 }) => {
   const inputId = generateId(id, rest.name, label)
@@ -212,7 +211,6 @@ CheckboxWithRef.defaultProps = {
   name: '',
   value: true,
   styles: {},
-  keyboardAccessibility: function () {},
 }
 
 export default CheckboxWithRef
