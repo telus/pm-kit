@@ -68,8 +68,6 @@ const basicLabel = css`
   background-position: right bottom;
   background-color: ${parkGreen};
   width: 100%;
-
-}
 `
 
 const labelNotSelected = css`

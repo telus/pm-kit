@@ -76,7 +76,6 @@ const passwordInput = css`
     cursor: not-allowed;
     opacity: 0.5;
   }
-  padding: 0;
   border: none;
   height: 46px;
   margin-left: 16px;
