@@ -1,6 +1,6 @@
 {
   "name": "@pm-kit/card",
-  "version": "2.1.10",
+  "version": "2.1.11",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "license": "MIT",
@@ -20,9 +20,9 @@
     "react-dom": "^16.12.0"
   },
   "dependencies": {
-    "@pm-kit/colours": "^1.1.4",
-    "@pm-kit/paragraph": "^1.0.5",
-    "@pm-kit/typography": "^1.0.3",
+    "@pm-kit/colours": "^1.1.6",
+    "@pm-kit/paragraph": "^1.0.7",
+    "@pm-kit/typography": "^1.0.5",
     "framer-motion": "^1.7.0",
     "prop-types": "^15.7.2"
   }
