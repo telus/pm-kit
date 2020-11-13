@@ -48,7 +48,7 @@ exports[`Input renders 1`] = `
 
 .emotion-2:focus {
   outline: none;
-  background-color: #FFF;
+  background-color: #FFFFFF;
   box-shadow: 0 0 6px 2px #056f78;
   border-radius: 8px;
 }
