@@ -25,6 +25,9 @@ const radio = css`
   &:checked ~ label > div > span {
     display: block;
   }
+  &:focus ~ label {
+    box-shadow: 0 0 6px 2px #056f78;
+  }
 `
 const basicRadioFake = css`
   display: flex;
@@ -75,7 +78,7 @@ const labelNotSelected = css`
 `
 
 const labelSelected = css`
-  :hover {
+  &:hover {
     background-color: ${midnightGreen};
   }
   background-color: ${parkGreen};
@@ -105,7 +108,6 @@ const labelNotSelectedAlt = css`
   }
   background-color: ${forestFog};
 `
-
 const labelSelectedAlt = css`
   :hover {
     background-color: ${lilyGreen};
@@ -147,6 +149,7 @@ export const Radio = ({
   variant,
   type,
   forwardedRef,
+  onChange,
   disabled,
   ...rest
 }) => {
@@ -176,7 +179,7 @@ export const Radio = ({
   }
 
   return (
-    <motion.div whileTap="whileTap">
+    <motion.div>
       <input
         checked={checked}
         css={radio}
@@ -186,8 +189,10 @@ export const Radio = ({
         type="radio"
         value={value}
         disabled={disabled}
+        onChange={onChange}
         {...rest}
       />
+
       <motion.label
         css={type === 'alternative' ? labelStyleAlt : labelStyle}
         data-testid="checkbox-label"
@@ -252,6 +257,7 @@ RadioWithRef.propTypes = {
    * An error message.
    */
   error: PropTypes.string,
+  onChange: PropTypes.func,
 }
 
 RadioWithRef.defaultProps = {
@@ -264,6 +270,7 @@ RadioWithRef.defaultProps = {
   checked: undefined,
   label: '',
   id: undefined,
+  onChange: undefined,
 }
 
 Radio.displayName = 'Radio'

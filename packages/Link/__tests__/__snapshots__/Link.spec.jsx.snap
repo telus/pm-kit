@@ -9,6 +9,16 @@ exports[`Link load document in a new window 1`] = `
   color: #034045;
 }
 
+.emotion-0:focus {
+  width: 122px;
+  height: 30px;
+  margin: 77px 94px 111px 14px;
+  padding: 3px 12px 5px;
+  outline: none;
+  border-radius: 4px;
+  background-color: rgba(182,235,219,0.7);
+}
+
 <a
   class="emotion-0"
   href="http://www.google.com"
@@ -25,6 +35,16 @@ exports[`Link load document to full original window 1`] = `
 
 .emotion-0:hover {
   color: #034045;
+}
+
+.emotion-0:focus {
+  width: 122px;
+  height: 30px;
+  margin: 77px 94px 111px 14px;
+  padding: 3px 12px 5px;
+  outline: none;
+  border-radius: 4px;
+  background-color: rgba(182,235,219,0.7);
 }
 
 <a
@@ -45,6 +65,16 @@ exports[`Link load document to immediate frameset parent in new tab 1`] = `
   color: #034045;
 }
 
+.emotion-0:focus {
+  width: 122px;
+  height: 30px;
+  margin: 77px 94px 111px 14px;
+  padding: 3px 12px 5px;
+  outline: none;
+  border-radius: 4px;
+  background-color: rgba(182,235,219,0.7);
+}
+
 <a
   class="emotion-0"
   href="http://www.google.com"
@@ -61,6 +91,16 @@ exports[`Link renders 1`] = `
 
 .emotion-0:hover {
   color: #034045;
+}
+
+.emotion-0:focus {
+  width: 122px;
+  height: 30px;
+  margin: 77px 94px 111px 14px;
+  padding: 3px 12px 5px;
+  outline: none;
+  border-radius: 4px;
+  background-color: rgba(182,235,219,0.7);
 }
 
 <a

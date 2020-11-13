@@ -265,12 +265,12 @@ const Card = ({
           </>
         )}
         {expandable && (
-          <button name="details" type="button" css={detailsBarStyles} onClick={toggleOpenCard}>
+          <button name="details" type="button" css={detailsBarStyles} onClick={toggleOpenCard} aria-expanded={openCard}>
             <Paragraph weight={weight.bold} size={paragraphInheritSizeStyle}>
               {openCard && <>{expandable.collapse}</>}
               {!openCard && <>{expandable.details}</>}
             </Paragraph>
-            <img src={arrowImage} alt={openCard ? altCollapse : altExpand} />
+            <img src={arrowImage} alt="" />
           </button>
         )}
       </div>

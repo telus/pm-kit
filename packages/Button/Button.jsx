@@ -2,7 +2,6 @@ import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
 import { parkGreen, lightTan, lilyGreen, white, softSandBrown } from '@pm-kit/colours'
-
 const base = css`
   display: block;
   height: 48px;
@@ -21,7 +20,6 @@ const base = css`
     cursor: not-allowed;
   }
 `
-
 const primary = css`
   color: ${white};
   background-color: ${parkGreen};
@@ -29,17 +27,24 @@ const primary = css`
     background-color: ${lilyGreen};
     color: ${parkGreen};
   }
+  &:focus {
+    box-shadow: 0 0 6px 2px #056f78;
+    outline: none;
+  }
   &:active {
     background-color: ${lilyGreen};
   }
 `
-
 const secondary = css`
   color: ${parkGreen};
   background-color: ${lightTan};
   &:hover {
     background-color: ${lilyGreen};
     color: ${parkGreen};
+  }
+  &:focus {
+    box-shadow: 0 0 6px 2px #056f78;
+    outline: none;
   }
   &:active {
     background-color: ${lightTan};
@@ -53,6 +58,10 @@ const inverted = css`
   &:hover {
     background-color: ${lightTan};
   }
+  &:focus {
+    box-shadow: 0 0 6px 2px #056f78;
+    outline: none;
+  }
   &:active {
     background-color: ${lightTan};
   }
@@ -64,19 +73,20 @@ const alternative = css`
     background-color: ${softSandBrown};
     color: ${parkGreen};
   }
+  &:focus {
+    box-shadow: 0 0 6px 2px #056f78;
+    outline: none;
+  }
   &:active {
     background-color: ${softSandBrown};
   }
 `
-
 const disabledStyle = css`
   opacity: 0.5;
 `
-
 const fullWidth = css`
   width: 100%;
 `
-
 export const Button = ({ children, type, variant, wide, disabled, forwardedRef, ...rest }) => {
   let variantStyles
   switch (variant) {
@@ -93,7 +103,6 @@ export const Button = ({ children, type, variant, wide, disabled, forwardedRef, 
       variantStyles = primary
       break
   }
-
   const styles = [base, variantStyles]
   if (wide) {
     styles.push(fullWidth)
@@ -101,16 +110,13 @@ export const Button = ({ children, type, variant, wide, disabled, forwardedRef, 
   if (disabled) {
     styles.push(disabledStyle)
   }
-
   return (
     <button ref={forwardedRef} css={styles} type={type} disabled={disabled} {...rest}>
       {children}
     </button>
   )
 }
-
 const ButtonWithRef = forwardRef((props, ref) => <Button {...props} forwardedRef={ref} />)
-
 ButtonWithRef.propTypes = {
   /**
    * The HTML button type.
@@ -127,11 +133,9 @@ ButtonWithRef.propTypes = {
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
 }
-
 ButtonWithRef.defaultProps = {
   type: 'button',
   variant: 'primary',
   wide: false,
 }
-
 export default ButtonWithRef

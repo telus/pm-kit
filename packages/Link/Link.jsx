@@ -8,6 +8,15 @@ const linkStyle = css`
   &:hover {
     color: ${parkGreen};
   }
+  &:focus {
+    width: 122px;
+    height: 30px;
+    margin: 77px 94px 111px 14px;
+    padding: 3px 12px 5px;
+    outline: none;
+    border-radius: 4px;
+    background-color: rgba(182, 235, 219, 0.7);
+  }
 `
 
 const Link = ({ children, forwardedRef, href, target, ...rest }) => {

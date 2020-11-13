@@ -5,9 +5,7 @@ const { execSync } = require('child_process')
 const { setIntervalAsync, clearIntervalAsync } = require('set-interval-async/dynamic')
 
 ;(async () => {
-  const commitSha = execSync('git rev-parse HEAD')
-    .toString()
-    .trim()
+  const commitSha = execSync('git rev-parse HEAD').toString().trim()
   const apiId = process.env.NETLIFY_API_ID
   const accessToken = process.env.NETLIFY_ACCESS_TOKEN
   let deployId = ''
@@ -19,7 +17,7 @@ const { setIntervalAsync, clearIntervalAsync } = require('set-interval-async/dyn
       },
     })
     const deploys = await deploysRes.json()
-    const deployment = deploys.find(d => d.commit_ref === commitSha)
+    const deployment = deploys.find((d) => d.commit_ref === commitSha)
     if (!deployment) {
       throw new Error(`Deployment with commit SHA ${commitSha} not found.`)
     }

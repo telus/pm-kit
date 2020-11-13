@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Radio from './Radio'
 import { css } from '@emotion/core'
-
 // export default {
 //   title: 'Design System|Radio',
 //   component: Radio,
@@ -25,8 +24,8 @@ export const Default = () => {
 
   return (
     <div css={radioButtonContainer}>
-      <Radio checked={clicked === 'en'} label="English" name="prefLang" onChange={handleSelectOption} value="en" />
-      <Radio checked={clicked === 'fr'} label="French" name="prefLang" onChange={handleSelectOption} value="fr" />
+      <Radio checked={clicked === 'en'} label="English" name="prefLang" value="en" onChange={handleSelectOption} />
+      <Radio checked={clicked === 'fr'} label="French" name="prefLang" value="fr" onChange={handleSelectOption} />
     </div>
   )
 }
