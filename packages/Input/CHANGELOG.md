@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.9](https://github.com/telus/pm-kit/compare/@pm-kit/input@2.2.8...@pm-kit/input@2.2.9) (2020-11-17)
+
+
+### Bug Fixes
+
+* **input:** icon focus in input issue ([#117](https://github.com/telus/pm-kit/issues/117)) ([257b24e](https://github.com/telus/pm-kit/commit/257b24e645bc9da82873c4d2643b202c294b8564))
+
+
+
+
+
 ## [2.2.8](https://github.com/telus/pm-kit/compare/@pm-kit/input@2.2.6...@pm-kit/input@2.2.8) (2020-11-13)
 
 **Note:** Version bump only for package @pm-kit/input
