@@ -149,7 +149,7 @@ const eyeButton = css`
     width: 44px;
     height: 26px;
     outline: none;
-    margin: 10px 12px 10px 121px;
+    margin: 10px 12px 10px;
     border-radius: 15px;
     box-shadow: 0 0 6px 2px #056f78;
     background-color: ${white};
