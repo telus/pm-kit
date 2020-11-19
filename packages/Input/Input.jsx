@@ -275,58 +275,60 @@ export const Input = ({
           )}
         </div>
       )}
-      {type === 'password' ? (
-        <div css={passwordInputWrapperArr}>
+      <div css={inputAndFeedbackWrapperArr}>
+        {type === 'password' ? (
+          <div css={passwordInputWrapperArr}>
+            <input
+              aria-invalid={feedback}
+              aria-label={label}
+              aria-labelledby="errorIdInput"
+              css={passwordInput}
+              disabled={disabled}
+              id={inputId.identity()}
+              inputMode={renderInputMode(type, inputMode)}
+              name={name}
+              onChange={onChange}
+              onKeyDown={handleKeyDown}
+              ref={forwardedRef}
+              type={!disableUnmasking && display ? 'text' : 'password'}
+              value={value}
+              {...options}
+            />
+            {!disableUnmasking && (
+              <button css={eyeButtonArr} onClick={showPassword} tabIndex="0">
+                <img
+                  css={eyeImage}
+                  src={display ? hide : show}
+                  alt={display ? `hide ${imgContent}` : `show ${imgContent}`}
+                />
+              </button>
+            )}
+          </div>
+        ) : (
           <input
-            aria-invalid={feedback}
+            aria-invalid={feedback === 'error'}
             aria-label={label}
             aria-labelledby="errorIdInput"
-            css={passwordInput}
+            css={inputFieldArr}
             disabled={disabled}
+            feedback={feedback}
             id={inputId.identity()}
             inputMode={renderInputMode(type, inputMode)}
             name={name}
             onChange={onChange}
             onKeyDown={handleKeyDown}
             ref={forwardedRef}
-            type={!disableUnmasking && display ? 'text' : 'password'}
+            type={type}
             value={value}
-            {...options}
+            {...rest}
           />
-          {!disableUnmasking && (
-            <button css={eyeButtonArr} onClick={showPassword} tabIndex="0">
-              <img
-                css={eyeImage}
-                src={display ? hide : show}
-                alt={display ? `hide ${imgContent}` : `show ${imgContent}`}
-              />
-            </button>
-          )}
-        </div>
-      ) : (
-        <input
-          aria-invalid={feedback === 'error'}
-          aria-label={label}
-          aria-labelledby="errorIdInput"
-          css={inputFieldArr}
-          disabled={disabled}
-          feedback={feedback}
-          id={inputId.identity()}
-          inputMode={renderInputMode(type, inputMode)}
-          name={name}
-          onChange={onChange}
-          onKeyDown={handleKeyDown}
-          ref={forwardedRef}
-          type={type}
-          value={value}
-          {...rest}
-        />
-      )}
-      {feedbackicon && feedback && (
-        <div css={feedbackIconWrapperArr}>
-          <FeedbackIcon state={!feedback ? 'disabled' : feedback} size="24px" />
-        </div>
-      )}
+        )}
+        {feedbackicon && feedback && (
+          <div css={feedbackIconWrapperArr}>
+            <FeedbackIcon state={!feedback ? 'disabled' : feedback} size="24px" />
+          </div>
+        )}
+      </div>
     </div>
   )
 }
