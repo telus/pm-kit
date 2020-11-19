@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Input renders 1`] = `
-.emotion-4 {
+.emotion-3 {
   width: 100%;
 }
 
@@ -25,10 +25,6 @@ exports[`Input renders 1`] = `
 
 .emotion-1 label {
   margin-right: 0.5rem;
-}
-
-.emotion-3 {
-  position: relative;
 }
 
 .emotion-2 {
@@ -73,8 +69,13 @@ exports[`Input renders 1`] = `
   font-size: 1rem;
 }
 
+.emotion-2::-ms-clear {
+  width: 0;
+  height: 0;
+}
+
 <div
-  class="emotion-4"
+  class="emotion-3"
 >
   <div
     aria-live="assertive"
@@ -89,18 +90,14 @@ exports[`Input renders 1`] = `
       Label
     </label>
   </div>
-  <div
-    class="emotion-3"
-  >
-    <input
-      aria-invalid="false"
-      aria-label="Label"
-      aria-labelledby="errorIdInput"
-      class="emotion-2"
-      id="label"
-      inputmode="text"
-      type="text"
-    />
-  </div>
+  <input
+    aria-invalid="false"
+    aria-label="Label"
+    aria-labelledby="errorIdInput"
+    class="emotion-2"
+    id="label"
+    inputmode="text"
+    type="text"
+  />
 </div>
 `;
