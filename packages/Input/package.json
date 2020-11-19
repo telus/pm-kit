@@ -1,6 +1,6 @@
 {
   "name": "@pm-kit/input",
-  "version": "2.2.3",
+  "version": "2.2.9",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "license": "MIT",
@@ -20,9 +20,9 @@
     "react-dom": "^16.12.0"
   },
   "dependencies": {
-    "@pm-kit/colours": "^1.1.1",
-    "@pm-kit/feedback-icon": "^2.0.2",
-    "@pm-kit/typography": "^1.0.0",
+    "@pm-kit/colours": "^1.1.6",
+    "@pm-kit/feedback-icon": "^2.0.7",
+    "@pm-kit/typography": "^1.0.5",
     "prop-types": "^15.7.2"
   }
 }

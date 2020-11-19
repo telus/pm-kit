@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.11](https://github.com/telus/pm-kit/compare/@pm-kit/card@2.1.9...@pm-kit/card@2.1.11) (2020-11-13)
+
+**Note:** Version bump only for package @pm-kit/card
+
+
+
+
+
+## [2.1.9](https://github.com/telus/pm-kit/compare/@pm-kit/card@2.1.7...@pm-kit/card@2.1.9) (2020-11-13)
+
+**Note:** Version bump only for package @pm-kit/card
+
+
+
+
+
+## [2.1.7](https://github.com/telus/pm-kit/compare/@pm-kit/card@2.1.5...@pm-kit/card@2.1.7) (2020-11-13)
+
+**Note:** Version bump only for package @pm-kit/card
+
+
+
+
+
 ## [2.1.5](https://github.com/telus/pm-kit/compare/@pm-kit/card@2.1.4...@pm-kit/card@2.1.5) (2020-11-05)
 
 **Note:** Version bump only for package @pm-kit/card
