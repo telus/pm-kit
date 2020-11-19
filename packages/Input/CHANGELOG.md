@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.11](https://github.com/telus/pm-kit/compare/@pm-kit/input@2.2.10...@pm-kit/input@2.2.11) (2020-11-19)
+
+
+### Bug Fixes
+
+* **input:** remove IE clear icon ([#119](https://github.com/telus/pm-kit/issues/119)) ([2b6efea](https://github.com/telus/pm-kit/commit/2b6efea9c018ec8c57461df5def2a74e6c53ac3e)), closes [#120](https://github.com/telus/pm-kit/issues/120)
+
+
+
+
+
 ## [2.2.10](https://github.com/telus/pm-kit/compare/@pm-kit/input@2.2.9...@pm-kit/input@2.2.10) (2020-11-19)
 
 **Note:** Version bump only for package @pm-kit/input
