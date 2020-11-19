@@ -69,6 +69,11 @@ exports[`Input renders 1`] = `
   font-size: 1rem;
 }
 
+.emotion-2::-ms-clear {
+  width: 0;
+  height: 0;
+}
+
 <div
   class="emotion-3"
 >

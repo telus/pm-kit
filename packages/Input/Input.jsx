@@ -64,6 +64,11 @@ const inputField = css`
     color: ${greyBlue};
     font-size: ${size.bodyMedium};
   }
+
+  &::-ms-clear {
+    width: 0;
+    height: 0;
+  }
 `
 
 const passwordInput = css`
@@ -85,6 +90,11 @@ const passwordInput = css`
   &::placeholder {
     color: ${greyBlue};
     font-size: ${size.bodyMedium};
+  }
+
+  &::-ms-clear {
+    width: 0;
+    height: 0;
   }
 `
 const inputFieldWithError = css`
