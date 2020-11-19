@@ -25,6 +25,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/mgauthier-nascent"><img src="https://avatars3.githubusercontent.com/u/16088964?v=4?s=80" width="80px;" alt=""/><br /><sub><b>Mike Gauthier</b></sub></a><br /><a href="https://github.com/telus/pm-kit/commits?author=mgauthier-nascent" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/GurjeevKaur"><img src="https://avatars3.githubusercontent.com/u/72618524?v=4?s=80" width="80px;" alt=""/><br /><sub><b>GurjeevKaur</b></sub></a><br /><a href="https://github.com/telus/pm-kit/commits?author=GurjeevKaur" title="Code">💻</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/ikramtm"><img src="https://avatars0.githubusercontent.com/u/28542259?v=4?s=80" width="80px;" alt=""/><br /><sub><b>Ikram Mustapha</b></sub></a><br /><a href="https://github.com/telus/pm-kit/commits?author=ikramtm" title="Code">💻</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->
