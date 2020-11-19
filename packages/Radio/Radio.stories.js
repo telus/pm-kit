@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Radio from './Radio'
 import { css } from '@emotion/core'
-import { Input } from '../Input/Input'
 // export default {
 //   title: 'Design System|Radio',
 //   component: Radio,
@@ -13,10 +12,6 @@ export const Default = () => {
   const handleSelectOption = (e) => {
     setClicked(e.target.value)
   }
-  const inputValueChange = (e) => {
-    setInputValue(e.target.value)
-  }
-  const [inputValue, setInputValue] = useState('')
 
   const radioButtonContainer = css`
     display: flex;

@@ -8,7 +8,7 @@ import autoprefixer from 'autoprefixer'
 
 import cleaner from './rollup-plugin-cleaner'
 
-export default opts => {
+export default (opts) => {
   const options = Object.assign(
     {
       css: false,
@@ -17,7 +17,7 @@ export default opts => {
   )
 
   const pmKitExternals = options.dependencies
-    ? Object.keys(options.dependencies).filter(dependency => dependency.startsWith('@pm-kit'))
+    ? Object.keys(options.dependencies).filter((dependency) => dependency.startsWith('@pm-kit'))
     : []
 
   return {

@@ -24,12 +24,12 @@ const read = readline.createInterface({
   output: process.stdout,
 })
 
-getPackageNames(packageNames => {
+getPackageNames((packageNames) => {
   console.warn(`You are about to publish the following packages: ${packageNames}`)
 
   read.question(
     'Are these the exact packages you wish to publish? (You will be prompted after this for versioning confirmation) (y/n) ',
-    answer => {
+    (answer) => {
       if (answer === 'Y' || answer === 'y') {
         spawnSync('npx', ['lerna', 'publish', '--conventional-commits', '--no-commit-hooks'].concat(lernaOptions), {
           stdio: 'inherit',

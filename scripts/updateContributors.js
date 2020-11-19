@@ -13,12 +13,12 @@ const people = spawnSync('all-contributors', ['check'], {
 const peopleList = people.output[1].slice(people.output[1].indexOf('\n', 25)).split(',')
 
 peopleList
-  .map(name => name.trim())
+  .map((name) => name.trim())
   // filter out empty names
-  .filter(name => name.length > 0)
+  .filter((name) => name.length > 0)
   // filter out bots
-  .filter(name => !filteredNames.includes(name))
-  .forEach(name => {
+  .filter((name) => !filteredNames.includes(name))
+  .forEach((name) => {
     spawnSync('all-contributors', ['add', name, 'code'])
     console.log(`Added ${name} as a contributor.`)
   })
