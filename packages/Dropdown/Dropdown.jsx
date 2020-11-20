@@ -12,7 +12,6 @@ import failPath from '../../shared/svg/error.svg'
 const dropdownWrapper = css`
   width: 100%;
 `
-
 const basicLabel = css`
   display: block;
   margin: 0 0 0.2rem 1rem;
@@ -233,6 +232,7 @@ export const Dropdown = ({
           blurInputOnSelect={false}
           ref={forwardedRef}
           aria-labelledby={labelledby}
+          aria-label={labelledby}
           {...rest}
         />
       </div>
