@@ -19,7 +19,7 @@
     "url": "https://github.com/telus/pm-kit/issues"
   },
   "peerDependencies": {
-    "@emotion/core": "^10.0.22",
+    "@emotion/core": "^11.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
