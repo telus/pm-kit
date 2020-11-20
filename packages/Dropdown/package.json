@@ -23,7 +23,7 @@
     "@pm-kit/colours": "^1.1.6",
     "@pm-kit/feedback-icon": "^2.0.7",
     "@pm-kit/typography": "^1.0.5",
-    "framer-motion": "^1.8.3",
+    "framer-motion": "^2.0.0",
     "prop-types": "^15.7.2",
     "react-select": "^3.0.8"
   }
