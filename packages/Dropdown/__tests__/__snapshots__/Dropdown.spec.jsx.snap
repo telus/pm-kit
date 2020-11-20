@@ -7,6 +7,7 @@ exports[`Dropdown renders default dropdown 1`] = `
   ignoreCase={true}
   label="testing"
   labelType="small"
+  labelledby=""
   loadingState="success"
   matchFrom="start"
   onChange={[Function]}

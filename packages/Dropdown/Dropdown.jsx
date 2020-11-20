@@ -82,6 +82,7 @@ export const Dropdown = ({
   id,
   label,
   labelType,
+  labelledby,
   onChange,
   options,
   required,
@@ -231,7 +232,7 @@ export const Dropdown = ({
           filterOption={createFilter(filterConfig)}
           blurInputOnSelect={false}
           ref={forwardedRef}
-          aria-labelledby="errorIdDropDown"
+          aria-labelledby={labelledby}
           {...rest}
         />
       </div>
@@ -362,6 +363,7 @@ DropdownWithRef.propTypes = {
    * Replaces chevron with a feedback icon based on loading state of options.
    */
   loadingState: PropTypes.oneOf(['waiting', 'success', 'error']),
+  labelledby: PropTypes.string,
 }
 
 DropdownWithRef.defaultProps = {
@@ -380,6 +382,7 @@ DropdownWithRef.defaultProps = {
   searchMaxLength: 100,
   styles: {},
   loadingState: 'success',
+  labelledby: '',
 }
 
 export default DropdownWithRef

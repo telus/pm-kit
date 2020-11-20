@@ -281,7 +281,6 @@ export const Input = ({
             <input
               aria-invalid={feedback}
               aria-label={label}
-              aria-labelledby="errorIdInput"
               css={passwordInput}
               disabled={disabled}
               id={inputId.identity()}
@@ -308,7 +307,6 @@ export const Input = ({
           <input
             aria-invalid={feedback === 'error'}
             aria-label={label}
-            aria-labelledby="errorIdInput"
             css={inputFieldArr}
             disabled={disabled}
             feedback={feedback}
