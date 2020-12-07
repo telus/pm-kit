@@ -74,7 +74,7 @@
     "@emotion/styled": "^10.0.23",
     "@mdx-js/loader": "^1.5.1",
     "@rollup/plugin-image": "^2.0.4",
-    "@rollup/plugin-url": "^5.0.0",
+    "@rollup/plugin-url": "^6.0.0",
     "@storybook/addon-a11y": "^5.3.19",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-docs": "^5.3.19",
