@@ -294,7 +294,7 @@ export const Input = ({
               {...options}
             />
             {!disableUnmasking && (
-              <button css={eyeButtonArr} onClick={showPassword} tabIndex="0">
+              <button css={eyeButtonArr} onClick={showPassword} type="button" tabIndex="0">
                 <img
                   css={eyeImage}
                   src={display ? hide : show}
@@ -413,7 +413,7 @@ InputWithRef.defaultProps = {
   inputMode: 'text',
   labelType: 'small',
   name: undefined,
-  onChange: () => {},
+  onChange: () => { },
   required: false,
   styles: {},
   type: 'text',
